@@ -24,8 +24,3 @@ html, body {
     background: #f1f1f152; 
   }
   
-#root {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 2rem;
-}
