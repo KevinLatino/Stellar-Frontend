@@ -63,7 +63,6 @@ function App() {
                   key={index}
                   onClick={(index > 0) && (index < menu.length - 1) ? () => handleMenuClick(index) : null}
                   className={`flex bg-dark-purple list-none items-center gap-x-8 cursor-pointer font-semibold p-3
-                  ${index === 0 || index === menu.length - 1 ? 'cursor-auto' : 'cursor-pointer'}
                  ${selectedMenu === index ? 'bg-light-white text-dark-purple rounded-l-full' : 'text-icon-color'}
                  ${selectedMenu === index + 1 ? 'rounded-br-[2rem]' : ''} 
                 ${selectedMenu === index - 1 ? 'rounded-tr-[2rem]' : ''}  
