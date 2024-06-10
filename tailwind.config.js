@@ -8,7 +8,8 @@ export default {
     extend: {
       colors: {
         "dark-purple": "#40189D",
-        "light-white": "#F2F2F2"
+        "light-white": "#F2F2F2",
+        "icon-color": "#BFBFBF"
       }
     },
   },

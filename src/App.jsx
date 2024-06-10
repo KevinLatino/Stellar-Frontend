@@ -1,63 +1,86 @@
 import React, { useState } from 'react';
-import { Home, BriefcaseBusiness, CalendarHeart, Trophy, Telescope, UserRound } from 'lucide-react';
+import {
+  Home,
+  BriefcaseBusiness,
+  CalendarHeart,
+  Trophy,
+  Telescope,
+  UserRound,
+  FileHeart 
+} from 'lucide-react';
 
 import './index.css';
 
 function App() {
-  const [selectedMenu, setSelectedMenu] = useState("Inicio");
 
   const menu = [
+    {},
     {
       title: "Inicio",
-      icon: <Home size={20} />
+      icon: <Home size={22} />
     },
     {
       title: "Tareas",
-      icon: <BriefcaseBusiness size={20} />
+      icon: <FileHeart size={22} />
     },
     {
       title: "Calendario",
-      icon: <CalendarHeart size={20} />
+      icon: <CalendarHeart size={22} />
     },
     {
       title: "Ranking",
-      icon: <Trophy size={20} />
+      icon: <Trophy size={22} />
     },
     {
       title: "Descubre",
-      icon: <Telescope size={20}/>
+      icon: <Telescope size={22} />
     },
     {
       title: "Perfil",
-      icon: <UserRound size={20}/>
-    }
+      icon: <UserRound size={22} />
+    },
+    {}
   ];
 
-  const handleMenuClick = (title) => {
-    setSelectedMenu(title);
+
+  const [selectedMenu, setSelectedMenu] = useState(1);
+
+  const handleMenuClick = (index) => {
+    setSelectedMenu(index);
   };
 
   return (
     <>
       <div className="flex">
-        <div className='bg-dark-purple pl-5 pt-5 h-screen w-1/6'>
-          <h1 className='text-white text-2xl font-semibold pb-14'>🌠 Stelar</h1>
-          {menu.map((menu, index) => (
-            <div
-              key={index}
-              onClick={() => handleMenuClick(menu.title)}
-              className={`flex list-none text-l items-center gap-x-8 cursor-pointer font-semibold p-3 mt-5 rounded-l-full ${selectedMenu === menu.title ? 'bg-light-white text-dark-purple my-2' : 'text-gray-300'
-                }`}
-            >
-              <span className={selectedMenu === menu.title ? 'text-dark-purple' : 'text-light-white'}>
-                {menu.icon}
-              </span>
-              <span>{menu.title}</span>
-            </div>
-          ))}
+        <div className='bg-light-white'>
+          <div className='bg-dark-purple pl-8 pt-6 h-screen w-[15rem]'>
+            <h1 className='text-white text-2xl font-semibold pb-14'>🌠 Stelar</h1>
+            {menu.map((menuItem, index) => (
+
+              <div className={`${selectedMenu == index ? 'bg-dark-purple' : 'bg-light-white'}`}>
+                <div
+                  key={index}
+                  onClick={(index > 0) && (index < menu.length - 1) ? () => handleMenuClick(index) : null}
+                  className={`flex bg-dark-purple list-none items-center gap-x-8 cursor-pointer font-semibold p-3
+                 ${selectedMenu === index ? 'bg-light-white text-dark-purple rounded-l-full' : 'text-icon-color'}
+                 ${selectedMenu === index + 1 ? 'rounded-br-[2rem]' : ''} 
+                ${selectedMenu === index - 1 ? 'rounded-tr-[2rem]' : ''}  
+                 `}
+                >
+                  <span className={selectedMenu === index ? 'text-dark-purple' : 'text-icon-color'}>
+                    {menuItem.icon}
+                  </span>
+                  <span>{menuItem.title}</span>
+                </div>
+
+              </div>
+            ))}
+          </div>
         </div>
+
+
         <div className='bg-dark-purple w-full'>
-          <div className='p-7 rounded-tl-[3rem] rounded-bl-[3rem] bg-light-white w-full h-screen'><h1 className='text-2xl font-semibold'>HomePage</h1></div>
+          <div className='p-7 rounded-tl-[2.7rem] rounded-bl-[2.7rem] bg-light-white w-full h-screen'><h1 className='text-2xl font-semibold'>HomePage</h1></div>
         </div>
       </div>
     </>
