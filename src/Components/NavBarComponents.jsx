@@ -7,7 +7,7 @@ import {
     UserRound,
     FolderHeart
 } from 'lucide-react';
-
+import { Calendar } from 'rsuite';
 
 const NavBar = () => {
 
@@ -50,22 +50,22 @@ const NavBar = () => {
     return (
         <>
             <div className="flex">
-                <div className='bg-light-white'>
-                    <div className='bg-dark-purple pl-8 pt-6 h-screen w-[15rem]'>
+                <div className='bg-light-black'>
+                    <div className='bg-dark-black pl-8 pt-6 h-screen w-[15rem]'>
                         <h1 className='text-white text-2xl font-semibold pb-14'>🌠 Stellar</h1>
                         {menu.map((menuItem, index) => (
 
-                            <div className={`${selectedMenu == index ? 'bg-dark-purple' : 'bg-light-white'}`}>
+                            <div className={`${selectedMenu == index ? 'bg-dark-black' : 'bg-light-black'}`}>
                                 <div
                                     key={index}
                                     onClick={(index > 0) && (index < menu.length - 1) ? () => handleMenuClick(index) : null}
-                                    className={`flex bg-dark-purple list-none items-center gap-x-8 cursor-pointer font-semibold p-3 	
+                                    className={`flex bg-dark-black list-none items-center gap-x-8 cursor-pointer font-semibold p-3	
                                       ${index === 0 || index === menu.length - 1 ? 'cursor-auto' : 'cursor-pointer'}
-                                      ${selectedMenu === index ? 'bg-light-white text-dark-purple rounded-l-full' : 'text-icon-color'}
+                                      ${selectedMenu === index ? 'bg-light-black text-icon-color rounded-l-full' : 'text-icon-color'}
                                       ${selectedMenu === index + 1 ? 'rounded-br-[2rem]' : ''} 
                                       ${selectedMenu === index - 1 ? 'rounded-tr-[2rem]' : ''}  
                                   `}>
-                                    <span className={selectedMenu === index ? 'text-dark-purple' : 'text-icon-color'}>
+                                    <span className={selectedMenu === index ? 'text-icon-color' : 'text-icon-color'}>
                                         {menuItem.icon}
                                     </span>
                                     <span>{menuItem.title}</span>
@@ -76,9 +76,9 @@ const NavBar = () => {
                     </div>
                 </div>
 
-                <div className='bg-dark-purple w-full'>
-                    <div className='p-7 rounded-tl-[2.7rem] rounded-bl-[2.7rem] bg-light-white w-full h-screen'>
-                        <h1 className='text-2xl font-semibold'>Bienvenido</h1>
+                <div className='bg-dark-black w-full'>
+                    <div className='p-7 rounded-tl-[2.7rem] rounded-bl-[2.7rem] bg-light-black w-full h-screen'>
+                        <h1 className='text-2xl font-semibold text-white'>Bienvenido</h1>
                     </div>
                 </div>
             </div>

@@ -7,9 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        "dark-purple": "#40189D",
-        "light-white": "#F2F2F2",
-        "icon-color": "#BFBFBF"
+        "dark-black": "#171821",
+        "light-black": "#21222D",
+        "icon-color": "#BFBFBF",
+        "light-gree": "#A9DFD8"
       }
     },
   },
