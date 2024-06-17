@@ -7,7 +7,7 @@ import {
     UserRound,
     FolderHeart
 } from 'lucide-react';
-import { Calendar } from 'rsuite';
+
 
 const NavBar = () => {
 
@@ -51,7 +51,7 @@ const NavBar = () => {
         <>
             <div className="flex">
                 <div className='bg-light-black'>
-                    <div className='bg-dark-black pl-8 pt-6 h-screen w-[15rem]'>
+                    <div className='bg-dark-black pl-8 pt-8 h-screen w-[15rem]'>
                         <h1 className='text-white text-2xl font-semibold pb-14'>🌠 Stellar</h1>
                         {menu.map((menuItem, index) => (
 
@@ -59,7 +59,7 @@ const NavBar = () => {
                                 <div
                                     key={index}
                                     onClick={(index > 0) && (index < menu.length - 1) ? () => handleMenuClick(index) : null}
-                                    className={`flex bg-dark-black list-none items-center gap-x-8 cursor-pointer font-semibold p-3	
+                                    className={`flex bg-dark-black list-none items-center gap-x-8 cursor-pointer font-semibold p-3
                                       ${index === 0 || index === menu.length - 1 ? 'cursor-auto' : 'cursor-pointer'}
                                       ${selectedMenu === index ? 'bg-light-black text-icon-color rounded-l-full' : 'text-icon-color'}
                                       ${selectedMenu === index + 1 ? 'rounded-br-[2rem]' : ''} 
