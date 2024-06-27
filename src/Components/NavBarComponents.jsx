@@ -7,6 +7,7 @@ import {
     UserRound,
     FolderHeart
 } from 'lucide-react';
+import { HomeScreen } from '../Screens/HomeScreen';
 
 
 const NavBar = () => {
@@ -78,7 +79,7 @@ const NavBar = () => {
 
                 <div className='bg-Blue-Gray w-full'>
                     <div className='p-7 rounded-tl-[3rem] rounded-bl-[3rem] bg-light-White w-full h-screen'>
-                        <h1 className='text-2xl font-semibold text-Blue-Gray '></h1>
+                       <HomeScreen />
                     </div>
                 </div>
             </div>
