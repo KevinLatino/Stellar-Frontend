@@ -34,7 +34,7 @@ export default {
 
         //Oppia colors
         //NavBar and bakcground
-        "Blue-Gray": "#061848",
+        "Blue-Gray": "#003554",
         "light-White": "#F5F5F5",
 
         //Different types of blue
@@ -43,7 +43,7 @@ export default {
         "sky-blue": "#0479c4",
 
         //More options colors 
-        "Blue-Gray": "#2b2d42",
+        "Blue-Gray": "#052559",
         "light-White": "#F5F5F5"
       }
     },
