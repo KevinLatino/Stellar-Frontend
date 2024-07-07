@@ -27,15 +27,7 @@ export default {
       },
 
       colors: {
-        "dark-black": "#171821",
-        "light-black": "#21222D",
         "icon-color": "#BFBFBF",
-        "light-gree": "#A9DFD8",
-
-        //Oppia colors
-        //NavBar and bakcground
-        "Blue-Gray": "#003554",
-        "light-White": "#F5F5F5",
 
         //Different types of blue
         "navy-blue": "#052559",
@@ -44,11 +36,7 @@ export default {
 
         //More options colors 
         "Blue-Gray": "#0b103d",
-        "light-White": "#F5F5F5"
-      },
-
-      fontFamily: {
-        'raleway': ['Raleway', 'sans-serif'],
+        "light-White": "#EDF0F7"
       },
     },
   },

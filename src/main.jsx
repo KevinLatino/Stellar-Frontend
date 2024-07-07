@@ -4,7 +4,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { DiscoverScreen } from './Screens/DiscoverScreen';
 import { RankingScreen } from './Screens/RankingScreen';
 import { TaskScreen } from './Screens/TaskScreen';
-import { HomeScreen } from './Screens/HomeScreen'
+import { HomeScreen } from './Screens/HomeScreen';
+import { RegisterScreen } from './Screens/RegisterScreen';
 import App from './App';
 import './index.css';
 
@@ -28,9 +29,14 @@ const router = createBrowserRouter([
       {
         path: 'tasks',
         element: <TaskScreen />
-      }
+      },
+
     ]
-  }
+  },
+  {
+    path: '/register',
+    element: <RegisterScreen />
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

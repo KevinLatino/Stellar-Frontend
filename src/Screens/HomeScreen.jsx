@@ -6,7 +6,7 @@ const HomeScreen = () => {
         <>
             <div className="flex pb-3 pt-1 my-3 bg-gradient-to-r from-[#F9B742] via-[#F9B742] to-[#F9B742] rounded-3xl">
                 <div className="my-14 ml-14 w-1/2">
-                    <div className="w-full">
+                    <div className="w-full text-light-White">
                         <h1 className="text-4xl font-medium">
                             ¡Bienvenido a <b>Stellar</b>!
                         </h1>
