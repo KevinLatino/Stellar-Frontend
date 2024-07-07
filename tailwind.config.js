@@ -32,7 +32,8 @@ export default {
         "stellar-blue": "#0B103D",
         "stellar-white": "#EDF0F7",
         "bg-blue": "#14162E",
-        "light-blue": "#4461F2"
+        "light-blue": "#4461F2",
+        "light-yellow": "#F9B742"
       },
     },
   },
