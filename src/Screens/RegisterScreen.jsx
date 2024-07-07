@@ -4,10 +4,10 @@ import FallingBg from '../../public/Ilustrations/Falling-Bg.png'
 const RegisterScreen = () => {
     return (
         <div className="flex h-screen">
-            <div className="bg-[#14162e] w-1/2 flex items-center justify-center">
+            <div className="bg-strong-blue w-1/2 flex items-center justify-center">
                 <div className='flex flex-col justify-center items-center gap-4'>
                     <h1 className="text-4xl font-medium text-light-White">
-                        ¡Bienvenido a <b className='text-[#4461F2]'>Stellar</b>!
+                        ¡Bienvenido a <b className='text-light-blue'>Stellar</b>!
                     </h1>
                     <p className="text-xl font-medium text-light-White">
                         Crea tu cuenta para comenzar
@@ -32,12 +32,12 @@ const RegisterScreen = () => {
                         placeholder="Ingresa tu contraseña"
                         className="bg-gray-100 text-gray-800 py-2 px-4 mb-4 w-full max-w-md rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
-                    <button className="bg-[#4461F2] text-white py-2 px-20 rounded-lg hover:bg-blue-600 transition duration-300">
+                    <button className="bg-light-blue text-white py-2 px-20 rounded-lg hover:bg-blue-600 transition duration-300">
                         Registrarse
                     </button>
                 </div>
             </div>
-            <div className="bg-[#14162e] w-1/2 flex items-center justify-center">
+            <div className="bg-strong-blue w-1/2 flex items-center justify-center">
                 <img src={FallingBg} className='h-full pointer-events-none' />
             </div>
         </div>
