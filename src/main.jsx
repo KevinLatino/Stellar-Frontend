@@ -6,6 +6,7 @@ import { RankingScreen } from './Screens/RankingScreen';
 import { TaskScreen } from './Screens/TaskScreen';
 import { HomeScreen } from './Screens/HomeScreen';
 import { RegisterScreen } from './Screens/RegisterScreen';
+import { LoginScreen } from './Screens/LoginScreen';
 import App from './App';
 import './index.css';
 
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
     path: '/register',
     element: <RegisterScreen />
   },
+  {
+    path: "/login",
+    element: <LoginScreen />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

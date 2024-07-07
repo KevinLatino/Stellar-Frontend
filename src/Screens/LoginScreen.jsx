@@ -1,7 +1,7 @@
 import React from 'react';
 import FallingBg from '../../public/Ilustrations/Falling-Bg.png'
 
-const RegisterScreen = () => {
+const LoginScreen = () => {
     return (
         <div className="flex h-screen">
             <div className="bg-[#14162e] w-1/2 flex items-center justify-center">
@@ -14,22 +14,12 @@ const RegisterScreen = () => {
                     </p>
                     <input
                         type="text"
-                        placeholder="Ingresa tu nombre"
-                        className="bg-gray-100 text-gray-800 py-2 px-4 mb-4 w-full max-w-md rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                    <input
-                        type="text"
-                        placeholder="Ingresa tus apellidos"
-                        className="bg-gray-100 text-gray-800 py-2 px-4 mb-4 w-full max-w-md rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                    <input
-                        type="text"
                         placeholder="Ingresa tu correo electrónico"
                         className="bg-gray-100 text-gray-800 py-2 px-4 mb-4 w-full max-w-md rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                     <input
                         type="text"
-                        placeholder="Ingresa tu contraseña"
+                        placeholder="Ingresa tu contreaseña"
                         className="bg-gray-100 text-gray-800 py-2 px-4 mb-4 w-full max-w-md rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                     <button className="bg-[#4461F2] text-white py-2 px-20 rounded-lg hover:bg-blue-600 transition duration-300">
@@ -44,4 +34,4 @@ const RegisterScreen = () => {
     );
 }
 
-export { RegisterScreen };
+export { LoginScreen };

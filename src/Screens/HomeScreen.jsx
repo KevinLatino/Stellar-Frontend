@@ -1,5 +1,5 @@
 import React from 'react'
-import Falling from '../../public/Stellar-Falling.svg'
+import Falling from '../../public/Ilustrations/Stellar-Falling.svg'
 
 const HomeScreen = () => {
     return (

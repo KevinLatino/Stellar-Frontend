@@ -56,20 +56,20 @@ const NavBar = () => {
 
   return (
     <div className="flex h-screen">
-      <div className='bg-light-White'>
-        <div className='bg-[#0b103d] pl-8 pt-8 h-full w-[15rem]'>
+      <div className='bg-stellar-white'>
+        <div className='bg-stellar-blue pl-8 pt-8 h-full w-[15rem]'>
           <h1 className='text-white text-2xl font-semibold pb-14'>🌠 Stellar</h1>
           {menu.map((menuItem, index) => (
-            <div key={index} className={`${selectedMenu === index ? 'bg-Blue-Gray' : 'bg-light-White'}`}>
+            <div key={index} className={`${selectedMenu === index ? 'bg-stellar-blue' : 'bg-stellar-white'}`}>
               <div
                 onClick={(index > 0) && (index < menu.length - 1) ? () => handleMenuClick(index, menuItem.router) : null}
-                className={`flex bg-Blue-Gray list-none items-center gap-x-8 cursor-pointer font-semibold p-3
+                className={`flex bg-stellar-blue list-none items-center gap-x-8 cursor-pointer font-semibold p-3
                   ${index === 0 || index === menu.length - 1 ? 'cursor-auto' : 'cursor-pointer'}
-                  ${selectedMenu === index ? 'bg-light-White text-Blue-Gray rounded-l-full' : 'text-icon-color'}
+                  ${selectedMenu === index ? 'bg-stellar-white text-stellar-blue rounded-l-full' : 'text-stellar-icon-color'}
                   ${selectedMenu === index + 1 ? 'rounded-br-[2rem]' : ''} 
                   ${selectedMenu === index - 1 ? 'rounded-tr-[2rem]' : ''}  
                 `}>
-                <span className={selectedMenu === index ? 'text-Blue-Gray' : 'text-icon-color'}>
+                <span className={selectedMenu === index ? 'text-stellar-blue' : 'text-stellar-icon-color'}>
                   {menuItem.icon}
                 </span>
                 <span>{menuItem.title}</span>
@@ -79,8 +79,8 @@ const NavBar = () => {
         </div>
       </div>
 
-      <div className='bg-Blue-Gray w-full h-full'>
-        <div className='p-7 rounded-tl-[3rem] rounded-bl-[3rem] bg-light-White w-full h-full overflow-auto'>
+      <div className='bg-stellar-blue w-full h-full'>
+        <div className='p-7 rounded-tl-[3rem] rounded-bl-[3rem] bg-stellar-white w-full h-full overflow-auto'>
           <Outlet />
         </div>
       </div>

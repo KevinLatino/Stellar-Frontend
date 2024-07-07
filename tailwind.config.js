@@ -27,16 +27,10 @@ export default {
       },
 
       colors: {
-        "icon-color": "#BFBFBF",
-
-        //Different types of blue
-        "navy-blue": "#052559",
-        "light-blue": "#05589a",
-        "sky-blue": "#0479c4",
-
-        //More options colors 
-        "Blue-Gray": "#0b103d",
-        "light-White": "#EDF0F7"
+        "light-White": "#EDF0F7",
+        "stellar-icon-color": "#BFBFBF",
+        "stellar-blue": "#0B103D",
+        "stellar-white": "#EDF0F7"
       },
     },
   },
