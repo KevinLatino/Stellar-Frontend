@@ -43,9 +43,13 @@ export default {
         "sky-blue": "#0479c4",
 
         //More options colors 
-        "Blue-Gray": "#052559",
+        "Blue-Gray": "#0b103d",
         "light-White": "#F5F5F5"
-      }
+      },
+
+      fontFamily: {
+        'raleway': ['Raleway', 'sans-serif'],
+      },
     },
   },
   plugins: [],

@@ -17,7 +17,7 @@ const NavBar = () => {
     {
       title: "Inicio",
       icon: <Home size={22} />,
-      router: "/sidebar"
+      router: "/sidebar/dashboard"
     },
     {
       title: "Tareas",
@@ -57,7 +57,7 @@ const NavBar = () => {
   return (
     <div className="flex h-screen">
       <div className='bg-light-White'>
-        <div className='bg-Blue-Gray pl-8 pt-8 h-full w-[15rem]'>
+        <div className='bg-[#0b103d] pl-8 pt-8 h-full w-[15rem]'>
           <h1 className='text-white text-2xl font-semibold pb-14'>🌠 Stellar</h1>
           {menu.map((menuItem, index) => (
             <div key={index} className={`${selectedMenu === index ? 'bg-Blue-Gray' : 'bg-light-White'}`}>
