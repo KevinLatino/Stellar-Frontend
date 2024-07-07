@@ -30,7 +30,9 @@ export default {
         "light-White": "#EDF0F7",
         "stellar-icon-color": "#BFBFBF",
         "stellar-blue": "#0B103D",
-        "stellar-white": "#EDF0F7"
+        "stellar-white": "#EDF0F7",
+        "bg-blue": "#14162E",
+        "light-blue": "#4461F2"
       },
     },
   },
