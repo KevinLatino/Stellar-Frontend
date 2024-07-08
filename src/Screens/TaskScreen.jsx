@@ -1,25 +1,32 @@
 import React from 'react'
-import { BannerComponent } from '../Components/BannerComponent'
-import { AddButton } from '../Components/AddButton'
-import Falling from '../../public/Ilustrations/Stellar-Falling.svg'
+import { AddTask } from '../Components/AddTaskComponent'
+import Tasks from '../../public/Ilustrations/Tasks.png'
 
 
 const TaskScreen = () => {
 
-    const title = "¡Crea y visualiza tus Tareas!"
-    const subtitle = " En este espacio puedes tomar el control de tus deberes"
-    const img = Falling
-    const color = "light-blue"
-
     return (
         <>
             <div className='flex flex-col gap-8'>
-                <BannerComponent 
-                title={title}
-                subtitle={subtitle}
-                img={img}
-                color={color}
-                />
+                <div className="flex my-1 bg-[#2357c7] rounded-3xl">
+                    <div className="my-14 ml-14 w-1/2">
+                        <div className="w-full text-light-White">
+                            <h1 className="text-4xl font-medium">
+                                <b>¡Crea y visualiza tus Tareas!</b>
+                            </h1>
+                            <p className="text-xl font-medium">
+                                En este espacio puedes tomar el control de tus deberes
+                            </p>
+                        </div>
+                    </div>
+                    <div className="w-[12rem] hidden sm:flex relative">
+                        <img
+                            src={Tasks}
+                            alt="Ilustration"
+                            className="absolute left-[188px] bottom-[-10%]"
+                        />
+                    </div>
+                </div>
                 <div className='flex flex-col gap-y-10'>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-red-500 pb-1">
@@ -37,7 +44,7 @@ const TaskScreen = () => {
                         </span>
                     </h1>
                 </div>
-                <AddButton />
+                <AddTask />
             </div>
         </>
     )

@@ -1,23 +1,30 @@
 import React from 'react'
-import { BannerComponent } from '../Components/BannerComponent'
-import Falling from '../../public/Ilustrations/Stellar-Falling.svg'
+import Welcome from '../../public/Ilustrations/Welcome.png'
 
 const HomeScreen = () => {
-    
-    const title = "¡Bienvenido a Stellar!"
-    const subtitle = "Ya puedes organizar tus tareas de una mejor manera"
-    const img = Falling
-    const color = "light-blue";
 
     return (
         <>
             <div className='flex flex-col gap-8'>
-                <BannerComponent
-                    title={title}
-                    subtitle={subtitle}
-                    img={img}
-                    color={color}
-                />
+                <div className="flex my-1 bg-[#2357c7] rounded-3xl">
+                    <div className="my-14 ml-14 w-1/2">
+                        <div className="w-full text-light-White">
+                            <h1 className="text-4xl font-medium">
+                                <b>¡Bienvenido a Stellar!</b>
+                            </h1>
+                            <p className="text-xl font-medium">
+                                Ya puedes organizar tus tareas de una mejor manera
+                            </p>
+                        </div>
+                    </div>
+                    <div className="w-[14rem] hidden sm:flex relative">
+                        <img
+                            src={Welcome}
+                            alt="Ilustration"
+                            className="absolute left-[188px] bottom-[0%]"
+                        />
+                    </div>
+                </div>
                 <div>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-[#48BC5E] pb-1">

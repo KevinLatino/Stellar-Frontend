@@ -3,19 +3,26 @@ import FallingBg from '../../public/Ilustrations/Falling-Bg.png';
 import { UserRound, KeyRound, Inbox, LayoutPanelTop } from 'lucide-react';
 import { useMutation } from 'react-query';
 import { RegisterApi } from '../Api/Register.Api';
+import { useNavigate } from 'react-router-dom';
 import useFormSetters from '../hooks/useFormSetter'
+
 
 
 const RegisterScreen = () => {
 
     const [formState, createFormSetter] = useFormSetters({ name: '', lastName: '', email: '', password: '' });
 
-    console.log(formState);
+    const navigate = useNavigate();
+
 
     const registerMutation = useMutation({ mutationFn: RegisterApi });
 
     if (registerMutation.isLoading) {
         return <span>loading...</span>
+    }
+
+    if(registerMutation.isSuccess){
+        return navigate('/login')
     }
 
     if (registerMutation.isError) {
