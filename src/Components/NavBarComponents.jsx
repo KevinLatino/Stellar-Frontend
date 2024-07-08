@@ -8,7 +8,7 @@ import {
   FolderHeart
 } from 'lucide-react';
 import { useNavigate, Outlet } from 'react-router-dom';
-import useVerify from '../hooks/verifyToken';
+import useVerify from '../hooks/useVerifyToken';
 
 const NavBar = () => {
   const navigate = useNavigate();

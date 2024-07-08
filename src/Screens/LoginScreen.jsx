@@ -4,17 +4,22 @@ import { useMutation } from 'react-query';
 import { LoginApi } from '../Api/Login.Api';
 import useFormSetters from '../hooks/useFormSetter';
 import FallingBg from '../../public/Ilustrations/Falling-Bg.png';
+import { useNavigate } from 'react-router-dom';
 
 const LoginScreen = () => {
 
-    const [formState, createFormSetter] = useFormSetters({ email:'', password:'' });
+    const navegate = useNavigate();
 
-    console.log(formState);
+    const [formState, createFormSetter] = useFormSetters({ email:'', password:'' });
 
     const loginMutation = useMutation({mutationFn: LoginApi});
 
     if (loginMutation.isLoading){
         return <span>loading...</span>
+    }
+
+    if(loginMutation.isSuccess){
+        return  navegate('/sidebar/dashboard')
     }
     
 

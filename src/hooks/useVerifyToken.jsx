@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import getCookie from '../utils/getCookie';
-import verifyToken from '../Api/verifyToken';
+import verifyToken from '../Api/VerifyToken.Api';
 import { useNavigate } from 'react-router-dom';
 
 const useVerify = () => {
