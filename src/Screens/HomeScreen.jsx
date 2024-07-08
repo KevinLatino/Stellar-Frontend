@@ -1,26 +1,29 @@
 import React from 'react'
+import { BannerComponent } from '../Components/BannerComponent'
 import Falling from '../../public/Ilustrations/Stellar-Falling.svg'
 
 const HomeScreen = () => {
+    
+    const title = "¡Bienvenido a Stellar!"
+    const subtitle = "Ya puedes organizar tus tareas de una mejor manera"
+    const img = Falling
+    const color = "light-blue";
+
     return (
         <>
-            <div className="flex pb-3 pt-1 my-3 bg-gradient-to-r from-light-blue via-light-blue to-light-blue rounded-3xl">
-                <div className="my-14 ml-14 w-1/2">
-                    <div className="w-full text-light-White">
-                        <h1 className="text-4xl font-medium">
-                            ¡Bienvenido a <b>Stellar</b>!
-                        </h1>
-                        <p className="text-xl font-medium">
-                            Organiza tus tareas de una mejor manera
-                        </p>
-                    </div>
-                </div>
-                <div className="w-[17rem] hidden sm:flex relative">
-                    <img
-                        src={Falling}
-                        alt="Imagen no encontrada"
-                        className="absolute right-[-180px] bottom-[-6%]"
-                    />
+            <div className='flex flex-col gap-8'>
+                <BannerComponent
+                    title={title}
+                    subtitle={subtitle}
+                    img={img}
+                    color={color}
+                />
+                <div>
+                    <h1 className="text-xl font-medium text-stellar-blue">
+                        <span className="inline-block border-b-[0.1rem] border-[#48BC5E] pb-1">
+                            <b>¡Aquí están tus tareas completadas, sigue así!</b>
+                        </span>
+                    </h1>
                 </div>
             </div>
         </>

@@ -8,6 +8,7 @@ import {
   FolderHeart
 } from 'lucide-react';
 import { useNavigate, Outlet } from 'react-router-dom';
+import useVerify from '../hooks/verifyToken';
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -17,41 +18,43 @@ const NavBar = () => {
     {
       title: "Inicio",
       icon: <Home size={22} />,
-      router: "/sidebar/dashboard"
+      route: "/sidebar/dashboard"
     },
     {
       title: "Tareas",
       icon: <FolderHeart size={22} />,
-      router: "/sidebar/tasks"
+      route: "/sidebar/tasks"
     },
     {
       title: "Calendario",
       icon: <CalendarHeart size={22} />,
-      router: "/sidebar/calendar"
+      route: "/sidebar/calendar"
     },
     {
       title: "Ranking",
       icon: <Trophy size={22} />,
-      router: "/sidebar/ranking"
+      route: "/sidebar/ranking"
     },
     {
       title: "Descubre",
       icon: <Telescope size={22} />,
-      router: "/sidebar/discover"
+      route: "/sidebar/discover"
     },
     {
       title: "Perfil",
       icon: <UserRound size={22} />,
-      router: "/sidebar/profile"
+      route: "/sidebar/profile"
     },
     {}
   ];
 
+  useVerify();
+
   const [selectedMenu, setSelectedMenu] = useState(1);
 
-  const handleMenuClick = (index, router) => {
+  const handleMenuClick = (index, route) => {
     setSelectedMenu(index);
-    navigate(router);
+    navigate(route);
   };
 
   return (
@@ -60,9 +63,9 @@ const NavBar = () => {
         <div className='bg-stellar-blue pl-8 pt-8 h-full w-[15rem]'>
           <h1 className='text-white text-2xl font-semibold pb-14'>🌠 Stellar</h1>
           {menu.map((menuItem, index) => (
-            <div key={index} className={`${selectedMenu === index ? 'bg-stellar-blue' : 'bg-stellar-white'}`}>
+            <div key={index} className={`transition-color ${selectedMenu === index ? 'bg-stellar-blue' : 'bg-stellar-white'}`}>
               <div
-                onClick={(index > 0) && (index < menu.length - 1) ? () => handleMenuClick(index, menuItem.router) : null}
+                onClick={(index > 0) && (index < menu.length - 1) ? () => handleMenuClick(index, menuItem.route) : null}
                 className={`flex bg-stellar-blue list-none items-center gap-x-8 cursor-pointer font-semibold p-3
                   ${index === 0 || index === menu.length - 1 ? 'cursor-auto' : 'cursor-pointer'}
                   ${selectedMenu === index ? 'bg-stellar-white text-stellar-blue rounded-l-full' : 'text-stellar-icon-color'}
