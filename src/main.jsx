@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { QueryClientProvider } from 'react-query';
 import { QueryClient } from 'react-query';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { DiscoverScreen } from './Screens/DiscoverScreen';
-import { RankingScreen } from './Screens/RankingScreen';
-import { TaskScreen } from './Screens/TaskScreen';
 import { HomeScreen } from './Screens/HomeScreen';
+import { TaskScreen } from './Screens/TaskScreen';
+import { RankingScreen } from './Screens/RankingScreen';
+import { ProfileScreen } from './Screens/ProfileScreen';
+import { DiscoverScreen } from './Screens/DiscoverScreen';
 import { RegisterScreen } from './Screens/RegisterScreen';
 import { LoginScreen } from './Screens/LoginScreen';
 import App from './App';
@@ -25,17 +26,21 @@ const router = createBrowserRouter([
         element: <HomeScreen />
       },
       {
-        path: 'discover',
-        element: <DiscoverScreen />
+        path: 'tasks',
+        element: <TaskScreen />
       },
       {
         path: 'ranking',
         element: <RankingScreen />
       },
       {
-        path: 'tasks',
-        element: <TaskScreen />
+        path: 'discover',
+        element: <DiscoverScreen />
       },
+      {
+        path:'profile',
+        element: <ProfileScreen /> 
+      }
 
     ]
   },
