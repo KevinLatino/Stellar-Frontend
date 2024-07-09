@@ -1,14 +1,14 @@
 import React from 'react'
 import { AddTask } from '../Components/AddTaskComponent'
-import Tasks from '../../public/Ilustrations/Tasks.png'
+import Tasks from '../../public/Ilustrations/Stellar-Falling.svg'
 
 
 const TaskScreen = () => {
 
     return (
         <>
-            <div className='flex flex-col gap-8'>
-                <div className="flex my-1 bg-[#2357c7] rounded-3xl">
+            <div className='flex flex-col gap-8 animate__animated animate__fadeInDown'>
+                <div className="flex my-2 bg-[#2357c7] rounded-3xl">
                     <div className="my-14 ml-14 w-1/2">
                         <div className="w-full text-light-White">
                             <h1 className="text-4xl font-medium">
@@ -19,14 +19,15 @@ const TaskScreen = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="w-[12rem] hidden sm:flex relative">
+                    <div className="w-[16rem] hidden sm:flex relative">
                         <img
                             src={Tasks}
                             alt="Ilustration"
-                            className="absolute left-[188px] bottom-[-10%]"
+                            className="absolute left-[188px] bottom-[0%]"
                         />
                     </div>
                 </div>
+                
                 <div className='flex flex-col gap-y-10'>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-red-500 pb-1">
@@ -44,8 +45,8 @@ const TaskScreen = () => {
                         </span>
                     </h1>
                 </div>
-                <AddTask />
             </div>
+            <AddTask />
         </>
     )
 }

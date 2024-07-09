@@ -60,7 +60,7 @@ const NavBar = () => {
   return (
     <div className="flex h-screen">
       <div className='bg-stellar-white'>
-        <div className='bg-stellar-blue pl-8 pt-8 h-full w-[15rem]'>
+        <div className='bg-stellar-blue pl-8 pt-10 h-full w-[15rem]'>
           <h1 className='text-white text-2xl font-semibold pb-14'>🌠 Stellar</h1>
           {menu.map((menuItem, index) => (
             <div key={index} className={`transition-color ${selectedMenu === index ? 'bg-stellar-blue' : 'bg-stellar-white'}`}>
@@ -82,7 +82,7 @@ const NavBar = () => {
         </div>
       </div>
 
-      <div className='bg-stellar-blue w-full h-full'>
+      <div className='bg-stellar-blue w-full h-full '>
         <div className='p-7 rounded-tl-[3rem] rounded-bl-[3rem] bg-stellar-white w-full h-full overflow-auto'>
           <Outlet />
         </div>
