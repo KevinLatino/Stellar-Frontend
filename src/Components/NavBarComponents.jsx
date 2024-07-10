@@ -8,6 +8,7 @@ import {
   FolderHeart
 } from 'lucide-react';
 import { useNavigate, Outlet } from 'react-router-dom';
+import { useAuth } from '../Context/context';
 
 const NavBar = () => {
 
@@ -46,7 +47,11 @@ const NavBar = () => {
     {}
   ];
 
+  const { user } = useAuth();
+
   const navigate = useNavigate();
+
+  if (user === null) navigate('/login')
 
   const [selectedMenu, setSelectedMenu] = useState(1);
 

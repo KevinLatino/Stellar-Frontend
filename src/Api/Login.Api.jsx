@@ -7,11 +7,13 @@ const LoginApi = async (credentials) => {
 
     const { token, userId } = res.data;
 
-    document.cookie = `userId=${userId}`
+    const user =  { token, userId };
 
-    document.cookie = `token=${token}`
+    document.cookie = `user=${JSON.stringify(user)}`
 
     return res;
 }
+
+
 
 export { LoginApi }
