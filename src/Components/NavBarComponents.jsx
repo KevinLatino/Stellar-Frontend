@@ -8,10 +8,8 @@ import {
   FolderHeart
 } from 'lucide-react';
 import { useNavigate, Outlet } from 'react-router-dom';
-import useVerify from '../hooks/useVerifyToken';
 
 const NavBar = () => {
-  const navigate = useNavigate();
 
   const menu = [
     {},
@@ -48,7 +46,7 @@ const NavBar = () => {
     {}
   ];
 
-  useVerify();
+  const navigate = useNavigate();
 
   const [selectedMenu, setSelectedMenu] = useState(1);
 

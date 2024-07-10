@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { AuthProvider } from './Context/context';
 import { NavBar } from './Components/NavBarComponents';
 import './index.css';
 

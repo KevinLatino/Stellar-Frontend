@@ -1,8 +1,9 @@
 import React from 'react'
 import Welcome from '../../public/Ilustrations/Welcome.png'
+import { useAuth } from '../Context/context'
 
 const HomeScreen = () => {
-
+    
     return (
         <>
             <div className='flex flex-col gap-8 animate__animated animate__fadeInDown'>

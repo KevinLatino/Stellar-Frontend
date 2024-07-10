@@ -10,6 +10,7 @@ import { ProfileScreen } from './Screens/ProfileScreen';
 import { DiscoverScreen } from './Screens/DiscoverScreen';
 import { RegisterScreen } from './Screens/RegisterScreen';
 import { LoginScreen } from './Screens/LoginScreen';
+import { AuthProvider } from './Context/context';
 import App from './App';
 import './index.css';
 
@@ -38,8 +39,8 @@ const router = createBrowserRouter([
         element: <DiscoverScreen />
       },
       {
-        path:'profile',
-        element: <ProfileScreen /> 
+        path: 'profile',
+        element: <ProfileScreen />
       }
 
     ]
@@ -57,7 +58,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );

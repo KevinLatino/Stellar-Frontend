@@ -1,4 +1,3 @@
-import React from 'react'
 import axios from 'axios'
 
 const LoginApi = async (credentials) => {
@@ -6,11 +5,13 @@ const LoginApi = async (credentials) => {
 
     const res = await axios.post(`${base}/sessions/login`, credentials);
 
-    const token = res.data.token
+    const { token, userId } = res.data;
+
+    document.cookie = `userId=${userId}`
 
     document.cookie = `token=${token}`
 
-    return res
+    return res;
 }
 
 export { LoginApi }

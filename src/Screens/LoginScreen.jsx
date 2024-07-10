@@ -1,27 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { UserRound, KeyRound } from 'lucide-react';
 import { useMutation } from 'react-query';
 import { LoginApi } from '../Api/Login.Api';
 import useFormSetters from '../hooks/useFormSetter';
 import FallingBg from '../../public/Ilustrations/Falling-Bg.png';
+import { useAuth } from '../Context/context';
 import { useNavigate } from 'react-router-dom';
 
 const LoginScreen = () => {
+    const navigate = useNavigate();
+    const { login } = useAuth();
+    const [formState, createFormSetter] = useFormSetters({ email: '', password: '' });
+    const loginMutation = useMutation(LoginApi);
 
-    const navegate = useNavigate();
+    const handleLogin = async () => {
+        try {
+            const response = await loginMutation.mutateAsync(formState);
+            login(response.data); 
+            navigate('/sidebar/dashboard'); 
+        } catch (error) {
+            console.error('Error during login:', error);
+        }
+    };
 
-    const [formState, createFormSetter] = useFormSetters({ email:'', password:'' });
-
-    const loginMutation = useMutation({mutationFn: LoginApi});
-
-    if (loginMutation.isLoading){
-        return <span>loading...</span>
+    if (loginMutation.isLoading) {
+        return <span>loading...</span>;
     }
-
-    if(loginMutation.isSuccess){
-        return  navegate('/sidebar/dashboard')
-    }
-    
 
     return (
         <div className="flex h-screen">
@@ -53,8 +57,9 @@ const LoginScreen = () => {
                             value={formState.password}
                         />
                     </div>
-                    <button className="bg-light-blue text-white py-2 px-20 rounded-lg hover:bg-blue-600 transition duration-300"
-                    onClick={() => loginMutation.mutate(formState)}
+                    <button
+                        className="bg-light-blue text-white py-2 px-20 rounded-lg hover:bg-blue-600 transition duration-300"
+                        onClick={handleLogin} // Llamar a la función que maneja el inicio de sesión
                     >
                         login
                     </button>
