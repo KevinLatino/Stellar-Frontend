@@ -3,7 +3,7 @@ import {Pencil, UserRound, KeyRound, Inbox, LayoutPanelTop } from 'lucide-react'
 import { motion } from 'framer-motion';
 import 'animate.css';
 
-const EdithProfile = () => {
+const EditProfile = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [priority, setPriority] = useState('');
 
@@ -13,10 +13,6 @@ const EdithProfile = () => {
 
     const handleClosePopup = () => {
         setIsPopupOpen(false);
-    };
-
-    const handlePriorityChange = (e) => {
-        setPriority(e.target.value);
     };
 
     return (
@@ -94,4 +90,4 @@ const EdithProfile = () => {
     );
 };
 
-export { EdithProfile };
+export { EditProfile };
