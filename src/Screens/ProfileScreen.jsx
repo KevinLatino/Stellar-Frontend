@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAuth } from '../Context/context';
-import { UserRound, KeyRound, Inbox, LayoutPanelTop } from 'lucide-react';
 import Profile from '../../public/Ilustrations/Profile.svg'
+import { EdithProfile } from '../Components/EdithProfileComponent';
 import useFormSetters from '../hooks/useFormSetter'
 
 
@@ -26,6 +26,7 @@ const ProfileScreen = () => {
                     <h1 className='font-raleway text-2xl border-b-2 border-light-yellow'>Tus principales medallas</h1>
                 </div>
             </div>
+            <EdithProfile />
         </>
     )
 }
