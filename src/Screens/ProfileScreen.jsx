@@ -1,20 +1,9 @@
 import React from 'react'
-import { useAuth } from '../Context/context';
-import { EditProfile } from '../Components/ViewMedalsComponent';
 import ProfileBg from '../../public/Ilustrations/Profile.svg'
-import { UserRound, KeyRound, LayoutPanelTop } from 'lucide-react';
-import useFormSetters from '../hooks/useFormSetter'
+import { UserRound, LayoutPanelTop, } from 'lucide-react';
 
 
 const ProfileScreen = () => {
-
-    const [formState, createFormSetter] = useFormSetters({ name: '', lastName: '', email: '', password: '' });
-
-    const { logout } = useAuth();
-
-    const handleButtonClick = () => {
-        logout();
-    }
 
     return (
         <>
@@ -23,7 +12,7 @@ const ProfileScreen = () => {
                     <img src={ProfileBg} width={1000}
                         className="mt-[-50px]"
                     />
-                    <h1 className='font-raleway text-2xl border-b-2 border-light-blue'>Kevin Latino</h1>
+                    <h1 className='font-raleway text-3xl border-b-2 border-light-blue'>Kevin Latino</h1>
                 </div>
 
                 <div className='flex justify-center items-center flex-col gap-2'>
@@ -46,7 +35,7 @@ const ProfileScreen = () => {
                         />
                     </div>
 
-                    <div className='flex gap-4'>
+                    <div className='flex justify-center items-center gap-5'>
                         <button
                             className="bg-light-blue text-white px-4 py-2 rounded-xl"
                         >
@@ -60,7 +49,6 @@ const ProfileScreen = () => {
                     </div>
                 </div>
             </div>
-            <EditProfile />
         </>
     )
 }

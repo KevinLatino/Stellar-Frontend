@@ -8,7 +8,7 @@ import {
   LogOut
 } from 'lucide-react';
 import { useNavigate, Outlet } from 'react-router-dom';
-import Alert from '../../public/Ilustrations/Alert.png'
+import Alert from '../../public/Ilustrations/Bye.png'
 import { useAuth } from '../Context/context';
 
 const NavBar = () => {
@@ -109,8 +109,8 @@ const NavBar = () => {
       </div>
 
       {showLogoutPopup && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg">
+        <div className="animate__animated animate__fadeIn fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-8 rounded-lg shadow-lg animate__animated animate__bounceInDown">
             <div className='flex justify-center items-center flex-col gap-3'>
               <img src={Alert} width={200} />
               <h2 className="text-xl mb-4">¿Seguro que quieres cerrar sesión?</h2>

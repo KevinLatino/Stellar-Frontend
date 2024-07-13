@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import {Trophy, UserRound, KeyRound, Inbox, LayoutPanelTop } from 'lucide-react';
+import { UserRound, KeyRound, Inbox, LayoutPanelTop, Medal } from 'lucide-react';
 import { motion } from 'framer-motion';
 import 'animate.css';
 
-const EditProfile = () => {
+const ViewMedal = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [priority, setPriority] = useState('');
 
     const handleOpenPopup = () => {
         setIsPopupOpen(true);
@@ -19,10 +18,10 @@ const EditProfile = () => {
         <>
             <motion.div
                 whileHover={{ scale: 1.2 }}
-                className="flex items-center justify-center fixed bg-light-green w-[55px] h-[55px] rounded-full bottom-10 left-[93.5%] cursor-pointer z-10"
+                className="flex items-center justify-center fixed bg-light-blue w-[55px] h-[55px] rounded-full bottom-24 left-[55.5%] cursor-pointer z-10"
                 onClick={handleOpenPopup}
             >
-                <Trophy size={30} color='white' />
+                <Medal size={30} color='white' />
             </motion.div>
 
             {isPopupOpen && (
@@ -90,4 +89,4 @@ const EditProfile = () => {
     );
 };
 
-export { EditProfile };
+export { ViewMedal };

@@ -11,7 +11,6 @@ import { DiscoverScreen } from './Screens/DiscoverScreen';
 import { RegisterScreen } from './Screens/RegisterScreen';
 import { LoginScreen } from './Screens/LoginScreen';
 import { AuthProvider } from './Context/context';
-import { LogoutScreen } from './Screens/LogoutScreen';
 import App from './App';
 import './index.css';
 
@@ -43,11 +42,6 @@ const router = createBrowserRouter([
         path: 'profile',
         element: <ProfileScreen />
       },
-      {
-        path: "logout",
-        element: <LogoutScreen />
-      }
-
     ]
   },
   {
