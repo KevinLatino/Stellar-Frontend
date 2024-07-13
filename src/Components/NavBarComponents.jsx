@@ -5,7 +5,7 @@ import {
   Trophy,
   Telescope,
   UserRound,
-  FolderHeart,
+  BookOpenText,
   LogOut
 } from 'lucide-react';
 import { useNavigate, Outlet } from 'react-router-dom';
@@ -22,7 +22,7 @@ const NavBar = () => {
     },
     {
       title: "Tareas",
-      icon: <FolderHeart size={22} />,
+      icon: <BookOpenText size={22} />,
       route: "/sidebar/tasks"
     },
     {
@@ -43,7 +43,7 @@ const NavBar = () => {
     {
       title: "Logout",
       icon: <LogOut size={22} />,
-      route: "/sidebar/profile"
+      route: "/sidebar/logout"
     },
     {}
   ];
