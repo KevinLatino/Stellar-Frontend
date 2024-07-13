@@ -5,7 +5,8 @@ import {
   Trophy,
   Telescope,
   UserRound,
-  FolderHeart
+  FolderHeart,
+  LogOut
 } from 'lucide-react';
 import { useNavigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../Context/context';
@@ -25,11 +26,6 @@ const NavBar = () => {
       route: "/sidebar/tasks"
     },
     {
-      title: "Calendario",
-      icon: <CalendarHeart size={22} />,
-      route: "/sidebar/calendar"
-    },
-    {
       title: "Ranking",
       icon: <Trophy size={22} />,
       route: "/sidebar/ranking"
@@ -42,6 +38,11 @@ const NavBar = () => {
     {
       title: "Perfil",
       icon: <UserRound size={22} />,
+      route: "/sidebar/profile"
+    },
+    {
+      title: "Logout",
+      icon: <LogOut size={22} />,
       route: "/sidebar/profile"
     },
     {}
