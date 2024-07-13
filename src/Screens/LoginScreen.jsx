@@ -59,7 +59,7 @@ const LoginScreen = () => {
                     </div>
                     <button
                         className="bg-light-blue text-white py-2 px-20 rounded-lg hover:bg-blue-600 transition duration-300"
-                        onClick={handleLogin} // Llamar a la función que maneja el inicio de sesión
+                        onClick={handleLogin} 
                     >
                         login
                     </button>
