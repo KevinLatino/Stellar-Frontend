@@ -1,9 +1,8 @@
 import React from 'react'
 import { useAuth } from '../Context/context';
-import Profile from '../../public/Ilustrations/Profile.svg'
 import { EditProfile } from '../Components/ViewMedalsComponent';
 import ProfileBg from '../../public/Ilustrations/Vector.svg'
-import { UserRound, KeyRound, LayoutPanelTop } from 'lucide-react';
+import { Trophy, UserRound, KeyRound, LayoutPanelTop } from 'lucide-react';
 import useFormSetters from '../hooks/useFormSetter'
 
 
@@ -19,10 +18,10 @@ const ProfileScreen = () => {
 
     return (
         <>
-            <div className='flex flex-col gap-[3rem]'>
+            <div className='flex flex-col gap-[3rem] animate__animated animate__fadeInDown'>
                 <div className='flex justify-center items-center flex-col gap-y-4'>
                     <img src={ProfileBg} width={1000} 
-                    className=''
+                    className="mt-[-60px]"
                     />
                     <h1 className='font-raleway text-2xl border-b-2 border-light-blue'>Kevin Latino</h1>
                 </div>
@@ -33,8 +32,8 @@ const ProfileScreen = () => {
                         <UserRound size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#7A3AFF]" />
                         <input
                             type="text"
-                            placeholder="Escribe tu nombre"
-                            className="bg-[#E0E4EE] text-gray-800 placeholder-strong-blue py-2 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Modifica tu nombre"
+                            className="bg-[#E0E4EE] text-gray-800 placeholder-strong-blue py-3 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
 
@@ -42,8 +41,8 @@ const ProfileScreen = () => {
                         <LayoutPanelTop size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#7A3AFF]" />
                         <input
                             type="text"
-                            placeholder="Escribe tu apellido"
-                            className=" bg-[#E0E4EE] text-gray-800 placeholder-strong-blue p-4 py-2 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Modifica tu apellido"
+                            className=" bg-[#E0E4EE] text-gray-800 placeholder-strong-blue py-3 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
 
@@ -51,8 +50,8 @@ const ProfileScreen = () => {
                         <KeyRound size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#7A3AFF]" />
                         <input
                             type="password"
-                            placeholder="Escribe tu nueva contraseña"
-                            className=" bg-[#E0E4EE] placeholder-strong-blue text-gray-800 py-2 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Modifica tu nueva contraseña"
+                            className=" bg-[#E0E4EE] placeholder-strong-blue text-gray-800 py-3 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
 

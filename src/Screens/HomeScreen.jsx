@@ -1,6 +1,5 @@
 import React from 'react'
 import Welcome from '../../public/Ilustrations/Welcome.png'
-import { useAuth } from '../Context/context'
 
 const HomeScreen = () => {
     
