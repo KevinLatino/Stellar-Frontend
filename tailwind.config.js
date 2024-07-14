@@ -35,10 +35,10 @@ export default {
         //strong colors
         "strong-blue": "#14162E",
         "strong-red": "#Eb2828",
+        "light-blue": "#4461F2",
 
         //light colors
         "light-White": "#EDF0F7",
-        "light-blue": "#4461F2",
         "light-yellow": "#F9B742",
         "light-green": "#48BC5E",
       },

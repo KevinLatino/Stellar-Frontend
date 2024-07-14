@@ -27,24 +27,11 @@ const TaskScreen = () => {
                         />
                     </div>
                 </div>
-                
-                <div className='flex flex-col gap-y-10'>
-                    <h1 className="text-xl font-medium text-stellar-blue">
-                        <span className="inline-block border-b-[0.1rem] border-red-500 pb-1">
-                            <b>Tareas con fechas de entrega prontas</b>
-                        </span>
-                    </h1>
-                    <h1 className="text-xl font-medium text-stellar-blue">
-                        <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                            <b>Tareas con fechas de entrega cercanas</b>
-                        </span>
-                    </h1>
-                    <h1 className="text-xl font-medium text-stellar-blue">
-                        <span className="inline-block border-b-[0.1rem] border-[#48BC5E] pb-1">
-                            <b>Tareas con fechas de entrega distantes</b>
-                        </span>
-                    </h1>
-                </div>
+                <h1 className="text-xl font-medium text-stellar-blue">
+                    <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
+                        <b>Dale un vistazo a tus tareas</b>
+                    </span>
+                </h1>
             </div>
             <AddTask />
         </>
