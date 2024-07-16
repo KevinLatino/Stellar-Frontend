@@ -71,7 +71,7 @@ const AddTask = () => {
                         <div className="relative mb-4 w-full max-w-md">
                             <CalendarHeart size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
                             <input
-                                type="text"
+                                type="date"
                                 placeholder="Fecha"
                                 className=" bg-[#E0E4EE] placeholder-strong-blue text-gray-800 py-2 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             />
