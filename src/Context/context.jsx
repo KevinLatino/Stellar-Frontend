@@ -10,7 +10,6 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     if (user === null) {
       const user = getUserFromCookie("user");
-      console.log(user);
       setUser(user);
     }
   }, []);

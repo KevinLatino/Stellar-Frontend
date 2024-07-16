@@ -1,6 +1,6 @@
 import React from 'react'
 import { AddTask } from '../Components/AddTaskComponent'
-import Tasks from '../../public/Ilustrations/Stellar-Falling.svg'
+import Tasks from '../../public/Ilustrations/Task3.png'
 
 
 const TaskScreen = () => {
@@ -8,7 +8,7 @@ const TaskScreen = () => {
     return (
         <>
             <div className='flex flex-col gap-8 animate__animated animate__fadeInDown'>
-                <div className="flex my-2 bg-[#2357c7] rounded-3xl">
+                <div className="flex my-2 bg-light-blue rounded-3xl">
                     <div className="my-14 ml-14 w-1/2">
                         <div className="w-full text-light-White">
                             <h1 className="text-4xl font-medium">
@@ -19,7 +19,7 @@ const TaskScreen = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="w-[16rem] hidden sm:flex relative">
+                    <div className="w-[15rem] hidden sm:flex relative">
                         <img
                             src={Tasks}
                             alt="Ilustration"

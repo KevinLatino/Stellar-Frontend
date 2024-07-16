@@ -23,10 +23,6 @@ const LoginScreen = () => {
         }
     };
 
-    if (loginMutation.isLoading) {
-        return <span>loading...</span>;
-    }
-
     return (
         <div className="flex h-screen">
             <div className="bg-strong-blue w-1/2 flex items-center justify-center">
@@ -58,11 +54,17 @@ const LoginScreen = () => {
                         />
                     </div>
                     <button
-                        className="bg-light-blue text-white py-2 px-20 rounded-lg hover:bg-blue-600 transition duration-300"
+                        className="bg-light-blue text-white py-2 px-20 rounded-lg hover:bg-blue-600 transition duration-300 relative"
                         onClick={handleLogin} 
+                        disabled={loginMutation.isLoading}
                     >
-                        login
+                        {!loginMutation.isLoading ? 'Login' : 'Loading...'}
                     </button>
+                    {loginMutation.isLoading && (
+                        <div className="mt-2">
+                            <div className="w-6 h-6 border-4 border-t-4 border-t-transparent border-white rounded-full animate-spin"></div>
+                        </div>
+                    )}
                 </div>
             </div>
             <div className="bg-strong-blue w-1/2 flex items-center justify-center">
