@@ -5,6 +5,7 @@ import { useMutation } from 'react-query';
 import { RegisterApi } from '../Api/Register.Api';
 import { useNavigate } from 'react-router-dom';
 import useFormSetters from '../hooks/useFormSetter'
+import SpinnerComponent from '../Components/SpinnerComponent';
 
 
 
@@ -17,16 +18,8 @@ const RegisterScreen = () => {
 
     const registerMutation = useMutation({ mutationFn: RegisterApi });
 
-    if (registerMutation.isLoading) {
-        return <span>loading...</span>
-    }
-
-    if(registerMutation.isSuccess){
+    if (registerMutation.isSuccess) {
         return navigate('/login')
-    }
-
-    if (registerMutation.isError) {
-        return <span>Error...</span>
     }
 
 
@@ -85,6 +78,11 @@ const RegisterScreen = () => {
                         className="bg-light-blue text-white py-2 px-20 rounded-lg hover:bg-blue-600 transition duration-300">
                         Registrarse
                     </button>
+                    {registerMutation.isLoading && (
+                        <div className="mt-2">
+                            <SpinnerComponent />
+                        </div>
+                    )}
                 </div>
             </div>
             <div className="bg-strong-blue w-1/2 flex items-center justify-center">
