@@ -11,7 +11,7 @@ import SpinnerComponent from '../Components/SpinnerComponent';
 
 const RegisterScreen = () => {
 
-    const [formState, createFormSetter] = useFormSetters({ name: '', lastName: '', email: '', password: '' });
+    const [formState, createFormSetter] = useFormSetters({ name: '', lastName: '', secondLastName: '', email: '', password: '' });
 
     const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ const RegisterScreen = () => {
     return (
         <div className="flex h-screen">
             <div className="bg-strong-blue w-1/2 flex items-center justify-center">
-                <div className='flex flex-col justify-center items-center gap-4'>
+                <div className='flex flex-col justify-center items-center gap-3'>
                     <h1 className="text-4xl font-medium text-light-White">
                         ¡Bienvenido a <b className='text-light-blue'>Stellar</b>!
                     </h1>
@@ -51,6 +51,16 @@ const RegisterScreen = () => {
                             className="bg-gray-100 text-gray-800 py-2 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             onChange={event => createFormSetter("lastName")(event.target.value)}
                             value={formState.lastName}
+                        />
+                    </div>
+                    <div className="relative mb-4 w-full max-w-md">
+                        <LayoutPanelTop size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+                        <input
+                            type="text"
+                            placeholder="Ingresa tu segundo apellido"
+                            className="bg-gray-100 text-gray-800 py-2 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            onChange={event => createFormSetter("secondLastName")(event.target.value)}
+                            value={formState.secondLastName}
                         />
                     </div>
                     <div className="relative mb-4 w-full max-w-md">

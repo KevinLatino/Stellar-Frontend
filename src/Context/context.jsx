@@ -18,7 +18,6 @@ export const AuthProvider = ({ children }) => {
 
   const login = (userData) => {
     setUser(userData); // userData debe contener al menos nombre, apellido y otros datos necesarios
-    // También puedes actualizar las cookies aquí si es necesario
   };
 
   const logout = () => {

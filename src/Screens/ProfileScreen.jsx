@@ -4,15 +4,15 @@ import { UserRound, LayoutPanelTop } from 'lucide-react';
 import getUserFromCookie from '../Utils/getUserCookies';
 
 const ProfileScreen = () => {
-  
-  const [user, setUser] = useState({ name: '', lastName: '' });
+
+  const [userData, setUserData] = useState({ name: "", lastName: "", secondLastName : "" });
 
   useEffect(() => {
-    const storedUser = getUserFromCookie('user');
-    if (storedUser) {
-      setUser({ name: storedUser.name, lastName: storedUser.lastName });
+    const user = getUserFromCookie("user");
+    if (user) {
+      setUserData({ name: user.name, lastName: user.lastName, secondLastName: user.secondLastName });
     }
-  }, []);
+  }, [])
 
   return (
     <div className='flex flex-col gap-[3rem] animate__animated animate__fadeInDown'>
@@ -23,7 +23,7 @@ const ProfileScreen = () => {
           className="mt-[-50px]"
         />
         <h1 className='font-raleway text-3xl border-b-2 border-light-blue'>
-          {user.name} {user.lastName}
+          {userData.name} {userData.lastName} {userData.secondLastName}
         </h1>
       </div>
 
@@ -41,7 +41,16 @@ const ProfileScreen = () => {
           <LayoutPanelTop size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-light-blue" />
           <input
             type="text"
-            placeholder="Modifica tu apellido"
+            placeholder="Modifica tu primer apellido"
+            className=" bg-[#E0E4EE] text-gray-800 placeholder-strong-blue py-3 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div className="relative mb-4 w-full max-w-md">
+          <LayoutPanelTop size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-light-blue" />
+          <input
+            type="text"
+            placeholder="Modifica tu segundo apellido"
             className=" bg-[#E0E4EE] text-gray-800 placeholder-strong-blue py-3 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
