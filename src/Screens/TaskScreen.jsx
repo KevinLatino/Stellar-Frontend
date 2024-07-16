@@ -31,7 +31,7 @@ const TaskScreen = () => {
                     </div>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                            <b>Dale un vistazo a tus tareas</b>
+                            <b>¡Dale un vistazo a tus tareas!</b>
                         </span>
                     </h1>
                 </div>

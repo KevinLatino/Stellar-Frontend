@@ -31,6 +31,7 @@ export default {
         "stellar-icon-color": "#BFBFBF",
         "stellar-blue": "#0B103D",
         "stellar-white": "#EDF0F7",
+        "stellar-grey": "#565555",
 
         //strong colors
         "strong-blue": "#14162E",
@@ -41,6 +42,7 @@ export default {
         "light-yellow": "#F9B742",
         "light-blue": "#4461F2",
         "light-green": "#48BC5E",
+        "light-red": "#EF4545"
       },
     },
   },
