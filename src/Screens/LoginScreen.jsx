@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { UserRound, KeyRound } from 'lucide-react';
 import { useMutation } from 'react-query';
 import { LoginApi } from '../Api/Login.Api';
@@ -12,16 +12,24 @@ const LoginScreen = () => {
     const navigate = useNavigate();
     const { login } = useAuth();
     const [formState, createFormSetter] = useFormSetters({ email: '', password: '' });
-    const loginMutation = useMutation(LoginApi);
+    const [error, setError] = useState('');
+    const loginMutation = useMutation(LoginApi, {
+        onError: (error) => {
+            if (error.response && error.response.data) {
+                setError('El correo electrónico o la contraseña son inválidos');
+            } else {
+                setError('Error durante el inicio de sesión');
+            }
+        },
+        onSuccess: (data) => {
+            login(data);
+            navigate('/sidebar/dashboard');
+        }
+    });
 
     const handleLogin = async () => {
-        try {
-            const response = await loginMutation.mutateAsync(formState);
-            login(response.data); 
-            navigate('/sidebar/dashboard'); 
-        } catch (error) {
-            console.error('Error during login:', error);
-        }
+        setError('');
+        await loginMutation.mutateAsync(formState);
     };
 
     return (
@@ -54,9 +62,10 @@ const LoginScreen = () => {
                             value={formState.password}
                         />
                     </div>
+                    {error && <p className="text-red-500 mt-1">{error}</p>}
                     <button
                         className="bg-light-blue text-white py-2 px-20 rounded-lg hover:bg-blue-600 transition duration-300 relative"
-                        onClick={handleLogin} 
+                        onClick={handleLogin}
                         disabled={loginMutation.isLoading}
                     >
                         {!loginMutation.isLoading ? 'Login' : 'Loading...'}

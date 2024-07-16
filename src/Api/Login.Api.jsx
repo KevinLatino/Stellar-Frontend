@@ -16,16 +16,13 @@ const LoginApi = async (credentials) => {
             secondLastName: userData.secondLastName
         };
 
-        // Configuración básica de la cookie
-        document.cookie = `user=${JSON.stringify(user)}; HttpOnly; Secure; SameSite=Strict`;
+        document.cookie = `user=${encodeURIComponent(JSON.stringify(user))}; SameSite=Strict; path=/`;
 
         return res;
     } catch (error) {
-        // Manejo de errores
-        console.error('Error en la solicitud de inicio de sesión:', error);
-        throw error; // Propagar el error para que sea manejado en otro lugar si es necesario
+        console.error('Error:', error);
+        throw error; 
     }
 };
 
 export { LoginApi };
-2
