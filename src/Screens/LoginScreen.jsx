@@ -6,6 +6,7 @@ import useFormSetters from '../hooks/useFormSetter';
 import FallingBg from '../../public/Ilustrations/Falling-Bg.png';
 import { useAuth } from '../Context/context';
 import { useNavigate } from 'react-router-dom';
+import SpinnerComponent from '../Components/SpinnerComponent';
 
 const LoginScreen = () => {
     const navigate = useNavigate();
@@ -62,7 +63,7 @@ const LoginScreen = () => {
                     </button>
                     {loginMutation.isLoading && (
                         <div className="mt-2">
-                            <div className="w-6 h-6 border-4 border-t-4 border-t-transparent border-white rounded-full animate-spin"></div>
+                            <SpinnerComponent />
                         </div>
                     )}
                 </div>

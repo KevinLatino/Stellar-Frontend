@@ -4,6 +4,7 @@ import { UserRound, LayoutPanelTop } from 'lucide-react';
 import getUserFromCookie from '../Utils/getUserCookies';
 
 const ProfileScreen = () => {
+  
   const [user, setUser] = useState({ name: '', lastName: '' });
 
   useEffect(() => {
