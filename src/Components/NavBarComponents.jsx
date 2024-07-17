@@ -86,7 +86,7 @@ const NavBar = () => {
         <div className='bg-stellar-white'>
           <div className='bg-stellar-blue pl-8 pt-10 h-full w-[15rem]'>
             <div className='mb-10 mt-2'>
-              <img src={StellarLogo} width={155} alt="Stellar-logo" className='cursor-pointer' onClick={handleLogoClick}/>
+              <img src={StellarLogo} width={140} alt="Stellar-logo" className='cursor-pointer' onClick={handleLogoClick}/>
             </div>
             {menu.map((menuItem, index) => (
               <div key={index} className={`transition-color ${selectedMenu === index ? 'bg-stellar-blue' : 'bg-stellar-white'}`}>
