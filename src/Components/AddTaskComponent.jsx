@@ -44,7 +44,7 @@ const AddTask = () => {
         <>
             <motion.div
                 whileHover={{ scale: 1.2 }}
-                className="flex items-center justify-center fixed bg-light-green w-[55px] h-[55px] rounded-full bottom-10 left-[93.5%] cursor-pointer z-10"
+                className="flex items-center justify-center fixed bg-light-blue w-[55px] h-[55px] rounded-full bottom-10 left-[93.5%] cursor-pointer z-10"
                 onClick={handleOpenPopup}
             >
                 <Plus size={38} color='white' />

@@ -86,7 +86,7 @@ const NavBar = () => {
         <div className='bg-stellar-white'>
           <div className='bg-stellar-blue pl-8 pt-10 h-full w-[15rem]'>
             <div className='mb-10 mt-2'>
-              <img src={StellarLogo} width={140} alt="Stellar-logo" className='cursor-pointer' onClick={handleLogoClick}/>
+              <img src={StellarLogo} width={120} alt="Stellar-logo" className='cursor-pointer' onClick={handleLogoClick}/>
             </div>
             {menu.map((menuItem, index) => (
               <div key={index} className={`transition-color ${selectedMenu === index ? 'bg-stellar-blue' : 'bg-stellar-white'}`}>
@@ -109,7 +109,7 @@ const NavBar = () => {
         </div>
 
         <div className='bg-stellar-blue w-full h-full '>
-          <div className='p-7 rounded-tl-[3rem] rounded-bl-[3rem] bg-stellar-white w-full h-full overflow-auto'>
+          <div className='p-7 rounded-tl-[2.2rem] rounded-bl-[2.2rem] bg-stellar-white w-full h-full overflow-auto'>
             <Outlet />
           </div>
         </div>

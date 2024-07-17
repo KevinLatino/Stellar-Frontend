@@ -18,7 +18,7 @@ const TaskScreen = () => {
     if (urgentTaskQuery.isFetching || normalTaskQuery.isFetching || waitingTaskQuery.isFetching) {
         return (
             <div className='flex justify-center items-center h-full'>
-                <SpinnerComponent color={"#14162E"} />
+                <SpinnerComponent color={"strong-blue"} />
             </div>
         );
     }
@@ -26,7 +26,7 @@ const TaskScreen = () => {
     return (
         <>
             <div className='animate__animated animate__fadeInDown'>
-                <div className='flex flex-col gap-8'>
+                <div className='flex flex-col gap-10'>
                     <div className="flex my-2 bg-light-blue rounded-3xl">
                         <div className="my-14 ml-14 w-1/2">
                             <div className="w-full text-light-White">
@@ -46,10 +46,10 @@ const TaskScreen = () => {
                             />
                         </div>
                     </div>
-                    <div className='flex flex-col gap-4'>
+                    <div className='flex flex-col gap-1'>
                         <h1 className="text-xl font-medium text-stellar-blue">
                             <span className="inline-block border-b-[0.1rem] border-light-red pb-1">
-                                <b>¡Dale un vistazo a tus tareas urgentes!</b>
+                                <b>¡Tus tareas urgentes!</b>
                             </span>
                         </h1>
                     </div>
@@ -60,7 +60,7 @@ const TaskScreen = () => {
                     </div>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                            <b>¡Dale un vistazo a tus tareas siguientes!</b>
+                            <b>¡Tus tareas siguientes!</b>
                         </span>
                     </h1>
                     <div className='flex justify-center items-center flex-wrap gap-x-6 gap-y-6'>
@@ -70,7 +70,7 @@ const TaskScreen = () => {
                     </div>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-green pb-1">
-                            <b>¡Dale un vistazo a tus tareas que pueden esperar!</b>
+                            <b>¡Tus tareas en espera!</b>
                         </span>
                     </h1>
                     <div className='flex justify-center items-center flex-wrap gap-x-6 gap-y-6'>
