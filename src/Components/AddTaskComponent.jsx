@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
+import useFormSetters from '../hooks/useFormSetter';
 import { Plus, Pencil, Captions, Star, CalendarHeart } from 'lucide-react';
+import { useQueryClient } from 'react-query';
+import { useMutation } from 'react-query';
+import { TaskApi } from '../Api/TaskApi';
 import { motion } from 'framer-motion';
+import { useAuth } from '../Context/context';
 import 'animate.css';
 
 const AddTask = () => {
+
+    const queryClient = useQueryClient();
+
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [priority, setPriority] = useState('');
 
     const handleOpenPopup = () => {
         setIsPopupOpen(true);
@@ -15,9 +22,13 @@ const AddTask = () => {
         setIsPopupOpen(false);
     };
 
-    const handlePriorityChange = (e) => {
-        setPriority(e.target.value);
-    };
+    const [formState, createFormSetter] = useFormSetters({ title: '', description: '', priority: '', dueDate: '', });
+
+    const taskMutation = useMutation({ mutationFn: TaskApi, onSuccess: () => queryClient.refetchQueries({queryKey: ["tasks"]}) });
+
+    const { user } = useAuth();
+
+    
 
     return (
         <>
@@ -42,6 +53,8 @@ const AddTask = () => {
                                 type="text"
                                 placeholder="Escribe el título"
                                 className="bg-[#E0E4EE] text-gray-800 placeholder-strong-blue py-2 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                onChange={event => createFormSetter("title")(event.target.value)}
+                                value={formState.title}
                             />
                         </div>
 
@@ -51,14 +64,16 @@ const AddTask = () => {
                                 type="text"
                                 placeholder="Escribe una descripción"
                                 className=" bg-[#E0E4EE] text-gray-800 placeholder-strong-blue py-2 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                onChange={event => createFormSetter("description")(event.target.value)}
+                                value={formState.description}
                             />
                         </div>
 
                         <div className="relative mb-4 w-full max-w-md">
                             <Star size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
                             <select
-                                value={priority}
-                                onChange={handlePriorityChange}
+                                onChange={event => createFormSetter("priority")(event.target.value)}
+                                value={formState.priority}
                                 className="bg-[#E0E4EE] text-gray-800 placeholder-strong-blue py-2 pl-10 pr-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             >
                                 <option className='text-gray-800 font-raleway'>Selecciona la prioridad</option>
@@ -74,12 +89,14 @@ const AddTask = () => {
                                 type="date"
                                 placeholder="Fecha"
                                 className=" bg-[#E0E4EE] placeholder-strong-blue text-gray-800 py-2 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                onChange={event => createFormSetter("dueDate")(event.target.value)}
+                                value={formState.dueDate}
                             />
                         </div>
 
                         <div className='flex gap-4'>
                             <button
-                                onClick={handleClosePopup}
+                                onClick={() => taskMutation.mutate({...formState, userId: user.userId})}
                                 className="bg-light-blue text-white px-4 py-2 rounded-xl"
                             >
                                 Crear tarea

@@ -1,10 +1,28 @@
 import React from 'react'
 import { AddTask } from '../Components/AddTaskComponent'
 import Tasks from '../../public/Ilustrations/Task3.png'
+import { getUserTasks } from '../Api/TaskApi'
+import { useAuth } from '../Context/context'
 import TaskCard from '../Components/TaskCardComponent'
+import { useQuery } from 'react-query'
 
 
 const TaskScreen = () => {
+
+    const { user } = useAuth();
+
+    const userId = user.userId;
+
+    console.log(userId);
+
+    const taskQuery = useQuery({ queryKey: ["tasks"], queryFn: () => getUserTasks(userId) });
+
+    console.log(taskQuery);
+
+    if(taskQuery.isFetching){
+        return <span>Loading</span>
+    }
+
 
     return (
         <>
@@ -31,19 +49,14 @@ const TaskScreen = () => {
                     </div>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                            <b>¡Dale un vistazo a tus tareas!</b>
+                            <b>¡Dale un vistazo a tus tareas pendientes!</b>
                         </span>
                     </h1>
                 </div>
                 <div className='mt-8 flex justify-center items-center flex-wrap gap-x-6 gap-y-6'>
-                    <TaskCard />
-                    <TaskCard />
-                    <TaskCard />
-                    <TaskCard />
-                    <TaskCard />
-                    <TaskCard />
-                    <TaskCard />
-                    <TaskCard />
+                    {taskQuery.data.map(task => {
+                        return <TaskCard title={task.title} description={task.description} date={task.dueDate} completed={task.completed} priority={task.priority}/>
+                    } )}
                 </div>
             </div>
             <AddTask />

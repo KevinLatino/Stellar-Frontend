@@ -1,13 +1,11 @@
-import React from 'react'
 import axios from 'axios'
 
-
-const RegisterApi = async (user) => {
+const RegisterApi = async (task) => {
     const base = "http://localhost:3000"
 
-    const res = await axios.post(`${base}/users/create`, user);
+    const res = await axios.post(`${base}/users/create`, task);
 
-    return res;
+    return res.data;
 }
 
 export { RegisterApi }

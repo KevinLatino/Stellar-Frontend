@@ -16,9 +16,9 @@ const LoginApi = async (credentials) => {
             secondLastName: userData.secondLastName
         };
 
-        document.cookie = `user=${encodeURIComponent(JSON.stringify(user))}; SameSite=Strict; path=/`;
+        document.cookie = `user=${(JSON.stringify(user))};`;
 
-        return res;
+        return res.data;
     } catch (error) {
         console.error('Error:', error);
         throw error; 

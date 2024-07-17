@@ -15,7 +15,6 @@ const RegisterScreen = () => {
 
     const navigate = useNavigate();
 
-
     const registerMutation = useMutation({ mutationFn: RegisterApi });
 
     if (registerMutation.isSuccess) {
