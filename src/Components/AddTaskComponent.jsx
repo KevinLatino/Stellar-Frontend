@@ -3,32 +3,42 @@ import useFormSetters from '../hooks/useFormSetter';
 import { Plus, Pencil, Captions, Star, CalendarHeart } from 'lucide-react';
 import { useQueryClient } from 'react-query';
 import { useMutation } from 'react-query';
-import { TaskApi } from '../Api/TaskApi';
+import { createTask } from '../Api/Task.Api';
 import { motion } from 'framer-motion';
 import { useAuth } from '../Context/context';
 import 'animate.css';
 
 const AddTask = () => {
-
     const queryClient = useQueryClient();
+    const { user } = useAuth();
+    const userId = user.userId;
 
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-
     const handleOpenPopup = () => {
         setIsPopupOpen(true);
     };
-
     const handleClosePopup = () => {
         setIsPopupOpen(false);
     };
 
-    const [formState, createFormSetter] = useFormSetters({ title: '', description: '', priority: '', dueDate: '', });
+    const [formState, createFormSetter] = useFormSetters({ title: '', description: '', priority: '', dueDate: '' });
 
-    const taskMutation = useMutation({ mutationFn: TaskApi, onSuccess: () => queryClient.refetchQueries({queryKey: ["tasks"]}) });
+    const taskMutation = useMutation({
+        mutationFn: createTask,
+        onSuccess: () => {
+            queryClient.refetchQueries(["urgentTasks"]);
+            queryClient.refetchQueries(["normalTasks"]);
+            queryClient.refetchQueries(["waitingTasks"]);
+        },
+        onError: (error) => {
+            console.error('Error al crear tarea:', error);
+        }
+    });
 
-    const { user } = useAuth();
-
-    
+    const handleSubmit = () => {
+        taskMutation.mutate({ ...formState, userId });
+        handleClosePopup();
+    };
 
     return (
         <>
@@ -42,9 +52,7 @@ const AddTask = () => {
 
             {isPopupOpen && (
                 <div className="animate__animated animate__fadeIn fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
-
                     <div className="flex flex-col justify-center items-center animate__animated animate__bounceInDown bg-white p-6 rounded-lg w-[32rem] max-w-full text-center">
-
                         <h2 className="text-2xl mb-4 font-raleway border-b-[0.1rem] border-light-blue">Crear una nueva tarea</h2>
 
                         <div className="relative mb-4 w-full max-w-md">
@@ -63,7 +71,7 @@ const AddTask = () => {
                             <input
                                 type="text"
                                 placeholder="Escribe una descripción"
-                                className=" bg-[#E0E4EE] text-gray-800 placeholder-strong-blue py-2 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="bg-[#E0E4EE] text-gray-800 placeholder-strong-blue py-2 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 onChange={event => createFormSetter("description")(event.target.value)}
                                 value={formState.description}
                             />
@@ -88,7 +96,7 @@ const AddTask = () => {
                             <input
                                 type="date"
                                 placeholder="Fecha"
-                                className=" bg-[#E0E4EE] placeholder-strong-blue text-gray-800 py-2 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="bg-[#E0E4EE] placeholder-strong-blue text-gray-800 py-2 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 onChange={event => createFormSetter("dueDate")(event.target.value)}
                                 value={formState.dueDate}
                             />
@@ -96,7 +104,7 @@ const AddTask = () => {
 
                         <div className='flex gap-4'>
                             <button
-                                onClick={() => taskMutation.mutate({...formState, userId: user.userId})}
+                                onClick={handleSubmit}
                                 className="bg-light-blue text-white px-4 py-2 rounded-xl"
                             >
                                 Crear tarea
