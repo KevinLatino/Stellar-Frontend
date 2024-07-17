@@ -4,6 +4,7 @@ import Tasks from '../../public/Ilustrations/Task3.png'
 import { getUserTasks } from '../Api/TaskApi'
 import { useAuth } from '../Context/context'
 import TaskCard from '../Components/TaskCardComponent'
+import SpinnerComponent from '../Components/SpinnerComponent'
 import { useQuery } from 'react-query'
 
 
@@ -13,14 +14,15 @@ const TaskScreen = () => {
 
     const userId = user.userId;
 
-    console.log(userId);
-
     const taskQuery = useQuery({ queryKey: ["tasks"], queryFn: () => getUserTasks(userId) });
 
-    console.log(taskQuery);
+    if (taskQuery.isFetching) {
 
-    if(taskQuery.isFetching){
-        return <span>Loading</span>
+        return (
+            <div className='flex justify-center items-center h-full'>
+                <SpinnerComponent color={"#14162E"} />
+            </div>
+        )
     }
 
 
@@ -55,8 +57,8 @@ const TaskScreen = () => {
                 </div>
                 <div className='mt-8 flex justify-center items-center flex-wrap gap-x-6 gap-y-6'>
                     {taskQuery.data.map(task => {
-                        return <TaskCard title={task.title} description={task.description} date={task.dueDate} completed={task.completed} priority={task.priority}/>
-                    } )}
+                        return <TaskCard title={task.title} description={task.description} date={task.dueDate} completed={task.completed} priority={task.priority} />
+                    })}
                 </div>
             </div>
             <AddTask />

@@ -32,6 +32,8 @@ const LoginScreen = () => {
         await loginMutation.mutateAsync(formState);
     };
 
+    const spinnerColor = "blue-500"
+
     return (
         <div className="flex h-screen">
             <div className="bg-strong-blue w-1/2 flex items-center justify-center">
@@ -72,7 +74,7 @@ const LoginScreen = () => {
                     </button>
                     {loginMutation.isLoading && (
                         <div className="mt-2">
-                            <SpinnerComponent />
+                            <SpinnerComponent color={spinnerColor} />
                         </div>
                     )}
                 </div>
