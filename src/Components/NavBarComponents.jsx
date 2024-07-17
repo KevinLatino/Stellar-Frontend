@@ -10,7 +10,7 @@ import {
 import { useNavigate, Outlet } from 'react-router-dom';
 import Alert from '../../public/Ilustrations/Bye.png'
 import { useAuth } from '../Context/context';
-import StellarLogo from '../../public/STELLAR-LOGOS/StellarLogo-Over-Black.svg'
+import StellarLogo from '../../public/STELLAR-LOGOS/StellarLogo-Over-StrongBlue.svg'
 
 const NavBar = () => {
   const menu = [
@@ -76,13 +76,17 @@ const NavBar = () => {
     setShowLogoutPopup(false);
   };
 
+  const handleLogoClick = () => {
+    navigate('/sidebar/dashboard')
+  }
+
   return (
     <>
       <div className="flex h-screen">
         <div className='bg-stellar-white'>
           <div className='bg-stellar-blue pl-8 pt-10 h-full w-[15rem]'>
             <div className='mb-10 mt-2'>
-              <img src={StellarLogo} width={155} alt="Stellar-logo" />
+              <img src={StellarLogo} width={155} alt="Stellar-logo" className='cursor-pointer' onClick={handleLogoClick}/>
             </div>
             {menu.map((menuItem, index) => (
               <div key={index} className={`transition-color ${selectedMenu === index ? 'bg-stellar-blue' : 'bg-stellar-white'}`}>
