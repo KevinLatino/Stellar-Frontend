@@ -27,6 +27,15 @@ const getWaitingTasks = async () => {
     return res.data;
 }
 
+const getCompletedTasks = async () => {
+
+    const userId = getUserFromCookie("user").userId
+
+    const res = await axios.get(`${base}/tasks/completed/${userId}`);
+
+    return res;
+}
+
 const getUrgentTasks = async () => {
     const userId = getUserFromCookie("user").userId;
 
@@ -35,4 +44,4 @@ const getUrgentTasks = async () => {
     return res.data;
 }
 
-export { createTask, getNormalTasks, getWaitingTasks, getUrgentTasks }
+export { createTask, getNormalTasks, getWaitingTasks, getUrgentTasks, getCompletedTasks }

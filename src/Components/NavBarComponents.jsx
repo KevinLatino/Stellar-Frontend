@@ -109,7 +109,7 @@ const NavBar = () => {
         </div>
 
         <div className='bg-stellar-blue w-full h-full '>
-          <div className='p-7 rounded-tl-[2.2rem] rounded-bl-[2.2rem] bg-stellar-white w-full h-full overflow-auto'>
+          <div className='p-7 rounded-tl-[2rem] rounded-bl-[2rem] bg-stellar-white w-full h-full overflow-auto'>
             <Outlet />
           </div>
         </div>

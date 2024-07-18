@@ -32,9 +32,9 @@ const TaskCard = ({ title, description, priority, date, completed }) => {
                     <span className={`${priorityClass} px-3 py-1 rounded-full`}>
                         {priority}
                     </span>
-                    <div className='flex gap-1 items-center text-stellar-grey'>
+                    <div className='flex items-center text-stellar-grey'>
                         No completado
-                        <X color='#565555' size={18} />
+                        <X color='#565555' size={20} />
                     </div>
                     <span className="text-stellar-blue">{new Date(date).toLocaleDateString()}</span>
                 </div>
