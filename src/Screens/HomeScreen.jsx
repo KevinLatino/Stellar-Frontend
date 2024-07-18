@@ -1,8 +1,25 @@
-import React from 'react'
-import Welcome from '../../public/Ilustrations/Welcome.png'
+import React from 'react';
+import { useQuery } from 'react-query';
+import Welcome from '../../public/Ilustrations/Welcome.png';
+import CompletedTaskComponent from '../Components/CompletedTaskComponent';
+import SpinnerComponent from '../Components/SpinnerComponent';
+import { getCompletedTasks } from '../Api/Task.Api'; // Asegúrate de ajustar la ruta según tu estructura de archivos
 
 const HomeScreen = () => {
-    
+    const { data: completedTasks, isLoading, error } = useQuery('completedTasks', getCompletedTasks);
+
+    if (isLoading) {
+        return (
+            <div className='flex justify-center items-center h-full'>
+                <SpinnerComponent color={"strong-blue"} />
+            </div>
+        );
+    }
+
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
+
     return (
         <>
             <div className='flex flex-col gap-8 animate__animated animate__fadeInDown'>
@@ -27,15 +44,22 @@ const HomeScreen = () => {
                 </div>
                 <div>
                     <h1 className="text-xl font-medium text-stellar-blue">
-                        <span className="inline-block border-b-[0.1rem] border-[#48BC5E] pb-1">
+                        <span className="inline-block border-b-[0.1rem] border-[#C364FF] pb-1">
                             <b>¡Aquí están tus tareas completadas, sigue así!</b>
                         </span>
                     </h1>
                 </div>
+                <div className='flex justify-center items-center flex-wrap gap-x-6 gap-y-6'>
+                    <CompletedTaskComponent />
+                    <CompletedTaskComponent />
+                    <CompletedTaskComponent />
+                    <CompletedTaskComponent />
+                    <CompletedTaskComponent />
+                    <CompletedTaskComponent />
+                </div>
             </div>
         </>
-    )
+    );
 }
 
-export { HomeScreen }
-2
+export { HomeScreen };

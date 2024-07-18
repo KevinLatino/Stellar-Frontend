@@ -33,7 +33,7 @@ const getCompletedTasks = async () => {
 
     const res = await axios.get(`${base}/tasks/completed/${userId}`);
 
-    return res;
+    return res.data;
 }
 
 const getUrgentTasks = async () => {

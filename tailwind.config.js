@@ -36,13 +36,15 @@ export default {
         //strong colors
         "strong-blue": "#14162E",
         "strong-red": "#Eb2828",
+        'purple-strong': '#763DF2',
 
         //light colors
         "light-White": "#EDF0F7",
         "light-yellow": "#F9B742",
         "light-blue": "#4461F2",
         "light-green": "#48BC5E",
-        "light-red": "#EF4545"
+        "light-red": "#EF4545",
+        'purple-light': '#C364FF',
       },
     },
   },
