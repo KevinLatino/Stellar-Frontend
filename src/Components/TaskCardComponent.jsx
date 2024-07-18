@@ -1,5 +1,5 @@
 import React from 'react';
-import { CircleCheckBig } from 'lucide-react';
+import { X, CircleCheckBig } from 'lucide-react';
 import BorderGreen from '../../public/Ilustrations/Border-Green.svg';
 import BorderYellow from '../../public/Ilustrations/Border-Yellow.svg';
 import BorderRed from '../../public/Ilustrations/Border-Red.svg';
@@ -26,16 +26,16 @@ const TaskCard = ({ title, description, priority, date, completed }) => {
             <div className='flex flex-col justify-between h-full pl-6 pr-4 py-4 flex-grow'>
                 <div className='flex justify-between items-start mb-2'>
                     <h2 className="text-xl font-bold text-stellar-blue font-raleway truncate pr-2">{title}</h2>
-                    <button className='flex gap-1 items-center text-stellar-grey'>
-                        Completar
-                         <CircleCheckBig color='#565555' size={18} />
-                    </button>
                 </div>
                 <p className="text-stellar-grey font-raleway flex-grow overflow-hidden">{description}</p>
                 <div className="flex items-center justify-between mt-auto">
                     <span className={`${priorityClass} px-3 py-1 rounded-full`}>
                         {priority}
                     </span>
+                    <div className='flex gap-1 items-center text-stellar-grey'>
+                        No completado
+                        <X color='#565555' size={18} />
+                    </div>
                     <span className="text-stellar-blue">{new Date(date).toLocaleDateString()}</span>
                 </div>
             </div>
