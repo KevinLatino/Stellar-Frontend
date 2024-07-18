@@ -4,7 +4,7 @@
 
 
 html, body {
-    background-color: #F2F2F2;
+    background-color: #ffffff;
 }
 
 ::-webkit-scrollbar {
@@ -12,15 +12,15 @@ html, body {
   }
   
 ::-webkit-scrollbar-track {
-    background: #080b10; 
+    background: #afb2b6; 
   }
    
 ::-webkit-scrollbar-thumb {
-    background: #9b9c9c52; 
+    background: #33333352; 
     border-radius: 10px;
   }
   
 ::-webkit-scrollbar-thumb:hover {
-    background: #f1f1f152; 
+    background: #16141452; 
   }
   

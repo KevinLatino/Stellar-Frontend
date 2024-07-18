@@ -11,6 +11,14 @@ const createTask = async (task) => {
     return res.data;
 }
 
+const updateTask = async (id, bodyUpdated) => {
+    const token = getUserFromCookie("user").token;
+
+    const res = await axios.put(`${base}/tasks/update/${id}`, bodyUpdated, { headers: { Authorization: `Bearer ${token}` } });
+
+    return res.data;
+}
+
 const getNormalTasks = async () => {
     const userId = getUserFromCookie("user").userId;
 
@@ -44,4 +52,4 @@ const getUrgentTasks = async () => {
     return res.data;
 }
 
-export { createTask, getNormalTasks, getWaitingTasks, getUrgentTasks, getCompletedTasks }
+export { createTask, getNormalTasks, getWaitingTasks, getUrgentTasks, getCompletedTasks, updateTask }

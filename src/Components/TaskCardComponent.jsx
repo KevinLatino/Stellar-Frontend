@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { MoreHorizontal } from 'lucide-react'; // Importa el ícono de elipsis desde lucide-react
 
 const priorityGradientStyles = {
     espera: {
@@ -22,9 +23,20 @@ const priorityClasses = {
     default: 'bg-gray-200 text-gray-800'
 };
 
-const TaskCard = ({ title, description, priority, date, completed }) => {
+const TaskCard = ({ title, description, priority, date, completed, onMarkComplete }) => {
+    const [menuVisible, setMenuVisible] = useState(false);
+
     const priorityClass = priorityClasses[priority] || priorityClasses.default;
     const gradientStyle = priorityGradientStyles[priority] || priorityGradientStyles.espera;
+
+    const handleMenuToggle = () => {
+        setMenuVisible(!menuVisible);
+    };
+
+    const handleMarkComplete = () => {
+        onMarkComplete();
+        setMenuVisible(false);
+    };
 
     return (
         <div className="relative bg-white shadow-md rounded-[0.6rem] w-[23rem] h-[11rem] overflow-hidden flex" style={gradientStyle}>
@@ -32,6 +44,18 @@ const TaskCard = ({ title, description, priority, date, completed }) => {
             <div className="flex flex-col justify-between h-full pl-6 pr-4 py-4 flex-grow">
                 <div className="flex justify-between items-start mb-2">
                     <h2 className="text-xl font-bold text-stellar-blue font-raleway truncate pr-2">{title}</h2>
+                    <div className="relative">
+                        <button className="text-stellar-blue" onClick={handleMenuToggle}>
+                            <MoreHorizontal size={24} />
+                        </button>
+                        {menuVisible && (
+                            <div className="absolute right-0 w-48 bg-white shadow-md rounded-lg z-10">
+                                <button className="block px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left" onClick={handleMarkComplete}>
+                                    Completado
+                                </button>
+                            </div>
+                        )}
+                    </div>
                 </div>
                 <p className="text-stellar-grey font-raleway flex-grow overflow-hidden">{description}</p>
                 <div className="flex items-center justify-between mt-auto">

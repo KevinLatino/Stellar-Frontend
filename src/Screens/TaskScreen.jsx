@@ -26,7 +26,7 @@ const TaskScreen = () => {
     return (
         <>
             <div className='animate__animated animate__fadeInDown'>
-                <div className='flex flex-col gap-10'>
+                <div className='flex flex-col gap-9'>
                     <div className="flex my-2 bg-light-blue rounded-3xl">
                         <div className="my-14 ml-14 w-1/2">
                             <div className="w-full text-light-White">
