@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MoreHorizontal } from 'lucide-react';
-import { useMutation, useQueryClient } from 'react-query';
-import { updateTask } from '../Api/Task.Api';
+import { useMutation } from 'react-query';
+import { updateTask } from '../Api/Task.Api'
 
 const priorityGradientStyles = {
     espera: {
@@ -33,18 +33,9 @@ const formatDate = (dateString) => {
     const year = localDate.getFullYear();
     return `${day}/${month}/${year}`;
 };
+
 const TaskCard = ({ id, title, description, priority, date, completed }) => {
     const [menuVisible, setMenuVisible] = useState(false);
-    const queryClient = useQueryClient();
-
-    const mutation = useMutation(
-        (updatedTask) => updateTask(id, updatedTask),
-        {
-            onSuccess: () => {
-                queryClient.invalidateQueries('tasks');
-            }
-        }
-    );
 
     const priorityClass = priorityClasses[priority] || priorityClasses.default;
     const gradientStyle = priorityGradientStyles[priority] || priorityGradientStyles.espera;
@@ -53,9 +44,10 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
         setMenuVisible(!menuVisible);
     };
 
-    const handleMarkComplete = () => {
-        mutation.mutate({ completed: true });
-        setMenuVisible(false);
+    const completedMutation = useMutation({ mutationFn: ({ id, bodyUpdate }) => updateTask(id, bodyUpdate) })
+
+    const handleCompleted = () => {
+        completedMutation.mutate({ id, bodyUpdate: { completed: !completed } });
     };
 
     return (
@@ -70,7 +62,8 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
                         </button>
                         {menuVisible && (
                             <div className="absolute right-0 w-48 bg-white shadow-md rounded-lg z-10">
-                                <button className="block px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left" onClick={handleMarkComplete}>
+                                <button className="block px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left"
+                                    onClick={handleCompleted}>
                                     Completado
                                 </button>
                             </div>

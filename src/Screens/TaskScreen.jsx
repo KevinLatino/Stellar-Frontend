@@ -55,7 +55,7 @@ const TaskScreen = () => {
                     </div>
                     <div className='flex justify-center items-center flex-wrap gap-x-6 gap-y-6'>
                         {urgentTaskQuery.data.map(task => (
-                            <TaskCard key={task.id} title={task.title} description={task.description} date={task.dueDate} completed={task.completed} priority={task.priority} />
+                            <TaskCard key={task.id} id={task.id} title={task.title} description={task.description} date={task.dueDate} completed={task.completed} priority={task.priority} />
                         ))}
                     </div>
                     <h1 className="text-xl font-medium text-stellar-blue">
@@ -65,7 +65,7 @@ const TaskScreen = () => {
                     </h1>
                     <div className='flex justify-center items-center flex-wrap gap-x-6 gap-y-6'>
                         {normalTaskQuery.data.map(task => (
-                            <TaskCard key={task.id} title={task.title} description={task.description} date={task.dueDate} completed={task.completed} priority={task.priority} />
+                            <TaskCard key={task.id} id={task.id} title={task.title} description={task.description} date={task.dueDate} completed={task.completed} priority={task.priority} />
                         ))}
                     </div>
                     <h1 className="text-xl font-medium text-stellar-blue">
@@ -75,7 +75,7 @@ const TaskScreen = () => {
                     </h1>
                     <div className='flex justify-center items-center flex-wrap gap-x-6 gap-y-6'>
                         {waitingTaskQuery.data.map(task => (
-                            <TaskCard key={task.id} title={task.title} description={task.description} date={task.dueDate} completed={task.completed} priority={task.priority} />
+                            <TaskCard key={task.id} id={task.id} title={task.title} description={task.description} date={task.dueDate} completed={task.completed} priority={task.priority} />
                         ))}
                     </div>
                 </div>
