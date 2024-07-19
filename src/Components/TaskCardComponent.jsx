@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MoreHorizontal } from 'lucide-react';
 import { useMutation, useQueryClient } from 'react-query';
-import { updateTask } from '../Api/Task.Api'; 
+import { updateTask } from '../Api/Task.Api';
 
 const priorityGradientStyles = {
     espera: {
@@ -25,6 +25,14 @@ const priorityClasses = {
     default: 'bg-gray-200 text-gray-800'
 };
 
+const formatDate = (dateString) => {
+    const utcDate = new Date(dateString);
+    const localDate = new Date(utcDate.getUTCFullYear(), utcDate.getUTCMonth(), utcDate.getUTCDate(), utcDate.getUTCHours(), utcDate.getUTCMinutes(), utcDate.getUTCSeconds());
+    const day = String(localDate.getDate()).padStart(2, '0');
+    const month = String(localDate.getMonth() + 1).padStart(2, '0');
+    const year = localDate.getFullYear();
+    return `${day}/${month}/${year}`;
+};
 const TaskCard = ({ id, title, description, priority, date, completed }) => {
     const [menuVisible, setMenuVisible] = useState(false);
     const queryClient = useQueryClient();
@@ -77,7 +85,7 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
                     <div className="flex items-center text-stellar-grey">
                         {completed ? 'Completado' : 'No completado'}
                     </div>
-                    <span className="text-stellar-blue">{new Date(date).toLocaleDateString()}</span>
+                    <span className="text-stellar-blue">{formatDate(date)}</span>
                 </div>
             </div>
         </div>

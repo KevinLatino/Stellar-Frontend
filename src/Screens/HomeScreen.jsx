@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import Welcome from '../../public/Ilustrations/Welcome.png'
-import getUserFromCookie from '../Utils/getUserCookies'
+import React, { useEffect, useState } from 'react';
+import Welcome from '../../public/Ilustrations/Welcome.png';
+import getUserFromCookie from '../Utils/getUserCookies';
 
 const HomeScreen = () => {
+    const [name, setName] = useState({ name: "" });
 
-    const [name, setName] = useState({name: ""});
-
-    useEffect(()=> {
+    useEffect(() => {
         const getName = getUserFromCookie("user").name;
-        setName({name: getName})
-    }, [])
-    
+        setName({ name: getName });
+    }, []);
+
     return (
         <>
             <div className='flex flex-col gap-8 animate__animated animate__fadeInDown'>
@@ -33,14 +32,20 @@ const HomeScreen = () => {
                         />
                     </div>
                 </div>
-                <div>
-                    <h1 className="text-xl font-medium text-stellar-blue">
-                    </h1>
+                <div className='w-1/2'>
+                    <div className="flex gap-4">
+                        <div className="flex bg-light-red h-40 w-[18rem] mx-auto rounded-xl justify-center items-center text-center">
+                            <h2 className='font-raleway text-white'>
+                                Tareas urgentes completadas
+                            </h2>
+                        </div>
+                        <div className="bg-[#fbd960] h-40 w-[18rem] mx-auto rounded-md"></div>
+                        <div className="bg-light-green h-40 w-[18rem] mx-auto rounded-md"></div>
+                    </div>
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export { HomeScreen }
-2
+export { HomeScreen };

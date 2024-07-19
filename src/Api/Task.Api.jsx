@@ -3,7 +3,8 @@ import getUserFromCookie from '../Utils/getUserCookies';
 
 const base = "http://localhost:3000";
 
-const createTask = async (task) => {
+
+export const createTask = async (task) => {
     const token = getUserFromCookie("user").token;
 
     const res = await axios.post(`${base}/tasks/create`, task, { headers: { Authorization: `Bearer ${token}` } });
@@ -11,7 +12,8 @@ const createTask = async (task) => {
     return res.data;
 }
 
-const updateTask = async (id, bodyUpdated) => {
+
+export const updateTask = async (id, bodyUpdated) => {
     const token = getUserFromCookie("user").token;
 
     const res = await axios.put(`${base}/tasks/update/${id}`, bodyUpdated, { headers: { Authorization: `Bearer ${token}` } });
@@ -19,7 +21,8 @@ const updateTask = async (id, bodyUpdated) => {
     return res.data;
 }
 
-const getNormalTasks = async () => {
+
+export const getNormalTasks = async () => {
     const token = getUserFromCookie("user").token;
 
     const userId = getUserFromCookie("user").userId;
@@ -29,7 +32,8 @@ const getNormalTasks = async () => {
     return res.data;
 }
 
-const getWaitingTasks = async () => {
+
+export const getWaitingTasks = async () => {
     const token = getUserFromCookie("user").token;
 
     const userId = getUserFromCookie("user").userId;
@@ -39,7 +43,8 @@ const getWaitingTasks = async () => {
     return res.data;
 }
 
-const getCompletedTasks = async () => {
+
+export const getCompletedTasks = async () => {
     const token = getUserFromCookie("user").token;
 
     const userId = getUserFromCookie("user").userId
@@ -49,9 +54,9 @@ const getCompletedTasks = async () => {
     return res.data;
 }
 
-const getUrgentTasks = async () => {
+export const getUrgentTasks = async () => {
     const token = getUserFromCookie("user").token;
-    
+
     const userId = getUserFromCookie("user").userId;
 
     const res = await axios.get(`${base}/tasks/urgent/${userId}`, { headers: { Authorization: `Bearer ${token}` } })
@@ -59,4 +64,35 @@ const getUrgentTasks = async () => {
     return res.data;
 }
 
-export { createTask, getNormalTasks, getWaitingTasks, getUrgentTasks, getCompletedTasks, updateTask }
+export const getUrgentTasksCompleted = async () => {
+    const token = getUserFromCookie("user").token;
+
+    const userId = getUserFromCookie("user").userId;
+
+    const res = await axios.get(`${base}/tasks/completed/urgent/${userId}`, { headers: { Authorization: `Bearer ${token}` } })
+
+    return res.data;
+}
+
+export const getWaitingTasksCompleted = async () => {
+    const token = getUserFromCookie("user").token;
+
+    const userId = getUserFromCookie("user").userId;
+
+    const res = await axios.get(`${base}/tasks/completed/waiting/${userId}`, { headers: { Authorization: `Bearer ${token}` } })
+
+    return res.data;
+}
+
+export const getNormalTasksCompleted = async () => {
+    const token = getUserFromCookie("user").token;
+
+    const userId = getUserFromCookie("user").userId;
+
+    const res = await axios.get(`${base}/tasks/completed/normal/${userId}`, { headers: { Authorization: `Bearer ${token}` } })
+
+    return res.data;
+}
+
+
+
