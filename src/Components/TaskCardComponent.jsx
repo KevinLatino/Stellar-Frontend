@@ -51,7 +51,7 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
     };
 
     return (
-        <div className="relative bg-white shadow-md rounded-[0.6rem] w-[23rem] h-[11rem] overflow-hidden flex" style={gradientStyle}>
+        <div className="relative bg-white shadow-md rounded-[0.6rem] w-[23.2rem] h-[11rem] overflow-hidden flex" style={gradientStyle}>
             <div className="absolute left-0 top-0 bottom-0 w-2" style={{ background: `linear-gradient(to bottom, ${gradientStyle['--gradient-start']}, ${gradientStyle['--gradient-end']})` }} />
             <div className="flex flex-col justify-between h-full pl-6 pr-4 py-4 flex-grow">
                 <div className="flex justify-between items-start mb-2">
