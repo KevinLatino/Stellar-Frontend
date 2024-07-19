@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { MoreHorizontal } from 'lucide-react'; // Importa el ícono de elipsis desde lucide-react
+import { MoreHorizontal } from 'lucide-react';
+import { useMutation, useQueryClient } from 'react-query';
+import { updateTask } from '../Api/Task.Api'; 
 
 const priorityGradientStyles = {
     espera: {
@@ -23,8 +25,18 @@ const priorityClasses = {
     default: 'bg-gray-200 text-gray-800'
 };
 
-const TaskCard = ({ title, description, priority, date, completed, onMarkComplete }) => {
+const TaskCard = ({ id, title, description, priority, date, completed }) => {
     const [menuVisible, setMenuVisible] = useState(false);
+    const queryClient = useQueryClient();
+
+    const mutation = useMutation(
+        (updatedTask) => updateTask(id, updatedTask),
+        {
+            onSuccess: () => {
+                queryClient.invalidateQueries('tasks');
+            }
+        }
+    );
 
     const priorityClass = priorityClasses[priority] || priorityClasses.default;
     const gradientStyle = priorityGradientStyles[priority] || priorityGradientStyles.espera;
@@ -34,7 +46,7 @@ const TaskCard = ({ title, description, priority, date, completed, onMarkComplet
     };
 
     const handleMarkComplete = () => {
-        onMarkComplete();
+        mutation.mutate({ completed: true });
         setMenuVisible(false);
     };
 

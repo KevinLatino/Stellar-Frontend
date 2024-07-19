@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Welcome from '../../public/Ilustrations/Welcome.png'
+import getUserFromCookie from '../Utils/getUserCookies'
 
 const HomeScreen = () => {
+
+    const [name, setName] = useState({name: ""});
+
+    useEffect(()=> {
+        const getName = getUserFromCookie("user").name;
+        setName({name: getName})
+    }, [])
     
     return (
         <>
@@ -10,7 +18,7 @@ const HomeScreen = () => {
                     <div className="my-14 ml-14 w-1/2">
                         <div className="w-full text-light-White">
                             <h1 className="text-4xl font-medium">
-                                <b>¡Bienvenido a Stellar!</b>
+                                <b>¡Bienvenido, {name.name}!</b>
                             </h1>
                             <p className="text-xl font-medium">
                                 Ya puedes organizar tus tareas de una mejor manera
@@ -27,9 +35,6 @@ const HomeScreen = () => {
                 </div>
                 <div>
                     <h1 className="text-xl font-medium text-stellar-blue">
-                        <span className="inline-block border-b-[0.1rem] border-[#48BC5E] pb-1">
-                            <b>¡Aquí están tus tareas completadas, sigue así!</b>
-                        </span>
                     </h1>
                 </div>
             </div>
