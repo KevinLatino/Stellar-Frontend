@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Welcome from '../../public/Ilustrations/Welcome.png';
 import getUserFromCookie from '../Utils/getUserCookies';
 import CompletedTaskComponent from '../Components/CompletedTaskComponent';
-import TaskCard from '../Components/TaskCardComponent'; // Importa TaskCard
+import TaskCard from '../Components/TaskCardComponent';
 
 const HomeScreen = () => {
     const [name, setName] = useState({ name: "" });
@@ -41,7 +41,11 @@ const HomeScreen = () => {
                     </div>
                     <div className='w-[30%] my-1'>
                         <div className="flex flex-col gap-5 bg-[#E0E4EE] p-5 rounded-xl">
-                            <h2 className="text-2xl font-medium">Tareas para hoy</h2>
+                            <h2 className="text-2xl font-semibold font-raleway  text-strong-blue">Tareas para hoy</h2>
+                            <CompletedTaskComponent />
+                            <CompletedTaskComponent />
+                            <CompletedTaskComponent />
+                            <CompletedTaskComponent />
                         </div>
                     </div>
                 </div>
