@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Welcome from '../../public/Ilustrations/Welcome.png';
 import getUserFromCookie from '../Utils/getUserCookies';
-import { getTodayTasks } from '../Api/Task.Api';
+import { getTodayTasks, getWeekTasks } from '../Api/Task.Api';
 import { useQuery } from 'react-query';
 import TaskCardCompact from '../Components/TaskCardCompact';
 import SpinnerComponent from '../Components/SpinnerComponent';
+import ToggleButton from '../Components/ToggleButtonComponent'; 
 
 const HomeScreen = () => {
-    const queryTodayTasks = useQuery({ queryKey: ["todayTasks"], queryFn: getTodayTasks});
+    const [view, setView] = useState("today"); 
+    const queryTodayTasks = useQuery({ queryKey: ["todayTasks"], queryFn: getTodayTasks });
+    const queryWeekTasks = useQuery({ queryKey: ["weekTasks"], queryFn: getWeekTasks });
 
     const [name, setName] = useState("");
 
@@ -18,7 +21,15 @@ const HomeScreen = () => {
         }
     }, []);
 
-    if (queryTodayTasks.isFetching) {
+    const handleViewChange = () => {
+        setView(view === "today" ? "week" : "today");
+    };
+
+    const tasks = view === "today" ? queryTodayTasks.data : queryWeekTasks.data;
+    const isLoading = view === "today" ? queryTodayTasks.isFetching : queryWeekTasks.isFetching;
+    const title = view === "today" ? "Tareas para hoy" : "Tareas para esta semana";
+
+    if (isLoading) {
         return (
             <div className='flex justify-center items-center h-full'>
                 <SpinnerComponent color={"strong-blue"} />
@@ -52,12 +63,13 @@ const HomeScreen = () => {
                         </div>
                     </div>
                     <div className='w-[27%] my-1'>
-                        <div className="flex flex-col gap-5 bg-[#E0E4EE] p-5 rounded-xl h-[81%] overflow-y-scroll">
-                            <div className='flex flex-col'>
-                                <h2 className="text-xl font-semibold font-raleway text-strong-blue">Tareas para hoy</h2>
+                        <div className="flex flex-col gap-5 bg-[#E0E4EE] p-5 rounded-xl h-[40rem] overflow-y-scroll">
+                            <div className='flex justify-between'>
+                                <h2 className="text-[1.2rem] font-semibold font-raleway text-strong-blue">{title}</h2>
+                                <ToggleButton isOn={view === "week"} handleToggle={handleViewChange} />
                             </div>
-                            <div className='flex flex-col gap-4 justify-center items-center'>
-                                {queryTodayTasks.data && queryTodayTasks.data.map(task => (
+                            <div className='flex flex-col-reverse gap-4 justify-center items-center'>
+                                {tasks && tasks.map(task => (
                                     <TaskCardCompact
                                         key={task.id}
                                         id={task.id}

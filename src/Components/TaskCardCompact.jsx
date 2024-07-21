@@ -1,7 +1,4 @@
-import React, { useState } from 'react';
-import { MoreHorizontal } from 'lucide-react';
-import { useMutation } from 'react-query';
-import { updateTask } from '../Api/Task.Api';
+import React from 'react'
 
 const priorityGradientStyles = {
     espera: {
@@ -33,21 +30,11 @@ const formatDate = (dateString) => {
     return `${day}/${month}/${year}`;
 };
 
-const TaskCardCompact = ({ id, title, description, priority, date, completed }) => {
-    const [menuVisible, setMenuVisible] = useState(false);
+const TaskCardCompact = ({ title, description, priority, date }) => {
 
     const priorityClass = priorityClasses[priority] || priorityClasses.default;
     const gradientStyle = priorityGradientStyles[priority] || priorityGradientStyles.espera;
 
-    const handleMenuToggle = () => {
-        setMenuVisible(!menuVisible);
-    };
-
-    const completedMutation = useMutation({ mutationFn: ({ id, bodyUpdate }) => updateTask(id, bodyUpdate) });
-
-    const handleCompleted = () => {
-        completedMutation.mutate({ id, bodyUpdate: { completed: !completed } });
-    };
 
     return (
         <div className="relative bg-white shadow-md rounded-[0.6rem] w-[18rem] h-[8rem] overflow-hidden flex" style={gradientStyle}>
@@ -56,17 +43,6 @@ const TaskCardCompact = ({ id, title, description, priority, date, completed }) 
                 <div className="flex justify-between items-start mb-1">
                     <h2 className="text-lg font-bold text-strong-blue font-raleway truncate pr-2">{title}</h2>
                     <div className="relative">
-                        <button className="text-stellar-blue" onClick={handleMenuToggle}>
-                            <MoreHorizontal size={20} />
-                        </button>
-                        {menuVisible && (
-                            <div className="absolute right-0 w-36 bg-white shadow-md rounded-lg z-10">
-                                <button className="block px-3 py-1 text-stellar-blue hover:bg-gray-200 w-full text-left"
-                                    onClick={handleCompleted}>
-                                    Completado
-                                </button>
-                            </div>
-                        )}
                     </div>
                 </div>
                 <p className="text-stellar-grey font-raleway text-sm flex-grow overflow-hidden">{description}</p>

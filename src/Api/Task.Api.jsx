@@ -101,5 +101,14 @@ export const getTodayTasks = async () => {
     return res.data
 }
 
+export const getWeekTasks = async () => {
+    
+    const userId = getUserFromCookie("user").userId;
+
+    const res = await axios.get(`${base}/tasks/week/${userId}`, getAuthorizedConfig());
+
+    return res.data
+}
+
 
 
