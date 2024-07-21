@@ -7,7 +7,7 @@ import TaskCardCompact from '../Components/TaskCardCompact';
 import SpinnerComponent from '../Components/SpinnerComponent';
 
 const HomeScreen = () => {
-    const queryTodayTasks = useQuery({ queryKey: ["todayTasks"], queryFn: getTodayTasks() });
+    const queryTodayTasks = useQuery({ queryKey: ["todayTasks"], queryFn: getTodayTasks});
 
     const [name, setName] = useState("");
 

@@ -2,14 +2,11 @@ import React from 'react';
 import { AddTask } from '../Components/AddTaskComponent';
 import Tasks from '../../public/Ilustrations/Task3.png';
 import { getNormalTasks, getUrgentTasks, getWaitingTasks } from '../Api/Task.Api';
-import { useAuth } from '../Context/context';
 import TaskCard from '../Components/TaskCardComponent';
 import SpinnerComponent from '../Components/SpinnerComponent';
 import { useQuery } from 'react-query';
 
 const TaskScreen = () => {
-    const { user } = useAuth();
-    const userId = user.userId;
 
     const urgentTaskQuery = useQuery({ queryKey: ["urgentTasks"], queryFn: () => getUrgentTasks() });
     const normalTaskQuery = useQuery({ queryKey: ["normalTasks"], queryFn: () => getNormalTasks() });

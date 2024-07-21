@@ -90,7 +90,7 @@ const LoginScreen = () => {
                         <hr className="flex-grow border-t border-[#FFFFFF]" />
                     </div>
                     <button
-                        className="bg-white text-black py-2 px-20 rounded-lg hover:bg-gray-200 transition duration-300 flex items-center justify-center gap-2"
+                        className="bg-white text-black font-raleway py-2 px-12 rounded-lg hover:bg-gray-200 transition duration-300 flex items-center justify-center gap-2"
                         onClick={handleGoogleLogin}
                     >
                         <FcGoogle size={28} /> Google
