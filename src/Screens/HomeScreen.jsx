@@ -63,7 +63,7 @@ const HomeScreen = () => {
                         </div>
                     </div>
                     <div className='w-[27%] my-1'>
-                        <div className="flex flex-col gap-5 bg-[#E0E4EE] p-5 rounded-xl h-[40rem] overflow-y-scroll">
+                        <div className="flex flex-col gap-5 bg-[#E0E4EE] p-5 rounded-xl h-[40rem]">
                             <div className='flex justify-between'>
                                 <h2 className="text-[1.2rem] font-semibold font-raleway text-strong-blue">{title}</h2>
                                 <ToggleButton isOn={view === "week"} handleToggle={handleViewChange} />

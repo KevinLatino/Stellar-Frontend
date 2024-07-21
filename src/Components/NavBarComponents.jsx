@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Home,
   Trophy,
@@ -7,61 +7,53 @@ import {
   BookOpenText,
   LogOut
 } from 'lucide-react';
-import { useNavigate, Outlet } from 'react-router-dom';
-import Alert from '../../public/Ilustrations/Bye.png'
+import { useNavigate, Outlet, useLocation } from 'react-router-dom';
+import Alert from '../../public/Ilustrations/Bye.png';
 import { useAuth } from '../Context/context';
-import StellarLogo from '../../public/STELLAR-LOGOS/StellarLogo-Over-StrongBlue.svg'
+import StellarLogo from '../../public/STELLAR-LOGOS/StellarLogo-Over-StrongBlue.svg';
 
 const NavBar = () => {
   const menu = [
     {},
-    {
-      title: "Inicio",
-      icon: <Home size={22} />,
-      route: "/sidebar/dashboard"
-    },
-    {
-      title: "Tareas",
-      icon: <BookOpenText size={22} />,
-      route: "/sidebar/tasks"
-    },
-    {
-      title: "Ranking",
-      icon: <Trophy size={22} />,
-      route: "/sidebar/ranking"
-    },
-    {
-      title: "Descubre",
-      icon: <Telescope size={22} />,
-      route: "/sidebar/discover"
-    },
-    {
-      title: "Perfil",
-      icon: <UserRound size={22} />,
-      route: "/sidebar/profile"
-    },
-    {
-      title: "Logout",
-      icon: <LogOut size={22} />,
-      route: "/sidebar/logout"
-    },
+    { title: "Inicio", icon: <Home size={22} />, route: "/sidebar/dashboard" },
+    { title: "Tareas", icon: <BookOpenText size={22} />, route: "/sidebar/tasks" },
+    { title: "Ranking", icon: <Trophy size={22} />, route: "/sidebar/ranking" },
+    { title: "Descubre", icon: <Telescope size={22} />, route: "/sidebar/discover" },
+    { title: "Perfil", icon: <UserRound size={22} />, route: "/sidebar/profile" },
+    { title: "Logout", icon: <LogOut size={22} />, route: "/sidebar/logout" },
     {}
   ];
 
   const { user, logout } = useAuth();
-
   const navigate = useNavigate();
+  const location = useLocation(); 
 
   if (user === null) navigate('/login');
 
   const [selectedMenu, setSelectedMenu] = useState(1);
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
 
+  useEffect(() => {
+    const savedMenuIndex = localStorage.getItem("selectedMenuIndex");
+    if (savedMenuIndex) {
+      setSelectedMenu(parseInt(savedMenuIndex, 10));
+    }
+  }, []);
+
+  useEffect(() => {
+    const currentPath = location.pathname;
+    const index = menu.findIndex(item => item.route === currentPath);
+    if (index !== -1) {
+      setSelectedMenu(index);
+    }
+  }, [location.pathname]);
+
   const handleMenuClick = (index, route) => {
     if (route === "/sidebar/logout") {
       setShowLogoutPopup(true);
     } else {
       setSelectedMenu(index);
+      localStorage.setItem("selectedMenuIndex", index);
       navigate(route);
     }
   };
@@ -77,8 +69,11 @@ const NavBar = () => {
   };
 
   const handleLogoClick = () => {
-    navigate('/sidebar/dashboard')
-  }
+    const dashboardIndex = menu.findIndex(item => item.route === '/sidebar/dashboard');
+    setSelectedMenu(dashboardIndex);
+    localStorage.setItem("selectedMenuIndex", dashboardIndex);
+    navigate('/sidebar/dashboard');
+  };
 
   return (
     <>
@@ -86,18 +81,25 @@ const NavBar = () => {
         <div className='bg-stellar-white'>
           <div className='bg-stellar-blue pl-8 pt-10 h-full w-[15rem]'>
             <div className='mb-10 mt-2 ml-3'>
-              <img src={StellarLogo} width={132} alt="Stellar-logo" className='cursor-pointer' onClick={handleLogoClick}/>
+              <img 
+                src={StellarLogo} 
+                width={132} 
+                alt="Stellar-logo" 
+                className='cursor-pointer' 
+                onClick={handleLogoClick} 
+              />
             </div>
             {menu.map((menuItem, index) => (
-              <div key={index} className={`transition-color ${selectedMenu === index ? 'bg-stellar-blue' : 'bg-stellar-white'}`}>
+              <div 
+                key={index} 
+                className={`transition-color ${selectedMenu === index ? 'bg-stellar-blue' : 'bg-stellar-white'}`}>
                 <div
                   onClick={(index > 0) && (index < menu.length - 1) ? () => handleMenuClick(index, menuItem.route) : null}
                   className={`flex bg-stellar-blue list-none items-center gap-x-8 cursor-pointer font-semibold p-3
                     ${index === 0 || index === menu.length - 1 ? 'cursor-auto' : 'cursor-pointer'}
                     ${selectedMenu === index ? 'bg-stellar-white text-stellar-blue rounded-l-full' : 'text-stellar-icon-color'}
                     ${selectedMenu === index + 1 ? 'rounded-br-[2rem]' : ''} 
-                    ${selectedMenu === index - 1 ? 'rounded-tr-[2rem]' : ''}  
-                  `}>
+                    ${selectedMenu === index - 1 ? 'rounded-tr-[2rem]' : ''}`}>
                   <span className={selectedMenu === index ? 'text-stellar-blue' : 'text-stellar-icon-color'}>
                     {menuItem.icon}
                   </span>
@@ -108,7 +110,7 @@ const NavBar = () => {
           </div>
         </div>
 
-        <div className='bg-stellar-blue w-full h-full '>
+        <div className='bg-stellar-blue w-full h-full'>
           <div className='p-7 rounded-tl-[2rem] rounded-bl-[2rem] bg-stellar-white w-full h-full overflow-auto'>
             <Outlet />
           </div>
