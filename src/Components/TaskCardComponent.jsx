@@ -51,7 +51,6 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
         ({ id, bodyUpdate }) => updateTask(id, bodyUpdate),
         {
             onSuccess: () => {
-                // Aquí refresca las consultas relacionadas después de completar una tarea
                 queryClient.refetchQueries(["urgentTasks"]);
                 queryClient.refetchQueries(["normalTasks"]);
                 queryClient.refetchQueries(["waitingTasks"]);

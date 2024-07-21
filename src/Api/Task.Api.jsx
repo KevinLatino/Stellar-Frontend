@@ -13,7 +13,6 @@ const getAuthorizedConfig = () => {
 };
 
 export const createTask = async (task) => {
-    const token = getUserFromCookie("user").token;
 
     const res = await axios.post(`${base}/tasks/create`, task, getAuthorizedConfig());
 
@@ -22,7 +21,6 @@ export const createTask = async (task) => {
 
 
 export const updateTask = async (id, bodyUpdated) => {
-    const token = getUserFromCookie("user").token;
 
     const res = await axios.put(`${base}/tasks/update/${id}`, bodyUpdated, getAuthorizedConfig());
 
@@ -31,7 +29,6 @@ export const updateTask = async (id, bodyUpdated) => {
 
 
 export const getNormalTasks = async () => {
-    const token = getUserFromCookie("user").token;
 
     const userId = getUserFromCookie("user").userId;
 
@@ -42,7 +39,6 @@ export const getNormalTasks = async () => {
 
 
 export const getWaitingTasks = async () => {
-    const token = getUserFromCookie("user").token;
 
     const userId = getUserFromCookie("user").userId;
 
@@ -53,7 +49,6 @@ export const getWaitingTasks = async () => {
 
 
 export const getCompletedTasks = async () => {
-    const token = getUserFromCookie("user").token;
 
     const userId = getUserFromCookie("user").userId
 
@@ -63,7 +58,6 @@ export const getCompletedTasks = async () => {
 }
 
 export const getUrgentTasks = async () => {
-    const token = getUserFromCookie("user").token;
 
     const userId = getUserFromCookie("user").userId;
 
@@ -73,7 +67,6 @@ export const getUrgentTasks = async () => {
 }
 
 export const getUrgentTasksCompleted = async () => {
-    const token = getUserFromCookie("user").token;
 
     const userId = getUserFromCookie("user").userId;
 
@@ -83,8 +76,6 @@ export const getUrgentTasksCompleted = async () => {
 }
 
 export const getWaitingTasksCompleted = async () => {
-    const token = getUserFromCookie("user").token;
-
     const userId = getUserFromCookie("user").userId;
 
     const res = await axios.get(`${base}/tasks/completed/waiting/${userId}`, getAuthorizedConfig())
@@ -93,7 +84,6 @@ export const getWaitingTasksCompleted = async () => {
 }
 
 export const getNormalTasksCompleted = async () => {
-    const token = getUserFromCookie("user").token;
 
     const userId = getUserFromCookie("user").userId;
 
@@ -103,7 +93,6 @@ export const getNormalTasksCompleted = async () => {
 }
 
 export const getTodayTasks = async () => {
-    const token = getUserFromCookie("user").token;
 
     const userId = getUserFromCookie("user").userId;
 
