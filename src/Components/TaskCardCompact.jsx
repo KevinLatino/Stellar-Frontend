@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { MoreHorizontal } from 'lucide-react';
 import { useMutation } from 'react-query';
-import { updateTask } from '../Api/Task.Api'
-import { useQueryClient } from 'react-query';
+import { updateTask } from '../Api/Task.Api';
 
 const priorityGradientStyles = {
     espera: {
@@ -20,10 +19,9 @@ const priorityGradientStyles = {
 };
 
 const priorityClasses = {
-    espera: 'bg-light-green text-white',
-    normal: 'bg-light-yellow text-white',
-    urgente: 'bg-light-red text-white',
-    default: 'bg-gray-200 text-gray-800'
+    espera: 'text-light-green font-raleway font-bold',
+    normal: 'text-light-yellow font-raleway font-bold',
+    urgente: 'text-light-red font-raleway font-bold',
 };
 
 const formatDate = (dateString) => {
@@ -35,7 +33,7 @@ const formatDate = (dateString) => {
     return `${day}/${month}/${year}`;
 };
 
-const TaskCard = ({ id, title, description, priority, date, completed }) => {
+const TaskCardCompact = ({ id, title, description, priority, date, completed }) => {
     const [menuVisible, setMenuVisible] = useState(false);
 
     const priorityClass = priorityClasses[priority] || priorityClasses.default;
@@ -45,41 +43,25 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
         setMenuVisible(!menuVisible);
     };
 
-    const queryClient = useQueryClient();
-
-    const completedMutation = useMutation(
-        ({ id, bodyUpdate }) => updateTask(id, bodyUpdate),
-        {
-            onSuccess: () => {
-                // Aquí refresca las consultas relacionadas después de completar una tarea
-                queryClient.refetchQueries(["urgentTasks"]);
-                queryClient.refetchQueries(["normalTasks"]);
-                queryClient.refetchQueries(["waitingTasks"]);
-            },
-            onError: (error) => {
-                console.error('Error al actualizar la tarea:', error);
-            }
-        }
-    );
-
+    const completedMutation = useMutation({ mutationFn: ({ id, bodyUpdate }) => updateTask(id, bodyUpdate) });
 
     const handleCompleted = () => {
         completedMutation.mutate({ id, bodyUpdate: { completed: !completed } });
     };
 
     return (
-        <div className="relative bg-white shadow-md rounded-[0.6rem] w-[23.2rem] h-[11rem] overflow-hidden flex" style={gradientStyle}>
+        <div className="relative bg-white shadow-md rounded-[0.6rem] w-[18rem] h-[8rem] overflow-hidden flex" style={gradientStyle}>
             <div className="absolute left-0 top-0 bottom-0 w-2" style={{ background: `linear-gradient(to bottom, ${gradientStyle['--gradient-start']}, ${gradientStyle['--gradient-end']})` }} />
-            <div className="flex flex-col justify-between h-full pl-6 pr-4 py-4 flex-grow">
-                <div className="flex justify-between items-start mb-2">
-                    <h2 className="text-xl font-bold text-stellar-blue font-raleway truncate pr-2">{title}</h2>
+            <div className="flex flex-col justify-between h-full pl-4 pr-3 py-3 flex-grow">
+                <div className="flex justify-between items-start mb-1">
+                    <h2 className="text-lg font-bold text-strong-blue font-raleway truncate pr-2">{title}</h2>
                     <div className="relative">
                         <button className="text-stellar-blue" onClick={handleMenuToggle}>
-                            <MoreHorizontal size={24} />
+                            <MoreHorizontal size={20} />
                         </button>
                         {menuVisible && (
-                            <div className="absolute right-0 w-48 bg-white shadow-md rounded-lg z-10">
-                                <button className="block px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left"
+                            <div className="absolute right-0 w-36 bg-white shadow-md rounded-lg z-10">
+                                <button className="block px-3 py-1 text-stellar-blue hover:bg-gray-200 w-full text-left"
                                     onClick={handleCompleted}>
                                     Completado
                                 </button>
@@ -87,19 +69,18 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
                         )}
                     </div>
                 </div>
-                <p className="text-stellar-grey font-raleway flex-grow overflow-hidden">{description}</p>
+                <p className="text-stellar-grey font-raleway text-sm flex-grow overflow-hidden">{description}</p>
                 <div className="flex items-center justify-between mt-auto">
-                    <span className={`px-3 py-1 rounded-full ${priorityClass}`}>
+                    <span className={`${priorityClass}`}>
                         {priority}
                     </span>
-                    <div className="flex items-center text-stellar-grey">
-                        {completed ? 'Completado' : 'No completado'}
+                    <div className="flex items-center text-stellar-grey text-sm">
                     </div>
-                    <span className="text-stellar-blue">{formatDate(date)}</span>
+                    <span className="text-stellar-blue text-sm">{formatDate(date)}</span>
                 </div>
             </div>
         </div>
     );
 };
 
-export default TaskCard;
+export default TaskCardCompact;

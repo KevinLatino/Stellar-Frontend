@@ -11,9 +11,9 @@ const TaskScreen = () => {
     const { user } = useAuth();
     const userId = user.userId;
 
-    const urgentTaskQuery = useQuery({ queryKey: ["urgentTasks"], queryFn: () => getUrgentTasks(userId) });
-    const normalTaskQuery = useQuery({ queryKey: ["normalTasks"], queryFn: () => getNormalTasks(userId) });
-    const waitingTaskQuery = useQuery({ queryKey: ["waitingTasks"], queryFn: () => getWaitingTasks(userId) });
+    const urgentTaskQuery = useQuery({ queryKey: ["urgentTasks"], queryFn: () => getUrgentTasks() });
+    const normalTaskQuery = useQuery({ queryKey: ["normalTasks"], queryFn: () => getNormalTasks() });
+    const waitingTaskQuery = useQuery({ queryKey: ["waitingTasks"], queryFn: () => getWaitingTasks() });
 
     if (urgentTaskQuery.isFetching || normalTaskQuery.isFetching || waitingTaskQuery.isFetching) {
         return (

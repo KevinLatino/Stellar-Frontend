@@ -70,13 +70,14 @@ const LoginScreen = () => {
                         onClick={handleLogin}
                         disabled={loginMutation.isLoading}
                     >
-                        {!loginMutation.isLoading ? 'Login' : 'Loading...'}
+                        {!loginMutation.isLoading ? 'Login' :
+                            loginMutation.isLoading && (
+                                <div className="mt-2">
+                                    <SpinnerComponent color={spinnerColor} />
+                                </div>
+                            )
+                        }
                     </button>
-                    {loginMutation.isLoading && (
-                        <div className="mt-2">
-                            <SpinnerComponent color={spinnerColor} />
-                        </div>
-                    )}
                 </div>
             </div>
             <div className="bg-strong-blue w-1/2 flex items-center justify-center">
