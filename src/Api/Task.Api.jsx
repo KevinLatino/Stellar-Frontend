@@ -102,7 +102,7 @@ export const getTodayTasks = async () => {
 }
 
 export const getWeekTasks = async () => {
-    
+
     const userId = getUserFromCookie("user").userId;
 
     const res = await axios.get(`${base}/tasks/week/${userId}`, getAuthorizedConfig());
@@ -110,5 +110,49 @@ export const getWeekTasks = async () => {
     return res.data
 }
 
+export const getPendingWaitingTasks = async () => {
+
+    const userId = getUserFromCookie("user").userId;
+
+    const res = await axios.get(`${base}/tasks/pending/waiting/${userId}`, getAuthorizedConfig());
+
+    return res.data
+}
+
+export const getPendingNormalTasks = async () => {
+
+    const userId = getUserFromCookie("user").userId;
+
+    const res = await axios.get(`${base}/tasks/pending/waiting/${userId}`, getAuthorizedConfig());
+
+    return res.data
+}
+
+export const getPendingUrgentgTasks = async () => {
+
+    const userId = getUserFromCookie("user").userId;
+
+    const res = await axios.get(`${base}/tasks/pending/waiting/${userId}`, getAuthorizedConfig());
+
+    return res.data
+}
+
+export const getTotalPending = async () => {
+
+    const userId = getUserFromCookie("user").userId;
+
+    const res = await axios.get(`${base}/tasks/pending/total/${userId}`, getAuthorizedConfig());
+
+    return res.data
+}
+
+export const getOverdue = async () => {
+
+    const userId = getUserFromCookie("user").userId;
+
+    const res = await axios.get(`${base}/tasks/overdue/${userId}`, getAuthorizedConfig());
+
+    return res.data
+}
 
 
