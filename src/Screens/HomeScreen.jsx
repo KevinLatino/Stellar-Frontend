@@ -5,10 +5,11 @@ import { getTodayTasks, getWeekTasks } from '../Api/Task.Api';
 import { useQuery } from 'react-query';
 import TaskCardCompact from '../Components/TaskCardCompact';
 import SpinnerComponent from '../Components/SpinnerComponent';
-import ToggleButton from '../Components/ToggleButtonComponent'; 
+import ToggleButton from '../Components/ToggleButtonComponent';
+import TaskCompletionChart from '../Components/TaskCompletionChart';
 
 const HomeScreen = () => {
-    const [view, setView] = useState("today"); 
+    const [view, setView] = useState("today");
     const queryTodayTasks = useQuery({ queryKey: ["todayTasks"], queryFn: getTodayTasks });
     const queryWeekTasks = useQuery({ queryKey: ["weekTasks"], queryFn: getWeekTasks });
 
@@ -60,6 +61,9 @@ const HomeScreen = () => {
                                     className="absolute left-[168px] bottom-[0%]"
                                 />
                             </div>
+                        </div>
+                        <div className='mt-[2rem]'>
+                            <TaskCompletionChart />
                         </div>
                     </div>
                     <div className='w-[27%] my-1'>
