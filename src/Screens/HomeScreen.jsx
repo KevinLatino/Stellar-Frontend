@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Welcome from '../../public/Ilustrations/Welcome.png';
 import getUserFromCookie from '../Utils/getUserCookies';
-import { getTodayTasks, getWeekTasks } from '../Api/Task.Api';
-import { useQuery } from 'react-query';
-import SpinnerComponent from '../Components/SpinnerComponent';
+
 import BarChar from '../Components/BarChartComponent';
 import LineChart from '../Components/LineChartComponent';
 
 const HomeScreen = () => {
-    const [view, setView] = useState("today");
-    const queryTodayTasks = useQuery({ queryKey: ["todayTasks"], queryFn: getTodayTasks });
-    const queryWeekTasks = useQuery({ queryKey: ["weekTasks"], queryFn: getWeekTasks });
-
+    
     const [name, setName] = useState("");
 
     useEffect(() => {
@@ -20,16 +15,6 @@ const HomeScreen = () => {
             setName(user.name);
         }
     }, []);
-
-    const isLoading = view === "today" ? queryTodayTasks.isFetching : queryWeekTasks.isFetching;
-
-    if (isLoading) {
-        return (
-            <div className='flex justify-center items-center h-full'>
-                <SpinnerComponent color={"strong-blue"} />
-            </div>
-        );
-    }
 
     return (
         <>
@@ -58,14 +43,14 @@ const HomeScreen = () => {
                         <div className='flex flex-col gap-32'>
                             <div className='mt-6'>
                                 <h1 className="text-xl font-medium text-stellar-blue">
-                                    <span className="inline-block border-b-[0.1rem] border-light-blue pb-1">
+                                    <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
                                         <b>¡Tus logros desbloqueados!</b>
                                     </span>
                                 </h1>
                             </div>
                             <div className='flex flex-col justify-center gap-8'>
                                 <h1 className="text-xl font-medium text-stellar-blue">
-                                    <span className="inline-block border-b-[0.1rem] border-light-blue pb-1">
+                                    <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
                                         <b>¡Tus gráficos!</b>
                                     </span>
                                 </h1>

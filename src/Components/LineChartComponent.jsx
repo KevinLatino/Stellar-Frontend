@@ -1,17 +1,51 @@
 import React, { useEffect, useRef } from 'react';
 import { Line } from 'react-chartjs-2';
+import {
+    getJanuaryCompletedTask,
+    getFebruaryCompletedTask,
+    getMarchCompletedTask,
+    getAprilCompletedTask,
+    getMayCompletedTask,
+    getJuneCompletedTask,
+    getJulyCompletedTask,
+    getAugustCompletedTask
+} from '../Api/Task.Api';
+import { useQuery } from 'react-query';
 import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend);
 
+const useMonthlyTasks = () => {
+    return {
+        januaryCompletedTask: useQuery('januaryCompletedTasks', getJanuaryCompletedTask),
+        februaryCompletedTask: useQuery('februaryCompletedTasks', getFebruaryCompletedTask),
+        marchCompletedTask: useQuery('marchCompletedTasks', getMarchCompletedTask),
+        aprilCompletedTask: useQuery('aprilCompletedTasks', getAprilCompletedTask),
+        mayCompletedTask: useQuery('mayCompletedTasks', getMayCompletedTask),
+        juneCompletedTask: useQuery('juneCompletedTasks', getJuneCompletedTask),
+        julyCompletedTask: useQuery('julyCompletedTasks', getJulyCompletedTask),
+        augustCompletedTask: useQuery('augustCompletedTasks', getAugustCompletedTask)
+    };
+};
+
 const LineChart = () => {
     const chartRef = useRef(null);
+    const queries = useMonthlyTasks();
+
+    const januaryCount = queries.januaryCompletedTask.data || 0;
+    const februaryCount = queries.februaryCompletedTask.data || 0;
+    const marchCount = queries.marchCompletedTask.data || 0;
+    const aprilCount = queries.aprilCompletedTask.data || 0;
+    const mayCount = queries.mayCompletedTask.data || 0;
+    const juneCount = queries.juneCompletedTask.data || 0;
+    const julyCount = queries.julyCompletedTask.data || 0;
+    const augustCount = queries.augustCompletedTask.data || 0;
 
     const data = {
         labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto'],
         datasets: [{
-            label: 'Tareas',
-            data: [65, 59, 80, 81, 26, 55, 40],
+            label: 'Tareas completadas',
+            data: [januaryCount, februaryCount, marchCount, aprilCount, mayCount, juneCount, julyCount, augustCount],
             fill: false,
             borderColor: '#4461f2',
         }]
@@ -50,7 +84,7 @@ const LineChart = () => {
         if (chart) {
             chart.update();
         }
-    }, []);
+    }, [queries]);
 
     return (
         <div className='w-[30rem] h-[30rem]'>
