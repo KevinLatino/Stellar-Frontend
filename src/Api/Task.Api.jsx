@@ -155,4 +155,15 @@ export const getOverdue = async () => {
     return res.data
 }
 
+export const countOverdue = async () => {
+
+    const userId = getUserFromCookie("user").userId;
+
+    const res = await axios.get(`${base}/tasks/total/overdue/${userId}`, getAuthorizedConfig());
+
+    return res.data
+}
+
+
+
 

@@ -55,7 +55,7 @@ const HomeScreen = () => {
                                 />
                             </div>
                         </div>
-                        <div className='flex flex-col gap-52'>
+                        <div className='flex flex-col gap-32'>
                             <div className='mt-6'>
                                 <h1 className="text-xl font-medium text-stellar-blue">
                                     <span className="inline-block border-b-[0.1rem] border-light-blue pb-1">
@@ -70,8 +70,8 @@ const HomeScreen = () => {
                                     </span>
                                 </h1>
                                 <div className='flex justify-center gap-20 '>
-                                <BarChar />
-                                <LineChart />
+                                    <BarChar />
+                                    <LineChart />
                                 </div>
                             </div>
                         </div>

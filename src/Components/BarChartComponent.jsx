@@ -6,7 +6,7 @@ import {
   getPendingUrgentgTasks,
   getTotalPending,
   getPendingWaitingTasks, 
-  getOverdue
+  countOverdue
 } from '../Api/Task.Api';
 import { useQuery } from 'react-query';
 
@@ -17,19 +17,21 @@ const BarChart = () => {
   const urgentsTasksQuery = useQuery({queryKey:["urgentTasks"], queryFn: getPendingUrgentgTasks});
   const normalTasksQuery = useQuery({queryKey: ["normalTasks"], queryFn: getPendingNormalTasks});
   const waitingTasksQuery = useQuery({queryKey: ["waitingTasks"], queryFn: getPendingWaitingTasks});
-  const totalPendingQuery = useQuery({queryKey: ["pendingTasks"], queryFn: getTotalPending})
+  const totalPendingQuery = useQuery({queryKey: ["pendingTasks"], queryFn: getTotalPending});
+  const countOverdueQuery = useQuery({queryKey: ["totalPendingTasks"], queryFn: countOverdue})
 
   const urgentsTasks = urgentsTasksQuery.data || 0;
   const normalTasks = normalTasksQuery.data || 0;
   const waitingTasks = waitingTasksQuery.data || 0;
-  const totalPending = totalPendingQuery.data || 0
+  const totalPending = totalPendingQuery.data || 0;
+  const totalOverdue = countOverdueQuery.data || 0;
 
   const data = {
     labels: ['Urgentes', 'Normales', 'En espera', 'Totales', 'Perdidas'],
     datasets: [
       {
         label: 'Sobre tus Tareas pendientes',
-        data: [urgentsTasks, normalTasks, waitingTasks, totalPending, 10],
+        data: [urgentsTasks, normalTasks, waitingTasks, totalPending, totalOverdue],
         backgroundColor: '#009bf9',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1,
