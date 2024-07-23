@@ -21,13 +21,7 @@ const HomeScreen = () => {
         }
     }, []);
 
-    const handleViewChange = () => {
-        setView(view === "today" ? "week" : "today");
-    };
-
-    const tasks = view === "today" ? queryTodayTasks.data : queryWeekTasks.data;
     const isLoading = view === "today" ? queryTodayTasks.isFetching : queryWeekTasks.isFetching;
-    const title = view === "today" ? "Tareas para hoy" : "Tareas para esta semana";
 
     if (isLoading) {
         return (
@@ -53,17 +47,26 @@ const HomeScreen = () => {
                                     </p>
                                 </div>
                             </div>
-                            <div className="w-[12rem] hidden sm:flex relative">
+                            <div className="w-[13rem] hidden sm:flex relative">
                                 <img
                                     src={Welcome}
                                     alt="Ilustration"
-                                    className="absolute left-[168px] bottom-[0%]"
+                                    className="absolute left-[300px] bottom-[0%]"
                                 />
                             </div>
                         </div>
-                        <div className='mt-[2rem] flex justify-center gap-40'>
-                            <BarChar />
-                            <LineChart />
+                        <div className='flex flex-col gap-52'>
+                            <div className='mt-6'>
+                                <h1 className="text-xl font-medium text-stellar-blue">
+                                    <span className="inline-block border-b-[0.1rem] border-light-blue pb-1">
+                                        <b>¡Tus logros desbloqueados!</b>
+                                    </span>
+                                </h1>
+                            </div>
+                            <div className='flex justify-center gap-36'>
+                                <BarChar />
+                                <LineChart />
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -25,14 +25,16 @@ const BarChart = () => {
   const totalPending = totalPendingQuery.data || 0
 
   const data = {
-    labels: ['Urgentes', 'normales', 'en espera', 'Totales', 'perdidas'],
+    labels: ['Urgentes', 'Normales', 'En espera', 'Totales', 'Perdidas'],
     datasets: [
       {
         label: 'Sobre tus Tareas pendientes',
         data: [urgentsTasks, normalTasks, waitingTasks, totalPending, 10],
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        backgroundColor: '#009bf9',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1,
+        barThickness: 40, 
+        borderRadius: 4, 
       },
     ],
   };

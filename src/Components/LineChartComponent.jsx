@@ -10,10 +10,10 @@ const LineChart = () => {
     const data = {
         labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto'],
         datasets: [{
-            label: 'Looping tension',
+            label: 'Tareas',
             data: [65, 59, 80, 81, 26, 55, 40],
             fill: false,
-            borderColor: 'rgb(75, 192, 192)',
+            borderColor: '#4461f2',
         }]
     };
 
@@ -25,7 +25,7 @@ const LineChart = () => {
             },
             title: {
                 display: true,
-                text: 'Gráfico de Ventas',
+                text: 'Tareas completas en los últimos meses',
             },
         },
         animations: {
