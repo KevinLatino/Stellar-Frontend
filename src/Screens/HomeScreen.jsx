@@ -63,9 +63,16 @@ const HomeScreen = () => {
                                     </span>
                                 </h1>
                             </div>
-                            <div className='flex justify-center gap-36'>
+                            <div className='flex flex-col justify-center gap-8'>
+                                <h1 className="text-xl font-medium text-stellar-blue">
+                                    <span className="inline-block border-b-[0.1rem] border-light-blue pb-1">
+                                        <b>¡Tus gráficos!</b>
+                                    </span>
+                                </h1>
+                                <div className='flex justify-center gap-20 '>
                                 <BarChar />
                                 <LineChart />
+                                </div>
                             </div>
                         </div>
                     </div>
