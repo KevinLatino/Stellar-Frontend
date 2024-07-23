@@ -14,9 +14,9 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const BarChart = () => {
 
-  const urgentsTasksQuery = useQuery({queryKey:["urgentTasks"], queryFn: getPendingUrgentgTasks});
-  const normalTasksQuery = useQuery({queryKey: ["normalTasks"], queryFn: getPendingNormalTasks});
-  const waitingTasksQuery = useQuery({queryKey: ["waitingTasks"], queryFn: getPendingWaitingTasks});
+  const urgentsTasksQuery = useQuery({queryKey:["urgentPendingTasks"], queryFn: getPendingUrgentgTasks});
+  const normalTasksQuery = useQuery({queryKey: ["normalPendingTasks"], queryFn: getPendingNormalTasks});
+  const waitingTasksQuery = useQuery({queryKey: ["waitingPendingTasks"], queryFn: getPendingWaitingTasks});
   const totalPendingQuery = useQuery({queryKey: ["pendingTasks"], queryFn: getTotalPending});
   const countOverdueQuery = useQuery({queryKey: ["totalPendingTasks"], queryFn: countOverdue})
 
@@ -68,15 +68,6 @@ const BarChart = () => {
     type: 'line',
     data: data,
     options: {
-      animations: {
-        tension: {
-          duration: 1000,
-          easing: 'linear',
-          from: 1,
-          to: 0,
-          loop: true
-        }
-      },
       scales: {
         y: {
           min: 0,

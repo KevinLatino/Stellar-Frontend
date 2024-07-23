@@ -73,9 +73,6 @@ const LineChart = () => {
                     family: 'Raleway, sans-serif',
                 },
             },
-            tooltip: {
-                enabled: false 
-            }
         },
         animations: {
             tension: {
