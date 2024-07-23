@@ -42,6 +42,29 @@ const BarChart = () => {
   };
 
   const config = {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Estado de las Tareas Pendientes',
+        font: {
+          size: 16,
+          family: 'Raleway, sans-serif',
+          weight: 'bold'
+        },
+        color: '#333'
+      },
+      legend: {
+        display: true,
+        position: 'top',
+        labels: {
+          color: '#333',
+          font: {
+            size: 14,
+            family: 'Raleway, sans-serif'
+          }
+        }
+      }
+    },
     type: 'line',
     data: data,
     options: {

@@ -56,11 +56,26 @@ const LineChart = () => {
         plugins: {
             legend: {
                 position: 'top',
+                labels: {
+                    color: '#0B103D',
+                    font: {
+                        size: 14,
+                        family:  'Raleway, sans-serif'
+                    },
+                },
             },
             title: {
                 display: true,
+                color: "#0B103D",
                 text: 'Tareas completas en los últimos meses',
+                font: {
+                    size: 16,
+                    family: 'Raleway, sans-serif',
+                },
             },
+            tooltip: {
+                enabled: false 
+            }
         },
         animations: {
             tension: {
@@ -72,9 +87,26 @@ const LineChart = () => {
             }
         },
         scales: {
+            x: {
+                grid: {
+                    display: false,
+                },
+                ticks: {
+                    autoSkip: true, 
+                    maxTicksLimit: 8 
+                }
+            },
             y: {
-                min: 0,
-                max: 100
+                grid: {
+                    borderColor: '#ddd', 
+                    borderWidth: 1,
+                    color: (context) => context.tick.value % 20 === 0 ? '#ddd' : 'transparent', 
+                },
+                ticks: {
+                    autoSkip: true,
+                    maxTicksLimit: 5,
+                    stepSize: 10, 
+                }
             }
         }
     };
