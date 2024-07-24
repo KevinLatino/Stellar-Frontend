@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   LayoutDashboard ,
-  Trophy,
+  CalendarHeart,
   Telescope,
   UserRound,
   BookOpenText,
@@ -17,7 +17,7 @@ const NavBar = () => {
     {},
     { title: "DashBoard", icon: <LayoutDashboard  size={22} />, route: "/sidebar/dashboard" },
     { title: "Tareas", icon: <BookOpenText size={22} />, route: "/sidebar/tasks" },
-    { title: "Ranking", icon: <Trophy size={22} />, route: "/sidebar/ranking" },
+    { title: "Calendario", icon: <CalendarHeart size={22} />, route: "/sidebar/ranking" },
     { title: "Descubre", icon: <Telescope size={22} />, route: "/sidebar/discover" },
     { title: "Perfil", icon: <UserRound size={22} />, route: "/sidebar/profile" },
     { title: "Logout", icon: <LogOut size={22} />, route: "/sidebar/logout" },

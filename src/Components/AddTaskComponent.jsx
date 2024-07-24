@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import useFormSetters from '../hooks/useFormSetter';
-import { Plus, Pencil, Captions, Star, CalendarHeart } from 'lucide-react';
+import { Plus, Pencil, Captions, Star, CalendarHeart, ClipboardList  } from 'lucide-react';
 import { useQueryClient } from 'react-query';
 import { useMutation } from 'react-query';
 import { createTask } from '../Api/Task.Api';
@@ -54,7 +54,10 @@ const AddTask = () => {
             {isPopupOpen && (
                 <div className="animate__animated animate__fadeIn fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
                     <div className="flex flex-col justify-center items-center animate__animated animate__bounceInDown bg-white p-6 rounded-lg w-[32rem] max-w-full text-center">
-                        <h2 className="text-2xl mb-4 font-raleway border-b-[0.1rem] border-light-blue">Crear una nueva tarea</h2>
+                        <h2 className="text-2xl flex gap-3 mb-4 font-raleway border-b-[0.1rem] border-light-blue">
+                            Crear una nueva tarea
+                            <ClipboardList size={25}  />
+                        </h2>
 
                         <div className="relative mb-4 w-full max-w-md">
                             <Pencil size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />

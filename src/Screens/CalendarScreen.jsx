@@ -1,7 +1,9 @@
 import React from 'react'
 import Ranking from '../../public/Ilustrations/Ranking.png'
 import Goal from '../../public/Ilustrations/Medal.png'
-const RankingScreen = () => {
+
+
+const CalenndarScreen = () => {
     return (
         <>
             <div className='flex flex-col gap-8'>
@@ -38,4 +40,4 @@ const RankingScreen = () => {
     )
 }
 
-export { RankingScreen }
+export { CalenndarScreen }

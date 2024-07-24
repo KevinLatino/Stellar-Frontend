@@ -44,7 +44,7 @@ const HomeScreen = () => {
                             <div className='mt-6'>
                                 <h1 className="text-xl font-medium text-stellar-blue">
                                     <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                                        <b>¡Tus logros desbloqueados!</b>
+                                        <b>¡Tareas para esta semana!</b>
                                     </span>
                                 </h1>
                             </div>

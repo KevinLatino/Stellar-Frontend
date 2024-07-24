@@ -3,6 +3,7 @@ import { MoreHorizontal } from 'lucide-react';
 import { useMutation } from 'react-query';
 import { updateTask } from '../Api/Task.Api';
 import { useQueryClient } from 'react-query';
+import { CircleCheckBig, PencilLine } from 'lucide-react'
 
 
 const priorityGradientStyles = {
@@ -80,11 +81,13 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
                             </button>
                             {menuVisible && (
                                 <div className="absolute right-0 w-48 bg-white shadow-md rounded-lg z-10">
-                                    <button className="block px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left" onClick={handleCompleted}>
+                                    <button className="flex gap-1 px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left" onClick={handleCompleted}>
                                         Completado
+                                        <CircleCheckBig size={19} color='#48BC5E' />
                                     </button>
-                                    <button className="block px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left" onClick={() => setIsEditing(true)}>
+                                    <button className="flex gap-1 px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left" onClick={() => setIsEditing(true)}>
                                         Editar
+                                        <PencilLine size={20} />
                                     </button>
                                 </div>
                             )}
@@ -97,6 +100,7 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
                         </span>
                         <div className="flex items-center text-stellar-grey">
                             {completed ? 'Completado' : 'No completado'}
+
                         </div>
                         <span className="text-stellar-blue">{formatDate(date)}</span>
                     </div>

@@ -32,8 +32,7 @@ const BarChart = () => {
       {
         label: 'Sobre tus Tareas pendientes',
         data: [urgentsTasks, normalTasks, waitingTasks, totalPending, totalOverdue],
-        backgroundColor: '#009bf9',
-        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: '#4461F2',
         borderWidth: 1,
         barThickness: 40, 
         borderRadius: 4, 
