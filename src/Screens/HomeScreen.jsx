@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Welcome from '../../public/Ilustrations/Welcome.png';
 import getUserFromCookie from '../Utils/getUserCookies';
-import TaskCard from '../Components/TaskCardCompact';
+import HomeTasks from '../Components/HomeTaskComponent';
 import BarChart from '../Components/BarChartComponent';
 import LineChart from '../Components/LineChartComponent';
+import SpinnerComponent from '../Components/SpinnerComponent'
 import { getWeekTasks } from '../Api/Task.Api';
 import { useQuery } from 'react-query';
 
@@ -20,7 +21,7 @@ const HomeScreen = () => {
     }, []);
 
     if (weekTasksQuery.isLoading) {
-        return <div>Cargando...</div>;
+        return <SpinnerComponent />
     }
 
     if (weekTasksQuery.error) {
@@ -58,7 +59,7 @@ const HomeScreen = () => {
                         </h1>
                         <div className='flex justify-center items-center gap-x-12'>
                             {weekTasksQuery.data.map(task => (
-                                <TaskCard
+                                <HomeTasks
                                     key={task.id}
                                     id={task.id}
                                     title={task.title}
