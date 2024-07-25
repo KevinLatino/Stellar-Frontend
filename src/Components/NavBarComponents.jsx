@@ -15,7 +15,7 @@ import StellarLogo from '../../public/STELLAR-LOGOS/StellarLogo-Over-StrongBlue.
 const NavBar = () => {
   const menu = [
     {},
-    { title: "DashBoard", icon: <LayoutDashboard  size={22} />, route: "/sidebar/dashboard" },
+    { title: "Dashboard", icon: <LayoutDashboard  size={22} />, route: "/sidebar/dashboard" },
     { title: "Tareas", icon: <BookOpenText size={22} />, route: "/sidebar/tasks" },
     { title: "Calendario", icon: <CalendarHeart size={22} />, route: "/sidebar/ranking" },
     { title: "Descubre", icon: <Telescope size={22} />, route: "/sidebar/discover" },

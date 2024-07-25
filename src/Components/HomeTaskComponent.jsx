@@ -3,7 +3,6 @@ import { MoreHorizontal } from 'lucide-react';
 import { useMutation } from 'react-query';
 import { updateTask } from '../Api/Task.Api';
 import { useQueryClient } from 'react-query';
-import { CircleCheckBig, PencilLine } from 'lucide-react'
 
 const priorityGradientStyles = {
     espera: {
@@ -21,10 +20,10 @@ const priorityGradientStyles = {
 };
 
 const priorityClasses = {
-    espera: 'bg-light-green text-white',
-    normal: 'bg-light-yellow text-white',
-    urgente: 'bg-light-red text-white',
-    default: 'bg-gray-200 text-gray-800'
+    espera: 'text-light-green font-bold font-raleway',
+    normal: 'text-light-yellow font-bold font-raleway',
+    urgente: 'text-light-red font-bold font-raleway',
+    default: 'text-gray-800'
 };
 
 const formatDate = (dateString) => {
@@ -36,7 +35,7 @@ const formatDate = (dateString) => {
     return `${day}/${month}/${year}`;
 };
 
-const TaskCard = ({ id, title, description, priority, date, completed }) => {
+const HomeTasks = ({ id, title, description, priority, date, completed }) => {
     const [menuVisible, setMenuVisible] = useState(false);
 
     const priorityClass = priorityClasses[priority] || priorityClasses.default;
@@ -66,10 +65,9 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
         completedMutation.mutate({ id, bodyUpdate: { completed: !completed } });
     };
 
-
     return (
         <div>
-            <div className="relative bg-white shadow-md rounded-[0.6rem] w-[23.2rem] h-[11rem] overflow-hidden flex" style={gradientStyle}>
+            <div className="relative bg-white shadow-md rounded-[0.6rem] w-[23rem] h-[9.6rem] overflow-hidden flex" style={gradientStyle}>
                 <div className="absolute left-0 top-0 bottom-0 w-2" style={{ background: `linear-gradient(to bottom, ${gradientStyle['--gradient-start']}, ${gradientStyle['--gradient-end']})` }} />
                 <div className="flex flex-col justify-between h-full pl-6 pr-4 py-4 flex-grow">
                     <div className="flex justify-between items-start mb-2">
@@ -80,13 +78,11 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
                             </button>
                             {menuVisible && (
                                 <div className="absolute right-0 w-48 bg-white shadow-md rounded-lg z-10">
-                                    <button className="flex gap-1 px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left" onClick={handleCompleted}>
+                                    <button className="block px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left" onClick={handleCompleted}>
                                         Completado
-                                        <CircleCheckBig size={19} color='#48BC5E' />
                                     </button>
-                                    <button className="flex gap-1 px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left" onClick={() => setIsEditing(true)}>
+                                    <button className="block px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left" onClick={() => setIsEditing(true)}>
                                         Editar
-                                        <PencilLine size={20} />
                                     </button>
                                 </div>
                             )}
@@ -94,13 +90,9 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
                     </div>
                     <p className="text-stellar-grey font-raleway flex-grow overflow-hidden">{description}</p>
                     <div className="flex items-center justify-between mt-auto">
-                        <span className={`px-3 py-1 rounded-full ${priorityClass}`}>
+                        <span className={`py-1 ${priorityClass}`}>
                             {priority}
                         </span>
-                        <div className="flex items-center text-stellar-grey">
-                            {completed ? 'Completado' : 'No completado'}
-
-                        </div>
                         <span className="text-stellar-blue">{formatDate(date)}</span>
                     </div>
                 </div>
@@ -109,4 +101,4 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
     );
 };
 
-export default TaskCard;
+export default HomeTasks;

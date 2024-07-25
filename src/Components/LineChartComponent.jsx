@@ -116,7 +116,7 @@ const LineChart = () => {
     }, [queries]);
 
     return (
-        <div className='w-[30rem] h-[30rem]'>
+        <div className='w-[30rem]'>
             <Line ref={chartRef} data={data} options={options} />
         </div>
     );

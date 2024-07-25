@@ -78,7 +78,7 @@ const BarChart = () => {
 
   return (
     <>
-      <div className='w-[32rem] h-[40rem]'>
+      <div className='w-[30rem]'>
         <Bar data={data} options={config} />
       </div>
     </>
