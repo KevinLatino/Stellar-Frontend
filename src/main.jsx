@@ -5,7 +5,7 @@ import { QueryClientProvider } from 'react-query';
 import { QueryClient } from 'react-query';
 import { HomeScreen } from './Screens/HomeScreen';
 import { TaskScreen } from './Screens/TaskScreen';
-import { CalenndarScreen } from './Screens/CalendarScreen';
+import { CalendarScreen } from './Screens/CalendarScreen';
 import { ProfileScreen } from './Screens/ProfileScreen';
 import { DiscoverScreen } from './Screens/DiscoverScreen';
 import { RegisterScreen } from './Screens/RegisterScreen';
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'ranking',
-        element: <CalenndarScreen />
+        element: <CalendarScreen />
       },
       {
         path: 'discover',

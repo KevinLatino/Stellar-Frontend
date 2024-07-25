@@ -51,7 +51,7 @@ const HomeScreen = () => {
                             />
                         </div>
                     </div>
-                    <div className='flex flex-col gap-10 mt-5'>
+                    <div className='flex flex-col gap-7 mt-5'>
                         <h1 className="text-xl font-medium text-stellar-blue">
                             <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
                                 <b>¡Tareas para esta semana!</b>
@@ -76,7 +76,7 @@ const HomeScreen = () => {
                                     <b>¡Tus gráficos!</b>
                                 </span>
                             </h1>
-                            <div className='flex justify-center gap-20'>
+                            <div className='flex justify-center gap-40'>
                                 <BarChart />
                                 <LineChart />
                             </div>
