@@ -1,0 +1,49 @@
+.rbc-calendar {
+    width: 100%;
+    height: 98%;
+    border-radius: 18px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    overflow: hidden;
+    background-color: white;
+}
+
+.rbc-month-view {
+    border-radius: 18px; 
+}
+
+.rbc-toolbar {
+    display: flex;
+    flex-direction: wrap;
+    padding: 1rem; 
+    column-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.rbc-toolbar-label{
+    font-family: 'Raleway', sans-serif;
+    font-size: x-large;
+    font-weight:630;
+}
+
+.columnheader{
+    font-family: 'Raleway', sans-serif;  
+}
+
+.rbc-day-bg.rbc-off-range-bg{
+    background-color: white;
+}
+
+button {
+    background: none; /* Quita el fondo */
+    border: none; /* Quita el borde */
+    padding: 0; /* Quita el padding */
+    margin: 0; /* Quita el margin */
+    cursor: pointer; /* Cambia el cursor a mano */
+    outline: none;
+}
+
+button:focus {
+    outline: none; /* Quita el outline al hacer foco */
+}

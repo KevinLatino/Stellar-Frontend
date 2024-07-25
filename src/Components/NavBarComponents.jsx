@@ -17,7 +17,7 @@ const NavBar = () => {
     {},
     { title: "Dashboard", icon: <LayoutDashboard  size={22} />, route: "/sidebar/dashboard" },
     { title: "Tareas", icon: <BookOpenText size={22} />, route: "/sidebar/tasks" },
-    { title: "Calendario", icon: <CalendarHeart size={22} />, route: "/sidebar/ranking" },
+    { title: "Calendario", icon: <CalendarHeart size={22} />, route: "/sidebar/calendar" },
     { title: "Descubre", icon: <Telescope size={22} />, route: "/sidebar/discover" },
     { title: "Perfil", icon: <UserRound size={22} />, route: "/sidebar/profile" },
     { title: "Logout", icon: <LogOut size={22} />, route: "/sidebar/logout" },

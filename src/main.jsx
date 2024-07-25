@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         element: <TaskScreen />
       },
       {
-        path: 'ranking',
+        path: 'Calendar',
         element: <CalendarScreen />
       },
       {
