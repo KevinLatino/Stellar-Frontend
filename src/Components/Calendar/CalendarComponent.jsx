@@ -17,7 +17,7 @@ const CalendarComponent = () => {
                     localizer={localizer}
                     views={['month']}
                     components={{
-                        toolbar: ToolbarComponent, // Usa el componente personalizado para la barra de herramientas
+                        toolbar: ToolbarComponent,
                     }}
                 />
             </div>

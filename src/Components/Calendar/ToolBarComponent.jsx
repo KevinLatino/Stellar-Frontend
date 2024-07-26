@@ -24,7 +24,7 @@ const ToolbarComponent = (props) => {
                 onFocus={(e) => e.target.style.outline = 'none'}
                 onMouseDown={(e) => e.preventDefault()}
             >
-                <ChevronLeft color='#4461F2' />
+                <ChevronLeft size={31} color='#4461F2' />
             </button>
             <span className='text-stellar-blue text-2xl font-semibold'>{label}</span>
             <button
@@ -33,7 +33,7 @@ const ToolbarComponent = (props) => {
                 onFocus={(e) => e.target.style.outline = 'none'}
                 onMouseDown={(e) => e.preventDefault()}
             >
-                <ChevronRight color='#4461F2' />
+                <ChevronRight size={31} color='#4461F2' />
             </button>
         </div>
     );
