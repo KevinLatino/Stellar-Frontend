@@ -27,7 +27,7 @@ const BarChart = () => {
   const totalOverdue = countOverdueQuery.data || 0;
 
   const data = {
-    labels: ['Urgentes', 'Normales', 'En espera', 'Totales', 'Perdidas'],
+    labels: ['Alta', 'Moderada', 'Baja','Totales', 'Perdidas'],
     datasets: [
       {
         label: 'Sobre tus Tareas pendientes',

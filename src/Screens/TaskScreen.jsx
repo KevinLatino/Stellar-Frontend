@@ -1,11 +1,14 @@
 import React from 'react';
 import { AddTask } from '../Components/AddTaskComponent';
-import Tasks from '../../public/Ilustrations/Task3.png';
-import TaskCard from '../Components/TaskCardComponent';
-import { getNormalTasks, getUrgentTasks, getWaitingTasks } from '../Api/Task.Api';
+import {
+    getNormalTasks,
+    getUrgentTasks,
+    getWaitingTasks
+} from '../Api/Task.Api';
 import { MainSpinner } from '../Components/SpinnerComponent'
 import { useQuery } from 'react-query';
-
+import Tasks from '../../public/Ilustrations/Task3.png';
+import TaskCard from '../Components/TaskCardComponent';
 const TaskScreen = () => {
 
     const urgentTaskQuery = useQuery({ queryKey: ["urgentTasks"], queryFn: () => getUrgentTasks() });
@@ -46,7 +49,7 @@ const TaskScreen = () => {
                     <div className='flex flex-col gap-1'>
                         <h1 className="text-xl font-medium text-stellar-blue">
                             <span className="inline-block border-b-[0.1rem] border-light-red pb-1">
-                                <b>¡Tus tareas urgentes!</b>
+                                <b>¡Tus tareas con alta urgencia!</b>
                             </span>
                         </h1>
                     </div>
@@ -57,7 +60,7 @@ const TaskScreen = () => {
                     </div>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                            <b>¡Tus tareas siguientes!</b>
+                            <b>¡Tus tareas con urgencia moderada!</b>
                         </span>
                     </h1>
                     <div className='flex justify-center items-center flex-wrap gap-x-6 gap-y-6'>
@@ -67,7 +70,7 @@ const TaskScreen = () => {
                     </div>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-green pb-1">
-                            <b>¡Tus tareas en espera!</b>
+                            <b>¡Tus tareas con baja urgencia!</b>
                         </span>
                     </h1>
                     <div className='flex justify-center items-center flex-wrap gap-x-6 gap-y-6'>

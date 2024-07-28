@@ -88,10 +88,10 @@ const AddTask = () => {
                                 value={formState.priority}
                                 className="bg-[#E0E4EE] text-gray-800 placeholder-strong-blue py-2 pl-10 pr-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             >
-                                <option className='text-gray-800 font-raleway'>Selecciona la prioridad</option>
-                                <option value="espera" className='text-light-green font-raleway'>Espera</option>
-                                <option value="normal" className='text-light-yellow font-raleway' >Normal</option>
-                                <option value="urgente" className='text-strong-red font-raleway'>Urgente</option>
+                                <option className='text-gray-800 font-raleway'>Selecciona el nivel de prioridad</option>
+                                <option value="Baja" className='text-light-green font-raleway'>Baja</option>
+                                <option value="Moderada" className='text-light-yellow font-raleway' >Normal</option>
+                                <option value="Alta" className='text-strong-red font-raleway'>Alta</option>
                             </select>
                         </div>
 

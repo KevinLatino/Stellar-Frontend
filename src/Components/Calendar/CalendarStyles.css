@@ -1,29 +1,35 @@
-.priority-espera {
-    background-color: #a8eab4 !important; 
+.priority-Baja {
+    background-color: #00ba3538 !important; 
     padding: 0.5rem !important;
-    color: #06a123 !important; 
+    color: #00BA34 !important; 
     border-radius: 15px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif !important; 
 }
 
-.priority-normal {
-    background-color: #f7d9a5 !important; 
+.priority-Moderada {
+    background-color: #FF961B22 !important; 
     padding: 0.5rem !important;
-    color: #ff9500 !important; 
+    color: #FF9F2D !important; 
     border-radius: 15px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif !important; 
 }
 
-.priority-urgente {
-    background-color: #f6c0c0 !important;
+.priority-Alta {
+    background-color: #ff3b3b22 !important;
     padding: 0.5rem !important;
-    color: rgb(254, 84, 84) !important; 
+    color: #E92C2C !important; 
     border-radius: 15px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif !important; 
 }
 
 .rbc-calendar {
     width: 100%;
     height: 98%;
     border-radius: 18px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 6px 4px rgba(0, 0, 0, 0.1); 
     overflow: hidden;
     background-color: white;
 }

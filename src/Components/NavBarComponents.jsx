@@ -79,7 +79,7 @@ const NavBar = () => {
     <>
       <div className="flex h-screen">
         <div className='bg-stellar-white'>
-          <div className='bg-stellar-blue pl-8 pt-10 h-full w-[15rem]'>
+          <div className='bg-stellar-blue pl-8 pt-10 h-full w-[14rem]'>
             <div className='mb-10 mt-2 ml-3'>
               <img 
                 src={StellarLogo} 

@@ -6,25 +6,24 @@ import { useQueryClient } from 'react-query';
 import { CircleCheckBig, PencilLine } from 'lucide-react'
 
 const priorityGradientStyles = {
-    espera: {
+    Baja: {
         '--gradient-start': '#3CD058',
         '--gradient-end': '#036615'
     },
-    normal: {
+    Moderada: {
         '--gradient-start': '#F9B742',
         '--gradient-end': '#CA860E'
     },
-    urgente: {
+    Alta: {
         '--gradient-start': '#FC5A5A',
         '--gradient-end': '#990505'
     }
 };
 
 const priorityClasses = {
-    espera: 'bg-light-green text-white',
-    normal: 'bg-light-yellow text-white',
-    urgente: 'bg-light-red text-white',
-    default: 'bg-gray-200 text-gray-800'
+    Baja: 'text-light-green font-raleway text-l font-bold',
+    Moderada: 'text-light-yellow font-raleway text-l font-bold',
+    Alta: 'text-light-red font-raleway text-l font-bold',
 };
 
 const formatDate = (dateString) => {
@@ -40,7 +39,7 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
     const [menuVisible, setMenuVisible] = useState(false);
 
     const priorityClass = priorityClasses[priority] || priorityClasses.default;
-    const gradientStyle = priorityGradientStyles[priority] || priorityGradientStyles.espera;
+    const gradientStyle = priorityGradientStyles[priority] || priorityGradientStyles.Baja;
 
     const handleMenuToggle = () => {
         setMenuVisible(!menuVisible);
