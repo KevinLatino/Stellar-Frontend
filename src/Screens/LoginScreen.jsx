@@ -6,7 +6,7 @@ import { useAuth } from '../Context/context';
 import { useNavigate } from 'react-router-dom';
 import useFormSetters from '../hooks/useFormSetter';
 import FallingBg from '../../public/Ilustrations/Falling-Bg.png';
-import SpinnerComponent from '../Components/SpinnerComponent';
+import { SecondSpinner } from '../Components/SpinnerComponent';
 import { FcGoogle } from "react-icons/fc";
 
 
@@ -79,7 +79,7 @@ const LoginScreen = () => {
                         {!loginMutation.isLoading ? 'Login' :
                             loginMutation.isLoading && (
                                 <div className="mt-2">
-                                    <SpinnerComponent color={spinnerColor} />
+                                    <SecondSpinner />
                                 </div>
                             )
                         }

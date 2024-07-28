@@ -4,11 +4,11 @@ import getUserFromCookie from '../Utils/getUserCookies';
 import HomeTasks from '../Components/HomeTaskComponent';
 import BarChart from '../Components/BarChartComponent';
 import LineChart from '../Components/LineChartComponent';
-import SpinnerComponent from '../Components/SpinnerComponent'
+import { MainSpinner } from '../Components/SpinnerComponent'
 import { getWeekTasks } from '../Api/Task.Api';
 import { useQuery } from 'react-query';
 
-const HomeScreen = () => {
+const DashboardScreen = () => {
     const weekTasksQuery = useQuery({ queryKey: ["weekTasks"], queryFn: getWeekTasks });
 
     const [name, setName] = useState("");
@@ -21,7 +21,11 @@ const HomeScreen = () => {
     }, []);
 
     if (weekTasksQuery.isLoading) {
-        return <SpinnerComponent />
+        return (
+            <div className='flex justify-center items-center h-full'>
+                <MainSpinner />
+            </div>
+        );
     }
 
     if (weekTasksQuery.error) {
@@ -88,4 +92,4 @@ const HomeScreen = () => {
     );
 };
 
-export { HomeScreen };
+export { DashboardScreen };

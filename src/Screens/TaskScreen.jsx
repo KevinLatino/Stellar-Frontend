@@ -1,9 +1,9 @@
 import React from 'react';
 import { AddTask } from '../Components/AddTaskComponent';
 import Tasks from '../../public/Ilustrations/Task3.png';
-import { getNormalTasks, getUrgentTasks, getWaitingTasks } from '../Api/Task.Api';
 import TaskCard from '../Components/TaskCardComponent';
-import SpinnerComponent from '../Components/SpinnerComponent';
+import { getNormalTasks, getUrgentTasks, getWaitingTasks } from '../Api/Task.Api';
+import { MainSpinner } from '../Components/SpinnerComponent'
 import { useQuery } from 'react-query';
 
 const TaskScreen = () => {
@@ -15,7 +15,7 @@ const TaskScreen = () => {
     if (urgentTaskQuery.isFetching || normalTaskQuery.isFetching || waitingTaskQuery.isFetching) {
         return (
             <div className='flex justify-center items-center h-full'>
-                <SpinnerComponent color={"strong-blue"} />
+                <MainSpinner />
             </div>
         );
     }

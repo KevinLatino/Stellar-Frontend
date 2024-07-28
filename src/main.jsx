@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { QueryClientProvider } from 'react-query';
 import { QueryClient } from 'react-query';
-import { HomeScreen } from './Screens/HomeScreen';
+import { DashboardScreen } from './Screens/DashboardScreen';
 import { TaskScreen } from './Screens/TaskScreen';
 import { CalendarScreen } from './Screens/CalendarScreen';
 import { ProfileScreen } from './Screens/ProfileScreen';
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "dashboard",
-        element: <HomeScreen />
+        element: <DashboardScreen />
       },
       {
         path: 'tasks',

@@ -5,7 +5,7 @@ import { useMutation } from 'react-query';
 import { RegisterApi } from '../Api/Register.Api';
 import { useNavigate } from 'react-router-dom';
 import useFormSetters from '../hooks/useFormSetter'
-import SpinnerComponent from '../Components/SpinnerComponent';
+import {SecondSpinner} from '../Components/SpinnerComponent';
 
 
 
@@ -89,7 +89,7 @@ const RegisterScreen = () => {
                     </button>
                     {registerMutation.isLoading && (
                         <div className="mt-2">
-                            <SpinnerComponent />
+                            <SecondSpinner />
                         </div>
                     )}
                 </div>

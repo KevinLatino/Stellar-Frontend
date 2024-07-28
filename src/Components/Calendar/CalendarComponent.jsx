@@ -8,14 +8,15 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./CalendarStyles.css";
 import { getTitleAndDate } from '../../Api/Task.Api';
 import { useQuery } from 'react-query';
+import { MainSpinner } from '../SpinnerComponent';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
 const CalendarComponent = () => {
-    const { data: titleDateTasks, isLoading, error } = useQuery({ queryKey: ["titleDateTasks"], queryFn: getTitleAndDate });
+    const titleDateQuery = useQuery({ queryKey: ["titleDateTasks"], queryFn: getTitleAndDate });
 
-    const events = titleDateTasks ? titleDateTasks.map(task => ({
+    const events = titleDateQuery.data ? titleDateQuery.data.map(task => ({
         start: dayjs.utc(task.dueDate).local().startOf('day').add(1, 'day').toDate(),
         end: dayjs.utc(task.dueDate).local().endOf('day').add(1, 'day').toDate(),
         title: task.title,
@@ -23,8 +24,13 @@ const CalendarComponent = () => {
 
     const localizer = dayjsLocalizer(dayjs);
 
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error.message}</div>;
+    if (titleDateQuery.isLoading) 
+        return (
+        <div className='animate__animated animate__fadeInDown h-full'>
+            <CalendarComponent />
+        </div>
+    )
+    if (titleDateQuery.error) return <div>Error: {titleDateQuery.error.message}</div>;
 
     return (
         <>
