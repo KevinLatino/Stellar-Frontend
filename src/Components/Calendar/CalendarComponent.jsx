@@ -6,24 +6,25 @@ import timezone from 'dayjs/plugin/timezone';
 import ToolbarComponent from './ToolBarComponent';
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./CalendarStyles.css";
+import { getTitleAndDate } from '../../Api/Task.Api';
+import { useQuery } from 'react-query';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
 const CalendarComponent = () => {
+    const { data: titleDateTasks, isLoading, error } = useQuery({ queryKey: ["titleDateTasks"], queryFn: getTitleAndDate });
 
-    const events = [
-        {
-            start: dayjs('2024-07-07').toDate(),
-            end: dayjs('2024-07-07').toDate(),
-            title: "Terminar Stellar",
-            data: {
-                x: 10
-            }
-        }
-    ];
+    const events = titleDateTasks ? titleDateTasks.map(task => ({
+        start: dayjs.utc(task.dueDate).local().startOf('day').add(1, 'day').toDate(),
+        end: dayjs.utc(task.dueDate).local().endOf('day').add(1, 'day').toDate(),
+        title: task.title,
+    })) : [];
 
     const localizer = dayjsLocalizer(dayjs);
+
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error.message}</div>;
 
     return (
         <>
