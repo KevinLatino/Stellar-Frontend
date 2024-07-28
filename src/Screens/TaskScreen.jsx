@@ -15,7 +15,7 @@ const TaskScreen = () => {
     if (urgentTaskQuery.isFetching || normalTaskQuery.isFetching || waitingTaskQuery.isFetching) {
         return (
             <div className='flex justify-center items-center h-full'>
-                <MainSpinner/>
+                <MainSpinner />
             </div>
         );
     }
@@ -24,22 +24,22 @@ const TaskScreen = () => {
         <>
             <div className='animate__animated animate__fadeInDown'>
                 <div className='flex flex-col gap-9'>
-                    <div className="flex  my-2 bg-light-blue rounded-3xl">
-                        <div className="my-14  ml-14 w-1/2">
-                            <div className="w-full h-[4rem] text-light-White">
-                                <h1 className="text-4xl font-medium">
+                    <div className="flex p-6 h-full w-full bg-gradient-to-r from-[#4461f2] to-[#4461F2] rounded-3xl">
+                        <div className="w-1/2 h-[7.5rem]">
+                            <div className="flex flex-col gap-1 pl-6 justify-center h-full">
+                                <h1 className="text-4xl font-medium text-white">
                                     <b>¡Crea y visualiza tus Tareas!</b>
                                 </h1>
-                                <p className="text-xl font-medium">
-                                    En este espacio puedes tomar el control de tus deberes
+                                <p className="text-xl font-medium text-white">
+                                    En este espacio puedes tomar el control total de tus deberes
                                 </p>
                             </div>
                         </div>
-                        <div className="w-[14rem] hidden sm:flex relative">
+                        <div className="w-[14.2rem] hidden sm:flex relative">
                             <img
                                 src={Tasks}
                                 alt="Ilustration"
-                                className="absolute left-[280px] bottom-[0%]"
+                                className="absolute left-[300px] bottom-[-20%]"
                             />
                         </div>
                     </div>
