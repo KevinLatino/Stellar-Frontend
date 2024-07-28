@@ -56,7 +56,7 @@ const HomeTasks = ({ id, title, description, priority, date, completed }) => {
                 queryClient.refetchQueries(["waitingTasks"]);
             },
             onError: (error) => {
-                console.error('Error al actualizar la tarea:', error);
+                console.error('Error:', error);
             }
         }
     );
