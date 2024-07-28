@@ -15,7 +15,7 @@ const TaskScreen = () => {
     if (urgentTaskQuery.isFetching || normalTaskQuery.isFetching || waitingTaskQuery.isFetching) {
         return (
             <div className='flex justify-center items-center h-full'>
-                <MainSpinner />
+                <MainSpinner/>
             </div>
         );
     }
@@ -24,9 +24,9 @@ const TaskScreen = () => {
         <>
             <div className='animate__animated animate__fadeInDown'>
                 <div className='flex flex-col gap-9'>
-                    <div className="flex my-2 bg-light-blue rounded-3xl">
-                        <div className="my-14 ml-14 w-1/2">
-                            <div className="w-full text-light-White">
+                    <div className="flex  my-2 bg-light-blue rounded-3xl">
+                        <div className="my-14  ml-14 w-1/2">
+                            <div className="w-full h-[4rem] text-light-White">
                                 <h1 className="text-4xl font-medium">
                                     <b>¡Crea y visualiza tus Tareas!</b>
                                 </h1>
@@ -35,11 +35,11 @@ const TaskScreen = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="w-[15rem] hidden sm:flex relative">
+                        <div className="w-[14rem] hidden sm:flex relative">
                             <img
                                 src={Tasks}
                                 alt="Ilustration"
-                                className="absolute left-[188px] bottom-[0%]"
+                                className="absolute left-[280px] bottom-[0%]"
                             />
                         </div>
                     </div>

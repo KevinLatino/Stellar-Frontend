@@ -1,3 +1,24 @@
+.priority-espera {
+    background-color: #a8eab4 !important; 
+    padding: 0.5rem !important;
+    color: #06a123 !important; 
+    border-radius: 15px;
+}
+
+.priority-normal {
+    background-color: #f7d9a5 !important; 
+    padding: 0.5rem !important;
+    color: #ff9500 !important; 
+    border-radius: 15px;
+}
+
+.priority-urgente {
+    background-color: #f6c0c0 !important;
+    padding: 0.5rem !important;
+    color: rgb(254, 84, 84) !important; 
+    border-radius: 15px;
+}
+
 .rbc-calendar {
     width: 100%;
     height: 98%;
@@ -31,10 +52,8 @@
 }
 
 .rbc-event{
-    background-color: #f6c0c0  !important;
-    width: 10rem !important;
+    background-color: #ffffff  !important;
 }
-
 
 .rbc-header{
     padding: 13px !important;
@@ -44,4 +63,3 @@
 .rbc-day-bg.rbc-off-range-bg{
     background-color: white;
 }
-
