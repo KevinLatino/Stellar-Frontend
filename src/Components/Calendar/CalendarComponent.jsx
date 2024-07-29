@@ -22,7 +22,7 @@ const CalendarComponent = () => {
 
     if (titleDateQuery.isLoading) {
         return (
-            <div className='animate__animated animate__fadeInDown h-full'>
+            <div className='flex justify-center items-center h-full'>
                 <MainSpinner />
             </div>
         )

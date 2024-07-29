@@ -5,25 +5,24 @@ import { updateTask } from '../Api/Task.Api';
 import { useQueryClient } from 'react-query';
 
 const priorityGradientStyles = {
-    espera: {
+    Baja: {
         '--gradient-start': '#3CD058',
         '--gradient-end': '#036615'
     },
-    normal: {
+    Moderada: {
         '--gradient-start': '#F9B742',
         '--gradient-end': '#CA860E'
     },
-    urgente: {
+    Alta: {
         '--gradient-start': '#FC5A5A',
         '--gradient-end': '#990505'
     }
 };
 
 const priorityClasses = {
-    espera: 'text-light-green font-bold font-raleway',
-    normal: 'text-light-yellow font-bold font-raleway',
-    urgente: 'text-light-red font-bold font-raleway',
-    default: 'text-gray-800'
+    Baja: 'text-light-green font-bold font-raleway',
+    Moderada: 'text-light-yellow font-bold font-raleway',
+    Alta: 'text-light-red font-bold font-raleway',
 };
 
 const formatDate = (dateString) => {
