@@ -1,5 +1,6 @@
 import React from 'react'
 import Discover from '../../public/Ilustrations/Sitting2.png'
+import DiscoverCardComponent from '../Components/DiscoverCardComponent'
 import 'animate.css'
 
 const DiscoverScreen = () => {
@@ -25,12 +26,17 @@ const DiscoverScreen = () => {
                         />
                     </div>
                 </div>
-                <div>
-                <h1 className="text-xl font-medium text-stellar-blue">
+                <div className='flex flex-col gap-y-14'>
+                    <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
                             <b>¡Has click en la sección de interés!</b>
                         </span>
                     </h1>
+                    <div className='flex items-center justify-center gap-[4rem]'>
+                        <DiscoverCardComponent />
+                        <DiscoverCardComponent />
+                        <DiscoverCardComponent />
+                    </div>
                 </div>
             </div>
         </>
