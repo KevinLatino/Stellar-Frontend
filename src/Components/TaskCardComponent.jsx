@@ -7,16 +7,16 @@ import { CircleCheckBig, PencilLine } from 'lucide-react'
 
 const priorityGradientStyles = {
     Baja: {
-        '--gradient-start': '#3CD058',
-        '--gradient-end': '#036615'
+        '--gradient-start': '#56D06D',
+        '--gradient-end': '#388F48'
     },
     Moderada: {
-        '--gradient-start': '#F9B742',
-        '--gradient-end': '#CA860E'
+        '--gradient-start': '#FFC55D',
+        '--gradient-end': '#E19716'
     },
     Alta: {
-        '--gradient-start': '#FC5A5A',
-        '--gradient-end': '#990505'
+        '--gradient-start': '#FF7F7F',
+        '--gradient-end': '#D20A0A'
     }
 };
 

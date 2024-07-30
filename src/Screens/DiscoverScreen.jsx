@@ -1,12 +1,51 @@
-import React from 'react'
-import Discover from '../../public/Ilustrations/Sitting2.png'
-import DiscoverCardComponent from '../Components/DiscoverCardComponent'
-import 'animate.css'
+import React from 'react';
+import Discover from '../../public/Ilustrations/Sitting2.png';
+import DiscoverCardComponent from '../Components/DiscoverCardComponent';
+import 'animate.css';
 
 const DiscoverScreen = () => {
+    const cardContent = [
+        {
+            title: "Clasificación de tareas",
+            description: "Aprende como clasificar tus tareas.",
+            src: "",
+            bg: "light-green"
+        },
+        {
+            title: "Card title",
+            description: "This is a description for the card.",
+            src: "",
+            bg: "black"
+        },
+        {
+            title: "Card title",
+            description: "This is a description for the card.",
+            src: "",
+            bg: "light-green"
+        },
+        {
+            title: "Card title",
+            description: "This is a description for the card.",
+            src: "",
+            bg: "light-blue"
+        },
+        {
+            title: "Card title",
+            description: "This is a description for the card.",
+            src: "",
+            bg: "black"
+        },
+        {
+            title: "Card title",
+            description: "This is a description for the card.",
+            src: "",
+            bg: "black"
+        }
+    ];
+
     return (
         <>
-            <div className='flex flex-col  h-full gap-11 animate__animated animate__fadeInDown'>
+            <div className='flex flex-col gap-11 animate__animated animate__fadeInDown'>
                 <div className="flex h-[10.5rem] w-full bg-gradient-to-r from-[#4461f2] to-[#4461F2] rounded-3xl">
                     <div className="w-1/2 p-4">
                         <div className="flex flex-col gap-1 pl-6 justify-center h-full">
@@ -22,27 +61,31 @@ const DiscoverScreen = () => {
                         <img
                             src={Discover}
                             alt="Ilustration"
-                            className="absolute left-[340px] bottom-[-60%]"
+                            className="absolute left-[340px] bottom-[-65%]"
                         />
                     </div>
                 </div>
-                <div className='flex flex-col gap-y-14'>
+                <div className='flex flex-col flex-grow gap-y-14'>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                            <b>¡Has click en la sección de interés!</b>
+                            <b>¡Haz click en la sección de interés!</b>
                         </span>
                     </h1>
-                    <div className='flex items-center justify-center gap-[4rem]'>
-                        <DiscoverCardComponent />
-                        <DiscoverCardComponent />
-                        <DiscoverCardComponent />
+                    <div className='flex items-center justify-center gap-y-[3rem] gap-x-[4rem] flex-wrap'>
+                        {cardContent.map(content => (
+                            <DiscoverCardComponent
+                                key={content.title}
+                                title={content.title}
+                                description={content.description}
+                                src={content.src}
+                                bg={content.bg}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>
         </>
-    )
+    );
 }
-
-
 
 export { DiscoverScreen };
