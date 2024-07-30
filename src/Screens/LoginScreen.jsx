@@ -5,7 +5,7 @@ import { LoginApi } from '../Api/Login.Api';
 import { useAuth } from '../Context/context';
 import { useNavigate } from 'react-router-dom';
 import useFormSetters from '../hooks/useFormSetter';
-import FallingBg from '../../public/Ilustrations/Falling-Bg.png';
+import Stellar from '../../public/STELLAR-LOGOS/Stellar-Login.png';
 import { SecondSpinner } from '../Components/SpinnerComponent';
 import { FcGoogle } from "react-icons/fc";
 
@@ -90,15 +90,15 @@ const LoginScreen = () => {
                         <hr className="flex-grow border-t border-[#FFFFFF]" />
                     </div>
                     <button
-                        className="bg-white text-black font-raleway py-2 px-12 rounded-lg hover:bg-gray-200 transition duration-300 flex items-center justify-center gap-2"
+                        className="bg-white text-strong-blue text-lg fo font-raleway py-2 px-12 rounded-lg hover:bg-gray-200 transition duration-300 flex items-center justify-center gap-2"
                         onClick={handleGoogleLogin}
                     >
-                        <FcGoogle size={28} /> Google
+                        <FcGoogle size={28} /> 
                     </button>
                 </div>
             </div>
             <div className="bg-strong-blue w-1/2 flex items-center justify-center">
-                <img src={FallingBg} className='h-full pointer-events-none' />
+                <img src={Stellar} className='h-full w-full pointer-events-none' />
             </div>
         </div>
     );
