@@ -236,7 +236,14 @@ export const getAugustCompletedTask = async () => {
 export const getTitleAndDate = async () => {
     const userId = getUserFromCookie("user").userId;
 
-    const res = await axios.get(`${base}/titles-dates/${userId}`,  getAuthorizedConfig());
+    const res = await axios.get(`${base}/titles-dates/${userId}`, getAuthorizedConfig());
+
+    return res.data;
+}
+
+export const deleteTask = async (id) => {
+
+    const res = await axios.delete(`${base}/tasks/delete/${id}`, getAuthorizedConfig());
 
     return res.data;
 }

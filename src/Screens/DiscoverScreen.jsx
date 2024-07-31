@@ -6,40 +6,40 @@ import 'animate.css';
 const DiscoverScreen = () => {
     const cardContent = [
         {
-            title: "Clasificación de tareas",
-            description: "Aprende como clasificar tus tareas.",
-            src: "",
-            bg: "light-green"
-        },
-        {
-            title: "Card title",
-            description: "This is a description for the card.",
-            src: "",
-            bg: "black"
-        },
-        {
-            title: "Card title",
-            description: "This is a description for the card.",
-            src: "",
-            bg: "light-green"
-        },
-        {
-            title: "Card title",
-            description: "This is a description for the card.",
-            src: "",
+            title: "Dominando el control del Tiempo",
+            description: "Aprende la importancia de tener objetivos claros para la eficiencia personal.",
+            img: "PeoplePlanning",
             bg: "light-blue"
         },
         {
-            title: "Card title",
-            description: "This is a description for the card.",
-            src: "",
-            bg: "black"
+            title: "Eliminación de distracciones",
+            description: "Descubre cómo las distracciones afectan la productividad.",
+            img: "PeoplePlaying",
+            bg: "light-blue"
         },
         {
-            title: "Card title",
-            description: "This is a description for the card.",
-            src: "",
-            bg: "black"
+            title: "Establecer objetivos claros",
+            description: "Aprende la importancia de tener objetivos claros para la eficiencia personal.",
+            img: "PeopleGoal",
+            bg: "light-blue"
+        },
+        {
+            title: "Priorizando tareas ",
+            description: "La importancia de priorizar tareas para maximizar la eficiencia.",
+            img: "PeopleNotes",
+            bg: "light-blue"
+        },
+        {
+            title: "Mejora de toma de decisiones",
+            description: " La importancia de tomar decisiones eficientes para aumentar la productividad.",
+            img: "",
+            bg: "light-blue"
+        },
+        {
+            title: "Cuidado Personal y Balance",
+            description: "La importancia del cuidado personal y el balance en la eficiencia personal.",
+            img: "PeopleMeditation",
+            bg: "light-blue"
         }
     ];
 
@@ -77,7 +77,7 @@ const DiscoverScreen = () => {
                                 key={content.title}
                                 title={content.title}
                                 description={content.description}
-                                src={content.src}
+                                img={content.img}
                                 bg={content.bg}
                             />
                         ))}

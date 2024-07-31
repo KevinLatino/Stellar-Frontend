@@ -7,7 +7,7 @@ import {
 } from '../Api/Task.Api';
 import { MainSpinner } from '../Components/SpinnerComponent'
 import { useQuery } from 'react-query';
-import Tasks from '../../public/Ilustrations/Task3.png';
+import Tasks from '../../public/Ilustrations/Discover.png';
 import TaskCard from '../Components/TaskCardComponent';
 const TaskScreen = () => {
 
@@ -38,11 +38,11 @@ const TaskScreen = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="w-[14.2rem] hidden sm:flex relative">
+                        <div className="w-[18.5rem] hidden sm:flex relative">
                             <img
                                 src={Tasks}
                                 alt="Ilustration"
-                                className="absolute left-[300px] bottom-[-20%]"
+                                className="absolute left-[250px] bottom-[-20%]"
                             />
                         </div>
                     </div>
@@ -63,7 +63,7 @@ const TaskScreen = () => {
                             <b>¡Tus tareas con urgencia moderada!</b>
                         </span>
                     </h1>
-                    <div className='flex justify-center items-center flex-wrap gap-x-6 gap-y-6'>
+                    <div className='flex justify-center items-end flex-wrap gap-x-6 gap-y-6'>
                         {normalTaskQuery.data.map(task => (
                             <TaskCard key={task.id} id={task.id} title={task.title} description={task.description} date={task.dueDate} completed={task.completed} priority={task.priority} />
                         ))}
