@@ -3,7 +3,7 @@ import { MoreHorizontal } from 'lucide-react';
 import { useMutation } from 'react-query';
 import { updateTask } from '../Api/Task.Api';
 import { useQueryClient } from 'react-query';
-import { CircleCheckBig, PencilLine } from 'lucide-react'
+import { CircleCheckBig, Trash2  } from 'lucide-react'
 
 const priorityGradientStyles = {
     Baja: {
@@ -84,8 +84,8 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
                                         <CircleCheckBig size={19} color='#48BC5E' />
                                     </button>
                                     <button className="flex gap-1 px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left" onClick={() => setIsEditing(true)}>
-                                        Editar
-                                        <PencilLine size={20} />
+                                        Eliminar
+                                        <Trash2  size={19} color='#EF4545'/>
                                     </button>
                                 </div>
                             )}

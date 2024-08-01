@@ -7,39 +7,27 @@ const DiscoverScreen = () => {
     const cardContent = [
         {
             title: "Dominando el control del Tiempo",
-            description: "Aprende la importancia de tener objetivos claros para la eficiencia personal.",
-            img: "PeoplePlanning",
-            bg: "light-blue"
+            description: "Dominar el tiempo es el principio para mejorar nuestra eficiencia.",
         },
         {
             title: "Eliminación de distracciones",
             description: "Descubre cómo las distracciones afectan la productividad.",
-            img: "PeoplePlaying",
-            bg: "light-blue"
         },
         {
             title: "Establecer objetivos claros",
             description: "Aprende la importancia de tener objetivos claros para la eficiencia personal.",
-            img: "PeopleGoal",
-            bg: "light-blue"
         },
         {
             title: "Priorizando tareas ",
             description: "La importancia de priorizar tareas para maximizar la eficiencia.",
-            img: "PeopleNotes",
-            bg: "light-blue"
         },
         {
             title: "Mejora de toma de decisiones",
             description: " La importancia de tomar decisiones eficientes para aumentar la productividad.",
-            img: "",
-            bg: "light-blue"
         },
         {
             title: "Cuidado Personal y Balance",
             description: "La importancia del cuidado personal y el balance en la eficiencia personal.",
-            img: "PeopleMeditation",
-            bg: "light-blue"
         }
     ];
 
@@ -73,12 +61,10 @@ const DiscoverScreen = () => {
                     </h1>
                     <div className='flex items-center justify-center gap-y-[3rem] gap-x-[4rem] flex-wrap'>
                         {cardContent.map(content => (
-                            <DiscoverCardComponent
-                                key={content.title}
-                                title={content.title}
-                                description={content.description}
-                                img={content.img}
-                                bg={content.bg}
+                            <DiscoverCardComponent 
+                            key={content.key}
+                            title={content.title}
+                            description={content.description}
                             />
                         ))}
                     </div>

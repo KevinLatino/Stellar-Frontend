@@ -54,7 +54,7 @@ const AddTask = () => {
             {isPopupOpen && (
                 <div className="animate__animated animate__fadeIn fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
                     <div className="flex flex-col justify-center items-center animate__animated animate__bounceInDown bg-white p-6 rounded-lg w-[32rem] max-w-full text-center">
-                        <h2 className="text-2xl flex gap-3 mb-4 font-raleway border-b-[0.1rem] border-light-blue">
+                        <h2 className="text-2xl flex gap-3 mb-4 font-raleway border-b-[0.1rem] border-light-yellow">
                             Crear una nueva tarea
                             <ClipboardList size={25}  />
                         </h2>
@@ -90,7 +90,7 @@ const AddTask = () => {
                             >
                                 <option className='text-gray-800 font-raleway'>Selecciona el nivel de prioridad</option>
                                 <option value="Baja" className='text-light-green font-raleway'>Baja</option>
-                                <option value="Moderada" className='text-light-yellow font-raleway' >Normal</option>
+                                <option value="Moderada" className='text-light-yellow font-raleway' >Moderada</option>
                                 <option value="Alta" className='text-strong-red font-raleway'>Alta</option>
                             </select>
                         </div>

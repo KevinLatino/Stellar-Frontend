@@ -1,34 +1,19 @@
 import React from 'react';
-import PeoplePlanning from '../../public/Ilustrations/People-Planning.png'
-import PeoplePlaying from '../../public/Ilustrations/People-Playing.png'
-import PeopleGoal from '../../public/Ilustrations/People-Goal.png'
-import PeopleMeditation from '../../public/Ilustrations/People-Meditation.png'
-import PeopleNotes from '../../public/Ilustrations/People-Notes.png'
 
-const DiscoverCardComponent = ({ title, description, img, bg }) => {
-    
-    const bgClasses = {
-        'light-blue': 'bg-[#7A3AFF]',
+const DiscoverCardComponent = ({ title, description }) => {
+    const gradientBorderStyle = {
+        '--gradient-start': '#C364FF',
+        '--gradient-end': '#763DF2'
     };
 
-    const images = {
-        'PeoplePlanning': PeoplePlanning,
-        'PeoplePlaying': PeoplePlaying,
-        'PeopleGoal': PeopleGoal,
-        'PeopleMeditation': PeopleMeditation,
-        'PeopleNotes': PeopleNotes
-    }
-
     return (
-        <div className="w-[23rem] h-[17rem] rounded-xl overflow-hidden shadow-lg bg-white cursor-pointer">
-            <div className={`w-full h-[8rem] ${bgClasses[bg]}`}>
-                <img className="w-[13rem] h-[8rem] object-cover  ml-16" src={images[img]} alt="Card image cap" />
-            </div>
-            <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2 font-raleway">{title}</div>
-                <p className="text-gray-700 text-base font-raleway">
-                    {description}
-                </p>
+        <div className="relative bg-white shadow-md rounded-[0.6rem] w-[23rem] h-[10rem] overflow-hidden flex" style={gradientBorderStyle}>
+            <div className="absolute left-0 top-0 bottom-0 w-2" style={{ background: `linear-gradient(to bottom, ${gradientBorderStyle['--gradient-start']}, ${gradientBorderStyle['--gradient-end']})` }} />
+            <div className="flex flex-col mt-2 ml-4 p-2">
+                <div className="flex justify-start items-start mb-1">
+                    <h2 className="text-lg font-bold text-stellar-blue font-raleway">{title}</h2>
+                </div>
+                <p className="text-stellar-grey font-raleway text-l flex-wrap">{description}</p>
             </div>
         </div>
     );

@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import useFormSetters from '../hooks/useFormSetter';
 import Stellar from '../../public/STELLAR-LOGOS/Stellar-Login.png';
 import { SecondSpinner } from '../Components/SpinnerComponent';
-import { FcGoogle } from "react-icons/fc";
 
 
 const LoginScreen = () => {
@@ -33,12 +32,6 @@ const LoginScreen = () => {
         setError('');
         await loginMutation.mutateAsync(formState);
     };
-
-    const handleGoogleLogin = () => {
-        console.log('Inicio de sesión con Google');
-    };
-
-    const spinnerColor = "blue-500";
 
     return (
         <div className="flex h-screen">
@@ -83,17 +76,6 @@ const LoginScreen = () => {
                                 </div>
                             )
                         }
-                    </button>
-                    <div className="flex items-center my-4 w-full max-w-md">
-                        <hr className="flex-grow border-t border-[#FFFFFF]" />
-                        <span className="mx-4 text-white">o continúa con</span>
-                        <hr className="flex-grow border-t border-[#FFFFFF]" />
-                    </div>
-                    <button
-                        className="bg-white text-strong-blue text-lg fo font-raleway py-2 px-12 rounded-lg hover:bg-gray-200 transition duration-300 flex items-center justify-center gap-2"
-                        onClick={handleGoogleLogin}
-                    >
-                        <FcGoogle size={28} /> 
                     </button>
                 </div>
             </div>
