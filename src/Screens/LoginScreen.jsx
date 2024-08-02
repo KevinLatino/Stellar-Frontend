@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { UserRound, KeyRound } from 'lucide-react';
+import { SecondSpinner } from '../Components/SpinnerComponent';
 import { useMutation } from 'react-query';
 import { LoginApi } from '../Api/Login.Api';
 import { useAuth } from '../Context/context';
 import { useNavigate } from 'react-router-dom';
+import { UserRound, KeyRound } from 'lucide-react';
 import useFormSetters from '../hooks/useFormSetter';
 import Stellar from '../../public/STELLAR-LOGOS/Stellar-Login.png';
-import { SecondSpinner } from '../Components/SpinnerComponent';
 
 
 const LoginScreen = () => {
@@ -29,7 +29,6 @@ const LoginScreen = () => {
     });
 
     const handleLogin = async () => {
-        setError('');
         await loginMutation.mutateAsync(formState);
     };
 

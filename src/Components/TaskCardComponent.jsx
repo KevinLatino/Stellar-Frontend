@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { MoreHorizontal } from 'lucide-react';
-import { useMutation } from 'react-query';
-import { updateTask } from '../Api/Task.Api';
-import { useQueryClient } from 'react-query';
-import { CircleCheckBig, Trash2  } from 'lucide-react'
+import { useMutation, useQueryClient } from 'react-query';
+import { updateTask, deleteTask } from '../Api/Task.Api';
+import { CircleCheckBig, Trash2 } from 'lucide-react';
+import confetti from 'canvas-confetti';
 
 const priorityGradientStyles = {
     Baja: {
@@ -36,9 +36,10 @@ const formatDate = (dateString) => {
 };
 
 const TaskCard = ({ id, title, description, priority, date, completed }) => {
+
     const [menuVisible, setMenuVisible] = useState(false);
 
-    const priorityClass = priorityClasses[priority] || priorityClasses.default;
+    const priorityClass = priorityClasses[priority];
     const gradientStyle = priorityGradientStyles[priority] || priorityGradientStyles.Baja;
 
     const handleMenuToggle = () => {
@@ -47,13 +48,49 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
 
     const queryClient = useQueryClient();
 
+    const launchConfetti = () => {
+        const end = Date.now() + 3 * 1000;
+        const colors = ["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"];
+
+        const frame = () => {
+            if (Date.now() > end) return;
+
+            confetti({
+                particleCount: 2,
+                angle: 60,
+                spread: 55,
+                startVelocity: 60,
+                origin: { x: 0, y: 0.5 },
+                colors: colors,
+            });
+            confetti({
+                particleCount: 2,
+                angle: 120,
+                spread: 55,
+                startVelocity: 60,
+                origin: { x: 1, y: 0.5 },
+                colors: colors,
+            });
+
+            requestAnimationFrame(frame);
+        };
+
+        frame();
+    }; 
+
+    const refetchTasks = () => {
+        queryClient.refetchQueries(["urgentTasks"]);
+        queryClient.refetchQueries(["normalTasks"]);
+        queryClient.refetchQueries(["waitingTasks"]);
+    };
+
+
     const completedMutation = useMutation(
         ({ id, bodyUpdate }) => updateTask(id, bodyUpdate),
         {
             onSuccess: () => {
-                queryClient.refetchQueries(["urgentTasks"]);
-                queryClient.refetchQueries(["normalTasks"]);
-                queryClient.refetchQueries(["waitingTasks"]);
+                refetchTasks();
+                launchConfetti();
             },
             onError: (error) => {
                 console.error('Error al actualizar la tarea:', error);
@@ -65,6 +102,24 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
         completedMutation.mutate({ id, bodyUpdate: { completed: !completed } });
     };
 
+    const deleteMutation = useMutation(
+        ({ id }) => deleteTask(id),
+        {
+            onSuccess: () => {
+                refetchTasks();
+            },
+            onError: (error) => {
+                console.error('Error al actualizar la tarea:', error);
+            }
+        }
+    );
+
+    const handleDelete = () => {
+        deleteMutation.mutate({ id });
+    }
+
+
+    
 
     return (
         <div>
@@ -83,9 +138,9 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
                                         Completado
                                         <CircleCheckBig size={19} color='#48BC5E' />
                                     </button>
-                                    <button className="flex gap-1 px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left" onClick={() => setIsEditing(true)}>
+                                    <button className="flex gap-1 px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left" onClick={handleDelete}>
                                         Eliminar
-                                        <Trash2  size={19} color='#EF4545'/>
+                                        <Trash2 size={19} color='#EF4545' />
                                     </button>
                                 </div>
                             )}
@@ -98,7 +153,6 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
                         </span>
                         <div className="flex items-center text-stellar-grey">
                             {completed ? 'Completado' : 'No completado'}
-
                         </div>
                         <span className="text-stellar-blue">{formatDate(date)}</span>
                     </div>

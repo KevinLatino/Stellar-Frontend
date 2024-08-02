@@ -8,6 +8,7 @@ const DiscoverScreen = () => {
         {
             title: "Dominando el control del Tiempo",
             description: "Dominar el tiempo es el principio para mejorar nuestra eficiencia.",
+            img: "PeoplePlanning"
         },
         {
             title: "Eliminación de distracciones",
