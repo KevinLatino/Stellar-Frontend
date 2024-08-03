@@ -76,7 +76,7 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
         };
 
         frame();
-    }; 
+    };
 
     const refetchTasks = () => {
         queryClient.refetchQueries(["urgentTasks"]);
@@ -119,7 +119,7 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
     }
 
 
-    
+
 
     return (
         <div>
