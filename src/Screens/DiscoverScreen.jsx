@@ -1,7 +1,6 @@
 import React from 'react';
 import Discover from '../../public/Ilustrations/Sitting2.png';
 import DiscoverCardComponent from '../Components/DiscoverCardComponent';
-import { Outlet } from 'react-router-dom';
 import 'animate.css';
 
 const DiscoverScreen = () => {
@@ -10,7 +9,7 @@ const DiscoverScreen = () => {
         {
             title: "Dominando el control del Tiempo",
             description: "Dominar el tiempo es el principio para mejorar nuestra eficiencia.",
-            img: "PeoplePlanning"
+            route: "/sidebar/time-management"
         },
         {
             title: "Eliminación de distracciones",
@@ -68,6 +67,7 @@ const DiscoverScreen = () => {
                                 key={content.title}
                                 title={content.title}
                                 description={content.description}
+                                route={content.route}
                             />
                         ))}
                     </div>
