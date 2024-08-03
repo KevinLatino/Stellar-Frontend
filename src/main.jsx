@@ -11,12 +11,11 @@ import { DiscoverScreen } from './Screens/DiscoverScreen';
 import { RegisterScreen } from './Screens/RegisterScreen';
 import { LoginScreen } from './Screens/LoginScreen';
 import { AuthProvider } from './Context/context';
+import TimeManagement from './Screens/DiscoverScreens/TimeManagement';
 import App from './App';
 import './index.css';
 
-
 const queryClient = new QueryClient();
-
 
 const router = createBrowserRouter([
   {
@@ -32,12 +31,16 @@ const router = createBrowserRouter([
         element: <TaskScreen />
       },
       {
-        path: 'Calendar',
+        path: 'calendar',
         element: <CalendarScreen />
       },
       {
         path: 'discover',
-        element: <DiscoverScreen />
+        element: <DiscoverScreen />,
+      },
+      {
+        path: 'time-management',
+        element: <TimeManagement />
       },
       {
         path: 'profile',

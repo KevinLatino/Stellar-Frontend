@@ -1,6 +1,7 @@
 import React from 'react';
 import Discover from '../../public/Ilustrations/Sitting2.png';
 import DiscoverCardComponent from '../Components/DiscoverCardComponent';
+import { Outlet } from 'react-router-dom';
 import 'animate.css';
 
 const DiscoverScreen = () => {
@@ -64,7 +65,7 @@ const DiscoverScreen = () => {
                     <div className='flex items-center justify-center gap-y-[3rem] gap-x-[4rem] flex-wrap'>
                         {cardContent.map(content => (
                             <DiscoverCardComponent
-                                key={content.key}
+                                key={content.title}
                                 title={content.title}
                                 description={content.description}
                             />
