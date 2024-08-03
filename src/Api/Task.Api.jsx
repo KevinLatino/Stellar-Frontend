@@ -243,7 +243,7 @@ export const getTitleAndDate = async () => {
 
 export const deleteTask = async (id) => {
 
-    const res = await axios.delete(`${base}/delete/${id}`);
+    const res = await axios.delete(`${base}/delete/${id}`, getAuthorizedConfig());
 
     return res.data;
 }

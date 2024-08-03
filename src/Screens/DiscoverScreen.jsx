@@ -4,6 +4,7 @@ import DiscoverCardComponent from '../Components/DiscoverCardComponent';
 import 'animate.css';
 
 const DiscoverScreen = () => {
+
     const cardContent = [
         {
             title: "Dominando el control del Tiempo",
@@ -62,10 +63,10 @@ const DiscoverScreen = () => {
                     </h1>
                     <div className='flex items-center justify-center gap-y-[3rem] gap-x-[4rem] flex-wrap'>
                         {cardContent.map(content => (
-                            <DiscoverCardComponent 
-                            key={content.key}
-                            title={content.title}
-                            description={content.description}
+                            <DiscoverCardComponent
+                                key={content.key}
+                                title={content.title}
+                                description={content.description}
                             />
                         ))}
                     </div>
