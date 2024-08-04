@@ -11,9 +11,14 @@ import { DiscoverScreen } from './Screens/DiscoverScreen';
 import { RegisterScreen } from './Screens/RegisterScreen';
 import { LoginScreen } from './Screens/LoginScreen';
 import { AuthProvider } from './Context/context';
-import TimeManagement from './Screens/DiscoverScreens/TimeManagement';
+import SetGoals from './Screens/DiscoverScreens/SetGoals';
+import EisenhowerMatrix from './Screens/DiscoverScreens/EisenhowerMatrix';
+import ImportantDates from './Screens/DiscoverScreens/ImportantDates';
+import Planification from './Screens/DiscoverScreens/Planification';
+import Mindfulness from './Screens/DiscoverScreens/Mindfulness';
 import App from './App';
 import './index.css';
+import PodomoroTechnique from './Screens/DiscoverScreens/PodomoroTechnique';
 
 const queryClient = new QueryClient();
 
@@ -39,8 +44,28 @@ const router = createBrowserRouter([
         element: <DiscoverScreen />,
       },
       {
-        path: 'time-management',
-        element: <TimeManagement />
+        path: 'set-goals',
+        element: <SetGoals />
+      },
+      {
+        path: 'eisenhower-matrix',
+        element: <EisenhowerMatrix />
+      },
+      {
+        path: 'podomoro-technique',
+        element: <PodomoroTechnique />
+      },
+      {
+        path: 'important-dates',
+        element: <ImportantDates />
+      },
+      {
+        path: 'planification',
+        element: <Planification />
+      },
+      {
+        path: 'Mindfulness',
+        element: <Mindfulness />
       },
       {
         path: 'profile',

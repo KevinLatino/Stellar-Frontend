@@ -7,29 +7,34 @@ const DiscoverScreen = () => {
 
     const cardContent = [
         {
-            title: "Dominando el control del Tiempo",
-            description: "Dominar el tiempo es el principio para mejorar nuestra eficiencia.",
-            route: "/sidebar/time-management"
+            title: "Establecimiento de Metas Claras",
+            description: "stablecer metas claras y medibles para orientar las actividades diarias y mantener la motivación.",
+            route: "/sidebar/set-goals"
         },
         {
-            title: "Eliminación de distracciones",
-            description: "Descubre cómo las distracciones afectan la productividad.",
+            title: "La matriz de Eisenhower",
+            description: "Clasificar las tareas según su urgencia o importancia",
+            route: "/sidebar/eisenhower-matrix"
         },
         {
-            title: "Establecer objetivos claros",
-            description: "Aprende la importancia de tener objetivos claros para la eficiencia personal.",
+            title: "Técnica de Pomodoro",
+            description: "Trabajar durante intervalos de tiempo concentrado seguidos de breves descansos.",
+            route: '/sidebar/podomoro-technique'
         },
         {
-            title: "Priorizando tareas ",
-            description: "La importancia de priorizar tareas para maximizar la eficiencia.",
+            title: "Definir fechas importantes ",
+            description: "En un calendario, establece las fechas importantes según su fecha de entrega.",
+            route: "/sidebar/important-dates"
         },
         {
-            title: "Mejora de toma de decisiones",
-            description: " La importancia de tomar decisiones eficientes para aumentar la productividad.",
+            title: "Ámbiente de planificación",
+            description: "Establece una entorno de plafinicación que nos guste para sentirnos motivados.",
+            route: "/sidebar/planification"
         },
         {
-            title: "Cuidado Personal y Balance",
-            description: "La importancia del cuidado personal y el balance en la eficiencia personal.",
+            title: "Prácticas de Mindfulness",
+            description: "Incorporar técnicas de mindfulness para mejorar el enfoque y reducir el estrés.",
+            route: "/sidebar/mindfulness"
         }
     ];
 
@@ -37,13 +42,13 @@ const DiscoverScreen = () => {
         <>
             <div className='flex flex-col gap-11 animate__animated animate__fadeInDown'>
                 <div className="flex h-[10.5rem] w-full bg-gradient-to-r from-[#4461f2] to-[#4461F2] rounded-3xl">
-                    <div className="w-1/2 p-4">
+                    <div className="w-[42rem] p-4">
                         <div className="flex flex-col gap-1 pl-6 justify-center h-full">
                             <h1 className="text-4xl font-medium text-white">
                                 <b>¿Qué quieres aprender hoy?</b>
                             </h1>
                             <p className="text-xl font-medium text-white">
-                                Descubre métodos para mejorar la gestión de tu tiempo
+                                Descubre métodos para mejorar la gestión de tu tiempo, realiza pruebas y consigue medallas
                             </p>
                         </div>
                     </div>
@@ -51,7 +56,7 @@ const DiscoverScreen = () => {
                         <img
                             src={Discover}
                             alt="Ilustration"
-                            className="absolute left-[340px] bottom-[-70%]"
+                            className="absolute left-[300px] bottom-[-70%]"
                         />
                     </div>
                 </div>

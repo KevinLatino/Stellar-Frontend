@@ -32,6 +32,7 @@ export default {
         "stellar-blue": "#0B103D",
         "stellar-white": "#EDF0F7",
         "stellar-grey": "#565555",
+        "stellar-text": "000000a3",
 
         //strong colors
         "strong-blue": "#14162E",
