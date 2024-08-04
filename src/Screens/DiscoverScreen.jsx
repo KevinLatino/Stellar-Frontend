@@ -51,7 +51,7 @@ const DiscoverScreen = () => {
                         <img
                             src={Discover}
                             alt="Ilustration"
-                            className="absolute left-[340px] bottom-[-65%]"
+                            className="absolute left-[340px] bottom-[-70%]"
                         />
                     </div>
                 </div>
