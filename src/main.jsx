@@ -14,7 +14,7 @@ import { AuthProvider } from './Context/context';
 import SetGoals from './Screens/DiscoverScreens/SetGoals';
 import EisenhowerMatrix from './Screens/DiscoverScreens/EisenhowerMatrix';
 import ImportantDates from './Screens/DiscoverScreens/ImportantDates';
-import Planification from './Screens/DiscoverScreens/Planification';
+import PlanificationEnvironment from './Screens/DiscoverScreens/PlanificationEnvironment';
 import Mindfulness from './Screens/DiscoverScreens/Mindfulness';
 import App from './App';
 import './index.css';
@@ -60,8 +60,8 @@ const router = createBrowserRouter([
         element: <ImportantDates />
       },
       {
-        path: 'planification',
-        element: <Planification />
+        path: 'planification-environment',
+        element: <PlanificationEnvironment />
       },
       {
         path: 'Mindfulness',

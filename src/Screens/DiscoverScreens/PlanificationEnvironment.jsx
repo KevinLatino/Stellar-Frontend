@@ -1,8 +1,8 @@
 import React from 'react'
-import GirlWritingNotes from '../../../public/Ilustrations/Girl-Writing-Notes.png'
+import GirlStudying from '../../../public/Ilustrations/Girl-Studying.png'
 import BackToDiscover from './BackToDiscover'
 
-const ImportantDates = () => {
+const PlanificationEnvironment = () => {
     return (
         <>
             <div className='flex flex-col gap-14 relative animate__animated animate__fadeInDown'>
@@ -17,11 +17,11 @@ const ImportantDates = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="w-[12.2rem] hidden sm:flex relative">
+                    <div className="w-[13.2rem] hidden sm:flex relative">
                         <img
-                            src={GirlWritingNotes}
+                            src={GirlStudying}
                             alt="Ilustration"
-                            className="absolute left-[260px] bottom-[-20%]"
+                            className="absolute left-[260px] bottom-[-30%]"
                         />
                     </div>
                 </div>
@@ -30,15 +30,14 @@ const ImportantDates = () => {
                     <div className="w-1/2 flex flex-col gap-4 ml-10">
                         <h1 className="text-xl font-medium text-stellar-blue">
                             <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                                <b>Cómo definir fechas importantes</b>
+                                <b>Cómo crear un ambiente de planificación</b>
                             </span>
                         </h1>
                         <ul className='list-disc ml-5 flex flex-col gap-6 font-raleway text-[#000000a3] text-[17.5px] font-medium'>
-                            <li><b>Identifica las tareas clave:</b> Enumera las tareas y proyectos importantes.</li>
-                            <li><b>Establece plazos:</b> asigna una fecha de entrega a cada tarea.</li>
-                            <li><b>Marca las fechas en el calendario:</b> escribe cada fecha de entrega en tu calendario.</li>
-                            <li><b>Revisa y ajusta:</b> revisa regularmente tu calendario y ajusta las fechas según sea necesario.</li>
-                            <li><b>Calendario de Stellar:</b> por suerte, Stellar tiene un calendario con tus tareas.</li>
+                            <li><b>Encuentra un espacio cómodo:</b> Elige un lugar donde te sientas cómodo y sin distracciones.</li>
+                            <li><b>Organiza tu espacio:</b> Mantén tu área de trabajo ordenada y con todos los materiales necesarios a mano.</li>
+                            <li><b>Organiza tus tareas:</b> encuentra un espacio que te ayude a organizar tus tareas utilizando buenas prácticas.</li>
+                            <li><b>Stellar:</b> Con Stellar, tienes acceso a un entorno de planificación diseñado para maximizar tu productividad.</li>
                         </ul>
                     </div>
 
@@ -47,14 +46,14 @@ const ImportantDates = () => {
                     <div className="w-1/2 flex flex-col gap-4 ml-5">
                         <h1 className="text-xl font-medium text-stellar-blue">
                             <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                                <b>Beneficios de definir fechas importantes</b>
+                                <b>Beneficios de un buen ambiente de planificación</b>
                             </span>
                         </h1>
                         <ul className='list-disc ml-5 flex flex-col gap-6 font-raleway text-[#000000a3] text-[17.5px] font-medium'>
-                            <li><b>Mejora la organización:</b> Tener fechas claras ayuda a organizar mejor tu tiempo y recursos.</li>
-                            <li><b>Aumenta la responsabilidad:</b> Los plazos establecidos fomentan un sentido de responsabilidad y urgencia.</li>
-                            <li><b>Facilita la planificación:</b> Un calendario con fechas importantes facilita la planificación a largo plazo.</li>
-                            <li><b>Reduce el estrés:</b> Saber cuándo son tus plazos ayuda a evitar el estrés de las entregas de última hora.</li>
+                            <li><b>Mejora la concentración:</b> Un entorno agradable reduce las distracciones y mejora el enfoque.</li>
+                            <li><b>Aumenta la motivación:</b> Un espacio que te guste puede aumentar tu entusiasmo por trabajar.</li>
+                            <li><b>Facilita la organización:</b> Un ambiente bien organizado te ayuda a mantener un flujo de trabajo eficiente.</li>
+                            <li><b>Constante aprendizaje:</b> Un ambiente de calidad, te brinda la oportunidad de aprender nuevas técnicas para mejorar.</li> 
                         </ul>
                     </div>
                 </div>
@@ -64,4 +63,4 @@ const ImportantDates = () => {
     )
 }
 
-export default ImportantDates
+export default PlanificationEnvironment

@@ -1,5 +1,5 @@
 import React from 'react';
-import FallingBg from '../../public/Ilustrations/Falling-Bg.png';
+import Stellar from '../../public/STELLAR-LOGOS/Stellar-Login.png';
 import { UserRound, KeyRound, Inbox, LayoutPanelTop } from 'lucide-react';
 import { useMutation } from 'react-query';
 import { RegisterApi } from '../Api/Register.Api';
@@ -95,7 +95,7 @@ const RegisterScreen = () => {
                 </div>
             </div>
             <div className="bg-strong-blue w-1/2 flex items-center justify-center">
-                <img src={FallingBg} className='h-full pointer-events-none' />
+                <img src={Stellar} className='h-full pointer-events-none' />
             </div>
         </div>
     );

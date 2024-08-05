@@ -29,7 +29,7 @@ const DiscoverScreen = () => {
         {
             title: "Ámbiente de planificación",
             description: "Establece una entorno de plafinicación que nos guste para sentirnos motivados.",
-            route: "/sidebar/planification"
+            route: "/sidebar/planification-environment"
         },
         {
             title: "Prácticas de Mindfulness",

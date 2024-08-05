@@ -1,6 +1,7 @@
 import React from 'react';
 import PeopleLearning from '../../../public/Ilustrations/Time-Management.png';
 import BackToDiscover from './BackToDiscover';
+import { motion } from 'framer-motion';
 
 const SetGoals = () => {
     return (
@@ -67,9 +68,11 @@ const SetGoals = () => {
                 </div>
 
                 <motion className="flex justify-center mt-2">
-                    <button className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg">
+                    <motion.button 
+                    whileHover={{scale: 1.1}}
+                    className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg">
                         Realizar Prueba
-                    </button>
+                    </motion.button>
                 </motion>
             </div>
             <BackToDiscover />
