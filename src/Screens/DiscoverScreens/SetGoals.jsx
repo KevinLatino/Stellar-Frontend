@@ -21,7 +21,7 @@ const SetGoals = () => {
                         <img
                             src={PeopleLearning}
                             alt="Ilustration"
-                            className="absolute left-[190px] bottom-[-20%]"
+                            className="absolute left-[150px] bottom-[-20%]"
                         />
                     </div>
                 </div>

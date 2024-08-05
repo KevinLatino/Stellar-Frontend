@@ -1,5 +1,5 @@
 import React from 'react'
-import TaskManagement from '../../../public/Ilustrations/Task-Management.png'
+import GirlStudying from '../../../public/Ilustrations/Girl-Studying-Science.png'
 import BackToDiscover from './BackToDiscover'
 
 const EisenhowerMatrix = () => {
@@ -13,15 +13,15 @@ const EisenhowerMatrix = () => {
                                 <b>La matriz de Eisenhower</b>
                             </h1>
                             <p className="text-xl font-medium text-white">
-                                Priorización de tareas por urgencia e importancia
+                                Nos habla de la priorización de tareas por urgencia e importancia y sus beneficios
                             </p>
                         </div>
                     </div>
-                    <div className="w-[12.2rem] hidden sm:flex relative">
+                    <div className="w-[19.5rem] hidden sm:flex relative">
                         <img
-                            src={TaskManagement}
+                            src={GirlStudying}
                             alt="Ilustration"
-                            className="absolute left-[290px] bottom-[-20%]"
+                            className="absolute left-[170px] bottom-[-20%]"
                         />
                     </div>
                 </div>

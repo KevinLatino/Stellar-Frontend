@@ -8,10 +8,10 @@ const BackToDiscover = () => {
         <>
             <motion.div
                 whileHover={{ scale: 1.1 }}
-                className="  text-white flex items-center justify-center fixed bg-light-yellow w-[60px] h-[55px] rounded-full bottom-9 left-[93.5%] cursor-pointer z-10"
+                className="  text-white flex items-center justify-center fixed bg-light-yellow p-2.5 rounded-full bottom-9 left-[93.5%] cursor-pointer z-10"
             >
                 <Link to={'/sidebar/discover'}>
-                    <Undo2 size={30} />
+                    <Undo2 size={35} />
                 </Link>
             </motion.div>
         </>
