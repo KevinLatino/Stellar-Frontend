@@ -1,11 +1,12 @@
 import React from 'react'
 import GirlWritingNotes from '../../../public/Ilustrations/Girl-Writing-Notes.png'
 import BackToDiscover from './BackToDiscover'
+import { motion } from 'framer-motion';
 
 const ImportantDates = () => {
     return (
         <>
-            <div className='flex flex-col gap-14 relative animate__animated animate__fadeInDown'>
+            <div className='flex flex-col gap-10 relative animate__animated animate__fadeInDown'>
                 <div className="flex p-6 h-[10.5rem] w-full bg-gradient-to-r from-[#4461f2] to-[#4461F2] rounded-3xl">
                     <div className="w-[42rem] h-[7.5rem]">
                         <div className="flex flex-col gap-1 pl-6 justify-center h-full">
@@ -57,6 +58,14 @@ const ImportantDates = () => {
                             <li><b>Reduce el estrés:</b> Saber cuándo son tus plazos ayuda a evitar el estrés de las entregas de última hora.</li>
                         </ul>
                     </div>
+                </div>
+
+                <div className="flex justify-center">
+                    <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg">
+                        Realizar Prueba
+                    </motion.button>
                 </div>
             </div>
             <BackToDiscover />

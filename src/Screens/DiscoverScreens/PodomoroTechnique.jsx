@@ -1,6 +1,7 @@
 import React from 'react'
 import Meditation from '../../../public/Ilustrations/Relaxing.png'
 import BackToDiscover from './BackToDiscover'
+import { motion } from 'framer-motion';
 
 const PodomoroTechnique = () => {
     return (
@@ -58,6 +59,15 @@ const PodomoroTechnique = () => {
                         </ul>
                     </div>
                 </div>
+
+                <div className="flex justify-center">
+                    <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg">
+                        Realizar Prueba
+                    </motion.button>
+                </div>
+
             </div>
             <BackToDiscover />
         </div>

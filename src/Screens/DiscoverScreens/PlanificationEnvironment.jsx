@@ -1,6 +1,7 @@
 import React from 'react'
 import GirlStudying from '../../../public/Ilustrations/Girl-Studying.png'
 import BackToDiscover from './BackToDiscover'
+import { motion } from 'framer-motion';
 
 const PlanificationEnvironment = () => {
     return (
@@ -53,9 +54,17 @@ const PlanificationEnvironment = () => {
                             <li><b>Mejora la concentración:</b> Un entorno agradable reduce las distracciones y mejora el enfoque.</li>
                             <li><b>Aumenta la motivación:</b> Un espacio que te guste puede aumentar tu entusiasmo por trabajar.</li>
                             <li><b>Facilita la organización:</b> Un ambiente bien organizado te ayuda a mantener un flujo de trabajo eficiente.</li>
-                            <li><b>Constante aprendizaje:</b> Un ambiente de calidad, te brinda la oportunidad de aprender nuevas técnicas para mejorar.</li> 
+                            <li><b>Constante aprendizaje:</b> Un ambiente de calidad, te brinda la oportunidad de aprender nuevas técnicas para mejorar.</li>
                         </ul>
                     </div>
+                </div>
+
+                <div className="flex justify-center mt-2">
+                    <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg">
+                        Realizar Prueba
+                    </motion.button>
                 </div>
             </div>
             <BackToDiscover />

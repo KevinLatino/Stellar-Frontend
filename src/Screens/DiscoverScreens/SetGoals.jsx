@@ -67,13 +67,13 @@ const SetGoals = () => {
                     </div>
                 </div>
 
-                <motion className="flex justify-center mt-2">
+                <div className="flex justify-center mt-2">
                     <motion.button 
                     whileHover={{scale: 1.1}}
                     className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg">
                         Realizar Prueba
                     </motion.button>
-                </motion>
+                </div>
             </div>
             <BackToDiscover />
         </>

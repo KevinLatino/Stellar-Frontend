@@ -1,6 +1,7 @@
 import React from 'react'
 import GirlStudying from '../../../public/Ilustrations/Girl-Studying-Science.png'
 import BackToDiscover from './BackToDiscover'
+import { motion } from 'framer-motion';
 
 const EisenhowerMatrix = () => {
     return (
@@ -43,7 +44,7 @@ const EisenhowerMatrix = () => {
                             </span>
                         </h1>
                         <p className='font-raleway text-[#000000a3] text-[17.5px] font-medium'>
-                        <ul className='list-disc ml-5 flex flex-col gap-6'>
+                            <ul className='list-disc ml-5 flex flex-col gap-6'>
                                 <li><b>Tareas con alta urgencia =</b> Urgente e Importante .</li>
                                 <li><b>Tareas con moderada urgencia = </b>Importante pero no urgente</li>
                                 <li><b>Tareas con baja urgencia:</b> Urgente pero No Importante.</li>
@@ -68,6 +69,14 @@ const EisenhowerMatrix = () => {
                             </ul>
                         </p>
                     </div>
+                </div>
+
+                <div className="flex justify-center mt-2">
+                    <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg">
+                        Realizar Prueba
+                    </motion.button>
                 </div>
             </div>
             <BackToDiscover />

@@ -1,6 +1,7 @@
 import React from 'react'
 import Meditation from '../../../public/Ilustrations/People-Meditation.png'
 import BackToDiscover from './BackToDiscover'
+import { motion } from 'framer-motion';
 
 const Mindfulness = () => {
     return (
@@ -55,6 +56,14 @@ const Mindfulness = () => {
                             <li><b>Mindful Listening:</b> Practica la escucha atenta y empática en tus interacciones diarias, mejorando tus relaciones y reduciendo el estrés.</li>
                         </ul>
                     </div>
+                </div>
+
+                <div className="flex justify-center">
+                    <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg">
+                        Realizar Prueba
+                    </motion.button>
                 </div>
             </div>
             <BackToDiscover />
