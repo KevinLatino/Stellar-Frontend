@@ -1,9 +1,16 @@
-import React from 'react'
-import GirlStudying from '../../../public/People-Ilustrations/Girl-Studying-Science.png'
-import BackToDiscover from './BackToDiscover'
+import React, { useState } from 'react';
+import GirlStudying from '../../../public/People-Ilustrations/Girl-Studying-Science.png';
+import BackToDiscover from './BackToDiscover';
 import { motion } from 'framer-motion';
+import Modal from './Modal';
 
 const EisenhowerMatrix = () => {
+
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const openModal = () => setModalIsOpen(true);
+    const closeModal = () => setModalIsOpen(false);
+
     return (
         <>
             <div className='flex flex-col gap-14 relative animate__animated animate__fadeInDown'>
@@ -45,8 +52,8 @@ const EisenhowerMatrix = () => {
                         </h1>
                         <p className='font-raleway text-[#000000a3] text-[17.5px] font-medium'>
                             <ul className='list-disc ml-5 flex flex-col gap-6'>
-                                <li><b>Tareas con alta urgencia =</b> Urgente e Importante .</li>
-                                <li><b>Tareas con moderada urgencia = </b>Importante pero no urgente</li>
+                                <li><b>Tareas con alta urgencia =</b> Urgente e Importante.</li>
+                                <li><b>Tareas con moderada urgencia =</b> Importante pero no urgente.</li>
                                 <li><b>Tareas con baja urgencia:</b> Urgente pero No Importante.</li>
                             </ul>
                         </p>
@@ -74,14 +81,158 @@ const EisenhowerMatrix = () => {
                 <div className="flex justify-center mt-2">
                     <motion.button
                         whileHover={{ scale: 1.1 }}
-                        className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg">
+                        className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
+                        onClick={openModal}
+                    >
                         Realizar Prueba
                     </motion.button>
                 </div>
             </div>
             <BackToDiscover />
+
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+            >
+                <h2 className="text-3xl font-bold text-stellar-blue mb-6">La Matriz de Eisenhower y el Caso de Astro</h2>
+                <p className="text-lg mb-6">
+                    Astro, un robot explorador intergaláctico, se encuentra en una estación espacial dañada y necesita realizar varias tareas para completar su misión. Para lograrlo, Astro debe utilizar la matriz de Eisenhower para priorizar sus actividades según su urgencia e importancia.
+                </p>
+
+                <h3 className="text-2xl font-semibold text-stellar-blue mb-4">Cuadrantes de la Matriz de Eisenhower</h3>
+
+                <div className="flex flex-col gap-6">
+                    <div>
+                        <h4 className="font-semibold">1. Urgente e Importante:</h4>
+                        <p>Estas son las tareas que Astro debe atender de inmediato, ya que son cruciales para su misión.</p>
+                        <ul className="list-disc pl-5 flex flex-col gap-4">
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="quadrant1-A"
+                                    name="quadrant1"
+                                />
+                                <label htmlFor="quadrant1-A">Reparar el sistema de comunicación de emergencia para contactar la base espacial.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="quadrant1-B"
+                                    name="quadrant1"
+                                />
+                                <label htmlFor="quadrant1-B">Localizar y activar el sistema de vida de la estación para garantizar la seguridad.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="quadrant1-C"
+                                    name="quadrant1"
+                                />
+                                <label htmlFor="quadrant1-C">Restaurar la conexión con el centro de comando para recibir instrucciones.</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 className="font-semibold">2. Importante pero No Urgente:</h4>
+                        <p>Estas tareas son importantes para la misión a largo plazo, pero no necesitan atención inmediata.</p>
+                        <ul className="list-disc pl-5 flex flex-col gap-4">
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="quadrant2-A"
+                                    name="quadrant2"
+                                />
+                                <label htmlFor="quadrant2-A">Planificar la investigación de nuevos sistemas para futuras misiones.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="quadrant2-B"
+                                    name="quadrant2"
+                                />
+                                <label htmlFor="quadrant2-B">Revisar y mejorar el manual de procedimientos para misiones espaciales.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="quadrant2-C"
+                                    name="quadrant2"
+                                />
+                                <label htmlFor="quadrant2-C">Desarrollar un plan de mantenimiento preventivo para la estación.</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 className="font-semibold">3. Urgente pero No Importante:</h4>
+                        <p>Estas tareas requieren atención inmediata pero no son cruciales para los objetivos principales.</p>
+                        <ul className="list-disc pl-5 flex flex-col gap-4">
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="quadrant3-A"
+                                    name="quadrant3"
+                                />
+                                <label htmlFor="quadrant3-A">Realizar una actualización menor en el software de la estación.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="quadrant3-B"
+                                    name="quadrant3"
+                                />
+                                <label htmlFor="quadrant3-B">Atender a una alarma de mantenimiento rutinario en la estación.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="quadrant3-C"
+                                    name="quadrant3"
+                                />
+                                <label htmlFor="quadrant3-C">Reemplazar los filtros de aire del sistema de soporte vital.</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 className="font-semibold">4. No Urgente y No Importante:</h4>
+                        <p>Estas tareas no tienen urgencia ni importancia y pueden ser eliminadas o minimizadas.</p>
+                        <ul className="list-disc pl-5 flex flex-col gap-4">
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="quadrant4-A"
+                                    name="quadrant4"
+                                />
+                                <label htmlFor="quadrant4-A">Organizar la base de datos de entretenimiento de la estación.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="quadrant4-B"
+                                    name="quadrant4"
+                                />
+                                <label htmlFor="quadrant4-B">Revisar la decoración visual de la estación espacial.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="quadrant4-C"
+                                    name="quadrant4"
+                                />
+                                <label htmlFor="quadrant4-C">Actualizar la lista de materiales para la estación.</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button onClick={closeModal} className="mt-6 bg-light-blue text-white px-6 py-2 rounded-full">
+                    Cerrar
+                </button>
+            </Modal>
         </>
-    )
+    );
 }
 
-export default EisenhowerMatrix
+export default EisenhowerMatrix;

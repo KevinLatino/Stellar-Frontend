@@ -83,7 +83,7 @@ const NavBar = () => {
             <div className='mb-10 mt-2 ml-3'>
               <img 
                 src={StellarLogo} 
-                width={132} 
+                width={140} 
                 alt="Stellar-logo" 
                 className='cursor-pointer' 
                 onClick={handleLogoClick} 
