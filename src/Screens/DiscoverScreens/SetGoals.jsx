@@ -5,7 +5,7 @@ import Modal from './Modal';
 import { motion } from 'framer-motion';
 
 const SetGoals = () => {
-    
+
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const openModal = () => setModalIsOpen(true);
@@ -89,171 +89,203 @@ const SetGoals = () => {
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
             >
-                <h2 className="text-3xl font-bold text-stellar-blue mb-6">Historia de Charles y Test</h2>
-                <p className="text-lg mb-6">
-                    Charles es un joven profesional que está buscando avanzar en su carrera y mejorar su vida personal. Para lograrlo, 
-                    ha decidido establecer metas claras y alcanzables. A continuación, responderá una serie de preguntas para definir 
-                    sus objetivos de manera más precisa.
-                </p>
+                <div className='flex flex-col gap-2'>
+                    <h1 className="text-2xl font-medium text-stellar-blue">
+                        <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
+                            <b>Historia de Carlos</b>
+                        </span>
+                    </h1>
+                    <p className="text-l mb-6">
+                        Charles es un joven profesional que está buscando avanzar en su carrera y mejorar su vida personal. Para lograrlo,
+                        ha decidido establecer metas claras y alcanzables. A continuación, responderá una serie de preguntas para definir
+                        sus objetivos de manera más precisa.
+                    </p>
 
-                <h3 className="text-2xl font-semibold text-stellar-blue mb-4">Preguntas para Ayudar a Charles</h3>
+                    <h1 className="text-2xl font-medium text-stellar-blue">
+                        <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
+                            <b>Ayuda a Carlos</b>
+                        </span>
+                    </h1>
 
-                <div className="flex flex-col gap-6">
-                    <div>
-                        <p>¿Qué quieres lograr exactamente?</p>
-                        <ul className="list-disc pl-5">
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="1-A"
-                                    name="1"
-                                />
-                                <label htmlFor="1-A">Obtener un ascenso en su trabajo actual.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="1-B"
-                                    name="1"
-                                />
-                                <label htmlFor="1-B">Comenzar un nuevo negocio.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="1-C"
-                                    name="1"
-                                />
-                                <label htmlFor="1-C">Mejorar su salud física.</label>
-                            </li>
-                        </ul>
+                    <div className="flex flex-col gap-6">
+                        <div>
+                            <h1 className="text-lg font-bold text-stellar-blue">
+                                <span className="inline-block border-b-[0.1rem pb-1">
+                                    <p>¿Qué quieres lograr exactamente?</p>
+                                </span>
+                            </h1>
+
+                            <ul className="list-disc pl-5">
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="1-A"
+                                        name="1"
+                                    />
+                                    <label htmlFor="1-A">Obtener un ascenso en su trabajo actual.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="1-B"
+                                        name="1"
+                                    />
+                                    <label htmlFor="1-B">Comenzar un nuevo negocio.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="1-C"
+                                        name="1"
+                                    />
+                                    <label htmlFor="1-C">Mejorar su salud física.</label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h1 className="text-lg font-bold text-stellar-blue">
+                                <span className="inline-block border-b-[0.1rem pb-1">
+                                    <p>¿Cómo sabrás que has alcanzado tu meta?</p>
+                                </span>
+                            </h1>
+
+                            <ul className="list-disc pl-5">
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="2-A"
+                                        name="2"
+                                    />
+                                    <label htmlFor="2-A">Recibir una promoción con un aumento de salario.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="2-B"
+                                        name="2"
+                                    />
+                                    <label htmlFor="2-B">Tener un negocio operando con éxito.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="2-C"
+                                        name="2"
+                                    />
+                                    <label htmlFor="2-C">Perder 10 kg y mantener un régimen de ejercicios regular.</label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h1 className="text-lg font-bold text-stellar-blue">
+                                <span className="inline-block border-b-[0.1rem pb-1">
+                                    <p>¿Qué recursos necesito para alcanzar mi meta y cómo los obtendré?</p>
+                                </span>
+                            </h1>
+                            <ul className="list-disc pl-5">
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="3-A"
+                                        name="3"
+                                    />
+                                    <label htmlFor="3-A">Mentoría y formación adicional en su campo laboral.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="3-B"
+                                        name="3"
+                                    />
+                                    <label htmlFor="3-B">Capital inicial y asesoramiento empresarial.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="3-C"
+                                        name="3"
+                                    />
+                                    <label htmlFor="3-C">Un plan de dieta y un entrenador personal.</label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h1 className="text-lg font-bold text-stellar-blue">
+                                <span className="inline-block border-b-[0.1rem pb-1">
+                                    <p>¿Por qué es importante alcanzar esta meta?</p>
+                                </span>
+                            </h1>
+                            <ul className="list-disc pl-5">
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="4-A"
+                                        name="4"
+                                    />
+                                    <label htmlFor="4-A">Para asegurar un futuro financiero estable.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="4-B"
+                                        name="4"
+                                    />
+                                    <label htmlFor="4-B">Para cumplir un sueño personal de emprendimiento.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="4-C"
+                                        name="4"
+                                    />
+                                    <label htmlFor="4-C">Para mejorar su calidad de vida y bienestar.</label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h1 className="text-lg font-bold text-stellar-blue">
+                                <span className="inline-block border-b-[0.1rem pb-1">
+                                    <p>¿Cuál es el plazo para lograr esta meta?</p>
+                                </span>
+                            </h1>
+                            <ul className="list-disc pl-5">
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="5-A"
+                                        name="5"
+                                    />
+                                    <label htmlFor="5-A">Dentro de los próximos seis meses.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="5-B"
+                                        name="5"
+                                    />
+                                    <label htmlFor="5-B">Dentro del próximo año.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="5-C"
+                                        name="5"
+                                    />
+                                    <label htmlFor="5-C">Dentro de los próximos dos años.</label>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div>
-                        <p>¿Cómo sabrás que has alcanzado tu meta?</p>
-                        <ul className="list-disc pl-5">
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="2-A"
-                                    name="2"
-                                />
-                                <label htmlFor="2-A">Recibir una promoción con un aumento de salario.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="2-B"
-                                    name="2"
-                                />
-                                <label htmlFor="2-B">Tener un negocio operando con éxito.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="2-C"
-                                    name="2"
-                                />
-                                <label htmlFor="2-C">Perder 10 kg y mantener un régimen de ejercicios regular.</label>
-                            </li>
-                        </ul>
+                    <div className='flex justify-center items-center'>
+                        <button className="mt-6 bg-light-blue text-white px-6 py-2 rounded-full">
+                            Verificar Respuestas
+                        </button>
                     </div>
-
-                    <div>
-                        <p>¿Qué recursos necesito para alcanzar mi meta y cómo los obtendré?</p>
-                        <ul className="list-disc pl-5">
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="3-A"
-                                    name="3"
-                                />
-                                <label htmlFor="3-A">Mentoría y formación adicional en su campo laboral.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="3-B"
-                                    name="3"
-                                />
-                                <label htmlFor="3-B">Capital inicial y asesoramiento empresarial.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="3-C"
-                                    name="3"
-                                />
-                                <label htmlFor="3-C">Un plan de dieta y un entrenador personal.</label>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <p>¿Por qué es importante alcanzar esta meta?</p>
-                        <ul className="list-disc pl-5">
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="4-A"
-                                    name="4"
-                                />
-                                <label htmlFor="4-A">Para asegurar un futuro financiero estable.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="4-B"
-                                    name="4"
-                                />
-                                <label htmlFor="4-B">Para cumplir un sueño personal de emprendimiento.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="4-C"
-                                    name="4"
-                                />
-                                <label htmlFor="4-C">Para mejorar su calidad de vida y bienestar.</label>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <p>¿Cuál es el plazo para lograr esta meta?</p>
-                        <ul className="list-disc pl-5">
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="5-A"
-                                    name="5"
-                                />
-                                <label htmlFor="5-A">Dentro de los próximos seis meses.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="5-B"
-                                    name="5"
-                                />
-                                <label htmlFor="5-B">Dentro del próximo año.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="5-C"
-                                    name="5"
-                                />
-                                <label htmlFor="5-C">Dentro de los próximos dos años.</label>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className='flex justify-center items-center'>
-                    <button className="mt-6 bg-light-blue text-white px-6 py-2 rounded-full">
-                        Verificar Respuestas
-                    </button>
                 </div>
             </Modal>
         </>
