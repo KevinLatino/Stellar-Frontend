@@ -1,9 +1,34 @@
-import React from 'react';
+import { useState } from 'react';
 import PeopleLearning from '../../../public/Ilustrations/Time-Management.png';
+import { X } from 'lucide-react';
 import BackToDiscover from './BackToDiscover';
 import { motion } from 'framer-motion';
 
 const SetGoals = () => {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const openModal = () => setModalIsOpen(true);
+    const closeModal = () => setModalIsOpen(false);
+
+    const Modal = ({ isOpen, onRequestClose, children }) => {
+
+        if (!isOpen) return null;
+
+        return (
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50">
+                <div className="bg-white p-6 rounded-3xl max-w-3xl w-full mx-4 md:mx-0 relative shadow-lg overflow-auto max-h-[90vh]">
+                    <button
+                        onClick={onRequestClose}
+                        className="absolute top-4 right-4 text-gray-600 hover:text-gray-900"
+                    >
+                        <X size={30} />
+                    </button>
+                    {children}
+                </div>
+            </div>
+        );
+    };
+
     return (
         <>
             <div className='flex flex-col gap-14 relative animate__animated animate__fadeInDown'>
@@ -68,14 +93,185 @@ const SetGoals = () => {
                 </div>
 
                 <div className="flex justify-center mt-2">
-                    <motion.button 
-                    whileHover={{scale: 1.1}}
-                    className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg">
+                    <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        onClick={openModal}
+                        className="bg-light-blue text-white px-6 py-3 rounded-full font-semibold text-lg shadow-lg">
                         Realizar Prueba
                     </motion.button>
                 </div>
             </div>
             <BackToDiscover />
+
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+            >
+                <h2 className="text-3xl font-bold text-stellar-blue mb-6">Historia de Astro y Test</h2>
+                <p className="text-lg mb-6">
+                    Astro, un robot explorador intergaláctico, está atrapado en una estación espacial dañada en el borde de una galaxia lejana. Debido a un mal funcionamiento, ha perdido conexión con su nave y necesita encontrar el mapa de la estación, que está almacenado en el centro de control, para poder regresar a su nave y continuar su misión. Enfrentado a pasillos oscuros y equipos dañados, Astro debe definir claramente su objetivo y planificar los pasos necesarios para resolver esta situación crítica.
+                </p>
+
+                <h3 className="text-2xl font-semibold text-stellar-blue mb-4">Preguntas para Ayudar a Astro</h3>
+
+                <div className="flex flex-col gap-6">
+                    <div>
+                        <p>¿Qué quieres lograr exactamente?</p>
+                        <ul className="list-disc pl-5">
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="1-A"
+                                    name="1"
+                                />
+                                <label htmlFor="1-A">Encuentra una forma de contactar a la base espacial.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="1-B"
+                                    name="1"
+                                />
+                                <label htmlFor="1-B">Localiza el mapa de la estación espacial.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="1-C"
+                                    name="1"
+                                />
+                                <label htmlFor="1-C">Encuentra el compartimiento de herramientas en la estación.</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p>¿Cómo sabrás que has alcanzado tu meta?</p>
+                        <ul className="list-disc pl-5">
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="2-A"
+                                    name="2"
+                                />
+                                <label htmlFor="2-A">Encuentra una forma de contactar a la base espacial.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="2-B"
+                                    name="2"
+                                />
+                                <label htmlFor="2-B">Localiza el mapa de la estación espacial.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="2-C"
+                                    name="2"
+                                />
+                                <label htmlFor="2-C">Encuentra el compartimiento de herramientas en la estación.</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p>¿Qué recursos necesito para encontrar el mapa de la estación espacial y cómo los obtendré?</p>
+                        <ul className="list-disc pl-5">
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="3-A"
+                                    name="3"
+                                />
+                                <label htmlFor="3-A">Encuentra una forma de contactar a la base espacial.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="3-B"
+                                    name="3"
+                                />
+                                <label htmlFor="3-B">Localiza el mapa de la estación espacial.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="3-C"
+                                    name="3"
+                                />
+                                <label htmlFor="3-C">Encuentra el compartimiento de herramientas en la estación.</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p>¿Por qué es importante encontrar el mapa de la estación espacial?</p>
+                        <ul className="list-disc pl-5">
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="4-A"
+                                    name="4"
+                                />
+                                <label htmlFor="4-A">Encuentra una forma de contactar a la base espacial.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="4-B"
+                                    name="4"
+                                />
+                                <label htmlFor="4-B">Localiza el mapa de la estación espacial.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="4-C"
+                                    name="4"
+                                />
+                                <label htmlFor="4-C">Encuentra el compartimiento de herramientas en la estación.</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p>¿Cuál es el plazo para encontrar el mapa antes de que la estación se vuelva inoperativa?</p>
+                        <ul className="list-disc pl-5">
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="5-A"
+                                    name="5"
+                                />
+                                <label htmlFor="5-A">Encuentra una forma de contactar a la base espacial.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="5-B"
+                                    name="5"
+                                />
+                                <label htmlFor="5-B">Localiza el mapa de la estación espacial.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="5-C"
+                                    name="5"
+                                />
+                                <label htmlFor="5-C">Encuentra el compartimiento de herramientas en la estación.</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className='flex justify-center items-center'>
+                    <button className="mt-6 bg-light-blue text-white px-6 py-2 rounded-full">
+                        Verificar Respuestas
+                    </button>
+                </div>
+            </Modal>
         </>
     );
 }
