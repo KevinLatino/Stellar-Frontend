@@ -94,9 +94,9 @@ const EisenhowerMatrix = () => {
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
             >
-                <h2 className="text-3xl font-bold text-stellar-blue mb-6">La Matriz de Eisenhower y el Caso de Astro</h2>
+                <h2 className="text-3xl font-bold text-stellar-blue mb-6">La Matriz de Eisenhower y el Caso de Jane</h2>
                 <p className="text-lg mb-6">
-                    Astro, un robot explorador intergaláctico, se encuentra en una estación espacial dañada y necesita realizar varias tareas para completar su misión. Para lograrlo, Astro debe utilizar la matriz de Eisenhower para priorizar sus actividades según su urgencia e importancia.
+                    Jane, una mujer dedicada y trabajadora, se encuentra en su casa con una lista larga de tareas por hacer. Para lograr ser más eficiente y manejar mejor su tiempo, Jane debe utilizar la matriz de Eisenhower para priorizar sus actividades según su urgencia e importancia.
                 </p>
 
                 <h3 className="text-2xl font-semibold text-stellar-blue mb-4">Cuadrantes de la Matriz de Eisenhower</h3>
@@ -104,7 +104,7 @@ const EisenhowerMatrix = () => {
                 <div className="flex flex-col gap-6">
                     <div>
                         <h4 className="font-semibold">1. Urgente e Importante:</h4>
-                        <p>Estas son las tareas que Astro debe atender de inmediato, ya que son cruciales para su misión.</p>
+                        <p>Estas son las tareas que Jane debe atender de inmediato, ya que son cruciales para sus objetivos.</p>
                         <ul className="list-disc pl-5 flex flex-col gap-4">
                             <li className="flex items-center gap-2">
                                 <input
@@ -112,7 +112,7 @@ const EisenhowerMatrix = () => {
                                     id="quadrant1-A"
                                     name="quadrant1"
                                 />
-                                <label htmlFor="quadrant1-A">Reparar el sistema de comunicación de emergencia para contactar la base espacial.</label>
+                                <label htmlFor="quadrant1-A">Pagar las facturas que vencen hoy para evitar recargos.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -120,7 +120,7 @@ const EisenhowerMatrix = () => {
                                     id="quadrant1-B"
                                     name="quadrant1"
                                 />
-                                <label htmlFor="quadrant1-B">Localizar y activar el sistema de vida de la estación para garantizar la seguridad.</label>
+                                <label htmlFor="quadrant1-B">Terminar un reporte urgente para el trabajo.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -128,14 +128,14 @@ const EisenhowerMatrix = () => {
                                     id="quadrant1-C"
                                     name="quadrant1"
                                 />
-                                <label htmlFor="quadrant1-C">Restaurar la conexión con el centro de comando para recibir instrucciones.</label>
+                                <label htmlFor="quadrant1-C">Llevar a su hijo al médico por una cita importante.</label>
                             </li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="font-semibold">2. Importante pero No Urgente:</h4>
-                        <p>Estas tareas son importantes para la misión a largo plazo, pero no necesitan atención inmediata.</p>
+                        <p>Estas tareas son importantes para los objetivos a largo plazo de Jane, pero no necesitan atención inmediata.</p>
                         <ul className="list-disc pl-5 flex flex-col gap-4">
                             <li className="flex items-center gap-2">
                                 <input
@@ -143,7 +143,7 @@ const EisenhowerMatrix = () => {
                                     id="quadrant2-A"
                                     name="quadrant2"
                                 />
-                                <label htmlFor="quadrant2-A">Planificar la investigación de nuevos sistemas para futuras misiones.</label>
+                                <label htmlFor="quadrant2-A">Planificar el presupuesto mensual para ahorrar dinero.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -151,7 +151,7 @@ const EisenhowerMatrix = () => {
                                     id="quadrant2-B"
                                     name="quadrant2"
                                 />
-                                <label htmlFor="quadrant2-B">Revisar y mejorar el manual de procedimientos para misiones espaciales.</label>
+                                <label htmlFor="quadrant2-B">Preparar una presentación para un proyecto a futuro.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -159,14 +159,14 @@ const EisenhowerMatrix = () => {
                                     id="quadrant2-C"
                                     name="quadrant2"
                                 />
-                                <label htmlFor="quadrant2-C">Desarrollar un plan de mantenimiento preventivo para la estación.</label>
+                                <label htmlFor="quadrant2-C">Leer un libro sobre desarrollo personal.</label>
                             </li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="font-semibold">3. Urgente pero No Importante:</h4>
-                        <p>Estas tareas requieren atención inmediata pero no son cruciales para los objetivos principales.</p>
+                        <p>Estas tareas requieren atención inmediata pero no son cruciales para los objetivos principales de Jane.</p>
                         <ul className="list-disc pl-5 flex flex-col gap-4">
                             <li className="flex items-center gap-2">
                                 <input
@@ -174,7 +174,7 @@ const EisenhowerMatrix = () => {
                                     id="quadrant3-A"
                                     name="quadrant3"
                                 />
-                                <label htmlFor="quadrant3-A">Realizar una actualización menor en el software de la estación.</label>
+                                <label htmlFor="quadrant3-A">Responder a correos electrónicos que no son importantes.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -182,7 +182,7 @@ const EisenhowerMatrix = () => {
                                     id="quadrant3-B"
                                     name="quadrant3"
                                 />
-                                <label htmlFor="quadrant3-B">Atender a una alarma de mantenimiento rutinario en la estación.</label>
+                                <label htmlFor="quadrant3-B">Comprar comestibles para la semana.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -190,14 +190,14 @@ const EisenhowerMatrix = () => {
                                     id="quadrant3-C"
                                     name="quadrant3"
                                 />
-                                <label htmlFor="quadrant3-C">Reemplazar los filtros de aire del sistema de soporte vital.</label>
+                                <label htmlFor="quadrant3-C">Llamar a un amigo para organizar una reunión.</label>
                             </li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="font-semibold">4. No Urgente y No Importante:</h4>
-                        <p>Estas tareas no tienen urgencia ni importancia y pueden ser eliminadas o minimizadas.</p>
+                        <p>Estas tareas pueden ser eliminadas o minimizadas ya que no tienen urgencia ni importancia.</p>
                         <ul className="list-disc pl-5 flex flex-col gap-4">
                             <li className="flex items-center gap-2">
                                 <input
@@ -205,7 +205,7 @@ const EisenhowerMatrix = () => {
                                     id="quadrant4-A"
                                     name="quadrant4"
                                 />
-                                <label htmlFor="quadrant4-A">Organizar la base de datos de entretenimiento de la estación.</label>
+                                <label htmlFor="quadrant4-A">Ver televisión durante horas.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -213,7 +213,7 @@ const EisenhowerMatrix = () => {
                                     id="quadrant4-B"
                                     name="quadrant4"
                                 />
-                                <label htmlFor="quadrant4-B">Revisar la decoración visual de la estación espacial.</label>
+                                <label htmlFor="quadrant4-B">Pasar tiempo en redes sociales sin ningún propósito específico.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -221,18 +221,24 @@ const EisenhowerMatrix = () => {
                                     id="quadrant4-C"
                                     name="quadrant4"
                                 />
-                                <label htmlFor="quadrant4-C">Actualizar la lista de materiales para la estación.</label>
+                                <label htmlFor="quadrant4-C">Jugar videojuegos por largas horas.</label>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <button onClick={closeModal} className="mt-6 bg-light-blue text-white px-6 py-2 rounded-full">
-                    Cerrar
-                </button>
+                <div className="mt-8 flex justify-end">
+                    <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
+                        onClick={closeModal}
+                    >
+                        Cerrar
+                    </motion.button>
+                </div>
             </Modal>
         </>
     );
-}
+};
 
 export default EisenhowerMatrix;

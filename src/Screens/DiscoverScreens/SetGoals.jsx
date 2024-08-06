@@ -89,12 +89,14 @@ const SetGoals = () => {
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
             >
-                <h2 className="text-3xl font-bold text-stellar-blue mb-6">Historia de Astro y Test</h2>
+                <h2 className="text-3xl font-bold text-stellar-blue mb-6">Historia de Charles y Test</h2>
                 <p className="text-lg mb-6">
-                    Astro, un robot explorador intergaláctico, está atrapado en una estación espacial dañada en el borde de una galaxia lejana. Debido a un mal funcionamiento, ha perdido conexión con su nave y necesita encontrar el mapa de la estación, que está almacenado en el centro de control, para poder regresar a su nave y continuar su misión. Enfrentado a pasillos oscuros y equipos dañados, Astro debe definir claramente su objetivo y planificar los pasos necesarios para resolver esta situación crítica.
+                    Charles es un joven profesional que está buscando avanzar en su carrera y mejorar su vida personal. Para lograrlo, 
+                    ha decidido establecer metas claras y alcanzables. A continuación, responderá una serie de preguntas para definir 
+                    sus objetivos de manera más precisa.
                 </p>
 
-                <h3 className="text-2xl font-semibold text-stellar-blue mb-4">Preguntas para Ayudar a Astro</h3>
+                <h3 className="text-2xl font-semibold text-stellar-blue mb-4">Preguntas para Ayudar a Charles</h3>
 
                 <div className="flex flex-col gap-6">
                     <div>
@@ -106,7 +108,7 @@ const SetGoals = () => {
                                     id="1-A"
                                     name="1"
                                 />
-                                <label htmlFor="1-A">Encuentra una forma de contactar a la base espacial.</label>
+                                <label htmlFor="1-A">Obtener un ascenso en su trabajo actual.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -114,7 +116,7 @@ const SetGoals = () => {
                                     id="1-B"
                                     name="1"
                                 />
-                                <label htmlFor="1-B">Localiza el mapa de la estación espacial.</label>
+                                <label htmlFor="1-B">Comenzar un nuevo negocio.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -122,7 +124,7 @@ const SetGoals = () => {
                                     id="1-C"
                                     name="1"
                                 />
-                                <label htmlFor="1-C">Encuentra el compartimiento de herramientas en la estación.</label>
+                                <label htmlFor="1-C">Mejorar su salud física.</label>
                             </li>
                         </ul>
                     </div>
@@ -136,7 +138,7 @@ const SetGoals = () => {
                                     id="2-A"
                                     name="2"
                                 />
-                                <label htmlFor="2-A">Encuentra una forma de contactar a la base espacial.</label>
+                                <label htmlFor="2-A">Recibir una promoción con un aumento de salario.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -144,7 +146,7 @@ const SetGoals = () => {
                                     id="2-B"
                                     name="2"
                                 />
-                                <label htmlFor="2-B">Localiza el mapa de la estación espacial.</label>
+                                <label htmlFor="2-B">Tener un negocio operando con éxito.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -152,13 +154,13 @@ const SetGoals = () => {
                                     id="2-C"
                                     name="2"
                                 />
-                                <label htmlFor="2-C">Encuentra el compartimiento de herramientas en la estación.</label>
+                                <label htmlFor="2-C">Perder 10 kg y mantener un régimen de ejercicios regular.</label>
                             </li>
                         </ul>
                     </div>
 
                     <div>
-                        <p>¿Qué recursos necesito para encontrar el mapa de la estación espacial y cómo los obtendré?</p>
+                        <p>¿Qué recursos necesito para alcanzar mi meta y cómo los obtendré?</p>
                         <ul className="list-disc pl-5">
                             <li className="flex items-center gap-2">
                                 <input
@@ -166,7 +168,7 @@ const SetGoals = () => {
                                     id="3-A"
                                     name="3"
                                 />
-                                <label htmlFor="3-A">Encuentra una forma de contactar a la base espacial.</label>
+                                <label htmlFor="3-A">Mentoría y formación adicional en su campo laboral.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -174,7 +176,7 @@ const SetGoals = () => {
                                     id="3-B"
                                     name="3"
                                 />
-                                <label htmlFor="3-B">Localiza el mapa de la estación espacial.</label>
+                                <label htmlFor="3-B">Capital inicial y asesoramiento empresarial.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -182,13 +184,13 @@ const SetGoals = () => {
                                     id="3-C"
                                     name="3"
                                 />
-                                <label htmlFor="3-C">Encuentra el compartimiento de herramientas en la estación.</label>
+                                <label htmlFor="3-C">Un plan de dieta y un entrenador personal.</label>
                             </li>
                         </ul>
                     </div>
 
                     <div>
-                        <p>¿Por qué es importante encontrar el mapa de la estación espacial?</p>
+                        <p>¿Por qué es importante alcanzar esta meta?</p>
                         <ul className="list-disc pl-5">
                             <li className="flex items-center gap-2">
                                 <input
@@ -196,7 +198,7 @@ const SetGoals = () => {
                                     id="4-A"
                                     name="4"
                                 />
-                                <label htmlFor="4-A">Encuentra una forma de contactar a la base espacial.</label>
+                                <label htmlFor="4-A">Para asegurar un futuro financiero estable.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -204,7 +206,7 @@ const SetGoals = () => {
                                     id="4-B"
                                     name="4"
                                 />
-                                <label htmlFor="4-B">Localiza el mapa de la estación espacial.</label>
+                                <label htmlFor="4-B">Para cumplir un sueño personal de emprendimiento.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -212,13 +214,13 @@ const SetGoals = () => {
                                     id="4-C"
                                     name="4"
                                 />
-                                <label htmlFor="4-C">Encuentra el compartimiento de herramientas en la estación.</label>
+                                <label htmlFor="4-C">Para mejorar su calidad de vida y bienestar.</label>
                             </li>
                         </ul>
                     </div>
 
                     <div>
-                        <p>¿Cuál es el plazo para encontrar el mapa antes de que la estación se vuelva inoperativa?</p>
+                        <p>¿Cuál es el plazo para lograr esta meta?</p>
                         <ul className="list-disc pl-5">
                             <li className="flex items-center gap-2">
                                 <input
@@ -226,7 +228,7 @@ const SetGoals = () => {
                                     id="5-A"
                                     name="5"
                                 />
-                                <label htmlFor="5-A">Encuentra una forma de contactar a la base espacial.</label>
+                                <label htmlFor="5-A">Dentro de los próximos seis meses.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -234,7 +236,7 @@ const SetGoals = () => {
                                     id="5-B"
                                     name="5"
                                 />
-                                <label htmlFor="5-B">Localiza el mapa de la estación espacial.</label>
+                                <label htmlFor="5-B">Dentro del próximo año.</label>
                             </li>
                             <li className="flex items-center gap-2">
                                 <input
@@ -242,7 +244,7 @@ const SetGoals = () => {
                                     id="5-C"
                                     name="5"
                                 />
-                                <label htmlFor="5-C">Encuentra el compartimiento de herramientas en la estación.</label>
+                                <label htmlFor="5-C">Dentro de los próximos dos años.</label>
                             </li>
                         </ul>
                     </div>
@@ -256,6 +258,6 @@ const SetGoals = () => {
             </Modal>
         </>
     );
-}
+};
 
 export default SetGoals;

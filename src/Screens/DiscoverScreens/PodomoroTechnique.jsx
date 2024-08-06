@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Meditation from '../../../public/People-Ilustrations/Relaxing.png'
 import BackToDiscover from './BackToDiscover'
+import Modal from './Modal';
 import { motion } from 'framer-motion';
 
 const PodomoroTechnique = () => {
+
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const openModal = () => setModalIsOpen(true);
+    const closeModal = () => setModalIsOpen(false);
+
     return (
         <div>
             <div className='flex flex-col gap-10 relative animate__animated animate__fadeInDown'>
@@ -63,6 +70,7 @@ const PodomoroTechnique = () => {
                 <div className="flex justify-center">
                     <motion.button
                         whileHover={{ scale: 1.1 }}
+                        onClick={openModal}
                         className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg">
                         Realizar Prueba
                     </motion.button>
@@ -70,6 +78,122 @@ const PodomoroTechnique = () => {
 
             </div>
             <BackToDiscover />
+
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+            >
+                <h2 className="text-3xl font-bold text-stellar-blue mb-6">La Técnica Pomodoro y el Caso de Laura</h2>
+
+                <p className="text-lg mb-6">
+                    Laura, una profesional que busca mejorar su productividad, decide implementar la técnica Pomodoro en su rutina diaria. A continuación, responde una serie de preguntas para definir cómo la técnica puede ayudarla a alcanzar sus objetivos.
+                </p>
+
+                <h3 className="text-2xl font-semibold text-stellar-blue mb-4">¿Cómo implementa Laura la técnica Pomodoro?</h3>
+                <div className="flex flex-col gap-6">
+                    <div>
+                        <p>¿Qué hace Laura antes de iniciar un intervalo Pomodoro?</p>
+                        <ul className="list-disc pl-5">
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="implement-A"
+                                    name="implement"
+                                />
+                                <label htmlFor="implement-A">Elige una tarea específica para trabajar.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="implement-B"
+                                    name="implement"
+                                />
+                                <label htmlFor="implement-B">Configura el temporizador a 50 minutos.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="implement-C"
+                                    name="implement"
+                                />
+                                <label htmlFor="implement-C">Realiza una pausa de 10 minutos.</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p>¿Cómo sabe Laura que ha terminado un intervalo Pomodoro?</p>
+                        <ul className="list-disc pl-5">
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="end-A"
+                                    name="end"
+                                />
+                                <label htmlFor="end-A">El temporizador suena después de 25 minutos.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="end-B"
+                                    name="end"
+                                />
+                                <label htmlFor="end-B">Recibe una notificación en su computadora.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="end-C"
+                                    name="end"
+                                />
+                                <label htmlFor="end-C">Ve un mensaje en su aplicación de productividad.</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p>¿Qué beneficios experimenta Laura al usar la técnica Pomodoro?</p>
+                        <ul className="list-disc pl-5">
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="benefit-A"
+                                    name="benefit"
+                                />
+                                <label htmlFor="benefit-A">Mejora la concentración y reduce las distracciones.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="benefit-B"
+                                    name="benefit"
+                                />
+                                <label htmlFor="benefit-B">Aumenta el tiempo de trabajo continuo sin descansos.</label>
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <input
+                                    type="radio"
+                                    id="benefit-C"
+                                    name="benefit"
+                                />
+                                <label htmlFor="benefit-C">Elimina la necesidad de establecer plazos.</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="mt-8 flex justify-end">
+                    <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
+                        onClick={closeModal}
+                    >
+                        Cerrar
+                    </motion.button>
+                </div>
+            </Modal>
+
+
         </div>
     )
 }
