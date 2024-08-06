@@ -1,5 +1,5 @@
 import React from 'react';
-import Stellar from '../../public/STELLAR-LOGOS/Stellar-Login.png';
+import Stellar from '../../public/Stellar-Logos/Stellar-Login.png';
 import { UserRound, KeyRound, Inbox, LayoutPanelTop } from 'lucide-react';
 import { useMutation } from 'react-query';
 import { RegisterApi } from '../Api/Register.Api';

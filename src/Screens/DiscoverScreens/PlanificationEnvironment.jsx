@@ -1,5 +1,5 @@
 import React from 'react'
-import GirlStudying from '../../../public/Ilustrations/Girl-Studying.png'
+import GirlStudying from '../../../public/People-Ilustrations/Girl-Studying.png'
 import BackToDiscover from './BackToDiscover'
 import { motion } from 'framer-motion';
 

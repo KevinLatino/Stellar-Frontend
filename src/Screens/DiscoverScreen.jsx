@@ -1,5 +1,5 @@
 import React from 'react';
-import Discover from '../../public/Ilustrations/Sitting2.png';
+import Discover from '../../public/People-Ilustrations/Sitting2.png';
 import DiscoverCardComponent from '../Components/DiscoverCardComponent';
 import 'animate.css';
 

@@ -8,9 +8,9 @@ import {
   LogOut
 } from 'lucide-react';
 import { useNavigate, Outlet, useLocation } from 'react-router-dom';
-import Alert from '../../public/Ilustrations/Bye.png';
+import Alert from '../../public/People-Ilustrations/Bye.png';
 import { useAuth } from '../Context/context';
-import StellarLogo from '../../public/STELLAR-LOGOS/StellarLogo-Over-StrongBlue.svg';
+import StellarLogo from '../../public/Stellar-Logos/StellarLogo-Over-StrongBlue.svg';
 
 const NavBar = () => {
   const menu = [

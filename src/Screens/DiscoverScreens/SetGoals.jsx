@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import PeopleLearning from '../../../public/Ilustrations/Time-Management.png';
+import PeopleLearning from '../../../public/People-Ilustrations/Time-Management.png';
 import { X } from 'lucide-react';
 import BackToDiscover from './BackToDiscover';
 import { motion } from 'framer-motion';

@@ -6,7 +6,7 @@ import { useAuth } from '../Context/context';
 import { useNavigate } from 'react-router-dom';
 import { UserRound, KeyRound } from 'lucide-react';
 import useFormSetters from '../hooks/useFormSetter';
-import Stellar from '../../public/STELLAR-LOGOS/Stellar-Login.png';
+import Stellar from '../../public/Stellar-Logos/Stellar-Login.png';
 
 
 const LoginScreen = () => {

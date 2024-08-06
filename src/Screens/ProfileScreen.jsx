@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ProfileBg from '../../public/Ilustrations/Profile.svg';
+import ProfileBg from '../../public/People-Ilustrations/Profile.svg';
 import { UserRound, LayoutPanelTop } from 'lucide-react';
 import { updateUser } from '../Api/User.Api';
 import { useMutation } from 'react-query';

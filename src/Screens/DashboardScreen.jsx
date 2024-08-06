@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Welcome from '../../public/Ilustrations/Welcome.png';
+import Welcome from '../../public/People-Ilustrations/Welcome.png';
 import getUserFromCookie from '../Utils/getUserCookies';
 import HomeTasks from '../Components/HomeTaskComponent';
 import BarChart from '../Components/BarChartComponent';

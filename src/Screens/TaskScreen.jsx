@@ -7,7 +7,7 @@ import {
 } from '../Api/Task.Api';
 import { MainSpinner } from '../Components/SpinnerComponent'
 import { useQuery } from 'react-query';
-import Tasks from '../../public/Ilustrations/Discover.png';
+import Tasks from '../../public/People-Ilustrations/Discover.png';
 import TaskCard from '../Components/TaskCardComponent';
 const TaskScreen = () => {
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Meditation from '../../../public/Ilustrations/Relaxing.png'
+import Meditation from '../../../public/People-Ilustrations/Relaxing.png'
 import BackToDiscover from './BackToDiscover'
 import { motion } from 'framer-motion';
 
