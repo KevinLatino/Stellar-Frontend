@@ -110,9 +110,7 @@ const SetGoals = () => {
                     <div className="flex flex-col gap-6">
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem] pb-1">
-                                    <p>¿Qué debe lograr Carlos exactamente?</p>
-                                </span>
+                                <p>¿Qué debe lograr Carlos exactamente?</p>
                             </h1>
 
                             <ul className="list-disc pl-5">
@@ -145,9 +143,7 @@ const SetGoals = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem] pb-1">
-                                    <p>¿Cómo puede Carlos saber que ha alcanzado su meta?</p>
-                                </span>
+                                <p>¿Cómo puede Carlos saber que ha alcanzado su meta?</p>
                             </h1>
 
                             <ul className="list-disc pl-5">
@@ -180,9 +176,7 @@ const SetGoals = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem] pb-1">
-                                    <p>¿Qué recursos necesita Carlos para alcanzar su meta y cómo los obtendrá?</p>
-                                </span>
+                                <p>¿Qué recursos necesita Carlos para alcanzar su meta y cómo los obtendrá?</p>
                             </h1>
                             <ul className="list-disc pl-5">
                                 <li className="flex items-center gap-2">
@@ -214,9 +208,7 @@ const SetGoals = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem] pb-1">
-                                    <p>¿Por qué es importante para Carlos alcanzar esta meta?</p>
-                                </span>
+                                <p>¿Por qué es importante para Carlos alcanzar esta meta?</p>
                             </h1>
                             <ul className="list-disc pl-5">
                                 <li className="flex items-center gap-2">
