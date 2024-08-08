@@ -28,7 +28,7 @@ const DiscoverScreen = () => {
         },
         {
             title: "Ámbiente de planificación",
-            description: "Establece una entorno de plafinicación que nos guste para sentirnos motivados.",
+            description: "Establecer un entorno de plafinicación que nos guste para sentirnos motivados es vital motivados.",
             route: "/sidebar/planification-environment"
         },
         {

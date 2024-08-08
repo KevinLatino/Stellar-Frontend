@@ -18,10 +18,10 @@ const PlanificationEnvironment = () => {
                     <div className="w-[42rem] h-[7.5rem]">
                         <div className="flex flex-col gap-1 pl-6 justify-center h-full">
                             <h1 className="text-4xl font-medium text-white">
-                                <b>¡Escribe fechas en un calendario!</b>
+                                <b>¡Define un ámbiente de planificación!</b>
                             </h1>
                             <p className="text-xl font-medium text-white">
-                                Establecer fechas importantes según su fecha de entrega te permite visualizar y gestionar tus plazos de manera efectiva.
+                                Establecer un entorno de plafinicación que nos guste para sentirnos motivados es vital.
                             </p>
                         </div>
                     </div>

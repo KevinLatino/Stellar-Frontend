@@ -35,7 +35,7 @@ const SetGoals = () => {
                 </div>
 
                 <div className="flex justify-center h-full">
-                    <div className="w-1/2 flex flex-col gap-4 ml-10">
+                    <div className="w-1/2 flex flex-col gap-4 ml-14">
                         <h1 className="text-xl font-medium text-stellar-blue">
                             <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
                                 <b>La importancia de mis metas a futuro</b>
@@ -96,7 +96,7 @@ const SetGoals = () => {
                         </span>
                     </h1>
                     <p className="text-l mb-6">
-                        Charles es un joven profesional que está buscando avanzar en su carrera y mejorar su vida personal. Para lograrlo,
+                        Carlos es un joven profesional que está buscando avanzar en su carrera y mejorar su vida personal. Para lograrlo,
                         ha decidido establecer metas claras y alcanzables. A continuación, responderá una serie de preguntas para definir
                         sus objetivos de manera más precisa.
                     </p>
@@ -110,8 +110,8 @@ const SetGoals = () => {
                     <div className="flex flex-col gap-6">
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem pb-1">
-                                    <p>¿Qué quieres lograr exactamente?</p>
+                                <span className="inline-block border-b-[0.1rem] pb-1">
+                                    <p>¿Qué debe lograr Carlos exactamente?</p>
                                 </span>
                             </h1>
 
@@ -145,8 +145,8 @@ const SetGoals = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem pb-1">
-                                    <p>¿Cómo sabrás que has alcanzado tu meta?</p>
+                                <span className="inline-block border-b-[0.1rem] pb-1">
+                                    <p>¿Cómo puede Carlos saber que ha alcanzado su meta?</p>
                                 </span>
                             </h1>
 
@@ -180,8 +180,8 @@ const SetGoals = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem pb-1">
-                                    <p>¿Qué recursos necesito para alcanzar mi meta y cómo los obtendré?</p>
+                                <span className="inline-block border-b-[0.1rem] pb-1">
+                                    <p>¿Qué recursos necesita Carlos para alcanzar su meta y cómo los obtendrá?</p>
                                 </span>
                             </h1>
                             <ul className="list-disc pl-5">
@@ -214,8 +214,8 @@ const SetGoals = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem pb-1">
-                                    <p>¿Por qué es importante alcanzar esta meta?</p>
+                                <span className="inline-block border-b-[0.1rem] pb-1">
+                                    <p>¿Por qué es importante para Carlos alcanzar esta meta?</p>
                                 </span>
                             </h1>
                             <ul className="list-disc pl-5">
@@ -248,8 +248,8 @@ const SetGoals = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem pb-1">
-                                    <p>¿Cuál es el plazo para lograr esta meta?</p>
+                                <span className="inline-block border-b-[0.1rem] pb-1">
+                                    <p>¿Cuál es el plazo para que Carlos logre esta meta?</p>
                                 </span>
                             </h1>
                             <ul className="list-disc pl-5">
@@ -288,6 +288,7 @@ const SetGoals = () => {
                     </div>
                 </div>
             </Modal>
+
         </>
     );
 };
