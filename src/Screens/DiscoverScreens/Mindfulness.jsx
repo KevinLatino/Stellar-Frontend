@@ -18,7 +18,7 @@ const Mindfulness = () => {
                     <div className="w-[42rem] h-[7.5rem]">
                         <div className="flex flex-col gap-1 pl-6 justify-center h-full">
                             <h1 className="text-4xl font-medium text-white">
-                                <b>La matriz de Eisenhower</b>
+                                <b>Prácticas de Mindfulness</b>
                             </h1>
                             <p className="text-xl font-medium text-white">
                                 Priorización de tareas por urgencia e importancia
@@ -81,143 +81,161 @@ const Mindfulness = () => {
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
             >
-                <h2 className="text-3xl font-bold text-stellar-blue mb-6">La Matriz de Eisenhower y el Caso de Ana</h2>
+                <div className='flex flex-col gap-2'>
+                    <h1 className="text-xl font-medium text-stellar-blue">
+                        <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
+                            <b>Prácticas de Mindfulness</b>
+                        </span>
+                    </h1>
 
-                <p className="text-lg mb-6">
-                    Ana quiere aplicar la matriz de Eisenhower para priorizar sus tareas y mejorar su productividad. A continuación, responderá una serie de preguntas para definir cómo puede integrar prácticas de mindfulness en su rutina diaria.
-                </p>
+                    <p className="text-l mb-2">
+                        Responde a las siguientes preguntas para evaluar tu comprensión de las prácticas de mindfulness y cómo aplicarlas en tu vida diaria.
+                    </p>
 
-                <h3 className="text-2xl font-semibold text-stellar-blue mb-4">Preguntas para Ayudar a Ana</h3>
-                <div className="flex flex-col gap-6">
-                    <div>
-                        <p>¿Qué debe hacer Ana antes de comenzar una tarea urgente e importante?</p>
-                        <ul className="list-disc pl-5">
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="task1-A"
-                                    name="task1"
-                                />
-                                <label htmlFor="task1-A">Tomarse un momento para respirar profundamente.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="task1-B"
-                                    name="task1"
-                                />
-                                <label htmlFor="task1-B">Hacer una lista de todas las tareas del día.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="task1-C"
-                                    name="task1"
-                                />
-                                <label htmlFor="task1-C">Revisar sus correos electrónicos.</label>
-                            </li>
-                        </ul>
+                    <h3 className="text-xl font-medium text-stellar-blue mb-4">
+                        <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
+                            <b>¡Demuestra Tu Conocimiento!</b>
+                        </span>
+                    </h3>
+                    <div className=" flex flex-col gap-6">
+                        <div className='flex flex-col gap-2'>
+                            <h1 className="text-xl font-medium text-stellar-blue">
+                                <b>¿Cuál es la primera práctica recomendada para iniciar el día con atención plena?</b>
+                            </h1>
+                            <ul className="list-disc pl-5">
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="mindfulness-A"
+                                        name="mindfulness"
+                                    />
+                                    <label htmlFor="mindfulness-A">Hacer una reflexión diaria sobre los logros y planificar el día.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="mindfulness-B"
+                                        name="mindfulness"
+                                    />
+                                    <label htmlFor="mindfulness-B">Tomarse unos minutos para respirar profundamente.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="mindfulness-C"
+                                        name="mindfulness"
+                                    />
+                                    <label htmlFor="mindfulness-C">Escuchar música relajante mientras trabajas.</label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className='flex flex-col gap-2'>
+                            <h1 className="text-xl font-medium text-stellar-blue">
+                                <b>¿Cómo puedes incorporar descansos conscientes en tu rutina diaria?</b>
+                            </h1>
+                            <ul className="list-disc pl-5">
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="breaks-A"
+                                        name="breaks"
+                                    />
+                                    <label htmlFor="breaks-A">Programar breves descansos para respirar o caminar.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="breaks-B"
+                                        name="breaks"
+                                    />
+                                    <label htmlFor="breaks-B">Trabajar continuamente sin hacer pausas.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="breaks-C"
+                                        name="breaks"
+                                    />
+                                    <label htmlFor="breaks-C">Utilizar redes sociales durante los descansos.</label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className='flex flex-col gap-2'>
+                            <h1 className="text-xl font-medium text-stellar-blue">
+                                <b>¿Cuál es el objetivo principal de la práctica de journaling?</b>
+                            </h1>
+                            <ul className="list-disc pl-5">
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="journaling-A"
+                                        name="journaling"
+                                    />
+                                    <label htmlFor="journaling-A">Procesar y liberar el estrés acumulado.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="journaling-B"
+                                        name="journaling"
+                                    />
+                                    <label htmlFor="journaling-B">Crear una lista de tareas para el día.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="journaling-C"
+                                        name="journaling"
+                                    />
+                                    <label htmlFor="journaling-C">Planificar los horarios de trabajo y descanso.</label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className='flex flex-col gap-2'>
+                            <h1 className="text-xl font-medium text-stellar-blue">
+                                <b>¿Qué aspecto es clave para practicar una escucha atenta y empática?</b>
+                            </h1>
+                            <ul className="list-disc pl-5">
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="listening-A"
+                                        name="listening"
+                                    />
+                                    <label htmlFor="listening-A">Enfocarse completamente en la otra persona y sus palabras.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="listening-B"
+                                        name="listening"
+                                    />
+                                    <label htmlFor="listening-B">Responder con frases largas para mostrar tu opinión.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="listening-C"
+                                        name="listening"
+                                    />
+                                    <label htmlFor="listening-C">Pensar en la respuesta mientras la otra persona habla.</label>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div>
-                        <p>¿Cómo puede Ana programar descansos para mantenerse consciente durante el día?</p>
-                        <ul className="list-disc pl-5">
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="breaks-A"
-                                    name="breaks"
-                                />
-                                <label htmlFor="breaks-A">Programando descansos conscientes para enfocarse en su respiración o una breve caminata.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="breaks-B"
-                                    name="breaks"
-                                />
-                                <label htmlFor="breaks-B">Tomando descansos solo cuando se sienta agotada.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="breaks-C"
-                                    name="breaks"
-                                />
-                                <label htmlFor="breaks-C">No programando descansos para mantener la concentración.</label>
-                            </li>
-                        </ul>
+                    <div className="mt-8 flex items-center justify-center">
+                        <motion.button
+                            whileHover={{ scale: 1.1 }}
+                            className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
+                            onClick={closeModal}
+                        >
+                            Terminar
+                        </motion.button>
                     </div>
-
-                    <div>
-                        <p>¿Qué práctica de mindfulness puede ayudar a Ana a planificar mejor sus tareas del día siguiente?</p>
-                        <ul className="list-disc pl-5">
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="reflection-A"
-                                    name="reflection"
-                                />
-                                <label htmlFor="reflection-A">Dedicar unos minutos al final del día para reflexionar sobre sus logros.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="reflection-B"
-                                    name="reflection"
-                                />
-                                <label htmlFor="reflection-B">Hacer una lista de tareas antes de acostarse.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="reflection-C"
-                                    name="reflection"
-                                />
-                                <label htmlFor="reflection-C">Revisar sus correos electrónicos.</label>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <p>¿Cuál es una práctica de mindfulness que puede mejorar las relaciones de Ana y reducir su estrés?</p>
-                        <ul className="list-disc pl-5">
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="listening-A"
-                                    name="listening"
-                                />
-                                <label htmlFor="listening-A">Practicar la escucha atenta y empática en sus interacciones diarias.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="listening-B"
-                                    name="listening"
-                                />
-                                <label htmlFor="listening-B">Hablar con todos sus colegas sobre sus tareas.</label>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    id="listening-C"
-                                    name="listening"
-                                />
-                                <label htmlFor="listening-C">Evitar las interacciones sociales durante el trabajo.</label>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="mt-8 flex justify-end">
-                    <motion.button
-                        whileHover={{ scale: 1.1 }}
-                        className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
-                        onClick={closeModal}
-                    >
-                        Cerrar
-                    </motion.button>
                 </div>
             </Modal>
 
