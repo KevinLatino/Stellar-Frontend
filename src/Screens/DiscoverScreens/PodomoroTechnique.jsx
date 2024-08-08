@@ -100,7 +100,7 @@ const PodomoroTechnique = () => {
                         </span>
                     </h1>
 
-                    <div className="flex flex-col gap-6">
+                    <div className="mt-4 flex flex-col gap-6">
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
                                 <span className="inline-block border-b-[0.1rem pb-1">

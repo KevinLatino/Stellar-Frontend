@@ -89,17 +89,17 @@ const PlanificationEnvironment = () => {
                         </span>
                     </h1>
 
-                    <p className="text-l mb-6">
+                    <p className="text-l mb-2">
                         Maria quiere crear un ambiente de planificación efectivo para mejorar su productividad. A continuación, responderá una serie de preguntas para definir cómo puede optimizar su espacio de trabajo.
                     </p>
 
-                    <h3 className="text-2xl font-semibold text-stellar-blue mb-4">
+                    <h3 className="text-2xl font-medium text-stellar-blue mb-4">
                         <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                            <p>¡Ayuda a María!</p>
+                            <b>¡Ayuda a María!</b>
                         </span>
                     </h3>
-                    <div className="flex flex-col gap-6">
-                        <div>
+                    <div className=" flex flex-col gap-6">
+                        <div className='flex flex-col gap-2'>
                             <h1 className="text-xl font-medium text-stellar-blue">
                                 <b>¿Cuál es el primer paso para crear un buen ambiente de planificación?</b>
                             </h1>
@@ -131,7 +131,7 @@ const PlanificationEnvironment = () => {
                             </ul>
                         </div>
 
-                        <div>
+                        <div className='flex flex-col gap-2'>
                             <h1 className="text-xl font-medium text-stellar-blue">
                                 <b>¿Cómo puede Maria organizar su espacio de trabajo?</b>
                             </h1>
@@ -163,7 +163,7 @@ const PlanificationEnvironment = () => {
                             </ul>
                         </div>
 
-                        <div>
+                        <div className='flex flex-col gap-2'>
                             <h1 className="text-xl font-medium text-stellar-blue">
                                 <span className="inline-block border-b-[0.1rem pb-1">
                                     <b>¿Qué debe hacer Maria para mejorar su concentración mientras trabaja?</b>
@@ -197,7 +197,7 @@ const PlanificationEnvironment = () => {
                             </ul>
                         </div>
 
-                        <div>
+                        <div className='flex flex-col gap-2'>
                             <h1 className="text-xl font-medium text-stellar-blue">
                                 <b>¿Cuál es una ventaja de tener un ambiente de planificación bien organizado?</b>
                             </h1>

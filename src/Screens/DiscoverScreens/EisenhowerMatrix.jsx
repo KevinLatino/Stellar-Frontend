@@ -94,26 +94,28 @@ const EisenhowerMatrix = () => {
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
             >
-                <div className='flex flex-col gap-1'>
+                <div className='flex flex-col gap-2'>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
                             <b>La Matriz de Eisenhower y el Caso de Jane</b>
                         </span>
                     </h1>
                     <h2 className="text-l font-bold text-stellar-blue mb-6"></h2>
-                    <p className="text-lg mb-6">
+                    <p className="text-l mb-6">
                         Jane, una mujer dedicada y trabajadora, se encuentra en su casa con una lista larga de tareas por hacer. Para lograr ser más eficiente y manejar mejor su tiempo, Jane debe utilizar la matriz de Eisenhower para priorizar sus actividades según su urgencia e importancia.
                     </p>
 
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                            <b>Ayuda a Clasificar la urgencia de las tareas</b>
+                            <b>Ayuda a clasificar la urgencia de las tareas</b>
                         </span>
                     </h1>
 
                     <div className="flex flex-col gap-6">
-                        <div>
-                            <h4 className="font-semibold">1. Urgente e Importante:</h4>
+                        <div className='flex flex-col gap-2'>
+                            <h1 className="mt-3 text-lg font-bold text-stellar-blue">
+                                <p>1. Urgente e Importante:</p>
+                            </h1>
                             <p>Estas son las tareas que Jane debe atender de inmediato, ya que son cruciales para sus objetivos.</p>
                             <ul className="list-disc pl-5 flex flex-col gap-4">
                                 <li className="flex items-center gap-2">
@@ -143,8 +145,10 @@ const EisenhowerMatrix = () => {
                             </ul>
                         </div>
 
-                        <div>
-                            <h4 className="font-semibold">2. Importante pero No Urgente:</h4>
+                        <div className='flex flex-col gap-2'>
+                            <h1 className="text-lg font-bold text-stellar-blue">
+                                <p>2. Importante pero No Urgente:</p>
+                            </h1>
                             <p>Estas tareas son importantes para los objetivos a largo plazo de Jane, pero no necesitan atención inmediata.</p>
                             <ul className="list-disc pl-5 flex flex-col gap-4">
                                 <li className="flex items-center gap-2">
@@ -174,8 +178,10 @@ const EisenhowerMatrix = () => {
                             </ul>
                         </div>
 
-                        <div>
-                            <h4 className="font-semibold">3. Urgente pero No Importante:</h4>
+                        <div className='flex flex-col gap-2'>
+                            <h1 className="text-lg font-bold text-stellar-blue">
+                                <p>3. Urgente pero No Importante:</p>
+                            </h1>
                             <p>Estas tareas requieren atención inmediata pero no son cruciales para los objetivos principales de Jane.</p>
                             <ul className="list-disc pl-5 flex flex-col gap-4">
                                 <li className="flex items-center gap-2">
@@ -205,8 +211,10 @@ const EisenhowerMatrix = () => {
                             </ul>
                         </div>
 
-                        <div>
-                            <h4 className="font-semibold">4. No Urgente y No Importante:</h4>
+                        <div className='flex flex-col gap-2'>
+                            <h1 className="text-lg font-bold text-stellar-blue">
+                                <p>4. No Urgente y No Importante:</p>
+                            </h1>
                             <p>Estas tareas pueden ser eliminadas o minimizadas ya que no tienen urgencia ni importancia.</p>
                             <ul className="list-disc pl-5 flex flex-col gap-4">
                                 <li className="flex items-center gap-2">

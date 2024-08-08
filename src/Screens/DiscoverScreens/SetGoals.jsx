@@ -240,9 +240,7 @@ const SetGoals = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem] pb-1">
-                                    <p>¿Cuál es el plazo para que Carlos logre esta meta?</p>
-                                </span>
+                                <p>¿Cuál es el plazo para que Carlos logre esta meta?</p>
                             </h1>
                             <ul className="list-disc pl-5">
                                 <li className="flex items-center gap-2">
