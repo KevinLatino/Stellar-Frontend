@@ -245,10 +245,14 @@ const EisenhowerMatrix = () => {
                         </div>
                     </div>
 
-                    <div className='flex justify-center items-center'>
-                        <button className="mt-6 bg-light-blue text-white px-6 py-2 rounded-full">
-                            Verificar Respuestas
-                        </button>
+                    <div className="mt-8 flex items-center justify-center">
+                        <motion.button
+                            whileHover={{ scale: 1.1 }}
+                            className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
+                            onClick={closeModal}
+                        >
+                            Terminar
+                        </motion.button>
                     </div>
                 </div>
             </Modal>

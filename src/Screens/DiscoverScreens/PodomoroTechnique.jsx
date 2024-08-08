@@ -203,14 +203,14 @@ const PodomoroTechnique = () => {
                             </ul>
                         </div>
                     </div>
-
-                    <div className="mt-5 flex justify-center items-center">
-                        <button
-                            className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-l shadow-lg"
+                    <div className="mt-8 flex items-center justify-center">
+                        <motion.button
+                            whileHover={{ scale: 1.1 }}
+                            className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
                             onClick={closeModal}
                         >
-                            Confirmar
-                        </button>
+                            Terminar
+                        </motion.button>
                     </div>
                 </div>
             </Modal>

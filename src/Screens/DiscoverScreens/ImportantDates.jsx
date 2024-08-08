@@ -238,7 +238,7 @@ const ImportantDates = () => {
                         </div>
                     </div>
 
-                    <div className="mt-4 flex justify-center items-center">
+                    <div className="mt-8 flex items-center justify-center">
                         <motion.button
                             whileHover={{ scale: 1.1 }}
                             className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
