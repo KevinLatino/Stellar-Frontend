@@ -23,7 +23,8 @@ const DiscoverCardComponent = ({ title, description, route }) => {
                     <h2 className="text-lg font-bold text-stellar-blue font-raleway">{title}</h2>
                     <p className="text-stellar-grey font-raleway text-l flex-wrap">{description}</p>
                 </div>
-                <div className="flex justify-end">
+                <div className="flex justify-between">
+                    <h5>Medalla:</h5>
                     <Link to={route} className="text-white text-sm font-raleway bg-[#7A3AFF] rounded-full px-[10px] py-[4px] shadow-lg">
                         Ver más
                     </Link>

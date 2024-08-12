@@ -6,10 +6,13 @@ import BarChart from '../Components/BarChartComponent';
 import LineChart from '../Components/LineChartComponent';
 import { MainSpinner } from '../Components/SpinnerComponent'
 import { getWeekTasks } from '../Api/Task.Api';
+import { getAllMedals } from '../Api/Medal.Api';
 import { useQuery } from 'react-query';
 
 const DashboardScreen = () => {
     const weekTasksQuery = useQuery({ queryKey: ["weekTasks"], queryFn: getWeekTasks });
+
+    const medalsQuery = useQuery({queryKey: ["medals"], queryFn: getAllMedals});
 
     const [name, setName] = useState("");
 
@@ -20,7 +23,7 @@ const DashboardScreen = () => {
         }
     }, []);
 
-    if (weekTasksQuery.isLoading) {
+    if (weekTasksQuery.isLoading || medalsQuery.isLoading) {
         return (
             <div className='flex justify-center items-center h-full'>
                 <MainSpinner />
@@ -28,10 +31,11 @@ const DashboardScreen = () => {
         );
     }
 
-    if (weekTasksQuery.error) {
+    if (weekTasksQuery.error || medalsQuery.isError) {
         return <div>Error al cargar las tareas</div>;
     }
-
+    console.log(medalsQuery.data);
+    
     return (
         <div className='flex flex-col gap-8 animate__animated animate__fadeInDown'>
             <div className="flex w-full gap-8">
@@ -61,7 +65,7 @@ const DashboardScreen = () => {
                                 <b>¡Tareas para esta semana!</b>
                             </span>
                         </h1>
-                        <div className='flex justify-center items-center gap-x-12'>
+                        <div className='flex flex-wrap gap-y-8 justify-center items-center gap-x-12'>
                             {weekTasksQuery.data.map(task => (
                                 <HomeTasks
                                     key={task.id}
@@ -83,6 +87,19 @@ const DashboardScreen = () => {
                             <div className='flex justify-center gap-40'>
                                 <BarChart />
                                 <LineChart />
+                            </div>
+                            <h1 className="text-xl font-medium text-stellar-blue">
+                                <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
+                                    <b>¡Tus medallas!</b>
+                                </span>
+                            </h1>
+                            <div className='flex justify-center items-center gap-4'>
+                                {medalsQuery.data.map(medal => (
+                                    <div key={medal.id} className="flex flex-col items-center">
+                                        <img src={medal.image} alt={medal.name} className="w-[150px] h-[150px]" />
+                                        <p className="text-stellar-blue">{medal.name}</p>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
