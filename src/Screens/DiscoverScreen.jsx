@@ -8,7 +8,7 @@ const DiscoverScreen = () => {
     const cardContent = [
         {
             title: "Establecimiento de Metas Claras",
-            description: "stablecer metas claras y medibles para orientar las actividades diarias y mantener la motivación.",
+            description: "Establecer metas claras de manera diaria es fundamental para mantener la motivación.",
             route: "/sidebar/set-goals"
         },
         {
@@ -28,7 +28,7 @@ const DiscoverScreen = () => {
         },
         {
             title: "Ámbiente de planificación",
-            description: "Establecer un entorno de plafinicación que nos guste para sentirnos motivados es vital motivados.",
+            description: "Establecer un entorno de plafinicación que nos es vital para motivarnos.",
             route: "/sidebar/planification-environment"
         },
         {
