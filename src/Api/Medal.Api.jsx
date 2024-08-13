@@ -12,7 +12,6 @@ const getAuthorizedConfig = () => {
     };
 };
 
-
 export const getAllMedals = async () => {
     try {
         const userId = getUserFromCookie("user").userId;
