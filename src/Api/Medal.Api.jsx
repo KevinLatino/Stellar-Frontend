@@ -23,3 +23,14 @@ export const getAllMedals = async () => {
         throw error; 
     }
 };
+
+export const getPodomoroMedals = async () => {
+    try {
+        const userId = getUserFromCookie("user").userId;
+        const response = await axios.get(`${base}/medals/findPodomoro/${userId}`, getAuthorizedConfig());
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching Podomoro medals:", error);
+        throw error;
+    }
+};
