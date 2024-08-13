@@ -1,6 +1,12 @@
 import React from 'react';
 import Discover from '../../public/People-Ilustrations/Sitting2.png';
 import DiscoverCardComponent from '../Components/DiscoverCardComponent';
+import SetGoals from '../../public/Stellar-Medals/SetGoals.png';
+import Eisenhower from '../../public/Stellar-Medals/Eisenhower.png';
+import Podomoro from '../../public/Stellar-Medals/Podomoro.png';
+import Dates from '../../public/Stellar-Medals/Dates.png';
+import Environment from '../../public/Stellar-Medals/Environment.png';
+import Mindfulness from '../../public/Stellar-Medals/Mindfulness.png';
 import 'animate.css';
 
 const DiscoverScreen = () => {
@@ -9,32 +15,38 @@ const DiscoverScreen = () => {
         {
             title: "Establecimiento de Metas Claras",
             description: "Establecer metas claras de manera diaria es fundamental para mantener la motivación.",
-            route: "/sidebar/set-goals"
+            route: "/sidebar/set-goals",
+            img: SetGoals
         },
         {
             title: "La matriz de Eisenhower",
             description: "Clasificar las tareas según su urgencia o importancia",
-            route: "/sidebar/eisenhower-matrix"
+            route: "/sidebar/eisenhower-matrix",
+            img: Eisenhower
         },
         {
             title: "Técnica de Pomodoro",
             description: "Trabajar durante intervalos de tiempo concentrado seguidos de breves descansos.",
-            route: '/sidebar/podomoro-technique'
+            route: '/sidebar/podomoro-technique',
+            img: Podomoro
         },
         {
             title: "Definir fechas importantes ",
             description: "En un calendario, establece las fechas importantes según su fecha de entrega.",
-            route: "/sidebar/important-dates"
+            route: "/sidebar/important-dates",
+            img: Dates
         },
         {
             title: "Ámbiente de planificación",
             description: "Establecer un entorno de plafinicación que nos es vital para motivarnos.",
-            route: "/sidebar/planification-environment"
+            route: "/sidebar/planification-environment",
+            img: Environment
         },
         {
             title: "Prácticas de Mindfulness",
             description: "Incorporar técnicas de mindfulness para mejorar el enfoque y reducir el estrés.",
-            route: "/sidebar/mindfulness"
+            route: "/sidebar/mindfulness",
+            img: Mindfulness
         }
     ];
 
@@ -73,6 +85,7 @@ const DiscoverScreen = () => {
                                 title={content.title}
                                 description={content.description}
                                 route={content.route}
+                                img={content.img}
                             />
                         ))}
                     </div>
