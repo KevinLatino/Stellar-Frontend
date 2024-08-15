@@ -3,13 +3,55 @@ import PeopleLearning from '../../../public/People-Ilustrations/Time-Management.
 import BackToDiscover from './BackToDiscover';
 import Modal from './Modal';
 import { motion } from 'framer-motion';
+import { useMutation } from 'react-query';
+import { addGoalMedal } from '../../Api/UserMedal.Api';
 
 const SetGoals = () => {
-
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [answers, setAnswers] = useState({
+        1: '', 
+        2: '', 
+        3: '', 
+        4: '' 
+    });
+
+    const correctAnswers = {
+        1: 'Obtener un ascenso en su trabajo actual.',
+        2: 'Perder 10 kg y mantener un régimen de ejercicios regular.',
+        3: 'Adquirir habilidades adicionales a través de cursos y capacitación.',
+        4: '6 meses.'
+    };
 
     const openModal = () => setModalIsOpen(true);
     const closeModal = () => setModalIsOpen(false);
+
+    const mutation = useMutation(addGoalMedal, {
+        onSuccess: () => {
+            console.log('Medalla de meta agregada con éxito.');
+        },
+        onError: (error) => {
+            console.error('Error al agregar medalla de meta:', error);
+        }
+    });
+
+    const handleCompleteTest = () => {
+        const allCorrect = Object.keys(correctAnswers).every(
+            (key) => answers[key] === correctAnswers[key]
+        );
+
+        if (allCorrect) {
+            mutation.mutate({  });
+        } else {
+            console.log('Algunas respuestas son incorrectas.');
+        }
+    };
+
+    const handleChange = (questionId, value) => {
+        setAnswers((prevAnswers) => ({
+            ...prevAnswers,
+            [questionId]: value
+        }));
+    };
 
     return (
         <>
@@ -112,13 +154,14 @@ const SetGoals = () => {
                             <h1 className="text-lg font-bold text-stellar-blue">
                                 <p>¿Qué debe lograr Carlos exactamente?</p>
                             </h1>
-
                             <ul className="list-disc pl-5">
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
                                         id="1-A"
                                         name="1"
+                                        value="Obtener un ascenso en su trabajo actual."
+                                        onChange={(e) => handleChange('1', e.target.value)}
                                     />
                                     <label htmlFor="1-A">Obtener un ascenso en su trabajo actual.</label>
                                 </li>
@@ -127,6 +170,8 @@ const SetGoals = () => {
                                         type="radio"
                                         id="1-B"
                                         name="1"
+                                        value="Comenzar un nuevo negocio."
+                                        onChange={(e) => handleChange('1', e.target.value)}
                                     />
                                     <label htmlFor="1-B">Comenzar un nuevo negocio.</label>
                                 </li>
@@ -135,6 +180,8 @@ const SetGoals = () => {
                                         type="radio"
                                         id="1-C"
                                         name="1"
+                                        value="Mejorar su salud física."
+                                        onChange={(e) => handleChange('1', e.target.value)}
                                     />
                                     <label htmlFor="1-C">Mejorar su salud física.</label>
                                 </li>
@@ -143,40 +190,45 @@ const SetGoals = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <p>¿Cómo puede Carlos saber que ha alcanzado su meta?</p>
+                                <p>¿Cuál es el objetivo de Carlos?</p>
                             </h1>
-
                             <ul className="list-disc pl-5">
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
                                         id="2-A"
                                         name="2"
+                                        value="Perder 10 kg y mantener un régimen de ejercicios regular."
+                                        onChange={(e) => handleChange('2', e.target.value)}
                                     />
-                                    <label htmlFor="2-A">Recibir una promoción con un aumento de salario.</label>
+                                    <label htmlFor="2-A">Perder 10 kg y mantener un régimen de ejercicios regular.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
                                         id="2-B"
                                         name="2"
+                                        value="Viajar a 5 países en los próximos 2 años."
+                                        onChange={(e) => handleChange('2', e.target.value)}
                                     />
-                                    <label htmlFor="2-B">Tener un negocio operando con éxito.</label>
+                                    <label htmlFor="2-B">Viajar a 5 países en los próximos 2 años.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
                                         id="2-C"
                                         name="2"
+                                        value="Aprender un nuevo idioma."
+                                        onChange={(e) => handleChange('2', e.target.value)}
                                     />
-                                    <label htmlFor="2-C">Perder 10 kg y mantener un régimen de ejercicios regular.</label>
+                                    <label htmlFor="2-C">Aprender un nuevo idioma.</label>
                                 </li>
                             </ul>
                         </div>
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <p>¿Qué recursos necesita Carlos para alcanzar su meta y cómo los obtendrá?</p>
+                                <p>¿Cuál es el objetivo de Carlos?</p>
                             </h1>
                             <ul className="list-disc pl-5">
                                 <li className="flex items-center gap-2">
@@ -184,31 +236,37 @@ const SetGoals = () => {
                                         type="radio"
                                         id="3-A"
                                         name="3"
+                                        value="Adquirir habilidades adicionales a través de cursos y capacitación."
+                                        onChange={(e) => handleChange('3', e.target.value)}
                                     />
-                                    <label htmlFor="3-A">Mentoría y formación adicional en su campo laboral.</label>
+                                    <label htmlFor="3-A">Adquirir habilidades adicionales a través de cursos y capacitación.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
                                         id="3-B"
                                         name="3"
+                                        value="Iniciar un proyecto personal."
+                                        onChange={(e) => handleChange('3', e.target.value)}
                                     />
-                                    <label htmlFor="3-B">Capital inicial y asesoramiento empresarial.</label>
+                                    <label htmlFor="3-B">Iniciar un proyecto personal.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
                                         id="3-C"
                                         name="3"
+                                        value="Realizar un curso de liderazgo."
+                                        onChange={(e) => handleChange('3', e.target.value)}
                                     />
-                                    <label htmlFor="3-C">Un plan de dieta y un entrenador personal.</label>
+                                    <label htmlFor="3-C">Realizar un curso de liderazgo.</label>
                                 </li>
                             </ul>
                         </div>
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <p>¿Por qué es importante para Carlos alcanzar esta meta?</p>
+                                <p>¿Cuál es el plazo de Carlos para alcanzar su objetivo?</p>
                             </h1>
                             <ul className="list-disc pl-5">
                                 <li className="flex items-center gap-2">
@@ -216,73 +274,45 @@ const SetGoals = () => {
                                         type="radio"
                                         id="4-A"
                                         name="4"
+                                        value="6 meses."
+                                        onChange={(e) => handleChange('4', e.target.value)}
                                     />
-                                    <label htmlFor="4-A">Para asegurar un futuro financiero estable.</label>
+                                    <label htmlFor="4-A">6 meses.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
                                         id="4-B"
                                         name="4"
+                                        value="1 año."
+                                        onChange={(e) => handleChange('4', e.target.value)}
                                     />
-                                    <label htmlFor="4-B">Para cumplir un sueño personal de emprendimiento.</label>
+                                    <label htmlFor="4-B">1 año.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
                                         id="4-C"
                                         name="4"
+                                        value="2 años."
+                                        onChange={(e) => handleChange('4', e.target.value)}
                                     />
-                                    <label htmlFor="4-C">Para mejorar su calidad de vida y bienestar.</label>
+                                    <label htmlFor="4-C">2 años.</label>
                                 </li>
                             </ul>
                         </div>
 
-                        <div>
-                            <h1 className="text-lg font-bold text-stellar-blue">
-                                <p>¿Cuál es el plazo para que Carlos logre esta meta?</p>
-                            </h1>
-                            <ul className="list-disc pl-5">
-                                <li className="flex items-center gap-2">
-                                    <input
-                                        type="radio"
-                                        id="5-A"
-                                        name="5"
-                                    />
-                                    <label htmlFor="5-A">Dentro de los próximos seis meses.</label>
-                                </li>
-                                <li className="flex items-center gap-2">
-                                    <input
-                                        type="radio"
-                                        id="5-B"
-                                        name="5"
-                                    />
-                                    <label htmlFor="5-B">Dentro del próximo año.</label>
-                                </li>
-                                <li className="flex items-center gap-2">
-                                    <input
-                                        type="radio"
-                                        id="5-C"
-                                        name="5"
-                                    />
-                                    <label htmlFor="5-C">Dentro de los próximos dos años.</label>
-                                </li>
-                            </ul>
+                        <div className="flex justify-center mt-4">
+                            <motion.button
+                                whileHover={{ scale: 1.1 }}
+                                onClick={handleCompleteTest}
+                                className="bg-light-blue text-white px-6 py-3 rounded-full font-semibold text-lg shadow-lg">
+                                Completar Test
+                            </motion.button>
                         </div>
-                    </div>
-
-                    <div className="mt-8 flex items-center justify-center">
-                        <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
-                            onClick={closeModal}
-                        >
-                            Terminar
-                        </motion.button>
                     </div>
                 </div>
             </Modal>
-
         </>
     );
 };

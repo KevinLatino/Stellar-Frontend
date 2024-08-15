@@ -53,7 +53,7 @@ const TaskScreen = () => {
                             </span>
                         </h1>
                     </div>
-                    <div className='flex justify-center items-center flex-wrap gap-x-6 gap-y-6'>
+                    <div className='flex justify-center items-center flex-wrap gap-x-9 gap-y-6'>
                         {urgentTaskQuery.data.map(task => (
                             <TaskCard key={task.id} id={task.id} title={task.title} description={task.description} date={task.dueDate} completed={task.completed} priority={task.priority} />
                         ))}
@@ -63,7 +63,7 @@ const TaskScreen = () => {
                             <b>¡Tus tareas con urgencia moderada!</b>
                         </span>
                     </h1>
-                    <div className='flex justify-center items-end flex-wrap gap-x-6 gap-y-6'>
+                    <div className='flex justify-center items-end flex-wrap gap-x-9 gap-y-6'>
                         {normalTaskQuery.data.map(task => (
                             <TaskCard key={task.id} id={task.id} title={task.title} description={task.description} date={task.dueDate} completed={task.completed} priority={task.priority} />
                         ))}
@@ -73,7 +73,7 @@ const TaskScreen = () => {
                             <b>¡Tus tareas con baja urgencia!</b>
                         </span>
                     </h1>
-                    <div className='flex justify-center items-center flex-wrap gap-x-6 gap-y-6'>
+                    <div className='flex justify-center items-center flex-wrap gap-x-9 gap-y-6'>
                         {waitingTaskQuery.data.map(task => (
                             <TaskCard key={task.id} id={task.id} title={task.title} description={task.description} date={task.dueDate} completed={task.completed} priority={task.priority} />
                         ))}
