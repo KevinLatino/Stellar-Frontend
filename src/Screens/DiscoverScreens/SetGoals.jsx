@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PeopleLearning from '../../../public/People-Ilustrations/Time-Management.png';
 import BackToDiscover from './BackToDiscover';
 import Modal from './Modal';
 import { motion } from 'framer-motion';
 import { useMutation } from 'react-query';
-import { addGoalMedal } from '../../Api/UserMedal.Api';
+import { addGoalMedal, checkGoalMedal } from '../../Api/UserMedal.Api';
 
 const SetGoals = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -14,6 +14,7 @@ const SetGoals = () => {
         3: '', 
         4: '' 
     });
+    const [hasMedal, setHasMedal] = useState(false);
 
     const correctAnswers = {
         1: 'Obtener un ascenso en su trabajo actual.',
@@ -22,12 +23,27 @@ const SetGoals = () => {
         4: '6 meses.'
     };
 
+    useEffect(() => {
+        const fetchMedalStatus = async () => {
+            try {
+                const response = await checkGoalMedal();
+                console.log('Respuesta de la API en useEffect:', response);
+                // Si la respuesta es un booleano
+                setHasMedal(response); 
+            } catch (error) {
+                console.error('Error al verificar el estado de la medalla:', error);
+            }
+        };
+        fetchMedalStatus();
+    }, []);
+
     const openModal = () => setModalIsOpen(true);
     const closeModal = () => setModalIsOpen(false);
 
     const mutation = useMutation(addGoalMedal, {
         onSuccess: () => {
             console.log('Medalla de meta agregada con éxito.');
+            setHasMedal(true); // Marca que el usuario ya tiene la medalla
         },
         onError: (error) => {
             console.error('Error al agregar medalla de meta:', error);
@@ -40,7 +56,7 @@ const SetGoals = () => {
         );
 
         if (allCorrect) {
-            mutation.mutate({  });
+            mutation.mutate({});
         } else {
             console.log('Algunas respuestas son incorrectas.');
         }
@@ -119,9 +135,11 @@ const SetGoals = () => {
                 <div className="flex justify-center mt-2">
                     <motion.button
                         whileHover={{ scale: 1.1 }}
-                        onClick={openModal}
-                        className="bg-light-blue text-white px-6 py-3 rounded-full font-semibold text-lg shadow-lg">
-                        Realizar Prueba
+                        onClick={!hasMedal ? openModal : undefined} // No abre el modal si ya se tiene la medalla
+                        className={`bg-light-blue text-white px-6 py-3 rounded-full font-semibold text-lg shadow-lg ${hasMedal ? 'cursor-not-allowed opacity-50' : ''}`}
+                        disabled={hasMedal} // Deshabilita el botón si ya se tiene la medalla
+                    >
+                        {hasMedal ? 'Has completado el test' : 'Realizar Prueba'}
                     </motion.button>
                 </div>
             </div>
@@ -318,3 +336,29 @@ const SetGoals = () => {
 };
 
 export default SetGoals;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
