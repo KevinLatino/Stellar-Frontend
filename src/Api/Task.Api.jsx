@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 import getUserFromCookie from '../Utils/getUserCookies';
 
 const base = "http://localhost:3000/tasks";
@@ -12,241 +12,75 @@ const getAuthorizedConfig = () => {
     };
 };
 
-export const createTask = async (task) => {
+const getUserId = () => getUserFromCookie("user").userId;
 
-    const res = await axios.post(`${base}/create`, task, getAuthorizedConfig());
-
+const getTaskByCategory = async (category) => {
+    const res = await axios.get(`${base}/${category}/${getUserId()}`, getAuthorizedConfig());
     return res.data;
-}
+};
 
+export const createTask = async (task) => {
+    const res = await axios.post(`${base}/create`, task, getAuthorizedConfig());
+    return res.data;
+};
 
 export const updateTask = async (id, bodyUpdated) => {
-
     const res = await axios.put(`${base}/update/${id}`, bodyUpdated, getAuthorizedConfig());
-
     return res.data;
-}
+};
 
+export const getNormalTasks = () => getTaskByCategory('normal');
 
-export const getNormalTasks = async () => {
+export const getWaitingTasks = () => getTaskByCategory('waiting');
 
-    const userId = getUserFromCookie("user").userId;
+export const getCompletedTasks = () => getTaskByCategory('completed');
 
-    const res = await axios.get(`${base}/normal/${userId}`, getAuthorizedConfig())
+export const getUrgentTasks = () => getTaskByCategory('urgent');
 
-    return res.data;
-}
+export const getUrgentTasksCompleted = () => getTaskByCategory('completed/urgent');
 
+export const getWaitingTasksCompleted = () => getTaskByCategory('completed/waiting');
 
-export const getWaitingTasks = async () => {
+export const getNormalTasksCompleted = () => getTaskByCategory('completed/normal');
 
-    const userId = getUserFromCookie("user").userId;
+export const getTodayTasks = () => getTaskByCategory('today');
 
-    const res = await axios.get(`${base}/waiting/${userId}`, getAuthorizedConfig())
+export const getWeekTasks = () => getTaskByCategory('week');
 
-    return res.data;
-}
+export const getPendingWaitingTasks = () => getTaskByCategory('pending/waiting');
 
+export const getPendingNormalTasks = () => getTaskByCategory('pending/normal');
 
-export const getCompletedTasks = async () => {
+export const getPendingUrgentgTasks = () => getTaskByCategory('pending/urgent');
 
-    const userId = getUserFromCookie("user").userId
+export const getTotalPending = () => getTaskByCategory('pending/total');
 
-    const res = await axios.get(`${base}/completed/${userId}`, getAuthorizedConfig());
+export const getOverdue = () => getTaskByCategory('overdue');
 
-    return res.data;
-}
+export const countOverdue = () => getTaskByCategory('total/overdue');
 
-export const getUrgentTasks = async () => {
+export const getJanuaryCompletedTask = () => getTaskByCategory('completed/january');
 
-    const userId = getUserFromCookie("user").userId;
+export const getFebruaryCompletedTask = () => getTaskByCategory('completed/february');
 
-    const res = await axios.get(`${base}/urgent/${userId}`, getAuthorizedConfig())
+export const getMarchCompletedTask = () => getTaskByCategory('completed/march');
 
-    return res.data;
-}
+export const getAprilCompletedTask = () => getTaskByCategory('completed/april');
 
-export const getUrgentTasksCompleted = async () => {
+export const getMayCompletedTask = () => getTaskByCategory('completed/may');
 
-    const userId = getUserFromCookie("user").userId;
+export const getJuneCompletedTask = () => getTaskByCategory('completed/june');
 
-    const res = await axios.get(`${base}/completed/urgent/${userId}`, getAuthorizedConfig())
+export const getJulyCompletedTask = () => getTaskByCategory('completed/july');
 
-    return res.data;
-}
-
-export const getWaitingTasksCompleted = async () => {
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/completed/waiting/${userId}`, getAuthorizedConfig())
-
-    return res.data;
-}
-
-export const getNormalTasksCompleted = async () => {
-
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/completed/normal/${userId}`, getAuthorizedConfig())
-
-    return res.data;
-}
-
-export const getTodayTasks = async () => {
-
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/today/${userId}`, getAuthorizedConfig())
-
-    return res.data
-}
-
-export const getWeekTasks = async () => {
-
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/week/${userId}`, getAuthorizedConfig());
-
-    return res.data
-}
-
-export const getPendingWaitingTasks = async () => {
-
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/pending/waiting/${userId}`, getAuthorizedConfig());
-
-    return res.data
-}
-
-export const getPendingNormalTasks = async () => {
-
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/pending/normal/${userId}`, getAuthorizedConfig());
-
-    return res.data
-}
-
-export const getPendingUrgentgTasks = async () => {
-
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/pending/urgent/${userId}`, getAuthorizedConfig());
-
-    return res.data
-}
-
-export const getTotalPending = async () => {
-
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/pending/total/${userId}`, getAuthorizedConfig());
-
-    return res.data
-}
-
-export const getOverdue = async () => {
-
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/overdue/${userId}`, getAuthorizedConfig());
-
-    return res.data
-}
-
-export const countOverdue = async () => {
-
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/total/overdue/${userId}`, getAuthorizedConfig());
-
-    return res.data
-}
-
-export const getJanuaryCompletedTask = async () => {
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/completed/january/${userId}`, getAuthorizedConfig());
-
-    return res.data
-}
-
-
-export const getFebruaryCompletedTask = async () => {
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/completed/february/${userId}`, getAuthorizedConfig());
-
-    return res.data
-}
-
-
-export const getMarchCompletedTask = async () => {
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/completed/march/${userId}`, getAuthorizedConfig());
-
-    return res.data
-}
-
-
-export const getAprilCompletedTask = async () => {
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/completed/april/${userId}`, getAuthorizedConfig());
-
-    return res.data
-}
-
-
-export const getMayCompletedTask = async () => {
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/completed/may/${userId}`, getAuthorizedConfig());
-
-    return res.data
-}
-
-
-export const getJuneCompletedTask = async () => {
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/completed/june/${userId}`, getAuthorizedConfig());
-
-    return res.data
-}
-
-export const getJulyCompletedTask = async () => {
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/completed/july/${userId}`, getAuthorizedConfig());
-
-    return res.data
-}
-
-export const getAugustCompletedTask = async () => {
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/completed/august/${userId}`, getAuthorizedConfig());
-
-    return res.data
-}
+export const getAugustCompletedTask = () => getTaskByCategory('completed/august');
 
 export const getTitleAndDate = async () => {
-    const userId = getUserFromCookie("user").userId;
-
-    const res = await axios.get(`${base}/titles-dates/${userId}`, getAuthorizedConfig());
-
+    const res = await axios.get(`${base}/titles-dates/${getUserId()}`, getAuthorizedConfig());
     return res.data;
-}
+};
 
 export const deleteTask = async (id) => {
-
     const res = await axios.delete(`${base}/delete/${id}`, getAuthorizedConfig());
-
     return res.data;
-}
-
-
-
+};

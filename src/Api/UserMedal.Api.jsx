@@ -1,41 +1,77 @@
 import axios from "axios";
 import getUserFromCookie from "../Utils/getUserCookies";
 
-const base = "http://localhost:3000";
+const BASE_URL = "http://localhost:3000";
 
 const getAuthorizedConfig = () => {
-    const { token } = getUserFromCookie("user");
-    return {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    };
+  const { token } = getUserFromCookie("user");
+  return {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+};
+
+const getUserId = () => {
+  return getUserFromCookie("user").userId;
+};
+
+const getRequest = async (endpoint) => {
+  const res = await axios.get(`${BASE_URL}${endpoint}`);
+  return res.data;
+};
+
+const postMedalRequest = async (medalId) => {
+  const userId = getUserId();
+  const res = await axios.post(
+    `${BASE_URL}/user-medal/goals`,
+    { userId, medalId },
+    getAuthorizedConfig()
+  );
+  return res.data;
 };
 
 export const userMedal = async () => {
-    const userId = getUserFromCookie("user").userId;
-    const res = await axios.get(`${base}/users/medals/${userId}`);
-    return res.data; 
+  const userId = getUserId();
+  return getRequest(`/users/medals/${userId}`);
+};
+
+export const checkGoalMedal = async () => {
+  const userId = getUserId();
+  return getRequest(`/users/checkGoalMedal/${userId}`);
+};
+
+export const findAllMedals = async () => {
+  const userId = getUserId();
+  return getRequest(`/user-medal/findAll/${userId}`);
 };
 
 export const addGoalMedal = async () => {
+  const GOAL_MEDAL_ID = "1c12c649-cac3-44f7-9164-ab38a8e53928";
+  return postMedalRequest(GOAL_MEDAL_ID);
+};
 
-    const userId = getUserFromCookie("user").userId;
-    const medalId = "1c12c649-cac3-44f7-9164-ab38a8e53928";
-    const res = await axios.post(`${base}/user-medal/goals`, { userId, medalId }, getAuthorizedConfig());
-    return res.data;
+export const addEisenhowerMedal = async () => {
+  const EISENHOWER_MEDAL_ID = "8c498df9-c95e-47f4-ae62-454dca1b1e0b";
+  return postMedalRequest(EISENHOWER_MEDAL_ID);
+};
 
-}
+export const addPomodoroMedal = async () => {
+  const POMODORO_MEDAL_ID = "8cd34f20-e4f3-448c-8dd6-d2b736577783";
+  return postMedalRequest(POMODORO_MEDAL_ID);
+};
 
-export const checkGoalMedal = async () => {
-    const userId = getUserFromCookie("user").userId;
-    const res = await axios.get(`${base}/users/checkGoalMedal/${userId}`);
-    return res.data;
-}
+export const addDateMedal = async () => {
+  const DATE_MEDAL_ID = "3d0a5cf4-b932-4937-85f9-f51cbc09dfa6";
+  return postMedalRequest(DATE_MEDAL_ID);
+};
 
-export const findAllMedals = async () => {
-    const userId = getUserFromCookie("user").userId;
-    const res = await axios.get(`${base}/user-medal/findAll/${userId}`);
-    return res.data;
-}
+export const addEnvironmentMedal = async () => {
+  const ENVIRONMENT_MEDAL_ID = "1c6c94ed-95d6-4231-b653-bf3719098e35";
+  return postMedalRequest(ENVIRONMENT_MEDAL_ID);
+};
 
+export const addMindfulnessMedal = async () => {
+  const MINDFULNESS_MEDAL_ID = "e78f9bfa-8e5d-4708-ace9-c4e1c3edde98";
+  return postMedalRequest(MINDFULNESS_MEDAL_ID);
+};
