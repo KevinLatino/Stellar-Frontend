@@ -12,6 +12,12 @@ const getAuthorizedConfig = () => {
     };
 };
 
+export const userMedal = async () => {
+    const userId = getUserFromCookie("user").userId;
+    const res = await axios.get(`${base}/users/medals/${userId}`);
+    return res.data; 
+};
+
 export const addGoalMedal = async () => {
 
     const userId = getUserFromCookie("user").userId;
@@ -21,14 +27,15 @@ export const addGoalMedal = async () => {
 
 }
 
+export const checkGoalMedal = async () => {
+    const userId = getUserFromCookie("user").userId;
+    const res = await axios.get(`${base}/users/checkGoalMedal/${userId}`);
+    return res.data;
+}
+
 export const findAllMedals = async () => {
     const userId = getUserFromCookie("user").userId;
     const res = await axios.get(`${base}/user-medal/findAll/${userId}`);
     return res.data;
 }
 
-export const checkGoalMedal = async () => {
-    const userId = getUserFromCookie("user").userId;
-    const res = await axios.get(`${base}/users/checkGoalMedal/${userId}`);
-    return res.data;
-}

@@ -6,7 +6,7 @@ import BarChart from '../Components/BarChartComponent';
 import LineChart from '../Components/LineChartComponent';
 import { MainSpinner } from '../Components/SpinnerComponent';
 import { getWeekTasks } from '../Api/Task.Api';
-import { userMedal } from '../Api/User.Api';
+import { userMedal } from '../Api/UserMedal.Api';
 import { useQuery } from 'react-query';
 
 const DashboardScreen = () => {

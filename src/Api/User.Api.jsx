@@ -20,9 +20,3 @@ export const updateUser = async (userBody) => {
 
     return res.data;
 }
-
-export const userMedal = async () => {
-    const userId = getUserFromCookie("user").userId;
-    const res = await axios.get(`${base}/users/medals/${userId}`);
-    return res.data; 
-};
