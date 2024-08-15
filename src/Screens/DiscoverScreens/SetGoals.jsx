@@ -28,7 +28,8 @@ const SetGoals = () => {
         const fetchMedalStatus = async () => {
             try {
                 const response = await checkGoalMedal();
-                console.log(response);
+                console.log( response);
+                setHasMedal(response); 
             } catch (error) {
                 console.error(error);
             }
@@ -43,6 +44,7 @@ const SetGoals = () => {
         onSuccess: () => {
             LaunchConfetti();
             setHasMedal(true); 
+            closeModal();
         },
         onError: (error) => {
             console.error('Error al agregar medalla de meta:', error);
@@ -134,9 +136,9 @@ const SetGoals = () => {
                 <div className="flex justify-center mt-2">
                     <motion.button
                         whileHover={{ scale: 1.1 }}
-                        onClick={!hasMedal ? openModal : undefined}
+                        onClick={!hasMedal ? openModal : undefined} 
                         className={`bg-light-blue text-white px-6 py-3 rounded-full font-semibold text-lg shadow-lg ${hasMedal ? 'cursor-not-allowed opacity-50' : ''}`}
-                        disabled={hasMedal}
+                        disabled={hasMedal} 
                     >
                         {hasMedal ? 'Has completado el test' : 'Realizar Prueba'}
                     </motion.button>
