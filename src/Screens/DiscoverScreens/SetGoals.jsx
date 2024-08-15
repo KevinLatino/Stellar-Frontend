@@ -5,6 +5,7 @@ import Modal from './Modal';
 import { motion } from 'framer-motion';
 import { useMutation } from 'react-query';
 import { addGoalMedal, checkGoalMedal } from '../../Api/UserMedal.Api';
+import LaunchConfetti from '../../Components/ConfettiComponent';
 
 const SetGoals = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -27,11 +28,9 @@ const SetGoals = () => {
         const fetchMedalStatus = async () => {
             try {
                 const response = await checkGoalMedal();
-                console.log('Respuesta de la API en useEffect:', response);
-                // Si la respuesta es un booleano
-                setHasMedal(response); 
+                console.log(response);
             } catch (error) {
-                console.error('Error al verificar el estado de la medalla:', error);
+                console.error(error);
             }
         };
         fetchMedalStatus();
@@ -42,8 +41,8 @@ const SetGoals = () => {
 
     const mutation = useMutation(addGoalMedal, {
         onSuccess: () => {
-            console.log('Medalla de meta agregada con éxito.');
-            setHasMedal(true); // Marca que el usuario ya tiene la medalla
+            LaunchConfetti();
+            setHasMedal(true); 
         },
         onError: (error) => {
             console.error('Error al agregar medalla de meta:', error);
@@ -135,9 +134,9 @@ const SetGoals = () => {
                 <div className="flex justify-center mt-2">
                     <motion.button
                         whileHover={{ scale: 1.1 }}
-                        onClick={!hasMedal ? openModal : undefined} // No abre el modal si ya se tiene la medalla
+                        onClick={!hasMedal ? openModal : undefined}
                         className={`bg-light-blue text-white px-6 py-3 rounded-full font-semibold text-lg shadow-lg ${hasMedal ? 'cursor-not-allowed opacity-50' : ''}`}
-                        disabled={hasMedal} // Deshabilita el botón si ya se tiene la medalla
+                        disabled={hasMedal}
                     >
                         {hasMedal ? 'Has completado el test' : 'Realizar Prueba'}
                     </motion.button>
