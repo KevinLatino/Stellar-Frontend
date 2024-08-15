@@ -3,7 +3,7 @@ import { MoreHorizontal } from 'lucide-react';
 import { useMutation, useQueryClient } from 'react-query';
 import { updateTask, deleteTask } from '../Api/Task.Api';
 import { CircleCheckBig, Trash2 } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import LaunchConfetti from './ConfettiComponent';
 
 const priorityGradientStyles = {
     Baja: {
@@ -48,35 +48,6 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
 
     const queryClient = useQueryClient();
 
-    const launchConfetti = () => {
-        const end = Date.now() + 3 * 1000;
-        const colors = ["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"];
-
-        const frame = () => {
-            if (Date.now() > end) return;
-
-            confetti({
-                particleCount: 2,
-                angle: 60,
-                spread: 55,
-                startVelocity: 60,
-                origin: { x: 0, y: 0.5 },
-                colors: colors,
-            });
-            confetti({
-                particleCount: 2,
-                angle: 120,
-                spread: 55,
-                startVelocity: 60,
-                origin: { x: 1, y: 0.5 },
-                colors: colors,
-            });
-
-            requestAnimationFrame(frame);
-        };
-
-        frame();
-    };
 
     const refetchTasks = () => {
         queryClient.refetchQueries(["urgentTasks"]);
@@ -90,7 +61,7 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
         {
             onSuccess: () => {
                 refetchTasks();
-                launchConfetti();
+                LaunchConfetti();
             },
             onError: (error) => {
                 console.error('Error al actualizar la tarea:', error);
