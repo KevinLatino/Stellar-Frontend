@@ -1,15 +1,74 @@
-import React, { useState } from 'react'
-import GirlWritingNotes from '../../../public/People-Ilustrations/Girl-Writing-Notes.png'
-import BackToDiscover from './BackToDiscover'
-import Modal from './Modal'
+import React, { useState, useEffect } from 'react';
+import GirlWritingNotes from '../../../public/People-Ilustrations/Girl-Writing-Notes.png';
+import BackToDiscover from './BackToDiscover';
+import Modal from './Modal';
 import { motion } from 'framer-motion';
+import { useMutation } from 'react-query';
+import { checkDateMedal, addDateMedal } from '../../Api/UserMedal.Api';
+import LaunchConfetti from '../../Components/ConfettiComponent';
 
 const ImportantDates = () => {
-
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [answers, setAnswers] = useState({
+        question1: '',
+        question2: '',
+        question3: '',
+        question4: '',
+    });
+    const [hasMedal, setHasMedal] = useState(false);
+
+    const correctAnswers = {
+        question1: 'Identificar las tareas y proyectos clave.',
+        question2: 'Asignar una fecha de entrega realista para cada tarea.',
+        question3: 'Revisar el calendario y ajustar la fecha de entrega si es necesario.',
+        question4: 'Programar revisiones semanales para actualizar fechas y prioridades.',
+    };
+
+    useEffect(() => {
+        const fetchMedalStatus = async () => {
+            try {
+                const response = await checkDateMedal();
+                setHasMedal(response);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchMedalStatus();
+    }, []);
 
     const openModal = () => setModalIsOpen(true);
     const closeModal = () => setModalIsOpen(false);
+
+    const mutation = useMutation({
+        mutationFn: addDateMedal,
+        onSuccess: () => {
+            LaunchConfetti();
+            setHasMedal(true);
+            closeModal();
+        },
+        onError: (error) => {
+            console.error('Error al agregar medalla de fechas importantes:', error);
+        }
+    });
+
+    const handleCompleteTest = () => {
+        const allCorrect = Object.keys(correctAnswers).every(
+            (key) => answers[key] === correctAnswers[key]
+        );
+
+        if (allCorrect) {
+            mutation.mutate();
+        } else {
+            console.log('Algunas respuestas son incorrectas.');
+        }
+    };
+
+    const handleChange = (question, value) => {
+        setAnswers((prevAnswers) => ({
+            ...prevAnswers,
+            [question]: value
+        }));
+    };
 
     return (
         <>
@@ -70,10 +129,11 @@ const ImportantDates = () => {
                 <div className="flex justify-center">
                     <motion.button
                         whileHover={{ scale: 1.1 }}
-                        className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
-                        onClick={openModal}
+                        className={`bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg ${hasMedal ? 'cursor-not-allowed opacity-85' : ''}`}
+                        onClick={!hasMedal ? openModal : undefined}
+                        disabled={hasMedal}
                     >
-                        Realizar Prueba
+                        {hasMedal ? 'Has completado el test' : 'Realizar Prueba'}
                     </motion.button>
                 </div>
             </div>
@@ -103,7 +163,7 @@ const ImportantDates = () => {
                     <div className="mt-4 flex flex-col gap-6">
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem pb-1">
+                                <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
                                     <p>¿Cuál es el primer paso para establecer fechas importantes en el calendario?</p>
                                 </span>
                             </h1>
@@ -112,7 +172,9 @@ const ImportantDates = () => {
                                     <input
                                         type="radio"
                                         id="step1-A"
-                                        name="step1"
+                                        name="question1"
+                                        value="Identificar las tareas y proyectos clave."
+                                        onChange={(e) => handleChange('question1', e.target.value)}
                                     />
                                     <label htmlFor="step1-A">Identificar las tareas y proyectos clave.</label>
                                 </li>
@@ -120,7 +182,9 @@ const ImportantDates = () => {
                                     <input
                                         type="radio"
                                         id="step1-B"
-                                        name="step1"
+                                        name="question1"
+                                        value="Asignar fechas de entrega a cada tarea."
+                                        onChange={(e) => handleChange('question1', e.target.value)}
                                     />
                                     <label htmlFor="step1-B">Asignar fechas de entrega a cada tarea.</label>
                                 </li>
@@ -128,7 +192,9 @@ const ImportantDates = () => {
                                     <input
                                         type="radio"
                                         id="step1-C"
-                                        name="step1"
+                                        name="question1"
+                                        value="Revisar y ajustar el calendario regularmente."
+                                        onChange={(e) => handleChange('question1', e.target.value)}
                                     />
                                     <label htmlFor="step1-C">Revisar y ajustar el calendario regularmente.</label>
                                 </li>
@@ -137,7 +203,7 @@ const ImportantDates = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem pb-1">
+                                <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
                                     <p>¿Cómo debe Alex asignar fechas a sus tareas?</p>
                                 </span>
                             </h1>
@@ -146,7 +212,9 @@ const ImportantDates = () => {
                                     <input
                                         type="radio"
                                         id="assign-A"
-                                        name="assign"
+                                        name="question2"
+                                        value="Asignar una fecha de entrega realista para cada tarea."
+                                        onChange={(e) => handleChange('question2', e.target.value)}
                                     />
                                     <label htmlFor="assign-A">Asignar una fecha de entrega realista para cada tarea.</label>
                                 </li>
@@ -154,7 +222,9 @@ const ImportantDates = () => {
                                     <input
                                         type="radio"
                                         id="assign-B"
-                                        name="assign"
+                                        name="question2"
+                                        value="Establecer fechas de entrega arbitrarias sin considerar la carga de trabajo."
+                                        onChange={(e) => handleChange('question2', e.target.value)}
                                     />
                                     <label htmlFor="assign-B">Establecer fechas de entrega arbitrarias sin considerar la carga de trabajo.</label>
                                 </li>
@@ -162,7 +232,9 @@ const ImportantDates = () => {
                                     <input
                                         type="radio"
                                         id="assign-C"
-                                        name="assign"
+                                        name="question2"
+                                        value="Asignar fechas de entrega solo a las tareas más importantes."
+                                        onChange={(e) => handleChange('question2', e.target.value)}
                                     />
                                     <label htmlFor="assign-C">Asignar fechas de entrega solo a las tareas más importantes.</label>
                                 </li>
@@ -171,7 +243,7 @@ const ImportantDates = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem pb-1">
+                                <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
                                     <p>¿Qué debe hacer Alex si no puede cumplir una fecha de entrega?</p>
                                 </span>
                             </h1>
@@ -180,7 +252,9 @@ const ImportantDates = () => {
                                     <input
                                         type="radio"
                                         id="adjust-A"
-                                        name="adjust"
+                                        name="question3"
+                                        value="Revisar el calendario y ajustar la fecha de entrega si es necesario."
+                                        onChange={(e) => handleChange('question3', e.target.value)}
                                     />
                                     <label htmlFor="adjust-A">Revisar el calendario y ajustar la fecha de entrega si es necesario.</label>
                                 </li>
@@ -188,7 +262,9 @@ const ImportantDates = () => {
                                     <input
                                         type="radio"
                                         id="adjust-B"
-                                        name="adjust"
+                                        name="question3"
+                                        value="Eliminar la tarea del calendario."
+                                        onChange={(e) => handleChange('question3', e.target.value)}
                                     />
                                     <label htmlFor="adjust-B">Eliminar la tarea del calendario.</label>
                                 </li>
@@ -196,7 +272,9 @@ const ImportantDates = () => {
                                     <input
                                         type="radio"
                                         id="adjust-C"
-                                        name="adjust"
+                                        name="question3"
+                                        value="Reasignar la tarea a otra persona."
+                                        onChange={(e) => handleChange('question3', e.target.value)}
                                     />
                                     <label htmlFor="adjust-C">Reasignar la tarea a otra persona.</label>
                                 </li>
@@ -205,7 +283,7 @@ const ImportantDates = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem pb-1">
+                                <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
                                     <p>¿Cómo puede Alex revisar y ajustar su calendario regularmente?</p>
                                 </span>
                             </h1>
@@ -214,7 +292,9 @@ const ImportantDates = () => {
                                     <input
                                         type="radio"
                                         id="review-A"
-                                        name="review"
+                                        name="question4"
+                                        value="Programar revisiones semanales para actualizar fechas y prioridades."
+                                        onChange={(e) => handleChange('question4', e.target.value)}
                                     />
                                     <label htmlFor="review-A">Programar revisiones semanales para actualizar fechas y prioridades.</label>
                                 </li>
@@ -222,7 +302,9 @@ const ImportantDates = () => {
                                     <input
                                         type="radio"
                                         id="review-B"
-                                        name="review"
+                                        name="question4"
+                                        value="Actualizar el calendario solo cuando surjan problemas."
+                                        onChange={(e) => handleChange('question4', e.target.value)}
                                     />
                                     <label htmlFor="review-B">Actualizar el calendario solo cuando surjan problemas.</label>
                                 </li>
@@ -230,7 +312,9 @@ const ImportantDates = () => {
                                     <input
                                         type="radio"
                                         id="review-C"
-                                        name="review"
+                                        name="question4"
+                                        value="Revisar el calendario al final de cada mes."
+                                        onChange={(e) => handleChange('question4', e.target.value)}
                                     />
                                     <label htmlFor="review-C">Revisar el calendario al final de cada mes.</label>
                                 </li>
@@ -242,15 +326,15 @@ const ImportantDates = () => {
                         <motion.button
                             whileHover={{ scale: 1.1 }}
                             className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
-                            onClick={closeModal}
+                            onClick={handleCompleteTest}
                         >
-                            Terminar
+                            {hasMedal ? 'Medalla Obtenida' : 'Completar Test'}
                         </motion.button>
                     </div>
                 </div>
             </Modal>
         </>
-    )
-}
+    );
+};
 
-export default ImportantDates
+export default ImportantDates;

@@ -1,15 +1,63 @@
-import React, { useState } from 'react'
-import Meditation from '../../../public/People-Ilustrations/People-Meditation.png'
+import React, { useState,useEffect } from 'react';
+import Meditation from '../../../public/People-Ilustrations/People-Meditation.png';
 import Modal from './Modal';
-import BackToDiscover from './BackToDiscover'
+import BackToDiscover from './BackToDiscover';
 import { motion } from 'framer-motion';
+import {useMutation } from 'react-query';
+import { checkMindfulnessMedal, addMindfulnessMedal } from '../../Api/UserMedal.Api';
+import confetti from 'canvas-confetti';
 
 const Mindfulness = () => {
-
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [responses, setResponses] = useState({});
 
-    const openModal = () => setModalIsOpen(true);
-    const closeModal = () => setModalIsOpen(false);
+
+    const mutation = useMutation(addMindfulnessMedal, {
+        onSuccess: () => {
+            confetti();
+        },
+        onError: () => {
+            alert('Hubo un problema al obtener la medalla.');
+        }
+    });
+
+    useEffect(() => {
+        const fetchMedalStatus = async () => {
+            try {
+                const response = await checkMindfulnessMedal();
+                setHasMedal(response);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchMedalStatus();
+    }, []);
+
+    const handleChange = (question, value) => {
+        setResponses(prevResponses => ({
+            ...prevResponses,
+            [question]: value
+        }));
+    };
+
+    const handleCompleteTest = () => {
+        const correctAnswers = {
+            mindfulness: 'Tomarse unos minutos para respirar profundamente.',
+            breaks: 'Programar breves descansos para respirar o caminar.',
+            journaling: 'Procesar y liberar el estrés acumulado.',
+            listening: 'Enfocarse completamente en la otra persona y sus palabras.'
+        };
+
+        const allCorrect = Object.keys(correctAnswers).every(
+            key => responses[key] === correctAnswers[key]
+        );
+
+        if (allCorrect) {
+            mutation.mutate();
+        } else {
+            alert('Algunas respuestas son incorrectas. Intenta de nuevo.');
+        }
+    };
 
     return (
         <>
@@ -69,7 +117,7 @@ const Mindfulness = () => {
                     <motion.button
                         whileHover={{ scale: 1.1 }}
                         className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
-                        onClick={openModal}
+                        onClick={() => setModalIsOpen(true)}
                     >
                         Realizar Prueba
                     </motion.button>
@@ -79,7 +127,7 @@ const Mindfulness = () => {
 
             <Modal
                 isOpen={modalIsOpen}
-                onRequestClose={closeModal}
+                onRequestClose={() => setModalIsOpen(false)}
             >
                 <div className='flex flex-col gap-2'>
                     <h1 className="text-xl font-medium text-stellar-blue">
@@ -97,7 +145,7 @@ const Mindfulness = () => {
                             <b>¡Demuestra Tu Conocimiento!</b>
                         </span>
                     </h3>
-                    <div className=" flex flex-col gap-6">
+                    <div className="flex flex-col gap-6">
                         <div className='flex flex-col gap-2'>
                             <h1 className="text-xl font-medium text-stellar-blue">
                                 <b>¿Cuál es la primera práctica recomendada para iniciar el día con atención plena?</b>
@@ -108,6 +156,8 @@ const Mindfulness = () => {
                                         type="radio"
                                         id="mindfulness-A"
                                         name="mindfulness"
+                                        value="Hacer una reflexión diaria sobre los logros y planificar el día."
+                                        onChange={() => handleChange('mindfulness', 'Hacer una reflexión diaria sobre los logros y planificar el día.')}
                                     />
                                     <label htmlFor="mindfulness-A">Hacer una reflexión diaria sobre los logros y planificar el día.</label>
                                 </li>
@@ -116,6 +166,8 @@ const Mindfulness = () => {
                                         type="radio"
                                         id="mindfulness-B"
                                         name="mindfulness"
+                                        value="Tomarse unos minutos para respirar profundamente."
+                                        onChange={() => handleChange('mindfulness', 'Tomarse unos minutos para respirar profundamente.')}
                                     />
                                     <label htmlFor="mindfulness-B">Tomarse unos minutos para respirar profundamente.</label>
                                 </li>
@@ -124,6 +176,8 @@ const Mindfulness = () => {
                                         type="radio"
                                         id="mindfulness-C"
                                         name="mindfulness"
+                                        value="Escuchar música relajante mientras trabajas."
+                                        onChange={() => handleChange('mindfulness', 'Escuchar música relajante mientras trabajas.')}
                                     />
                                     <label htmlFor="mindfulness-C">Escuchar música relajante mientras trabajas.</label>
                                 </li>
@@ -132,7 +186,7 @@ const Mindfulness = () => {
 
                         <div className='flex flex-col gap-2'>
                             <h1 className="text-xl font-medium text-stellar-blue">
-                                <b>¿Cómo puedes incorporar descansos conscientes en tu rutina diaria?</b>
+                                <b>¿Cómo puedes incorporar pausas conscientes en tu rutina diaria?</b>
                             </h1>
                             <ul className="list-disc pl-5">
                                 <li className="flex items-center gap-2">
@@ -140,6 +194,8 @@ const Mindfulness = () => {
                                         type="radio"
                                         id="breaks-A"
                                         name="breaks"
+                                        value="Programar breves descansos para respirar o caminar."
+                                        onChange={() => handleChange('breaks', 'Programar breves descansos para respirar o caminar.')}
                                     />
                                     <label htmlFor="breaks-A">Programar breves descansos para respirar o caminar.</label>
                                 </li>
@@ -148,23 +204,27 @@ const Mindfulness = () => {
                                         type="radio"
                                         id="breaks-B"
                                         name="breaks"
+                                        value="Trabajar sin interrupciones durante todo el día."
+                                        onChange={() => handleChange('breaks', 'Trabajar sin interrupciones durante todo el día.')}
                                     />
-                                    <label htmlFor="breaks-B">Trabajar continuamente sin hacer pausas.</label>
+                                    <label htmlFor="breaks-B">Trabajar sin interrupciones durante todo el día.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
                                         id="breaks-C"
                                         name="breaks"
+                                        value="Tomar descansos solo para almorzar."
+                                        onChange={() => handleChange('breaks', 'Tomar descansos solo para almorzar.')}
                                     />
-                                    <label htmlFor="breaks-C">Utilizar redes sociales durante los descansos.</label>
+                                    <label htmlFor="breaks-C">Tomar descansos solo para almorzar.</label>
                                 </li>
                             </ul>
                         </div>
 
                         <div className='flex flex-col gap-2'>
                             <h1 className="text-xl font-medium text-stellar-blue">
-                                <b>¿Cuál es el objetivo principal de la práctica de journaling?</b>
+                                <b>¿Cuál es el propósito de llevar un diario de mindfulness?</b>
                             </h1>
                             <ul className="list-disc pl-5">
                                 <li className="flex items-center gap-2">
@@ -172,6 +232,8 @@ const Mindfulness = () => {
                                         type="radio"
                                         id="journaling-A"
                                         name="journaling"
+                                        value="Procesar y liberar el estrés acumulado."
+                                        onChange={() => handleChange('journaling', 'Procesar y liberar el estrés acumulado.')}
                                     />
                                     <label htmlFor="journaling-A">Procesar y liberar el estrés acumulado.</label>
                                 </li>
@@ -180,23 +242,27 @@ const Mindfulness = () => {
                                         type="radio"
                                         id="journaling-B"
                                         name="journaling"
+                                        value="Planificar las tareas del día."
+                                        onChange={() => handleChange('journaling', 'Planificar las tareas del día.')}
                                     />
-                                    <label htmlFor="journaling-B">Crear una lista de tareas para el día.</label>
+                                    <label htmlFor="journaling-B">Planificar las tareas del día.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
                                         id="journaling-C"
                                         name="journaling"
+                                        value="Listar los objetivos semanales."
+                                        onChange={() => handleChange('journaling', 'Listar los objetivos semanales.')}
                                     />
-                                    <label htmlFor="journaling-C">Planificar los horarios de trabajo y descanso.</label>
+                                    <label htmlFor="journaling-C">Listar los objetivos semanales.</label>
                                 </li>
                             </ul>
                         </div>
 
                         <div className='flex flex-col gap-2'>
                             <h1 className="text-xl font-medium text-stellar-blue">
-                                <b>¿Qué aspecto es clave para practicar una escucha atenta y empática?</b>
+                                <b>¿Cómo puedes practicar una escucha atenta y empática?</b>
                             </h1>
                             <ul className="list-disc pl-5">
                                 <li className="flex items-center gap-2">
@@ -204,6 +270,8 @@ const Mindfulness = () => {
                                         type="radio"
                                         id="listening-A"
                                         name="listening"
+                                        value="Enfocarse completamente en la otra persona y sus palabras."
+                                        onChange={() => handleChange('listening', 'Enfocarse completamente en la otra persona y sus palabras.')}
                                     />
                                     <label htmlFor="listening-A">Enfocarse completamente en la otra persona y sus palabras.</label>
                                 </li>
@@ -212,35 +280,38 @@ const Mindfulness = () => {
                                         type="radio"
                                         id="listening-B"
                                         name="listening"
+                                        value="Interrumpir para expresar tu propia opinión."
+                                        onChange={() => handleChange('listening', 'Interrumpir para expresar tu propia opinión.')}
                                     />
-                                    <label htmlFor="listening-B">Responder con frases largas para mostrar tu opinión.</label>
+                                    <label htmlFor="listening-B">Interrumpir para expresar tu propia opinión.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
                                         id="listening-C"
                                         name="listening"
+                                        value="Pensar en lo que vas a decir mientras escuchas."
+                                        onChange={() => handleChange('listening', 'Pensar en lo que vas a decir mientras escuchas.')}
                                     />
-                                    <label htmlFor="listening-C">Pensar en la respuesta mientras la otra persona habla.</label>
+                                    <label htmlFor="listening-C">Pensar en lo que vas a decir mientras escuchas.</label>
                                 </li>
                             </ul>
                         </div>
-                    </div>
 
-                    <div className="mt-8 flex items-center justify-center">
-                        <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
-                            onClick={closeModal}
-                        >
-                            Terminar
-                        </motion.button>
+                        <div className="flex justify-center mt-6">
+                            <motion.button
+                                whileHover={{ scale: 1.1 }}
+                                className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
+                                onClick={handleCompleteTest}
+                            >
+                                Enviar Respuestas
+                            </motion.button>
+                        </div>
                     </div>
                 </div>
             </Modal>
-
         </>
-    )
-}
+    );
+};
 
-export default Mindfulness
+export default Mindfulness;

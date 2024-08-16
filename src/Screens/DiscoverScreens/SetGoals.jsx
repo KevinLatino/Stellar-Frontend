@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { useMutation } from 'react-query';
 import { addGoalMedal, checkGoalMedal } from '../../Api/UserMedal.Api';
 import LaunchConfetti from '../../Components/ConfettiComponent';
+import useFetchStatus from '../../hooks/useFetchStatus';
 
 const SetGoals = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -15,7 +16,6 @@ const SetGoals = () => {
         3: '',
         4: ''
     });
-    const [hasMedal, setHasMedal] = useState(false);
 
     const correctAnswers = {
         1: 'Obtener un ascenso en su trabajo actual.',
@@ -24,17 +24,7 @@ const SetGoals = () => {
         4: '6 meses.'
     };
 
-    useEffect(() => {
-        const fetchMedalStatus = async () => {
-            try {
-                const response = await checkGoalMedal();
-                setHasMedal(response);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-        fetchMedalStatus();
-    }, []);
+    const { status: hasMedal } = useFetchStatus(checkGoalMedal);
 
     const openModal = () => setModalIsOpen(true);
     const closeModal = () => setModalIsOpen(false);
@@ -47,7 +37,7 @@ const SetGoals = () => {
             closeModal();
         },
         onError: (error) => {
-            console.error('Error al agregar medalla de meta:', error);
+            console.error(error);
         }
     });
 
