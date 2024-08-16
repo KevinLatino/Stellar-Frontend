@@ -9,9 +9,11 @@ import LaunchConfetti from '../../Components/ConfettiComponent';
 import useFetchStatus from '../../hooks/useFetchStatus';
 import { Alert } from '@mui/material';
 
+
 const EisenhowerMatrix = () => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    
     const [answers, setAnswers] = useState({
         quadrant1: '',
         quadrant2: '',
@@ -324,9 +326,11 @@ const EisenhowerMatrix = () => {
                     </div>
 
                     {error && (
-                        <div className='mt-2'>
+                        <motion.div 
+                        
+                        className='mt-2'>
                             <Alert severity="error">{error}</Alert>
-                        </div>
+                        </motion.div>
                     )}
 
                     <div className="mt-8 flex items-center justify-center">

@@ -8,6 +8,7 @@ import { MainSpinner } from '../Components/SpinnerComponent';
 import { getWeekTasks } from '../Api/Task.Api';
 import { userMedal } from '../Api/UserMedal.Api';
 import { useQuery } from 'react-query';
+import { motion } from 'framer-motion';
 
 const DashboardScreen = () => {
     const weekTasksQuery = useQuery({
@@ -90,7 +91,9 @@ const DashboardScreen = () => {
                         </h1>
                         <div className='flex flex-wrap justify-center gap-20'>
                             {medalsQuery.data.map(medal => (
-                                <div key={medal.title} className="flex flex-col items-center bg-white rounded-xl p-4 shadow-md w-52">
+                                <motion.div 
+                                whileHover={{scale: 1.1}}
+                                key={medal.title} className="cursor-pointer flex flex-col items-center bg-white rounded-2xl p-4 shadow-md w-52">
                                     <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-2">
                                         <img
                                             src={medal.image}
@@ -100,7 +103,7 @@ const DashboardScreen = () => {
                                     </div>
                                     <h2 className="text-lg font-raleway font-semibold text-stellar-blue mb-1">{medal.title}</h2>
                                     <p className="text-gray-600 font-raleway text-center">{medal.description}</p>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
                         <div className='flex flex-col justify-center gap-8'>
