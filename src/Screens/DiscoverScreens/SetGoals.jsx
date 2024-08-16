@@ -9,6 +9,7 @@ import LaunchConfetti from '../../Components/ConfettiComponent';
 import useFetchStatus from '../../hooks/useFetchStatus';
 
 const SetGoals = () => {
+
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [answers, setAnswers] = useState({
         1: '',
@@ -24,23 +25,7 @@ const SetGoals = () => {
         4: '6 meses.'
     };
 
-    const { status: hasMedal } = useFetchStatus(checkGoalMedal);
-
-    const openModal = () => setModalIsOpen(true);
-    const closeModal = () => setModalIsOpen(false);
-
-    const mutation = useMutation({
-        mutationFn: addGoalMedal,
-        onSuccess: () => {
-            LaunchConfetti();
-            setHasMedal(true);
-            closeModal();
-        },
-        onError: (error) => {
-            console.error(error);
-        }
-    });
-
+    
     const handleCompleteTest = () => {
         const allCorrect = Object.keys(correctAnswers).every(
             (key) => answers[key] === correctAnswers[key]
@@ -49,7 +34,7 @@ const SetGoals = () => {
         if (allCorrect) {
             mutation.mutate();
         } else {
-            console.log('Algunas respuestas son incorrectas.');
+            console.log();
         }
     };
 
@@ -59,6 +44,23 @@ const SetGoals = () => {
             [questionId]: value
         }));
     };
+    
+    const openModal = () => setModalIsOpen(true);
+    const closeModal = () => setModalIsOpen(false);
+
+    const { status: hasMedal, refetch  } = useFetchStatus(checkGoalMedal);
+
+    const mutation = useMutation({
+        mutationFn: addGoalMedal,
+        onSuccess: () => {
+            LaunchConfetti();
+            refetch();
+            closeModal();
+        },
+        onError: (error) => {
+            console.error(error);
+        }
+    });
 
     return (
         <>

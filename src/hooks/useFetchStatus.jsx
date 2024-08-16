@@ -1,28 +1,24 @@
 import { useState, useEffect } from 'react';
+import { useQuery } from 'react-query';
 
 const useFetchStatus = (fetchFunction) => {
-    
     const [status, setStatus] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+
+    const { data, error, isLoading, refetch } = useQuery(
+        ['status'],
+        fetchFunction,
+        {
+            enabled: false, 
+            onSuccess: (data) => setStatus(data),
+            onError: (error) => console.error(error),
+        }
+    );
 
     useEffect(() => {
-        const fetchStatus = async () => {
-            try {
-                setLoading(true);
-                const response = await fetchFunction();
-                setStatus(response);
-            } catch (error) {
-                setError(error);
-                console.error(error);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchStatus();
-    }, [fetchFunction]);
+        refetch();
+    }, [refetch]);
 
-    return { status, loading, error };
+    return { status, isLoading, error, refetch };
 };
 
 export default useFetchStatus;

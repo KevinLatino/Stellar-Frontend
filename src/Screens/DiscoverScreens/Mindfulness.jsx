@@ -1,63 +1,64 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import Meditation from '../../../public/People-Ilustrations/People-Meditation.png';
 import Modal from './Modal';
 import BackToDiscover from './BackToDiscover';
 import { motion } from 'framer-motion';
-import {useMutation } from 'react-query';
+import { useMutation } from 'react-query';
 import { checkMindfulnessMedal, addMindfulnessMedal } from '../../Api/UserMedal.Api';
 import confetti from 'canvas-confetti';
+import useFetchStatus from '../../hooks/useFetchStatus';
 
 const Mindfulness = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [responses, setResponses] = useState({});
-
-
-    const mutation = useMutation(addMindfulnessMedal, {
-        onSuccess: () => {
-            confetti();
-        },
-        onError: () => {
-            alert('Hubo un problema al obtener la medalla.');
-        }
+    const [answers, setAnswers] = useState({
+        mindfulness: '',
+        breaks: '',
+        journaling: '',
+        listening: ''
     });
 
-    useEffect(() => {
-        const fetchMedalStatus = async () => {
-            try {
-                const response = await checkMindfulnessMedal();
-                setHasMedal(response);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-        fetchMedalStatus();
-    }, []);
+    const correctAnswers = {
+        mindfulness: 'Tomarse unos minutos para respirar profundamente.',
+        breaks: 'Programar breves descansos para respirar o caminar.',
+        journaling: 'Procesar y liberar el estrés acumulado.',
+        listening: 'Enfocarse completamente en la otra persona y sus palabras.'
+    };
 
     const handleChange = (question, value) => {
-        setResponses(prevResponses => ({
-            ...prevResponses,
+        setAnswers((prevAnswers) => ({
+            ...prevAnswers,
             [question]: value
         }));
     };
 
     const handleCompleteTest = () => {
-        const correctAnswers = {
-            mindfulness: 'Tomarse unos minutos para respirar profundamente.',
-            breaks: 'Programar breves descansos para respirar o caminar.',
-            journaling: 'Procesar y liberar el estrés acumulado.',
-            listening: 'Enfocarse completamente en la otra persona y sus palabras.'
-        };
-
         const allCorrect = Object.keys(correctAnswers).every(
-            key => responses[key] === correctAnswers[key]
+            (key) => answers[key] === correctAnswers[key]
         );
 
         if (allCorrect) {
             mutation.mutate();
         } else {
-            alert('Algunas respuestas son incorrectas. Intenta de nuevo.');
+            console.log('Algunas respuestas son incorrectas.');
         }
     };
+
+    const openModal = () => setModalIsOpen(true);
+    const closeModal = () => setModalIsOpen(false);
+
+    const { status: hasMedal, refetch } = useFetchStatus(checkMindfulnessMedal);
+
+    const mutation = useMutation({
+        mutationFn: addMindfulnessMedal,
+        onSuccess: () => {
+            confetti();
+            refetch();
+            setModalIsOpen(false);
+        },
+        onError: (error) => {
+            console.error(error);
+        }
+    });
 
     return (
         <>
@@ -114,12 +115,13 @@ const Mindfulness = () => {
                 </div>
 
                 <div className="flex justify-center">
-                    <motion.button
+                <motion.button
                         whileHover={{ scale: 1.1 }}
-                        className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
-                        onClick={() => setModalIsOpen(true)}
+                        onClick={!hasMedal ? openModal : undefined}
+                        className={`bg-light-blue text-white px-6 py-3 rounded-full font-semibold text-lg shadow-lg ${hasMedal ? 'cursor-not-allowed opacity-85' : ''}`}
+                        disabled={hasMedal}
                     >
-                        Realizar Prueba
+                        {hasMedal ? 'Has completado el test' : 'Realizar Prueba'}
                     </motion.button>
                 </div>
             </div>
@@ -157,7 +159,7 @@ const Mindfulness = () => {
                                         id="mindfulness-A"
                                         name="mindfulness"
                                         value="Hacer una reflexión diaria sobre los logros y planificar el día."
-                                        onChange={() => handleChange('mindfulness', 'Hacer una reflexión diaria sobre los logros y planificar el día.')}
+                                        onChange={(e) => handleChange('mindfulness', e.target.value)}
                                     />
                                     <label htmlFor="mindfulness-A">Hacer una reflexión diaria sobre los logros y planificar el día.</label>
                                 </li>
@@ -167,7 +169,7 @@ const Mindfulness = () => {
                                         id="mindfulness-B"
                                         name="mindfulness"
                                         value="Tomarse unos minutos para respirar profundamente."
-                                        onChange={() => handleChange('mindfulness', 'Tomarse unos minutos para respirar profundamente.')}
+                                        onChange={(e) => handleChange('mindfulness', e.target.value)}
                                     />
                                     <label htmlFor="mindfulness-B">Tomarse unos minutos para respirar profundamente.</label>
                                 </li>
@@ -177,7 +179,7 @@ const Mindfulness = () => {
                                         id="mindfulness-C"
                                         name="mindfulness"
                                         value="Escuchar música relajante mientras trabajas."
-                                        onChange={() => handleChange('mindfulness', 'Escuchar música relajante mientras trabajas.')}
+                                        onChange={(e) => handleChange('mindfulness', e.target.value)}
                                     />
                                     <label htmlFor="mindfulness-C">Escuchar música relajante mientras trabajas.</label>
                                 </li>
@@ -195,7 +197,7 @@ const Mindfulness = () => {
                                         id="breaks-A"
                                         name="breaks"
                                         value="Programar breves descansos para respirar o caminar."
-                                        onChange={() => handleChange('breaks', 'Programar breves descansos para respirar o caminar.')}
+                                        onChange={(e) => handleChange('breaks', e.target.value)}
                                     />
                                     <label htmlFor="breaks-A">Programar breves descansos para respirar o caminar.</label>
                                 </li>
@@ -205,7 +207,7 @@ const Mindfulness = () => {
                                         id="breaks-B"
                                         name="breaks"
                                         value="Trabajar sin interrupciones durante todo el día."
-                                        onChange={() => handleChange('breaks', 'Trabajar sin interrupciones durante todo el día.')}
+                                        onChange={(e) => handleChange('breaks', e.target.value)}
                                     />
                                     <label htmlFor="breaks-B">Trabajar sin interrupciones durante todo el día.</label>
                                 </li>
@@ -215,7 +217,7 @@ const Mindfulness = () => {
                                         id="breaks-C"
                                         name="breaks"
                                         value="Tomar descansos solo para almorzar."
-                                        onChange={() => handleChange('breaks', 'Tomar descansos solo para almorzar.')}
+                                        onChange={(e) => handleChange('breaks', e.target.value)}
                                     />
                                     <label htmlFor="breaks-C">Tomar descansos solo para almorzar.</label>
                                 </li>
@@ -233,7 +235,7 @@ const Mindfulness = () => {
                                         id="journaling-A"
                                         name="journaling"
                                         value="Procesar y liberar el estrés acumulado."
-                                        onChange={() => handleChange('journaling', 'Procesar y liberar el estrés acumulado.')}
+                                        onChange={(e) => handleChange('journaling', e.target.value)}
                                     />
                                     <label htmlFor="journaling-A">Procesar y liberar el estrés acumulado.</label>
                                 </li>
@@ -243,7 +245,7 @@ const Mindfulness = () => {
                                         id="journaling-B"
                                         name="journaling"
                                         value="Planificar las tareas del día."
-                                        onChange={() => handleChange('journaling', 'Planificar las tareas del día.')}
+                                        onChange={(e) => handleChange('journaling', e.target.value)}
                                     />
                                     <label htmlFor="journaling-B">Planificar las tareas del día.</label>
                                 </li>
@@ -253,7 +255,7 @@ const Mindfulness = () => {
                                         id="journaling-C"
                                         name="journaling"
                                         value="Listar los objetivos semanales."
-                                        onChange={() => handleChange('journaling', 'Listar los objetivos semanales.')}
+                                        onChange={(e) => handleChange('journaling', e.target.value)}
                                     />
                                     <label htmlFor="journaling-C">Listar los objetivos semanales.</label>
                                 </li>
@@ -271,7 +273,7 @@ const Mindfulness = () => {
                                         id="listening-A"
                                         name="listening"
                                         value="Enfocarse completamente en la otra persona y sus palabras."
-                                        onChange={() => handleChange('listening', 'Enfocarse completamente en la otra persona y sus palabras.')}
+                                        onChange={(e) => handleChange('listening', e.target.value)}
                                     />
                                     <label htmlFor="listening-A">Enfocarse completamente en la otra persona y sus palabras.</label>
                                 </li>
@@ -281,7 +283,7 @@ const Mindfulness = () => {
                                         id="listening-B"
                                         name="listening"
                                         value="Interrumpir para expresar tu propia opinión."
-                                        onChange={() => handleChange('listening', 'Interrumpir para expresar tu propia opinión.')}
+                                        onChange={(e) => handleChange('listening', e.target.value)}
                                     />
                                     <label htmlFor="listening-B">Interrumpir para expresar tu propia opinión.</label>
                                 </li>
@@ -291,7 +293,7 @@ const Mindfulness = () => {
                                         id="listening-C"
                                         name="listening"
                                         value="Pensar en lo que vas a decir mientras escuchas."
-                                        onChange={() => handleChange('listening', 'Pensar en lo que vas a decir mientras escuchas.')}
+                                        onChange={(e) => handleChange('listening', e.target.value)}
                                     />
                                     <label htmlFor="listening-C">Pensar en lo que vas a decir mientras escuchas.</label>
                                 </li>

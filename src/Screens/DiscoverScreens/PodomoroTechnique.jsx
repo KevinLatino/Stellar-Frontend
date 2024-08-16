@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { useMutation } from 'react-query';
 import { checkPodomoroMedal, addPomodoroMedal } from '../../Api/UserMedal.Api';
 import LaunchConfetti from '../../Components/ConfettiComponent';
+import useFetchStatus from '../../hooks/useFetchStatus';
 
 const PodomoroTechnique = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -14,41 +15,13 @@ const PodomoroTechnique = () => {
         question2: '',
         question3: '',
     });
-    const [hasMedal, setHasMedal] = useState(false);
+
 
     const correctAnswers = {
         question1: 'Configura el temporizador a 50 minutos.',
         question2: 'Laura toma un descanso de 15 minutos.',
         question3: 'Mejora la concentración y reduce las distracciones.',
     };
-
-    useEffect(() => {
-        const fetchMedalStatus = async () => {
-            try {
-                const response = await checkPodomoroMedal();
-                setHasMedal(response);
-                
-            } catch (error) {
-                console.error(error);
-            }
-        };
-        fetchMedalStatus();
-    }, []);
-
-    const openModal = () => setModalIsOpen(true);
-    const closeModal = () => setModalIsOpen(false);
-
-    const mutation = useMutation({
-        mutationFn: addPomodoroMedal,
-        onSuccess: () => {
-            LaunchConfetti();
-            setHasMedal(true);
-            closeModal();
-        },
-        onError: (error) => {
-            console.error('Error al agregar medalla de la técnica Pomodoro:', error);
-        }
-    });
 
     const handleCompleteTest = () => {
         const allCorrect = Object.keys(correctAnswers).every(
@@ -68,6 +41,24 @@ const PodomoroTechnique = () => {
             [question]: value
         }));
     };
+
+    const openModal = () => setModalIsOpen(true);
+    const closeModal = () => setModalIsOpen(false);
+
+    const {status: hasMedal, refetch } = useFetchStatus(checkPodomoroMedal)
+
+    const mutation = useMutation({
+        mutationFn: addPomodoroMedal,
+        onSuccess: () => {
+            LaunchConfetti();
+            refetch();
+            closeModal();
+        },
+        onError: (error) => {
+            console.error(error);
+        }
+    });
+
 
     return (
         <>

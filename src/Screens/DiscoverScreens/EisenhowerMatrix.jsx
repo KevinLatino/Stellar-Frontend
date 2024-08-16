@@ -6,8 +6,10 @@ import { motion } from 'framer-motion';
 import { useMutation } from 'react-query';
 import { checkEisenhowerMedal, addEisenhowerMedal } from '../../Api/UserMedal.Api';
 import LaunchConfetti from '../../Components/ConfettiComponent';
+import useFetchStatus from '../../hooks/useFetchStatus';
 
 const EisenhowerMatrix = () => {
+
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [answers, setAnswers] = useState({
         quadrant1: '',
@@ -15,7 +17,6 @@ const EisenhowerMatrix = () => {
         quadrant3: '',
         quadrant4: ''
     });
-    const [hasMedal, setHasMedal] = useState(false);
 
     const correctAnswers = {
         quadrant1: 'Pagar las facturas que vencen hoy para evitar recargos.',
@@ -23,33 +24,6 @@ const EisenhowerMatrix = () => {
         quadrant3: 'Responder a correos electrónicos que no son importantes.',
         quadrant4: 'Ver televisión durante horas.'
     };
-
-    const openModal = () => setModalIsOpen(true);
-    const closeModal = () => setModalIsOpen(false);
-
-    const mutation = useMutation({
-        mutationFn: addEisenhowerMedal,
-        onSuccess: () => {
-            LaunchConfetti();
-            setHasMedal();
-            closeModal();
-        },
-        onError: (error) => {
-            console.error('Error al agregar medalla de la matriz de Eisenhower:', error);
-        }
-    });
-
-    useEffect(() => {
-        const fetchMedalStatus = async () => {
-            try {
-                const response = await checkEisenhowerMedal();
-                setHasMedal(response);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-        fetchMedalStatus();
-    }, []);
 
     const handleCompleteTest = () => {
         const allCorrect = Object.keys(correctAnswers).every(
@@ -62,6 +36,23 @@ const EisenhowerMatrix = () => {
             console.log('Algunas respuestas son incorrectas.');
         }
     };
+
+    const openModal = () => setModalIsOpen(true);
+    const closeModal = () => setModalIsOpen(false);
+
+    const { status: hasMedal, refetch } = useFetchStatus(checkEisenhowerMedal);
+
+    const mutation = useMutation({
+        mutationFn: addEisenhowerMedal,
+        onSuccess: () => {
+            LaunchConfetti();
+            refetch();
+            closeModal();
+        },
+        onError: (error) => {
+            console.error(error);
+        }
+    });
 
     const handleChange = (quadrant, value) => {
         setAnswers((prevAnswers) => ({

@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { useMutation } from 'react-query';
 import { checkDateMedal, addDateMedal } from '../../Api/UserMedal.Api';
 import LaunchConfetti from '../../Components/ConfettiComponent';
+import useFetchStatus from '../../hooks/useFetchStatus';
 
 const ImportantDates = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -15,7 +16,6 @@ const ImportantDates = () => {
         question3: '',
         question4: '',
     });
-    const [hasMedal, setHasMedal] = useState(false);
 
     const correctAnswers = {
         question1: 'Identificar las tareas y proyectos clave.',
@@ -23,33 +23,6 @@ const ImportantDates = () => {
         question3: 'Revisar el calendario y ajustar la fecha de entrega si es necesario.',
         question4: 'Programar revisiones semanales para actualizar fechas y prioridades.',
     };
-
-    useEffect(() => {
-        const fetchMedalStatus = async () => {
-            try {
-                const response = await checkDateMedal();
-                setHasMedal(response);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-        fetchMedalStatus();
-    }, []);
-
-    const openModal = () => setModalIsOpen(true);
-    const closeModal = () => setModalIsOpen(false);
-
-    const mutation = useMutation({
-        mutationFn: addDateMedal,
-        onSuccess: () => {
-            LaunchConfetti();
-            setHasMedal(true);
-            closeModal();
-        },
-        onError: (error) => {
-            console.error('Error al agregar medalla de fechas importantes:', error);
-        }
-    });
 
     const handleCompleteTest = () => {
         const allCorrect = Object.keys(correctAnswers).every(
@@ -69,6 +42,23 @@ const ImportantDates = () => {
             [question]: value
         }));
     };
+
+    const openModal = () => setModalIsOpen(true);
+    const closeModal = () => setModalIsOpen(false);
+
+    const {status: hasMedal, refetch} = useFetchStatus(checkDateMedal);
+
+    const mutation = useMutation({
+        mutationFn: addDateMedal,
+        onSuccess: () => {
+            LaunchConfetti();
+            refetch();
+            closeModal();
+        },
+        onError: (error) => {
+            console.error(error);
+        }
+    });
 
     return (
         <>
