@@ -29,7 +29,7 @@ const DashboardScreen = () => {
         }
     }, []);
 
-    if (weekTasksQuery.isLoading) {
+    if (weekTasksQuery.isLoading || medalsQuery.isLoading) {
         return (
             <div className='flex justify-center items-center h-full'>
                 <MainSpinner />
@@ -40,7 +40,6 @@ const DashboardScreen = () => {
     if (weekTasksQuery.error) {
         return <div>Error al cargar las tareas o medallas</div>;
     }
-
 
     return (
         <div className='flex flex-col gap-8 animate__animated animate__fadeInDown'>
@@ -89,14 +88,21 @@ const DashboardScreen = () => {
                                 <b>¡Tus medallas!</b>
                             </span>
                         </h1>
-                        {medalsQuery.data.map(medal => (
-                            <img
-                                key={medal.title}
-                                src={medal.image}
-                                alt={medal.title}
-                                className="w-24 h-24 rounded-full border-2 border-gray-200"
-                            />
-                        ))}
+                        <div className='flex flex-wrap justify-center gap-20'>
+                            {medalsQuery.data.map(medal => (
+                                <div key={medal.title} className="flex flex-col items-center bg-white rounded-xl p-4 shadow-md w-52">
+                                    <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-2">
+                                        <img
+                                            src={medal.image}
+                                            alt={medal.title}
+                                            className="w-16 h-16 object-cover"
+                                        />
+                                    </div>
+                                    <h2 className="text-lg font-raleway font-semibold text-stellar-blue mb-1">{medal.title}</h2>
+                                    <p className="text-gray-600 font-raleway text-center">{medal.description}</p>
+                                </div>
+                            ))}
+                        </div>
                         <div className='flex flex-col justify-center gap-8'>
                             <h1 className="text-xl font-medium text-stellar-blue">
                                 <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">

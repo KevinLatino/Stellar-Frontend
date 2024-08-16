@@ -43,28 +43,28 @@ export const checkGoalMedal = async () => {
 
 export const checkEisenhowerMedal = async () => {
     const userId = getUserId();
-    return findMedalRequest(`/users/checkGoalMedal/${userId}`);
+    return findMedalRequest(`/users/checkEisenhowerMedal/${userId}`);
 };
 
 export const checkPodomoroMedal = async () => {
     const userId = getUserId();
-    return findMedalRequest(`/users/checkGoalMedal/${userId}`);
+    return findMedalRequest(`/users/checkPodomoroMedal/${userId}`);
 };
 
 
 export const checkDateMedal = async () => {
     const userId = getUserId();
-    return findMedalRequest(`/users/checkGoalMedal/${userId}`);
+    return findMedalRequest(`/users/checkDateMedal/${userId}`);
 };
 
 export const checkEnvironmentMedal = async () => {
     const userId = getUserId();
-    return findMedalRequest(`/users/checkGoalMedal/${userId}`);
+    return findMedalRequest(`/users/checkEnvironmentMedal/${userId}`);
 };
 
 export const checkMindfulnessMedal = async () => {
     const userId = getUserId();
-    return findMedalRequest(`/users/checkGoalMedal/${userId}`);
+    return findMedalRequest(`/users/checkMindfulnessMedal/${userId}`);
 };
 
 export const findAllMedals = async () => {
