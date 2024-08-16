@@ -7,6 +7,7 @@ import { useMutation } from 'react-query';
 import { checkEisenhowerMedal, addEisenhowerMedal } from '../../Api/UserMedal.Api';
 import LaunchConfetti from '../../Components/ConfettiComponent';
 import useFetchStatus from '../../hooks/useFetchStatus';
+import { Alert } from '@mui/material';
 
 const EisenhowerMatrix = () => {
 
@@ -25,6 +26,8 @@ const EisenhowerMatrix = () => {
         quadrant4: 'Ver televisión durante horas.'
     };
 
+    const [error, setError] = useState('');
+
     const handleCompleteTest = () => {
         const allCorrect = Object.keys(correctAnswers).every(
             (key) => answers[key] === correctAnswers[key]
@@ -33,9 +36,10 @@ const EisenhowerMatrix = () => {
         if (allCorrect) {
             mutation.mutate();
         } else {
-            console.log('Algunas respuestas son incorrectas.');
+            setError('Por favor, revisa tus respuestas.');
         }
     };
+
 
     const openModal = () => setModalIsOpen(true);
     const closeModal = () => setModalIsOpen(false);
@@ -318,6 +322,12 @@ const EisenhowerMatrix = () => {
                             </ul>
                         </div>
                     </div>
+
+                    {error && (
+                        <div className='mt-2'>
+                            <Alert severity="error">{error}</Alert>
+                        </div>
+                    )}
 
                     <div className="mt-8 flex items-center justify-center">
                         <motion.button

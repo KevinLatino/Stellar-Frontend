@@ -7,6 +7,7 @@ import { useMutation } from 'react-query';
 import { addGoalMedal, checkGoalMedal } from '../../Api/UserMedal.Api';
 import LaunchConfetti from '../../Components/ConfettiComponent';
 import useFetchStatus from '../../hooks/useFetchStatus';
+import { Alert } from '@mui/material';
 
 const SetGoals = () => {
 
@@ -25,7 +26,9 @@ const SetGoals = () => {
         4: '6 meses.'
     };
 
-    
+
+    const [error, setError] = useState('');
+
     const handleCompleteTest = () => {
         const allCorrect = Object.keys(correctAnswers).every(
             (key) => answers[key] === correctAnswers[key]
@@ -34,7 +37,7 @@ const SetGoals = () => {
         if (allCorrect) {
             mutation.mutate();
         } else {
-            console.log();
+            setError('Por favor, revisa tus respuestas.');
         }
     };
 
@@ -44,11 +47,11 @@ const SetGoals = () => {
             [questionId]: value
         }));
     };
-    
+
     const openModal = () => setModalIsOpen(true);
     const closeModal = () => setModalIsOpen(false);
 
-    const { status: hasMedal, refetch  } = useFetchStatus(checkGoalMedal);
+    const { status: hasMedal, refetch } = useFetchStatus(checkGoalMedal);
 
     const mutation = useMutation({
         mutationFn: addGoalMedal,
@@ -312,6 +315,12 @@ const SetGoals = () => {
                                 </li>
                             </ul>
                         </div>
+
+                        {error && (
+                            <div className='mt-2'>
+                                <Alert severity="error">{error}</Alert>
+                            </div>
+                        )}
 
                         <div className="flex justify-center mt-4">
                             <motion.button

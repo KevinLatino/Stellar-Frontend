@@ -7,6 +7,7 @@ import { useMutation } from 'react-query';
 import { checkPodomoroMedal, addPomodoroMedal } from '../../Api/UserMedal.Api';
 import LaunchConfetti from '../../Components/ConfettiComponent';
 import useFetchStatus from '../../hooks/useFetchStatus';
+import { Alert } from '@mui/material';
 
 const PodomoroTechnique = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -23,6 +24,8 @@ const PodomoroTechnique = () => {
         question3: 'Mejora la concentración y reduce las distracciones.',
     };
 
+    const [error, setError] = useState('');
+
     const handleCompleteTest = () => {
         const allCorrect = Object.keys(correctAnswers).every(
             (key) => answers[key] === correctAnswers[key]
@@ -31,9 +34,10 @@ const PodomoroTechnique = () => {
         if (allCorrect) {
             mutation.mutate();
         } else {
-            console.log('Algunas respuestas son incorrectas.');
+            setError('Por favor, revisa tus respuestas.');
         }
     };
+
 
     const handleChange = (question, value) => {
         setAnswers((prevAnswers) => ({
@@ -45,7 +49,7 @@ const PodomoroTechnique = () => {
     const openModal = () => setModalIsOpen(true);
     const closeModal = () => setModalIsOpen(false);
 
-    const {status: hasMedal, refetch } = useFetchStatus(checkPodomoroMedal)
+    const { status: hasMedal, refetch } = useFetchStatus(checkPodomoroMedal)
 
     const mutation = useMutation({
         mutationFn: addPomodoroMedal,
@@ -55,7 +59,7 @@ const PodomoroTechnique = () => {
             closeModal();
         },
         onError: (error) => {
-            console.error(error);
+            console.log(error);
         }
     });
 
@@ -134,6 +138,7 @@ const PodomoroTechnique = () => {
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
             >
+
                 <div className='flex flex-col gap-2'>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
@@ -271,6 +276,12 @@ const PodomoroTechnique = () => {
                             </ul>
                         </div>
                     </div>
+
+                    {error && (
+                        <div className='mt-2'>
+                            <Alert severity="error">{error}</Alert>
+                        </div>
+                    )}
 
                     <div className="mt-8 flex items-center justify-center">
                         <motion.button

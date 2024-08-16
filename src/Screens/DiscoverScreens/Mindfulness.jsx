@@ -7,6 +7,7 @@ import { useMutation } from 'react-query';
 import { checkMindfulnessMedal, addMindfulnessMedal } from '../../Api/UserMedal.Api';
 import confetti from 'canvas-confetti';
 import useFetchStatus from '../../hooks/useFetchStatus';
+import { Alert } from '@mui/material';
 
 const Mindfulness = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -31,6 +32,8 @@ const Mindfulness = () => {
         }));
     };
 
+    const [error, setError] = useState('');
+
     const handleCompleteTest = () => {
         const allCorrect = Object.keys(correctAnswers).every(
             (key) => answers[key] === correctAnswers[key]
@@ -39,9 +42,10 @@ const Mindfulness = () => {
         if (allCorrect) {
             mutation.mutate();
         } else {
-            console.log('Algunas respuestas son incorrectas.');
+            setError('Por favor, revisa tus respuestas.');
         }
     };
+
 
     const openModal = () => setModalIsOpen(true);
     const closeModal = () => setModalIsOpen(false);
@@ -115,7 +119,7 @@ const Mindfulness = () => {
                 </div>
 
                 <div className="flex justify-center">
-                <motion.button
+                    <motion.button
                         whileHover={{ scale: 1.1 }}
                         onClick={!hasMedal ? openModal : undefined}
                         className={`bg-light-blue text-white px-6 py-3 rounded-full font-semibold text-lg shadow-lg ${hasMedal ? 'cursor-not-allowed opacity-85' : ''}`}
@@ -299,6 +303,12 @@ const Mindfulness = () => {
                                 </li>
                             </ul>
                         </div>
+
+                        {error && (
+                            <div className='mt-2'>
+                                <Alert severity="error">{error}</Alert>
+                            </div>
+                        )}
 
                         <div className="flex justify-center mt-6">
                             <motion.button
