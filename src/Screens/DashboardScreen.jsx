@@ -42,8 +42,8 @@ const DashboardScreen = () => {
     }
 
     return (
-        <div className='flex flex-col gap-8 animate__animated animate__fadeInDown'>
-            <div className="flex w-full gap-8">
+        <div className='animate__animated animate__fadeInDown'>
+            <div className="flex w-full gap-8 flex-col">
                 <div className='w-[100%] h-[10rem] my-1'>
                     <div className="flex h-full w-full bg-gradient-to-r from-[#4461f2] to-[#4461F2] rounded-3xl">
                         <div className="w-1/2 p-4">

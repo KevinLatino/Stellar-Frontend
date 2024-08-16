@@ -24,6 +24,21 @@ const EisenhowerMatrix = () => {
         quadrant4: 'Ver televisión durante horas.'
     };
 
+    const openModal = () => setModalIsOpen(true);
+    const closeModal = () => setModalIsOpen(false);
+
+    const mutation = useMutation({
+        mutationFn: addEisenhowerMedal,
+        onSuccess: () => {
+            LaunchConfetti();
+            setHasMedal();
+            closeModal();
+        },
+        onError: (error) => {
+            console.error('Error al agregar medalla de la matriz de Eisenhower:', error);
+        }
+    });
+
     useEffect(() => {
         const fetchMedalStatus = async () => {
             try {
@@ -35,21 +50,6 @@ const EisenhowerMatrix = () => {
         };
         fetchMedalStatus();
     }, []);
-
-    const openModal = () => setModalIsOpen(true);
-    const closeModal = () => setModalIsOpen(false);
-
-    const mutation = useMutation({
-        mutationFn: addEisenhowerMedal,
-        onSuccess: () => {
-            LaunchConfetti();
-            setHasMedal(true);
-            closeModal();
-        },
-        onError: (error) => {
-            console.error('Error al agregar medalla de la matriz de Eisenhower:', error);
-        }
-    });
 
     const handleCompleteTest = () => {
         const allCorrect = Object.keys(correctAnswers).every(
@@ -140,11 +140,11 @@ const EisenhowerMatrix = () => {
                 <div className="flex justify-center mt-2">
                     <motion.button
                         whileHover={{ scale: 1.1 }}
-                        className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
                         onClick={!hasMedal ? openModal : undefined}
+                        className={`bg-light-blue text-white px-6 py-3 rounded-full font-semibold text-lg shadow-lg ${hasMedal ? 'cursor-not-allowed opacity-85' : ''}`}
                         disabled={hasMedal}
                     >
-                        {hasMedal ? 'Has completado la prueba' : 'Realizar Prueba'}
+                        {hasMedal ? 'Has completado el test' : 'Realizar Prueba'}
                     </motion.button>
                 </div>
             </div>

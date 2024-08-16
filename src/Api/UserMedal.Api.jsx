@@ -17,7 +17,7 @@ const getUserId = () => {
 };
 
 const findMedalRequest = async (endpoint) => {
-    const res = await axios.get(`${BASE_URL}${endpoint}`);
+    const res = await axios.get(`${BASE_URL}${endpoint}`, getAuthorizedConfig());
     return res.data;
 };
 
@@ -33,43 +33,43 @@ const postMedalRequest = async (medalId) => {
 
 export const userMedal = async () => {
     const userId = getUserId();
-    return findMedalRequest(`/users/medals/${userId}`);
+    return findMedalRequest(`/users/medals/${userId}`, getAuthorizedConfig());
 };
 
 export const checkGoalMedal = async () => {
     const userId = getUserId();
-    return findMedalRequest(`/users/checkGoalMedal/${userId}`);
+    return findMedalRequest(`/users/checkGoalMedal/${userId}`, getAuthorizedConfig());
 };
 
 export const checkEisenhowerMedal = async () => {
     const userId = getUserId();
-    return findMedalRequest(`/users/checkEisenhowerMedal/${userId}`);
+    return findMedalRequest(`/users/checkEisenhowerMedal/${userId}`, getAuthorizedConfig());
 };
 
 export const checkPodomoroMedal = async () => {
     const userId = getUserId();
-    return findMedalRequest(`/users/checkPodomoroMedal/${userId}`);
+    return findMedalRequest(`/users/checkPodomoroMedal/${userId}`, getAuthorizedConfig());
 };
 
 
 export const checkDateMedal = async () => {
     const userId = getUserId();
-    return findMedalRequest(`/users/checkDateMedal/${userId}`);
+    return findMedalRequest(`/users/checkDateMedal/${userId}`, getAuthorizedConfig());
 };
 
 export const checkEnvironmentMedal = async () => {
     const userId = getUserId();
-    return findMedalRequest(`/users/checkEnvironmentMedal/${userId}`);
+    return findMedalRequest(`/users/checkEnvironmentMedal/${userId}`, getAuthorizedConfig());
 };
 
 export const checkMindfulnessMedal = async () => {
     const userId = getUserId();
-    return findMedalRequest(`/users/checkMindfulnessMedal/${userId}`);
+    return findMedalRequest(`/users/checkMindfulnessMedal/${userId}`, getAuthorizedConfig());
 };
 
 export const findAllMedals = async () => {
     const userId = getUserId();
-    return findMedalRequest(`/user-medal/findAll/${userId}`);
+    return findMedalRequest(`/user-medal/findAll/${userId}`, getAuthorizedConfig());
 };
 
 export const addGoalMedal = async () => {

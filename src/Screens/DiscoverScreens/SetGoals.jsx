@@ -137,7 +137,7 @@ const SetGoals = () => {
                     <motion.button
                         whileHover={{ scale: 1.1 }}
                         onClick={!hasMedal ? openModal : undefined}
-                        className={`bg-light-blue text-white px-6 py-3 rounded-full font-semibold text-lg shadow-lg ${hasMedal ? 'cursor-not-allowed opacity-50' : ''}`}
+                        className={`bg-light-blue text-white px-6 py-3 rounded-full font-semibold text-lg shadow-lg ${hasMedal ? 'cursor-not-allowed opacity-85' : ''}`}
                         disabled={hasMedal}
                     >
                         {hasMedal ? 'Has completado el test' : 'Realizar Prueba'}
