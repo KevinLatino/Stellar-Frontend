@@ -89,7 +89,7 @@ const DashboardScreen = () => {
                                 <b>¡Tus medallas!</b>
                             </span>
                         </h1>
-                        <div className='flex flex-wrap justify-center gap-20'>
+                        <div className='flex flex-wrap justify-center gap-x-20 gap-y-12'>
                             {medalsQuery.data.map(medal => (
                                 <motion.div 
                                 whileHover={{scale: 1.1}}

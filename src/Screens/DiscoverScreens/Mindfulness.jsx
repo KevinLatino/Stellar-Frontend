@@ -5,9 +5,9 @@ import BackToDiscover from './BackToDiscover';
 import { motion } from 'framer-motion';
 import { useMutation } from 'react-query';
 import { checkMindfulnessMedal, addMindfulnessMedal } from '../../Api/UserMedal.Api';
-import confetti from 'canvas-confetti';
 import useFetchStatus from '../../hooks/useFetchStatus';
 import { Alert } from '@mui/material';
+import LaunchConfetti from '../../Components/ConfettiComponent';
 
 const Mindfulness = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -55,9 +55,9 @@ const Mindfulness = () => {
     const mutation = useMutation({
         mutationFn: addMindfulnessMedal,
         onSuccess: () => {
-            confetti();
+            LaunchConfetti();
             refetch();
-            setModalIsOpen(false);
+            closeModal();
         },
         onError: (error) => {
             console.error(error);
