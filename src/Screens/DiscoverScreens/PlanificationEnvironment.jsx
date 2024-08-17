@@ -11,12 +11,63 @@ import { useMutation } from 'react-query';
 
 const PlanificationEnvironment = () => {
 
-    
+
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const openModal = () => setModalIsOpen(true);
     const closeModal = () => setModalIsOpen(false);
+
+    const [answers, setAnswers] = useState({
+        question1: '',
+        question2: '',
+        question3: '',
+        question4: '',
+    });
+
+
+    const correctAnswers = {
+        question1: 'Encontrar un espacio cómodo y sin distracciones.',
+        question2: 'Mantener su área de trabajo ordenada con todos los materiales necesarios a mano.',
+        question3: 'Crear un entorno agradable que reduzca las distracciones.',
+        question4: 'Mejora la organización y facilita el flujo de trabajo.'
+    };
+
+    const [error, setError] = useState('');
+
+    const handleCompleteTest = () => {
+        const allCorrect = Object.keys(correctAnswers).every(
+            (key) => answers[key] === correctAnswers[key]
+        );
+
+        if (allCorrect) {
+            mutation.mutate();
+        } else {
+            setError('Por favor, revisa tus respuestas.');
+        }
+    };
+
+    const handleChange = (question, value) => {
+        setAnswers((prevAnswers) => ({
+            ...prevAnswers,
+            [question]: value
+        }));
+    };
+
+    const { status: hasMedal, refetch } = useFetchStatus(checkEnvironmentMedal)
+
+    const mutation = useMutation({
+        mutationFn: addEnvironmentMedal,
+        onSuccess: () => {
+            LaunchConfetti();
+            refetch();
+            closeModal();
+        },
+        onError: (error) => {
+            console.log(error);
+        }
+    });
+
 
     return (
         <>
@@ -76,10 +127,11 @@ const PlanificationEnvironment = () => {
                 <div className="flex justify-center mt-2">
                     <motion.button
                         whileHover={{ scale: 1.1 }}
-                        className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
-                        onClick={openModal}
+                        onClick={!hasMedal ? openModal : undefined}
+                        className={`bg-light-blue text-white px-6 py-3 rounded-full font-semibold text-lg shadow-lg ${hasMedal ? 'cursor-not-allowed opacity-85' : ''}`}
+                        disabled={hasMedal}
                     >
-                        Realizar Prueba
+                        {hasMedal ? 'Has completado el test' : 'Realizar Prueba'}
                     </motion.button>
                 </div>
             </div>
@@ -110,30 +162,33 @@ const PlanificationEnvironment = () => {
                             <h1 className="text-xl font-medium text-stellar-blue">
                                 <b>¿Cuál es el primer paso para crear un buen ambiente de planificación?</b>
                             </h1>
-                            <ul className="list-disc pl-5">
+                            <ul className="pl-5">
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
-                                        id="step1-A"
-                                        name="step1"
+                                        name="question1"
+                                        value="Encontrar un espacio cómodo y sin distracciones."
+                                        onChange={(e) => handleChange('question1', e.target.value)}
                                     />
-                                    <label htmlFor="step1-A">Encontrar un espacio cómodo y sin distracciones.</label>
+                                    <label>Encontrar un espacio cómodo y sin distracciones.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
-                                        id="step1-B"
-                                        name="step1"
+                                        name="question1"
+                                        value="Organizar todas sus tareas pendientes primero."
+                                        onChange={(e) => handleChange('question1', e.target.value)}
                                     />
-                                    <label htmlFor="step1-B">Organizar todas sus tareas pendientes primero.</label>
+                                    <label>Organizar todas sus tareas pendientes primero.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
-                                        id="step1-C"
-                                        name="step1"
+                                        name="question1"
+                                        value="Buscar herramientas de planificación en línea."
+                                        onChange={(e) => handleChange('question1', e.target.value)}
                                     />
-                                    <label htmlFor="step1-C">Buscar herramientas de planificación en línea.</label>
+                                    <label>Buscar herramientas de planificación en línea.</label>
                                 </li>
                             </ul>
                         </div>
@@ -146,24 +201,27 @@ const PlanificationEnvironment = () => {
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
-                                        id="organize-A"
-                                        name="organize"
+                                        name="question2"
+                                        value="Mantener su área de trabajo ordenada con todos los materiales necesarios a mano."
+                                        onChange={(e) => handleChange('question2', e.target.value)}
                                     />
                                     <label htmlFor="organize-A">Mantener su área de trabajo ordenada con todos los materiales necesarios a mano.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
-                                        id="organize-B"
-                                        name="organize"
+                                        name="question2"
+                                        value="Poner todos los materiales en una caja y sacarlos cuando los necesite."
+                                        onChange={(e) => handleChange('question2', e.target.value)}
                                     />
                                     <label htmlFor="organize-B">Poner todos los materiales en una caja y sacarlos cuando los necesite.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
-                                        id="organize-C"
-                                        name="organize"
+                                        name="question2"
+                                        value="Dejar sus materiales dispersos para tenerlos siempre a la vista."
+                                        onChange={(e) => handleChange('question2', e.target.value)}
                                     />
                                     <label htmlFor="organize-C">Dejar sus materiales dispersos para tenerlos siempre a la vista.</label>
                                 </li>
@@ -180,24 +238,27 @@ const PlanificationEnvironment = () => {
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
-                                        id="focus-A"
-                                        name="focus"
+                                        name="question3"
+                                        value="Crear un entorno agradable que reduzca las distracciones."
+                                        onChange={(e) => handleChange('question3', e.target.value)}
                                     />
                                     <label htmlFor="focus-A">Crear un entorno agradable que reduzca las distracciones.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
-                                        id="focus-B"
-                                        name="focus"
+                                        name="question3"
+                                        value="Escuchar música alta mientras trabaja."
+                                        onChange={(e) => handleChange('question3', e.target.value)}
                                     />
                                     <label htmlFor="focus-B">Escuchar música alta mientras trabaja.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
-                                        id="focus-C"
-                                        name="focus"
+                                        name="question3"
+                                        value="Trabajar en un espacio público con mucho movimiento."
+                                        onChange={(e) => handleChange('question3', e.target.value)}
                                     />
                                     <label htmlFor="focus-C">Trabajar en un espacio público con mucho movimiento.</label>
                                 </li>
@@ -212,24 +273,27 @@ const PlanificationEnvironment = () => {
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
-                                        id="advantage-A"
-                                        name="advantage"
+                                        name="question4"
+                                        value="Mejora la organización y facilita el flujo de trabajo."
+                                        onChange={(e) => handleChange('question4', e.target.value)}
                                     />
                                     <label htmlFor="advantage-A">Mejora la organización y facilita el flujo de trabajo.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
-                                        id="advantage-B"
-                                        name="advantage"
+                                        name="question4"
+                                        value="Permite trabajar más tiempo sin descansar."
+                                        onChange={(e) => handleChange('question4', e.target.value)}
                                     />
                                     <label htmlFor="advantage-B">Permite trabajar más tiempo sin descansar.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
-                                        id="advantage-C"
-                                        name="advantage"
+                                        name="question4"
+                                        value="Facilita el multitasking y trabajar en varias tareas a la vez."
+                                        onChange={(e) => handleChange('question4', e.target.value)}
                                     />
                                     <label htmlFor="advantage-C">Facilita el multitasking y trabajar en varias tareas a la vez.</label>
                                 </li>
@@ -237,13 +301,20 @@ const PlanificationEnvironment = () => {
                         </div>
                     </div>
 
+                    {error && (
+                        <div className='mt-2'>
+                            <Alert severity="error">{error}</Alert>
+                        </div>
+                    )}
+
+
                     <div className="mt-8 flex items-center justify-center">
                         <motion.button
                             whileHover={{ scale: 1.1 }}
                             className="bg-light-blue text-white px-4 py-2.5 rounded-full font-semibold text-lg shadow-lg"
-                            onClick={closeModal}
+                            onClick={handleCompleteTest}
                         >
-                            Terminar
+                            Completar test
                         </motion.button>
                     </div>
                 </div>

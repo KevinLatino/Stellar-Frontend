@@ -11,6 +11,10 @@ import { Alert } from '@mui/material';
 
 const PodomoroTechnique = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    
+    const openModal = () => setModalIsOpen(true);
+    const closeModal = () => setModalIsOpen(false);
+
     const [answers, setAnswers] = useState({
         question1: '',
         question2: '',
@@ -45,9 +49,6 @@ const PodomoroTechnique = () => {
             [question]: value
         }));
     };
-
-    const openModal = () => setModalIsOpen(true);
-    const closeModal = () => setModalIsOpen(false);
 
     const { status: hasMedal, refetch } = useFetchStatus(checkPodomoroMedal)
 
@@ -166,7 +167,6 @@ const PodomoroTechnique = () => {
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
-                                        id="implement-A"
                                         name="question1"
                                         value="Elige una tarea específica para trabajar."
                                         onChange={(e) => handleChange('question1', e.target.value)}
@@ -176,7 +176,6 @@ const PodomoroTechnique = () => {
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
-                                        id="implement-B"
                                         name="question1"
                                         value="Configura el temporizador a 50 minutos."
                                         onChange={(e) => handleChange('question1', e.target.value)}
@@ -186,7 +185,6 @@ const PodomoroTechnique = () => {
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
-                                        id="implement-C"
                                         name="question1"
                                         value="Comienza a trabajar sin definir una tarea."
                                         onChange={(e) => handleChange('question1', e.target.value)}
