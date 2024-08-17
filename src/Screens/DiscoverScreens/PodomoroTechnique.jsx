@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Meditation from '../../../public/People-Ilustrations/Relaxing.png';
 import BackToDiscover from './BackToDiscover';
 import Modal from './Modal';

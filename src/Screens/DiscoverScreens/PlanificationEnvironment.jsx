@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
-import GirlStudying from '../../../public/People-Ilustrations/Girl-Studying.png'
+import PeoplePlanning from '../../../public/People-Ilustrations/People-planning.png'
 import BackToDiscover from './BackToDiscover'
 import Modal from './Modal';
 import { motion } from 'framer-motion';
+import { checkEnvironmentMedal, addEnvironmentMedal } from '../../Api/UserMedal.Api';
+import LaunchConfetti from '../../Components/ConfettiComponent';
+import useFetchStatus from '../../hooks/useFetchStatus';
+import { Alert } from '@mui/material';
+import { useMutation } from 'react-query';
 
 const PlanificationEnvironment = () => {
+
+    
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -25,11 +32,11 @@ const PlanificationEnvironment = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="w-[13.2rem] hidden sm:flex relative">
+                    <div className="w-[16rem] hidden sm:flex relative">
                         <img
-                            src={GirlStudying}
+                            src={PeoplePlanning}
                             alt="Ilustration"
-                            className="absolute left-[260px] bottom-[-30%]"
+                            className="absolute left-[200px] bottom-[-23%]"
                         />
                     </div>
                 </div>
