@@ -1,14 +1,14 @@
 import React from 'react';
-import { AddTask } from '../Components/AddTaskComponent';
+import { AddTask } from '@Components/AddTaskComponent';
 import {
     getNormalTasks,
     getUrgentTasks,
     getWaitingTasks
-} from '../Api/Task.Api';
-import { MainSpinner } from '../Components/SpinnerComponent'
+} from '@Api/Task.Api';
+import { MainSpinner } from '@Components/SpinnerComponent'
 import { useQuery } from 'react-query';
 import Tasks from '../../public/People-Ilustrations/Discover.png';
-import TaskCard from '../Components/TaskCardComponent';
+import TaskCard from '@Components/TaskCardComponent';
 const TaskScreen = () => {
 
     const urgentTaskQuery = useQuery({ queryKey: ["urgentTasks"], queryFn: () => getUrgentTasks() });
