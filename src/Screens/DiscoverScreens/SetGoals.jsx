@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import PeopleLearning from '../../../public/People-Ilustrations/Time-Management.png';
-import BackToDiscover from './BackToDiscover';
-import Modal from './Modal';
+import BackToDiscover from '@Components/BackToDiscover';
+import Modal from '@Components/Modal';
 import { motion } from 'framer-motion';
 import { useMutation } from 'react-query';
-import { addGoalMedal, checkGoalMedal } from '../../Api/UserMedal.Api';
-import LaunchConfetti from '../../Components/ConfettiComponent';
-import useFetchStatus from '../../hooks/useFetchStatus';
+import { addGoalMedal, checkGoalMedal } from '@Api/UserMedal.Api';
+import LaunchConfetti from '@Components/ConfettiComponent';
+import useFetchStatus from '@Hooks/useFetchStatus';
 import { Alert } from '@mui/material';
+
 
 const SetGoals = () => {
 
