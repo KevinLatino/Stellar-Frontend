@@ -1,6 +1,6 @@
 import React from 'react';
 import Discover from '../../public/People-Ilustrations/Sitting2.png';
-import DiscoverCardComponent from '../Components/DiscoverCardComponent';
+import DiscoverCardComponent from '@Components/DiscoverCardComponent';
 import SetGoals from '../../public/Stellar-Medals/SetGoals.png';
 import Eisenhower from '../../public/Stellar-Medals/Eisenhower.png';
 import Podomoro from '../../public/Stellar-Medals/Podomoro.png';

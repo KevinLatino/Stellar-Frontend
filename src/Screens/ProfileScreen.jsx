@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ProfileBg from '../../public/People-Ilustrations/Profile.svg';
 import { UserRound, LayoutPanelTop } from 'lucide-react';
-import { updateUser } from '../Api/User.Api';
+import { updateUser } from '@Api/User.Api';
 import { useMutation } from 'react-query';
-import getUserFromCookie from '../Utils/getUserCookies';
-import useFormSetter from '../hooks/useFormSetter';
+import getUserFromCookie from '@Utils/getUserCookies';
+import useFormSetter from '@Hooks/useFormSetter';
 
 const ProfileScreen = () => {
   const [userData, setUserData] = useState({ name: "", lastName: "", secondLastName: "" });
