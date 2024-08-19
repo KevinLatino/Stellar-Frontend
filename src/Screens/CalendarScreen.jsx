@@ -1,5 +1,5 @@
 import React from 'react'
-import CalendarComponent from '../Components/Calendar/CalendarComponent';
+import CalendarComponent from '@Components/Calendar/CalendarComponent';
 import 'animate.css'
 
 const CalendarScreen = () => {

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Welcome from '../../public/People-Ilustrations/Welcome.png';
-import getUserFromCookie from '../Utils/getUserCookies';
-import HomeTasks from '../Components/HomeTaskComponent';
-import BarChart from '../Components/BarChartComponent';
-import LineChart from '../Components/LineChartComponent';
-import { MainSpinner } from '../Components/SpinnerComponent';
-import { getWeekTasks } from '../Api/Task.Api';
-import { userMedal } from '../Api/UserMedal.Api';
+import getUserFromCookie from '@Utils/getUserCookies';
+import HomeTasks from '@Components/HomeTaskComponent';
+import BarChart from '@Components/BarChartComponent';
+import LineChart from '@Components/LineChartComponent';
+import { MainSpinner } from '@Components/SpinnerComponent';
+import { getWeekTasks } from '@Api/Task.Api';
+import { userMedal } from '@Api/UserMedal.Api';
 import { useQuery } from 'react-query';
 import { motion } from 'framer-motion';
+
 
 const DashboardScreen = () => {
     const weekTasksQuery = useQuery({
