@@ -2,10 +2,10 @@ import React from 'react';
 import Stellar from '../../public/Stellar-Logos/Stellar-Login.png';
 import { UserRound, KeyRound, Inbox, LayoutPanelTop } from 'lucide-react';
 import { useMutation } from 'react-query';
-import { RegisterApi } from '../Api/Register.Api';
+import { RegisterApi } from '@Api/Register.Api';
 import { useNavigate } from 'react-router-dom';
-import useFormSetters from '../hooks/useFormSetter'
-import {SecondSpinner} from '../Components/SpinnerComponent';
+import useFormSetters from '@Hooks/useFormSetter'
+import {SecondSpinner} from '@Components/SpinnerComponent';
 
 
 
