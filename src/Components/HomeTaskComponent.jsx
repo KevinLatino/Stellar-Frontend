@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MoreHorizontal } from 'lucide-react';
 import { useMutation } from 'react-query';
-import { updateTask } from '../Api/Task.Api';
+import { updateTask } from '@Api/Task.Api';
 import { useQueryClient } from 'react-query';
 
 const priorityGradientStyles = {

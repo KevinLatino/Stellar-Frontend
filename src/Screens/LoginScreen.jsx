@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { SecondSpinner } from '@components/SpinnerComponent';
+import { SecondSpinner } from '@Components/SpinnerComponent';
 import { useMutation } from 'react-query';
-import { LoginApi } from '@api/Login.Api';
-import { useAuth } from '@context/context';
+import { LoginApi } from '@Api/Login.Api';
+import { useAuth } from '@Context/Context';
 import { useNavigate } from 'react-router-dom';
 import { UserRound, KeyRound } from 'lucide-react';
-import useFormSetters from '@hooks/useFormSetter';
-import Stellar from '@public/Stellar-Logos/Stellar-Login.png';
+import useFormSetters from '@Hooks/useFormSetter';
+import Stellar from '../../public/Stellar-Logos/Stellar-Login.png';
+
 
 const LoginScreen = () => {
     const navigate = useNavigate();

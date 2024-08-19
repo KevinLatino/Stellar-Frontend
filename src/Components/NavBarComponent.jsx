@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { useNavigate, Outlet, useLocation } from 'react-router-dom';
 import Alert from '../../public/People-Ilustrations/Bye.png';
-import { useAuth } from '../Context/context';
+import { useAuth } from '@Context/context';
 import StellarLogo from '../../public/Stellar-Logos/StellarLogo-Over-StrongBlue.svg';
 
 const NavBar = () => {

@@ -7,8 +7,9 @@ import {
   getTotalPending,
   getPendingWaitingTasks, 
   countOverdue
-} from '../Api/Task.Api';
+} from '@Api/Task.Api';
 import { useQuery } from 'react-query';
+
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 

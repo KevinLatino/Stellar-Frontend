@@ -9,7 +9,7 @@ import {
     getJuneCompletedTask,
     getJulyCompletedTask,
     getAugustCompletedTask
-} from '../Api/Task.Api';
+} from '@Api/Task.Api';
 import { useQuery } from 'react-query';
 import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend } from 'chart.js';
 

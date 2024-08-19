@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import useFormSetters from '../hooks/useFormSetter';
-import { Plus, Pencil, Captions, Star, CalendarHeart, ClipboardList  } from 'lucide-react';
-import { useQueryClient } from 'react-query';
-import { useMutation } from 'react-query';
-import { createTask } from '../Api/Task.Api';
+import useFormSetters from '@Hooks/useFormSetter';
+import { Plus, Pencil, Captions, Star, CalendarHeart, ClipboardList } from 'lucide-react';
+import { useQueryClient, useMutation } from 'react-query';
+import { createTask } from '@Api/Task.Api';
 import { motion } from 'framer-motion';
-import { useAuth } from '../Context/context';
+import { useAuth } from '@Context/context';
 import 'animate.css';
+
 
 const AddTask = () => {
     const queryClient = useQueryClient();

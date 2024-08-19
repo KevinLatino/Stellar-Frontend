@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MoreHorizontal } from 'lucide-react';
 import { useMutation, useQueryClient } from 'react-query';
-import { updateTask, deleteTask } from '../Api/Task.Api';
+import { updateTask, deleteTask } from '@Api/Task.Api';
 import { CircleCheckBig, Trash2 } from 'lucide-react';
 import LaunchConfetti from './ConfettiComponent';
 

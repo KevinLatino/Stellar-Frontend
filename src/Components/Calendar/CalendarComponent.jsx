@@ -1,8 +1,8 @@
 import React from 'react';
 import { Calendar, dayjsLocalizer } from 'react-big-calendar';
-import { getTitleAndDate } from '../../Api/Task.Api';
+import { getTitleAndDate } from '@Api/Task.Api';
 import { useQuery } from 'react-query';
-import { MainSpinner } from '../SpinnerComponent';
+import { MainSpinner } from '@Components/SpinnerComponent';
 import dayjs from 'dayjs';
 import ToolbarComponent from './ToolBarComponent';
 import "react-big-calendar/lib/css/react-big-calendar.css";
