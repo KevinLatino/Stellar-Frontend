@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
-import PeoplePlanning from '../../../public/People-Ilustrations/People-planning.png'
-import BackToDiscover from './BackToDiscover'
-import Modal from './Modal';
+import React, { useState } from 'react';
+import PeoplePlanning from '../../../public/People-Ilustrations/People-planning.png';
+import BackToDiscover from '@Components/BackToDiscover';
+import Modal from '@Components/Modal';
 import { motion } from 'framer-motion';
-import { checkEnvironmentMedal, addEnvironmentMedal } from '../../Api/UserMedal.Api';
-import LaunchConfetti from '../../Components/ConfettiComponent';
-import useFetchStatus from '../../hooks/useFetchStatus';
+import { checkEnvironmentMedal, addEnvironmentMedal } from '@Api/UserMedal.Api';
+import LaunchConfetti from '@Components/ConfettiComponent';
+import useFetchStatus from '@Hooks/useFetchStatus';
 import { Alert } from '@mui/material';
 import { useMutation } from 'react-query';
+
 
 const PlanificationEnvironment = () => {
 

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import Meditation from '../../../public/People-Ilustrations/People-Meditation.png';
-import Modal from './Modal';
-import BackToDiscover from './BackToDiscover';
+import Modal from '@Components/Modal';
+import BackToDiscover from '@Components/BackToDiscover';
 import { motion } from 'framer-motion';
 import { useMutation } from 'react-query';
-import { checkMindfulnessMedal, addMindfulnessMedal } from '../../Api/UserMedal.Api';
-import useFetchStatus from '../../hooks/useFetchStatus';
+import { checkMindfulnessMedal, addMindfulnessMedal } from '@Api/UserMedal.Api';
+import useFetchStatus from '@Hooks/useFetchStatus';
 import { Alert } from '@mui/material';
-import LaunchConfetti from '../../Components/ConfettiComponent';
+import LaunchConfetti from '@Components/ConfettiComponent';
+
 
 const Mindfulness = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
