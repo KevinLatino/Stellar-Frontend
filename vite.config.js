@@ -5,12 +5,12 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: [
-      { find: '@components', replacement: '/src/Components' },
-      { find: '@screens', replacement: '/src/Screens' },
-      { find: '@hooks', replacement: '/src/Hooks' },
-      { find: '@api', replacement: '/src/Api' },
-      { find: '@utils', replacement: '/src/Utils' },
-      { find: '@context', replacement: '/src/Context' },
+      { find: '@Components', replacement: '/src/Components' },
+      { find: '@Screens', replacement: '/src/Screens' },
+      { find: '@Hooks', replacement: '/src/Hooks' },
+      { find: '@Api', replacement: '/src/Api' },
+      { find: '@Utils', replacement: '/src/Utils' },
+      { find: '@Context', replacement: '/src/Context' },
     ],
   },
 });

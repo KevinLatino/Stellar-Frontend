@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Meditation from '../../../public/People-Ilustrations/Relaxing.png';
-import BackToDiscover from '@Components/BackToDiscover';
-import Modal from '@Components/Modal';
+import BackToDiscover from './BackToDiscover';
+import Modal from './Modal';
 import { motion } from 'framer-motion';
 import { useMutation } from 'react-query';
 import { checkPodomoroMedal, addPomodoroMedal } from '@Api/UserMedal.Api';
