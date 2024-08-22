@@ -2,13 +2,28 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@Components/*": ["src/Components/*"],
-      "@Screens/*": ["src/Screens/*"],
-      "@Hooks/*": ["src/hooks/*"],
-      "@Api/*": ["src/Api/*"],
-      "@Utils/*": ["src/Utils/*"],
-      "@Context/*": ["src/Context/*"]
+      "@Components/*": [
+        "src/Components/*"
+      ],
+      "@Screens/*": [
+        "src/Screens/*"
+      ],
+      "@Hooks/*": [
+        "src/Hooks/*"
+      ],
+      "@Api/*": [
+        "src/Api/*"
+      ],
+      "@Utils/*": [
+        "src/Utils/*"
+      ],
+      "@Context/*": [
+        "src/Context/*"
+      ],
     }
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

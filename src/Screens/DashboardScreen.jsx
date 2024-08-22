@@ -10,7 +10,6 @@ import { userMedal } from '@Api/UserMedal.Api';
 import { useQuery } from 'react-query';
 import { motion } from 'framer-motion';
 
-
 const DashboardScreen = () => {
     const weekTasksQuery = useQuery({
         queryKey: ["weekTasks"],
@@ -92,9 +91,9 @@ const DashboardScreen = () => {
                         </h1>
                         <div className='flex flex-wrap justify-center gap-x-20 gap-y-12'>
                             {medalsQuery.data.map(medal => (
-                                <motion.div 
-                                whileHover={{scale: 1.1}}
-                                key={medal.title} className="cursor-pointer flex flex-col items-center bg-white rounded-2xl p-4 shadow-md w-52">
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                    key={medal.title} className="cursor-pointer flex flex-col items-center bg-white rounded-2xl p-4 shadow-md w-52">
                                     <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-2">
                                         <img
                                             src={medal.image}

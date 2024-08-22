@@ -1,5 +1,4 @@
 import React from 'react';
-import Discover from '../../public/People-Ilustrations/Sitting2.png';
 import DiscoverCardComponent from '@Components/DiscoverCardComponent';
 import SetGoals from '../../public/Stellar-Medals/SetGoals.png';
 import Eisenhower from '../../public/Stellar-Medals/Eisenhower.png';
@@ -7,6 +6,7 @@ import Podomoro from '../../public/Stellar-Medals/Podomoro.png';
 import Dates from '../../public/Stellar-Medals/Dates.png';
 import Environment from '../../public/Stellar-Medals/Environment.png';
 import Mindfulness from '../../public/Stellar-Medals/Mindfulness.png';
+import Discover from '../../public/People-Ilustrations/welcomePeople.svg'
 import 'animate.css';
 
 const DiscoverScreen = () => {
@@ -64,11 +64,11 @@ const DiscoverScreen = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="w-[11.5rem] hidden sm:flex relative">
+                    <div className="w-[20.5rem] hidden sm:flex relative">
                         <img
                             src={Discover}
                             alt="Ilustration"
-                            className="absolute left-[300px] bottom-[-70%]"
+                            className="absolute left-[280px] bottom-[-55%]"
                         />
                     </div>
                 </div>
