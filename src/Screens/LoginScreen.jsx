@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { SecondSpinner } from '@Components/SpinnerComponent';
 import { useMutation } from 'react-query';
 import { LoginApi } from '@Api/Login.Api';
-import { useAuth } from '@Context/Context';
+import { useAuth } from '@Context/context';
 import { useNavigate } from 'react-router-dom';
 import { UserRound, KeyRound } from 'lucide-react';
 import useFormSetters from '@Hooks/useFormSetter';

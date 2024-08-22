@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PeopleLearning from '../../../public/People-Ilustrations/Time-Management.png';
-import BackToDiscover from '@Components/BackToDiscover';
-import Modal from '@Components/Modal';
+import BackToDiscover from './BackToDiscover';
+import Modal from './Modal';
 import { motion } from 'framer-motion';
 import { useMutation } from 'react-query';
 import { addGoalMedal, checkGoalMedal } from '@Api/UserMedal.Api';

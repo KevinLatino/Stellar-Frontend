@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@Components/*": ["src/Components/*"],
-      "@Sreens/*": ["src/Screens/*"],
+      "@Screens/*": ["src/Screens/*"],
       "@Hooks/*": ["src/hooks/*"],
       "@Api/*": ["src/Api/*"],
       "@Utils/*": ["src/Utils/*"],

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import GirlStudying from '../../../public/People-Ilustrations/Girl-Studying-Science.png';
-import BackToDiscover from '@Components/BackToDiscover';
-import Modal from '@Components/Modal';
+import BackToDiscover from './BackToDiscover';
+import Modal from './Modal';
 import { motion } from 'framer-motion';
 import { useMutation } from 'react-query';
 import { checkEisenhowerMedal, addEisenhowerMedal } from '@Api/UserMedal.Api';
