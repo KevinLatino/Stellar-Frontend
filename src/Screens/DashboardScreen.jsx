@@ -57,11 +57,11 @@ const DashboardScreen = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="w-[13rem] hidden sm:flex relative">
+                        <div className="w-[12.5rem] hidden sm:flex relative">
                             <img
                                 src={Welcome}
                                 alt="Ilustration"
-                                className="absolute left-[300px] bottom-[0%]"
+                                className="absolute left-[260px] bottom-[-0%]"
                             />
                         </div>
                     </div>
