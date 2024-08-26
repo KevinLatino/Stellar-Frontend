@@ -19,9 +19,9 @@ const EisenhowerMatrix = () => {
     });
 
     const correctAnswers = {
-        quadrant1: 'Llevar a su perro al veterinario para su chequeo anual.',
-        quadrant2: 'Establecer metas de ahorro para un viaje futuro.',
-        quadrant3: 'Responder a mensajes de texto no urgentes.',
+        quadrant1: 'Presentar un trabajo de investigación que se entrega mañana.',
+        quadrant2: 'Estudiar para un examen que será dentro de una semana.',
+        quadrant3: 'Hacer compras de supermercado ya que no tiene comida en casa.',
         quadrant4: 'Revisar redes sociales sin un propósito claro.'
     };
 
@@ -154,7 +154,9 @@ const EisenhowerMatrix = () => {
                         </span>
                     </h1>
                     <p className="text-l mb-6">
-                        Sofia es una estudiante universitaria que lucha por equilibrar sus estudios, trabajo y vida personal. Para gestionar su tiempo de manera más efectiva, decide utilizar la matriz de Eisenhower para clasificar sus tareas en función de su urgencia e importancia.
+                        Sofia es una estudiante universitaria que actualmente está luchando por mejorar en sus estudios.
+                        Para gestionar su tiempo de manera más efectiva, decide utilizar la matriz de Eisenhower
+                         para clasificar sus tareas en función de su urgencia e importancia.
                     </p>
 
                     <h1 className="text-xl font-medium text-stellar-blue">
@@ -185,10 +187,10 @@ const EisenhowerMatrix = () => {
                                         type="radio"
                                         id="quadrant1-B"
                                         name="quadrant1"
-                                        value="Preparar un informe para una reunión importante."
+                                        value="Ir al cine con sus amigos para tomarse un descanso."
                                         onChange={(e) => handleChange('quadrant1', e.target.value)}
                                     />
-                                    <label htmlFor="quadrant1-B">Preparar un informe para una reunión importante.</label>
+                                    <label htmlFor="quadrant1-B">Ir al cine con sus amigos para tomarse un descanso.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
@@ -234,10 +236,10 @@ const EisenhowerMatrix = () => {
                                         type="radio"
                                         id="quadrant2-C"
                                         name="quadrant2"
-                                        value="Estudiar para un examen que será dentro de dos semanas."
+                                        value="Estudiar para un examen que será dentro de una semana."
                                         onChange={(e) => handleChange('quadrant2', e.target.value)}
                                     />
-                                    <label htmlFor="quadrant2-C">Estudiar para un examen que será dentro de dos semanas.</label>
+                                    <label htmlFor="quadrant2-C">Estudiar para un examen que será dentro de una semana.</label>
                                 </li>
                             </ul>
                         </div>
@@ -263,20 +265,20 @@ const EisenhowerMatrix = () => {
                                         type="radio"
                                         id="quadrant3-B"
                                         name="quadrant3"
-                                        value="Asistir a un evento social al que no le interesa."
+                                        value="Terminar el proyecto para el cual se entrega en 2 mesese."
                                         onChange={(e) => handleChange('quadrant3', e.target.value)}
                                     />
-                                    <label htmlFor="quadrant3-B">Asistir a un evento social al que no le interesa.</label>
+                                    <label htmlFor="quadrant3-B">Terminar el proyecto para el cual se entrega en 2 mesese.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
                                         id="quadrant3-C"
                                         name="quadrant3"
-                                        value="Hacer compras de supermercado cuando tiene comida en casa."
+                                        value="Hacer compras de supermercado ya que no tiene comida en casa."
                                         onChange={(e) => handleChange('quadrant3', e.target.value)}
                                     />
-                                    <label htmlFor="quadrant3-C">Hacer compras de supermercado cuando tiene comida en casa.</label>
+                                    <label htmlFor="quadrant3-C">Hacer compras de supermercado ya que no tiene comida en casa.</label>
                                 </li>
                             </ul>
                         </div>
@@ -302,20 +304,20 @@ const EisenhowerMatrix = () => {
                                         type="radio"
                                         id="quadrant4-B"
                                         name="quadrant4"
-                                        value="Ver series en la televisión durante horas."
+                                        value="Investigar sobre lo que tiene que estudiar para el próximo semestre."
                                         onChange={(e) => handleChange('quadrant4', e.target.value)}
                                     />
-                                    <label htmlFor="quadrant4-B">Ver series en la televisión durante horas.</label>
+                                    <label htmlFor="quadrant4-B">Investigar sobre lo que tiene que estudiar para el próximo semestre.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
                                         id="quadrant4-C"
                                         name="quadrant4"
-                                        value="Jugar videojuegos en lugar de estudiar."
+                                        value="Estudiar el mercado laboral ya que es su último año en la universidad."
                                         onChange={(e) => handleChange('quadrant4', e.target.value)}
                                     />
-                                    <label htmlFor="quadrant4-C">Jugar videojuegos en lugar de estudiar.</label>
+                                    <label htmlFor="quadrant4-C">Estudiar el mercado laboral ya que es su último año en la universidad.</label>
                                 </li>
                             </ul>
                         </div>

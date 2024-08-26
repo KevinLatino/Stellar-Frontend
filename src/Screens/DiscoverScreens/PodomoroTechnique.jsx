@@ -11,7 +11,7 @@ import { Alert } from '@mui/material';
 
 const PodomoroTechnique = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    
+
     const openModal = () => setModalIsOpen(true);
     const closeModal = () => setModalIsOpen(false);
 
@@ -23,9 +23,10 @@ const PodomoroTechnique = () => {
 
 
     const correctAnswers = {
-        question1: 'Configura el temporizador a 50 minutos.',
-        question2: 'Laura toma un descanso de 15 minutos.',
-        question3: 'Mejora la concentración y reduce las distracciones.',
+        question1: 'Configura el temporizador a 40 minutos.',
+        question2: 'Laura toma un descanso de 10 minutos.',
+        question3: 'Laura toma un descanso de 15-20 minutos.',
+        question4: 'Mejora la concentración y reduce las distracciones.',
     };
 
     const [error, setError] = useState('');
@@ -75,7 +76,7 @@ const PodomoroTechnique = () => {
                                 <b>Técnica Pomodoro</b>
                             </h1>
                             <p className="text-xl font-medium text-white">
-                                Utiliza intervalos de trabajo de 25 minutos, seguidos de un breve descanso, para maximizar la concentración y la productividad.
+                                Utiliza intervalos de trabajo de 40 minutos, seguidos de un breve descanso, para maximizar la concentración y la productividad.
                             </p>
                         </div>
                     </div>
@@ -97,10 +98,10 @@ const PodomoroTechnique = () => {
                         </h1>
                         <ul className='list-disc ml-5 flex flex-col gap-6 font-raleway text-[#000000a3] text-[17.5px] font-medium'>
                             <li><b>Elige una tarea:</b> Decide la tarea que quieres trabajar.</li>
-                            <li><b>Configura el temporizador:</b> Ajusta el temporizador a 25 minutos, el intervalo Pomodoro.</li>
+                            <li><b>Configura el temporizador:</b> Ajusta el temporizador a 40 minutos, el intervalo Pomodoro.</li>
                             <li><b>Trabaja en la tarea:</b> Concédele atención completa hasta que el temporizador suene.</li>
-                            <li><b>Toma un descanso corto:</b> Tómate un descanso de 5 minutos para relajarte.</li>
-                            <li><b>Repite:</b> Después de cuatro Pomodoros, toma un descanso más largo de 15-30 minutos.</li>
+                            <li><b>Toma un descanso corto:</b> Tómate un descanso de 10 minutos para relajarte.</li>
+                            <li><b>Repite:</b> Después de cuatro Pomodoros, toma un descanso más largo de 15-20 minutos.</li>
                         </ul>
                     </div>
 
@@ -177,10 +178,10 @@ const PodomoroTechnique = () => {
                                     <input
                                         type="radio"
                                         name="question1"
-                                        value="Configura el temporizador a 50 minutos."
+                                        value="Configura el temporizador a 40 minutos."
                                         onChange={(e) => handleChange('question1', e.target.value)}
                                     />
-                                    <label htmlFor="implement-B">Configura el temporizador a 50 minutos.</label>
+                                    <label htmlFor="implement-B">Configura el temporizador a 40 minutos.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
@@ -196,9 +197,7 @@ const PodomoroTechnique = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                                    <p>¿Qué sucede cuando el temporizador suena?</p>
-                                </span>
+                                <p>¿Qué sucede cuando el temporizador suena?</p>
                             </h1>
                             <ul className="list-disc pl-5">
                                 <li className="flex items-center gap-2">
@@ -206,10 +205,10 @@ const PodomoroTechnique = () => {
                                         type="radio"
                                         id="timer-A"
                                         name="question2"
-                                        value="Laura toma un descanso de 5 minutos."
+                                        value="Laura toma un descanso de 10 minutos."
                                         onChange={(e) => handleChange('question2', e.target.value)}
                                     />
-                                    <label htmlFor="timer-A">Laura toma un descanso de 5 minutos.</label>
+                                    <label htmlFor="timer-A">Laura toma un descanso de 10 minutos.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input
@@ -236,18 +235,54 @@ const PodomoroTechnique = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                                    <p>¿Qué beneficios obtiene Laura al usar la técnica Pomodoro?</p>
-                                </span>
+                                <p>Después de 4 podomoros ¿Qué tiene que hacer Laura?</p>
+                            </h1>
+                            <ul className="list-disc pl-5">
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="timer-A"
+                                        name="question3"
+                                        value="Laura toma un descanso de 15-20 minutos."
+                                        onChange={(e) => handleChange('question3', e.target.value)}
+                                    />
+                                    <label htmlFor="timer-A">Laura toma un descanso de 15-20 minutos.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="timer-B"
+                                        name="question3"
+                                        value="Laura debe continuar e ignorar la alarma."
+                                        onChange={(e) => handleChange('question3', e.target.value)}
+                                    />
+                                    <label htmlFor="timer-B">Laura debe continuar e ignorar la alarma.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="timer-C"
+                                        name="question3"
+                                        value="Laura toma un descanso de 5 minutos."
+                                        onChange={(e) => handleChange('question3', e.target.value)}
+                                    />
+                                    <label htmlFor="timer-C">Laura toma un descanso de 5 minutos.</label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h1 className="text-lg font-bold text-stellar-blue">
+                                <p>¿Qué beneficios obtiene Laura al usar la técnica Pomodoro?</p>
                             </h1>
                             <ul className="list-disc pl-5">
                                 <li className="flex items-center gap-2">
                                     <input
                                         type="radio"
                                         id="benefit-A"
-                                        name="question3"
+                                        name="question4"
                                         value="Mejora la concentración y reduce las distracciones."
-                                        onChange={(e) => handleChange('question3', e.target.value)}
+                                        onChange={(e) => handleChange('question4', e.target.value)}
                                     />
                                     <label htmlFor="benefit-A">Mejora la concentración y reduce las distracciones.</label>
                                 </li>
@@ -255,9 +290,9 @@ const PodomoroTechnique = () => {
                                     <input
                                         type="radio"
                                         id="benefit-B"
-                                        name="question3"
+                                        name="question4"
                                         value="Reduce el tiempo total de trabajo."
-                                        onChange={(e) => handleChange('question3', e.target.value)}
+                                        onChange={(e) => handleChange('question4', e.target.value)}
                                     />
                                     <label htmlFor="benefit-B">Reduce el tiempo total de trabajo.</label>
                                 </li>
@@ -265,9 +300,9 @@ const PodomoroTechnique = () => {
                                     <input
                                         type="radio"
                                         id="benefit-C"
-                                        name="question3"
+                                        name="question4"
                                         value="Permite trabajar sin definir tareas específicas."
-                                        onChange={(e) => handleChange('question3', e.target.value)}
+                                        onChange={(e) => handleChange('question4', e.target.value)}
                                     />
                                     <label htmlFor="benefit-C">Permite trabajar sin definir tareas específicas.</label>
                                 </li>
