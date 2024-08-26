@@ -4,7 +4,7 @@ import BackToDiscover from './BackToDiscover';
 import Modal from './Modal';
 import { motion } from 'framer-motion';
 import { useMutation } from 'react-query';
-import { checkPodomoroMedal, addPomodoroMedal } from '@Api/UserMedal.Api';
+import { checkPomodoroMedal, addPomodoroMedal } from '@Api/UserMedal.Api';
 import LaunchConfetti from '@Components/ConfettiComponent';
 import useFetchStatus from '@Hooks/useFetchStatus';
 import { Alert } from '@mui/material';
@@ -50,7 +50,7 @@ const PodomoroTechnique = () => {
         }));
     };
 
-    const { status: hasMedal, refetch } = useFetchStatus(checkPodomoroMedal)
+    const { status: hasMedal, refetch } = useFetchStatus(checkPomodoroMedal)
 
     const mutation = useMutation({
         mutationFn: addPomodoroMedal,
