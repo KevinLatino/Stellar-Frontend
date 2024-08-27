@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Welcome from '../../public/People-Ilustrations/Welcome.png';
+import Welcome from '../../public/People-Ilustrations/welcomePeople.svg';
 import getUserFromCookie from '@Utils/getUserCookies';
 import HomeTasks from '@Components/HomeTaskComponent';
 import BarChart from '@Components/BarChartComponent';
@@ -57,15 +57,15 @@ const DashboardScreen = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="w-[12.5rem] hidden sm:flex relative">
+                        <div className="w-[15rem] hidden sm:flex relative">
                             <img
                                 src={Welcome}
                                 alt="Ilustration"
-                                className="absolute left-[260px] bottom-[-0%]"
+                                className="absolute left-[260px] bottom-[-46%]"
                             />
                         </div>
                     </div>
-                    <div className='flex flex-col gap-7 mt-5'>
+                    <div className='flex flex-col gap-7 mt-6'>
                         <h1 className="text-xl font-medium text-stellar-blue">
                             <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
                                 <b>¡Tareas para esta semana!</b>

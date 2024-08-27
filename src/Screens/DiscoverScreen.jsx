@@ -6,7 +6,7 @@ import Podomoro from '../../public/Stellar-Medals/Podomoro.png';
 import Dates from '../../public/Stellar-Medals/Dates.png';
 import Environment from '../../public/Stellar-Medals/Environment.png';
 import Mindfulness from '../../public/Stellar-Medals/Mindfulness.png';
-import Discover from '../../public/People-Ilustrations/welcomePeople.svg'
+import Discover from '../../public/People-Ilustrations/Welcome2.png'
 import 'animate.css';
 
 const DiscoverScreen = () => {
@@ -64,11 +64,11 @@ const DiscoverScreen = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="w-[20.5rem] hidden sm:flex relative">
+                    <div className="w-[14.2rem] hidden sm:flex relative">
                         <img
                             src={Discover}
                             alt="Ilustration"
-                            className="absolute left-[280px] bottom-[-55%]"
+                            className="absolute left-[248px] bottom-[0%]"
                         />
                     </div>
                 </div>

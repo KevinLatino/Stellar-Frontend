@@ -17,6 +17,7 @@ const ImportantDates = () => {
         question2: '',
         question3: '',
         question4: '',
+        question5: ''
     });
 
     const correctAnswers = {
@@ -24,6 +25,7 @@ const ImportantDates = () => {
         question2: 'Asignar una fecha de entrega realista para cada tarea.',
         question3: 'Revisar el calendario y ajustar la fecha de entrega si es necesario.',
         question4: 'Programar revisiones semanales para actualizar fechas y prioridades.',
+        question5: 'Evaluar su progreso al final de cada día y ajustar las fechas si es necesario.'
     };
 
     const [error, setError] = useState('');
@@ -158,9 +160,7 @@ const ImportantDates = () => {
                     <div className="mt-4 flex flex-col gap-6">
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                                    <p>¿Cuál es el primer paso para establecer fechas importantes en el calendario?</p>
-                                </span>
+                                <p>¿Cuál es el primer paso para establecer fechas importantes en el calendario?</p>
                             </h1>
                             <ul className="list-disc pl-5">
                                 <li className="flex items-center gap-2">
@@ -198,9 +198,7 @@ const ImportantDates = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                                    <p>¿Cómo debe Alex asignar fechas a sus tareas?</p>
-                                </span>
+                                <p>¿Cómo debe Alex asignar fechas a sus tareas?</p>
                             </h1>
                             <ul className="list-disc pl-5">
                                 <li className="flex items-center gap-2">
@@ -238,9 +236,7 @@ const ImportantDates = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                                    <p>¿Qué debe hacer Alex si no puede cumplir una fecha de entrega?</p>
-                                </span>
+                                <p>¿Qué debe hacer Alex si no puede cumplir una fecha de entrega?</p>
                             </h1>
                             <ul className="list-disc pl-5">
                                 <li className="flex items-center gap-2">
@@ -278,9 +274,7 @@ const ImportantDates = () => {
 
                         <div>
                             <h1 className="text-lg font-bold text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                                    <p>¿Cómo puede Alex revisar y ajustar su calendario regularmente?</p>
-                                </span>
+                                <p>¿Cómo puede Alex revisar y ajustar su calendario regularmente?</p>
                             </h1>
                             <ul className="list-disc pl-5">
                                 <li className="flex items-center gap-2">
@@ -315,6 +309,45 @@ const ImportantDates = () => {
                                 </li>
                             </ul>
                         </div>
+
+                        <div>
+                            <h1 className="text-lg font-bold text-stellar-blue">
+                                <p>¿Cuál es una buena práctica para Alex al revisar su progreso con respecto a las fechas establecidas?</p>
+                            </h1>
+                            <ul className="list-disc pl-5">
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="review-A"
+                                        name="question5"
+                                        value="Evaluar su progreso al final de cada día y ajustar las fechas si es necesario."
+                                        onChange={(e) => handleChange('question5', e.target.value)}
+                                    />
+                                    <label htmlFor="review-A">Evaluar su progreso al final de cada día y ajustar las fechas si es necesario.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="review-B"
+                                        name="question5"
+                                        value="Esperar hasta el final del proyecto para revisar su progreso."
+                                        onChange={(e) => handleChange('question5', e.target.value)}
+                                    />
+                                    <label htmlFor="review-B">Esperar hasta el final del proyecto para revisar su progreso.</label>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <input
+                                        type="radio"
+                                        id="review-C"
+                                        name="question5"
+                                        value="Revisar su progreso solo si siente que está atrasado en sus tareas."
+                                        onChange={(e) => handleChange('question5', e.target.value)}
+                                    />
+                                    <label htmlFor="review-C">Revisar su progreso solo si siente que está atrasado en sus tareas.</label>
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
 
                     {error && (

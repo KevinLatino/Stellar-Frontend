@@ -72,8 +72,6 @@ export const findAllMedals = async () => {
     return findMedalRequest(`/user-medal/findAll/${userId}`);
 };
 
-// Funciones para agregar medallas:
-
 export const addGoalMedal = async () => {
     const GOAL_MEDAL_ID = "1c12c649-cac3-44f7-9164-ab38a8e53928";
     return postMedalRequest("/user-medal/goals", GOAL_MEDAL_ID);
