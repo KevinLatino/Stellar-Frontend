@@ -30,7 +30,7 @@ const CalendarComponent = () => {
 
     return (
         <>
-            <div className='flex justify-center items-center w-full h-full'>
+            <main  className='flex justify-center items-center w-full h-full'>
                 <Calendar
                     localizer={localizer}
                     views={['month']}
@@ -44,7 +44,7 @@ const CalendarComponent = () => {
                     }}
                     events={events}
                 />
-            </div>
+            </main>
         </>
     );
 }

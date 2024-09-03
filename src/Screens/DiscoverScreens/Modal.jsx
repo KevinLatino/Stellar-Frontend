@@ -5,7 +5,7 @@ const Modal = ({ isOpen, onRequestClose, children }) => {
     if (!isOpen) return null;
 
     return (
-            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
+            <section className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
                 <div className="animate__animated animate__fadeInDown bg-white p-6 w-[100rem] rounded-3xl max-w-3xl mx-4 md:mx-0 relative shadow-lg overflow-auto max-h-[90vh]">
                     <button
                         onClick={onRequestClose}
@@ -15,7 +15,7 @@ const Modal = ({ isOpen, onRequestClose, children }) => {
                     </button>
                     {children}
                 </div>
-            </div>
+            </section>
     );
 };
 

@@ -53,7 +53,7 @@ const DiscoverScreen = () => {
     return (
         <>
             <div className='flex flex-col gap-11 animate__animated animate__fadeInDown'>
-                <div className="flex h-[10.5rem] w-full bg-gradient-to-r from-[#4461f2] to-[#4461F2] rounded-3xl">
+                <header className="flex h-[10.5rem] w-full bg-gradient-to-r from-[#4461f2] to-[#4461F2] rounded-3xl">
                     <div className="w-[42rem] p-4">
                         <div className="flex flex-col gap-1 pl-6 justify-center h-full">
                             <h1 className="text-4xl font-medium text-white">
@@ -71,14 +71,14 @@ const DiscoverScreen = () => {
                             className="absolute left-[248px] bottom-[0%]"
                         />
                     </div>
-                </div>
-                <div className='flex flex-col flex-grow gap-y-14'>
+                </header>
+                <main className='flex flex-col flex-grow gap-y-14'>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
                             <b>¡Haz click en la sección de interés!</b>
                         </span>
                     </h1>
-                    <div className='flex items-center justify-center gap-y-[3rem] gap-x-[4rem] flex-wrap'>
+                    <section className='flex items-center justify-center gap-y-[3rem] gap-x-[4rem] flex-wrap'>
                         {cardContent.map(content => (
                             <DiscoverCardComponent
                                 key={content.title}
@@ -88,8 +88,8 @@ const DiscoverScreen = () => {
                                 img={content.img}
                             />
                         ))}
-                    </div>
-                </div>
+                    </section>
+                </main>
             </div>
         </>
     );
