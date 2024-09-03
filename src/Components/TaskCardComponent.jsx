@@ -37,13 +37,13 @@ const formatDate = (dateString) => {
 
 const TaskCard = ({ id, title, description, priority, date, completed }) => {
 
-    const [menuVisible, setMenuVisible] = useState(false);
+    const [options, setOptions] = useState(false);
 
     const priorityClass = priorityClasses[priority];
     const gradientStyle = priorityGradientStyles[priority] || priorityGradientStyles.Baja;
 
     const handleMenuToggle = () => {
-        setMenuVisible(!menuVisible);
+        setOptions(!options);
     };
 
     const queryClient = useQueryClient();
@@ -103,7 +103,7 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
                             <button className="text-stellar-blue" onClick={handleMenuToggle}>
                                 <MoreHorizontal size={24} />
                             </button>
-                            {menuVisible && (
+                            {options && (
                                 <div className="absolute right-0 w-48 bg-white shadow-md rounded-lg z-10">
                                     <button className="flex font-raleway gap-1 px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left" onClick={handleCompleted}>
                                         Completado

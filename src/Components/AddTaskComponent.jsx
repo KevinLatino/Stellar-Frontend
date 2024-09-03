@@ -107,19 +107,21 @@ const AddTask = () => {
                         </div>
 
                         <div className='flex gap-4'>
-                            <button
+                            <motion.button
                                 onClick={handleSubmit}
                                 className="bg-light-blue text-white px-4 py-2 rounded-xl"
+                                whileHover={{scale: 1.1}}
                             >
                                 Crear tarea
-                            </button>
+                            </motion.button>
 
-                            <button
+                            <motion.button
                                 onClick={handleClosePopup}
                                 className="bg-strong-red text-white px-4 py-2 rounded-xl"
+                                whileHover={{scale: 1.1}}
                             >
                                 Cerrar
-                            </button>
+                            </motion.button>
                         </div>
                     </div>
                 </div>
