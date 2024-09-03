@@ -21,7 +21,7 @@ const ProfileScreen = () => {
 
   return (
     <div className='flex flex-col gap-[3rem] animate__animated animate__fadeInDown'>
-      <div className='flex justify-center items-center flex-col gap-y-4'>
+      <header className='flex justify-center items-center flex-col gap-y-4'>
         <img
           src={ProfileBg}
           width={1000}
@@ -30,9 +30,9 @@ const ProfileScreen = () => {
         <h1 className='font-raleway text-3xl border-b-2 border-light-blue'>
           {userData.name} {userData.lastName} {userData.secondLastName}
         </h1>
-      </div>
+      </header>
 
-      <div className='flex justify-center items-center flex-col gap-2'>
+      <main className='flex justify-center items-center flex-col gap-2'>
         <div className="relative mb-4 w-full max-w-md">
           <UserRound size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-light-blue" />
           <input
@@ -76,7 +76,7 @@ const ProfileScreen = () => {
             Eliminar Perfil
           </button>
         </div>
-      </div>
+      </main>
     </div>
   );
 };
