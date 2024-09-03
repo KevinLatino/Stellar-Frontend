@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  LayoutDashboard ,
+  LayoutDashboard,
   CalendarHeart,
   Telescope,
   UserRound,
@@ -15,7 +15,7 @@ import StellarLogo from '../../public/Stellar-Logos/StellarLogo-Over-StrongBlue.
 const NavBar = () => {
   const menu = [
     {},
-    { title: "Dashboard", icon: <LayoutDashboard  size={22} />, route: "/sidebar/dashboard" },
+    { title: "Dashboard", icon: <LayoutDashboard size={22} />, route: "/sidebar/dashboard" },
     { title: "Tareas", icon: <BookOpenText size={22} />, route: "/sidebar/tasks" },
     { title: "Calendario", icon: <CalendarHeart size={22} />, route: "/sidebar/calendar" },
     { title: "Descubre", icon: <Telescope size={22} />, route: "/sidebar/discover" },
@@ -26,7 +26,7 @@ const NavBar = () => {
 
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation(); 
+  const location = useLocation();
 
   if (user === null) navigate('/login');
 
@@ -77,8 +77,8 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="flex h-screen">
-        <div className='bg-stellar-white'>
+      <header className="flex h-screen">
+        <nav className="bg-stellar-white">
           <div className='bg-stellar-blue pl-8 pt-10 h-full w-[14.5rem]'>
             <div className='mb-10 mt-2 ml-3'>
               <img 
@@ -89,33 +89,35 @@ const NavBar = () => {
                 onClick={handleLogoClick} 
               />
             </div>
-            {menu.map((menuItem, index) => (
-              <div 
-                key={index} 
-                className={`transition-color ${selectedMenu === index ? 'bg-stellar-blue' : 'bg-stellar-white'}`}>
-                <div
-                  onClick={(index > 0) && (index < menu.length - 1) ? () => handleMenuClick(index, menuItem.route) : null}
-                  className={`flex bg-stellar-blue list-none items-center gap-x-8 cursor-pointer font-semibold p-3
-                    ${index === 0 || index === menu.length - 1 ? 'cursor-auto' : 'cursor-pointer'}
-                    ${selectedMenu === index ? 'bg-stellar-white text-stellar-blue rounded-l-full' : 'text-stellar-icon-color'}
-                    ${selectedMenu === index + 1 ? 'rounded-br-[2rem]' : ''} 
-                    ${selectedMenu === index - 1 ? 'rounded-tr-[2rem]' : ''}`}>
-                  <span className={selectedMenu === index ? 'text-stellar-blue' : 'text-stellar-icon-color'}>
-                    {menuItem.icon}
-                  </span>
-                  <span>{menuItem.title}</span>
-                </div>
-              </div>
-            ))}
+            <ul>
+              {menu.map((menuItem, index) => (
+                <li 
+                  key={index} 
+                  className={`transition-color ${selectedMenu === index ? 'bg-stellar-blue' : 'bg-stellar-white'}`}>
+                  <div
+                    onClick={(index > 0) && (index < menu.length - 1) ? () => handleMenuClick(index, menuItem.route) : null}
+                    className={`flex bg-stellar-blue list-none items-center gap-x-8 font-semibold p-3
+                      ${index === 0 || index === menu.length - 1 ? 'cursor-auto' : 'cursor-pointer'}
+                      ${selectedMenu === index ? 'bg-stellar-white text-stellar-blue rounded-l-full' : 'text-stellar-icon-color'}
+                      ${selectedMenu === index + 1 ? 'rounded-br-[2rem]' : ''} 
+                      ${selectedMenu === index - 1 ? 'rounded-tr-[2rem]' : ''}`}>
+                    <span className={selectedMenu === index ? 'text-stellar-blue' : 'text-stellar-icon-color'}>
+                      {menuItem.icon}
+                    </span>
+                    <span>{menuItem.title}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+        </nav>
 
-        <div className='bg-stellar-blue w-full h-full'>
+        <main className='bg-stellar-blue w-full h-full'>
           <div className='p-7 rounded-tl-[2rem] rounded-bl-[2rem] bg-stellar-white w-full h-full overflow-auto'>
             <Outlet />
           </div>
-        </div>
-      </div>
+        </main>
+      </header>
 
       {showLogoutPopup && (
         <div className="animate__animated animate__fadeIn fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">

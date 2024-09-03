@@ -5,7 +5,7 @@ import { useMutation } from 'react-query';
 import { RegisterApi } from '@Api/Register.Api';
 import { useNavigate } from 'react-router-dom';
 import useFormSetters from '@Hooks/useFormSetter'
-import {SecondSpinner} from '@Components/SpinnerComponent';
+import { SecondSpinner } from '@Components/SpinnerComponent';
 
 
 
@@ -21,7 +21,7 @@ const RegisterScreen = () => {
         return navigate('/login')
     }
 
-
+    
     return (
         <div className="flex h-screen">
             <div className="bg-strong-blue w-1/2 flex items-center justify-center">
@@ -95,7 +95,7 @@ const RegisterScreen = () => {
                 </div>
             </div>
             <div className="bg-strong-blue w-1/2 flex items-center justify-center">
-                <img src={Stellar} className='h-full pointer-events-none' />
+                <img src={Stellar} className='h-full w-full pointer-events-none' />
             </div>
         </div>
     );

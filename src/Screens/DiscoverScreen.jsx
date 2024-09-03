@@ -64,7 +64,7 @@ const DiscoverScreen = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="w-[14.2rem] hidden sm:flex relative">
+                    <div className="w-[14.4rem] hidden sm:flex relative">
                         <img
                             src={Discover}
                             alt="Ilustration"

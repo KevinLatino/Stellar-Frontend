@@ -265,10 +265,10 @@ const EisenhowerMatrix = () => {
                                         type="radio"
                                         id="quadrant3-B"
                                         name="quadrant3"
-                                        value="Terminar el proyecto para el cual se entrega en 2 mesese."
+                                        value="Terminar el proyecto para el cual se entrega en 2 meses."
                                         onChange={(e) => handleChange('quadrant3', e.target.value)}
                                     />
-                                    <label htmlFor="quadrant3-B">Terminar el proyecto para el cual se entrega en 2 mesese.</label>
+                                    <label htmlFor="quadrant3-B">Terminar el proyecto para el cual se entrega en 2 meses.</label>
                                 </li>
                                 <li className="flex items-center gap-2">
                                     <input

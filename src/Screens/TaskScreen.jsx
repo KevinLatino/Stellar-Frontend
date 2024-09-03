@@ -25,9 +25,9 @@ const TaskScreen = () => {
 
     return (
         <>
-            <div className='animate__animated animate__fadeInDown'>
+            <section className='animate__animated animate__fadeInDown'>
                 <div className='flex flex-col gap-9'>
-                    <div className="flex p-6 h-full w-full bg-gradient-to-r from-[#4461f2] to-[#4461F2] rounded-3xl">
+                    <header className="flex p-6 h-full w-full bg-gradient-to-r from-[#4461f2] to-[#4461F2] rounded-3xl">
                         <div className="w-1/2 h-[7.5rem]">
                             <div className="flex flex-col gap-1 pl-6 justify-center h-full">
                                 <h1 className="text-4xl font-medium text-white">
@@ -45,7 +45,7 @@ const TaskScreen = () => {
                                 className="absolute left-[250px] bottom-[-20%]"
                             />
                         </div>
-                    </div>
+                    </header>
                     <div className='flex flex-col gap-1'>
                         <h1 className="text-xl font-medium text-stellar-blue">
                             <span className="inline-block border-b-[0.1rem] border-light-red pb-1">
@@ -53,33 +53,33 @@ const TaskScreen = () => {
                             </span>
                         </h1>
                     </div>
-                    <div className='flex justify-center items-center flex-wrap gap-x-9 gap-y-6'>
+                    <section className='flex justify-center items-center flex-wrap gap-x-9 gap-y-6'>
                         {urgentTaskQuery.data.map(task => (
                             <TaskCard key={task.id} id={task.id} title={task.title} description={task.description} date={task.dueDate} completed={task.completed} priority={task.priority} />
                         ))}
-                    </div>
+                    </section>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
                             <b>¡Tus tareas con urgencia moderada!</b>
                         </span>
                     </h1>
-                    <div className='flex justify-center items-end flex-wrap gap-x-9 gap-y-6'>
+                    <section className='flex justify-center items-end flex-wrap gap-x-9 gap-y-6'>
                         {normalTaskQuery.data.map(task => (
                             <TaskCard key={task.id} id={task.id} title={task.title} description={task.description} date={task.dueDate} completed={task.completed} priority={task.priority} />
                         ))}
-                    </div>
+                    </section>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-green pb-1">
                             <b>¡Tus tareas con baja urgencia!</b>
                         </span>
                     </h1>
-                    <div className='flex justify-center items-center flex-wrap gap-x-9 gap-y-6'>
+                    <section className='flex justify-center items-center flex-wrap gap-x-9 gap-y-6'>
                         {waitingTaskQuery.data.map(task => (
                             <TaskCard key={task.id} id={task.id} title={task.title} description={task.description} date={task.dueDate} completed={task.completed} priority={task.priority} />
                         ))}
-                    </div>
+                    </section>
                 </div>
-            </div>
+            </section>
             <AddTask />
         </>
     );

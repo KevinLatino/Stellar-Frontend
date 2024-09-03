@@ -44,8 +44,8 @@ const DashboardScreen = () => {
 
     return (
         <div className='animate__animated animate__fadeInDown'>
-            <div className="flex w-full gap-8 flex-col">
-                <div className='w-[100%] h-[10rem] my-1'>
+            <section className="flex w-full gap-8 flex-col">
+                <header className='w-full h-[10rem] my-1'>
                     <div className="flex h-full w-full bg-gradient-to-r from-[#4461f2] to-[#4461F2] rounded-3xl">
                         <div className="w-1/2 p-4">
                             <div className="flex flex-col gap-1 pl-6 justify-center h-full">
@@ -61,65 +61,71 @@ const DashboardScreen = () => {
                             <img
                                 src={Welcome}
                                 alt="Ilustration"
-                                className="absolute left-[260px] bottom-[-46%]"
+                                className="absolute left-[310px] bottom-[-48%]"
                             />
                         </div>
                     </div>
-                    <div className='flex flex-col gap-7 mt-6'>
-                        <h1 className="text-xl font-medium text-stellar-blue">
-                            <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                                <b>¡Tareas para esta semana!</b>
-                            </span>
-                        </h1>
-                        <div className='flex flex-wrap gap-y-8 justify-center items-center gap-x-12'>
-                            {weekTasksQuery.data.map(task => (
-                                <HomeTasks
-                                    key={task.id}
-                                    id={task.id}
-                                    title={task.title}
-                                    description={task.description}
-                                    priority={task.priority}
-                                    date={task.dueDate}
-                                    completed={task.completed}
-                                />
-                            ))}
-                        </div>
-                        <h1 className="text-xl font-medium text-stellar-blue">
-                            <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                                <b>¡Tus medallas!</b>
-                            </span>
-                        </h1>
-                        <div className='flex flex-wrap justify-center gap-x-20 gap-y-12'>
-                            {medalsQuery.data.map(medal => (
-                                <motion.div
-                                    whileHover={{ scale: 1.1 }}
-                                    key={medal.title} className="cursor-pointer flex flex-col items-center bg-white rounded-2xl p-4 shadow-md w-52">
-                                    <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-2">
-                                        <img
-                                            src={medal.image}
-                                            alt={medal.title}
-                                            className="w-16 h-16 object-cover"
-                                        />
-                                    </div>
-                                    <h2 className="text-lg font-raleway font-semibold text-stellar-blue mb-1">{medal.title}</h2>
-                                    <p className="text-gray-600 font-raleway text-center">{medal.description}</p>
-                                </motion.div>
-                            ))}
-                        </div>
-                        <div className='flex flex-col justify-center gap-8'>
-                            <h1 className="text-xl font-medium text-stellar-blue">
-                                <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                                    <b>¡Tus gráficos!</b>
-                                </span>
-                            </h1>
-                            <div className='flex justify-center gap-40'>
-                                <BarChart />
-                                <LineChart />
-                            </div>
-                        </div>
+                </header>
+
+                <section className='flex flex-col gap-7 mt-7'>
+                    <h2 className="text-xl font-medium text-stellar-blue">
+                        <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
+                            <b>¡Tareas para esta semana!</b>
+                        </span>
+                    </h2>
+                    <div className='flex flex-wrap gap-y-8 justify-center items-center gap-x-12'>
+                        {weekTasksQuery.data.map(task => (
+                            <HomeTasks
+                                key={task.id}
+                                id={task.id}
+                                title={task.title}
+                                description={task.description}
+                                priority={task.priority}
+                                date={task.dueDate}
+                                completed={task.completed}
+                            />
+                        ))}
                     </div>
-                </div>
-            </div>
+                </section>
+
+                <section className='flex flex-col gap-7'>
+                    <h2 className="text-xl font-medium text-stellar-blue">
+                        <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
+                            <b>¡Tus medallas!</b>
+                        </span>
+                    </h2>
+                    <div className='flex flex-wrap justify-center gap-x-20 gap-y-12'>
+                        {medalsQuery.data.map(medal => (
+                            <motion.article
+                                whileHover={{ scale: 1.1 }}
+                                key={medal.title} 
+                                className="cursor-pointer flex flex-col items-center bg-white rounded-2xl p-4 shadow-md w-52">
+                                <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-2">
+                                    <img
+                                        src={medal.image}
+                                        alt={medal.title}
+                                        className="w-16 h-16 object-cover"
+                                    />
+                                </div>
+                                <h3 className="text-lg font-raleway font-semibold text-stellar-blue mb-1">{medal.title}</h3>
+                                <p className="text-gray-600 font-raleway text-center">{medal.description}</p>
+                            </motion.article>
+                        ))}
+                    </div>
+                </section>
+
+                <section className='flex flex-col justify-center gap-8'>
+                    <h2 className="text-xl font-medium text-stellar-blue">
+                        <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
+                            <b>¡Tus gráficos!</b>
+                        </span>
+                    </h2>
+                    <div className='flex justify-center gap-40'>
+                        <BarChart />
+                        <LineChart />
+                    </div>
+                </section>
+            </section>
         </div>
     );
 };
