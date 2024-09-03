@@ -3,6 +3,7 @@ import ProfileBg from '../../public/People-Ilustrations/Profile.svg';
 import { UserRound, LayoutPanelTop } from 'lucide-react';
 import { updateUser } from '@Api/User.Api';
 import { useMutation } from 'react-query';
+import { motion } from 'framer-motion';
 import getUserFromCookie from '@Utils/getUserCookies';
 import useFormSetter from '@Hooks/useFormSetter';
 
@@ -67,14 +68,17 @@ const ProfileScreen = () => {
         </div>
 
         <div className='flex justify-center items-center gap-5'>
-          <button className="bg-light-blue text-white px-4 py-2 rounded-xl"
+          <motion.button className="bg-light-blue text-white px-4 py-2 rounded-xl"
+            whileHover={{ scale: 1.1 }}
             onClick={() => editMutation.mutate(formState)}
           >
             Modificar Perfil
-          </button>
-          <button className="bg-strong-red text-white px-4 py-2 rounded-xl">
+          </motion.button>
+          <motion.button className="bg-strong-red text-white px-4 py-2 rounded-xl"
+            whileHover={{ scale: 1.1 }}
+          >
             Eliminar Perfil
-          </button>
+          </motion.button>
         </div>
       </main>
     </div>
