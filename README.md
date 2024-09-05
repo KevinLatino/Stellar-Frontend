@@ -1,4 +1,4 @@
-## <img src="https://github.com/user-attachments/assets/84706774-009a-4879-aa7c-cc874fd540eb" width="230"> ##
+## <img src="https://github.com/user-attachments/assets/84706774-009a-4879-aa7c-cc874fd540eb" width="230">  ##
 
 Welcome to Stellar's Frontend! Stellar is a web application created to help students manage their tasks in an interactive way, With Stellar you can learn different ways to improve your personal productivity. 📚🌠🎖️
 
@@ -11,7 +11,7 @@ Welcome to Stellar's Frontend! Stellar is a web application created to help stud
 • Have graphics that guide you to improve your productivity. <br><br>
 • A calendar where you can see your deadlines. <br><br> 
 
-## Tech Stack 🧬 🌌 ##
+## Frontend Stack 🧬 🌌 ##
 <div align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="50" alt="react logo"  />
   <img width="12" />
