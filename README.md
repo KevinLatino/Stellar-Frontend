@@ -11,6 +11,15 @@ Welcome to Stellar's Frontend! Stellar is a web application created to help stud
 • Have graphics that guide you to improve your productivity. <br><br>
 • A calendar where you can see your deadlines <br><br> 
 
+
+## Just a Dashboard ScreenShot 📷 ## 
+
+<img src="https://github.com/user-attachments/assets/38fa90ad-7475-4c08-8578-ef90da4ee776" width="800" />
+
+## Just a video of Tasks Screen 📽️ ##
+
+<video src="https://github.com/user-attachments/assets/dfa9e867-5267-4371-8fda-062ed276f7a6" width="600" />
+
 ## Tech Stack 🧬 🌌 ##
 <div align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="react logo"  />
@@ -21,12 +30,3 @@ Welcome to Stellar's Frontend! Stellar is a web application created to help stud
    <img width="12" />
   <img src="https://github.com/user-attachments/assets/2f6467e2-9ad5-4f7b-8e86-2a4fde9cc72b" height="40" />
 </div>
-
-## Just a Dashboard ScreenShot 📷 ## 
-
-<img src="https://github.com/user-attachments/assets/38fa90ad-7475-4c08-8578-ef90da4ee776" width="800" />
-
-## Just a video of Tasks Screen 📽️ ##
-
-<video src="https://github.com/user-attachments/assets/dfa9e867-5267-4371-8fda-062ed276f7a6" width="600" />
-
