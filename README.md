@@ -3,7 +3,7 @@
 Welcome to Stellar's Frontend! Stellar is a web application created to help students manage their tasks in an interactive way, With Stellar you can learn different ways to improve your personal productivity. 📚🌠🎖️
 
 
-##  Stellar offers: 👀 ##
+##  Check out what Stellar offers: 👀 ##
 
 <p align="left">• A place where you can organize your tasks <br><br>
 • learn methods to improve people productivity <br><br>
