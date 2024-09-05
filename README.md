@@ -7,4 +7,4 @@ Welcome to Stellar's Frontend! Stellar is a web application created to help stud
 
 ![DashBoard-Stellar](https://github.com/user-attachments/assets/4c1e18ce-1879-4437-a809-94e5770e2969)
 
-<img src="https://github.com/user-attachments/assets/4c1e18ce-1879-4437-a809-94e5770e2969" width="400" />
+<img src="https://github.com/user-attachments/assets/4c1e18ce-1879-4437-a809-94e5770e2969" width="800" />
