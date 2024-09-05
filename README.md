@@ -13,10 +13,10 @@ Welcome to Stellar's Frontend! Stellar is a web application created to help stud
 
 ## Tech Stack 🧬 🌌 ##
 <div style="text-align: center;">
-  <img src="https://github.com/user-attachments/assets/120112ba-ded6-4486-819c-d7d152898c18" width="50" style="margin: 0 15px;" />
-  <img src="https://github.com/user-attachments/assets/4ff52ab4-ab7d-433f-a8fb-aca7eaa24ede" width="50" style="margin: 0 15px;" />
-  <img src="https://github.com/user-attachments/assets/2f6467e2-9ad5-4f7b-8e86-2a4fde9cc72b" width="50" style="margin: 0 15px;" />
-  <img src="https://github.com/user-attachments/assets/88cbc8d4-237a-4a9e-a3a5-d1c4f119e105" width="50" style="margin: 0 15px;" />
+  <img src="https://github.com/user-attachments/assets/120112ba-ded6-4486-819c-d7d152898c18" width="50" style="padding-right: 30px;" />
+  <img src="https://github.com/user-attachments/assets/4ff52ab4-ab7d-433f-a8fb-aca7eaa24ede" width="50" style="padding-right: 30px;" />
+  <img src="https://github.com/user-attachments/assets/2f6467e2-9ad5-4f7b-8e86-2a4fde9cc72b" width="50" style="padding-right: 30px;" />
+  <img src="https://github.com/user-attachments/assets/88cbc8d4-237a-4a9e-a3a5-d1c4f119e105" width="50" style="padding-right: 30px;" />
 </div>
 
 ## Just a Dashboard ScreenShot 📷 ## 
