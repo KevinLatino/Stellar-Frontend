@@ -16,16 +16,16 @@ import EisenhowerMatrix from './Screens/DiscoverScreens/EisenhowerMatrix';
 import ImportantDates from './Screens/DiscoverScreens/ImportantDates';
 import PlanificationEnvironment from './Screens/DiscoverScreens/PlanificationEnvironment';
 import Mindfulness from './Screens/DiscoverScreens/Mindfulness';
-import App from './App';
 import './index.css';
 import PodomoroTechnique from './Screens/DiscoverScreens/PodomoroTechnique';
+import { NavBar } from '@Components/NavBarComponent';
 
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
-    path: '/sidebar',
-    element: <App />,
+    path: '/',
+    element: <NavBar />,
     children: [
       {
         path: "dashboard",

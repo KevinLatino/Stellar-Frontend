@@ -16,12 +16,12 @@ const NavBar = () => {
   
   const menu = [
     {},
-    { title: "Dashboard", icon: <LayoutDashboard size={22} />, route: "/sidebar/dashboard" },
-    { title: "Tareas", icon: <BookOpenText size={22} />, route: "/sidebar/tasks" },
-    { title: "Calendario", icon: <CalendarHeart size={22} />, route: "/sidebar/calendar" },
-    { title: "Descubre", icon: <Telescope size={22} />, route: "/sidebar/discover" },
-    { title: "Perfil", icon: <UserRound size={22} />, route: "/sidebar/profile" },
-    { title: "Logout", icon: <LogOut size={22} />, route: "/sidebar/logout" },
+    { title: "Dashboard", icon: <LayoutDashboard size={22} />, route: "/dashboard" },
+    { title: "Tareas", icon: <BookOpenText size={22} />, route: "/tasks" },
+    { title: "Calendario", icon: <CalendarHeart size={22} />, route: "/calendar" },
+    { title: "Descubre", icon: <Telescope size={22} />, route: "/discover" },
+    { title: "Perfil", icon: <UserRound size={22} />, route: "/profile" },
+    { title: "Logout", icon: <LogOut size={22} />, route: "/logout" },
     {}
   ];
 
@@ -50,7 +50,7 @@ const NavBar = () => {
   }, [location.pathname]);
 
   const handleMenuClick = (index, route) => {
-    if (route === "/sidebar/logout") {
+    if (route === "/logout") {
       setShowLogoutPopup(true);
     } else {
       setSelectedMenu(index);
@@ -70,10 +70,10 @@ const NavBar = () => {
   };
 
   const handleLogoClick = () => {
-    const dashboardIndex = menu.findIndex(item => item.route === '/sidebar/dashboard');
+    const dashboardIndex = menu.findIndex(item => item.route === '/dashboard');
     setSelectedMenu(dashboardIndex);
     localStorage.setItem("selectedMenuIndex", dashboardIndex);
-    navigate('/sidebar/dashboard');
+    navigate('/dashboard');
   };
 
   return (
