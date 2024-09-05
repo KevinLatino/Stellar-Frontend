@@ -19,3 +19,4 @@ Welcome to Stellar's Frontend! Stellar is a web application created to help stud
 
 <video src="https://github.com/user-attachments/assets/dfa9e867-5267-4371-8fda-062ed276f7a6" width="700" />
 
+## Tech Stack 🧬 🌌 ##
