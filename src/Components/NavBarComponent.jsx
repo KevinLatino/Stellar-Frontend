@@ -13,13 +13,14 @@ import { useAuth } from '@Context/context';
 import StellarLogo from '../../public/Stellar-Logos/StellarLogo-Over-StrongBlue.svg';
 
 const NavBar = () => {
+
   const menu = [
     {},
     { title: "Dashboard", icon: <LayoutDashboard size={22} />, route: "/sidebar/dashboard" },
-    { title: "Tareas", icon: <BookOpenText size={22} />, route: "/sidebar/tasks" },
-    { title: "Calendario", icon: <CalendarHeart size={22} />, route: "/sidebar/calendar" },
-    { title: "Descubre", icon: <Telescope size={22} />, route: "/sidebar/discover" },
-    { title: "Perfil", icon: <UserRound size={22} />, route: "/sidebar/profile" },
+    { title: "Tasks", icon: <BookOpenText size={22} />, route: "/sidebar/tasks" },
+    { title: "Calendar", icon: <CalendarHeart size={22} />, route: "/sidebar/calendar" },
+    { title: "Discover", icon: <Telescope size={22} />, route: "/sidebar/discover" },
+    { title: "Profile", icon: <UserRound size={22} />, route: "/sidebar/profile" },
     { title: "Logout", icon: <LogOut size={22} />, route: "/sidebar/logout" },
     {}
   ];
@@ -78,7 +79,7 @@ const NavBar = () => {
   return (
     <>
       <header className="flex h-screen">
-        <nav className="bg-stellar-white">
+        <div className="bg-stellar-white">
           <div className='bg-stellar-blue pl-8 pt-10 h-full w-[14.5rem]'>
             <div className='mb-10 mt-2 ml-3'>
               <img 
@@ -89,12 +90,12 @@ const NavBar = () => {
                 onClick={handleLogoClick} 
               />
             </div>
-            <ul>
+            <nav>
               {menu.map((menuItem, index) => (
-                <li 
+                <ul
                   key={index} 
                   className={`transition-color ${selectedMenu === index ? 'bg-stellar-blue' : 'bg-stellar-white'}`}>
-                  <div
+                  <li
                     onClick={(index > 0) && (index < menu.length - 1) ? () => handleMenuClick(index, menuItem.route) : null}
                     className={`flex bg-stellar-blue list-none items-center gap-x-8 font-semibold p-3
                       ${index === 0 || index === menu.length - 1 ? 'cursor-auto' : 'cursor-pointer'}
@@ -105,12 +106,12 @@ const NavBar = () => {
                       {menuItem.icon}
                     </span>
                     <span>{menuItem.title}</span>
-                  </div>
-                </li>
+                  </li>
+                </ul>
               ))}
-            </ul>
+            </nav>
           </div>
-        </nav>
+        </div>
 
         <main className='bg-stellar-blue w-full h-full'>
           <div className='p-7 rounded-tl-[2rem] rounded-bl-[2rem] bg-stellar-white w-full h-full overflow-auto'>

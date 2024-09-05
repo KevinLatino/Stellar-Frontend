@@ -55,7 +55,7 @@ const AddTask = () => {
                 <div className="animate__animated animate__fadeIn fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
                     <div className="flex flex-col justify-center items-center animate__animated animate__bounceInDown bg-white p-6 rounded-lg w-[32rem] max-w-full text-center">
                         <h2 className="text-2xl flex gap-3 mb-4 font-raleway border-b-[0.1rem] border-light-yellow">
-                            Crear una nueva tarea
+                            Create a new task
                             <ClipboardList size={25}  />
                         </h2>
 
@@ -63,7 +63,7 @@ const AddTask = () => {
                             <Pencil size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
                             <input
                                 type="text"
-                                placeholder="Escribe el título"
+                                placeholder="Title"
                                 className="bg-[#E0E4EE] text-gray-800 placeholder-strong-blue py-2 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 onChange={event => createFormSetter("title")(event.target.value)}
                                 value={formState.title}
@@ -74,7 +74,7 @@ const AddTask = () => {
                             <Captions size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
                             <input
                                 type="text"
-                                placeholder="Escribe una descripción"
+                                placeholder="Description"
                                 className="bg-[#E0E4EE] text-gray-800 placeholder-strong-blue py-2 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 onChange={event => createFormSetter("description")(event.target.value)}
                                 value={formState.description}
@@ -88,10 +88,10 @@ const AddTask = () => {
                                 value={formState.priority}
                                 className="bg-[#E0E4EE] text-gray-800 placeholder-strong-blue py-2 pl-10 pr-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             >
-                                <option className='text-gray-800 font-raleway'>Selecciona el nivel de prioridad</option>
-                                <option value="Alta" className='text-strong-red font-raleway'>Alta</option>
-                                <option value="Moderada" className='text-light-yellow font-raleway' >Moderada</option>
-                                <option value="Baja" className='text-light-green font-raleway'>Baja</option>
+                                <option className='text-gray-800 font-raleway'>Select the priority</option>
+                                <option value="Alta" className='text-strong-red font-raleway'>High</option>
+                                <option value="Moderada" className='text-light-yellow font-raleway'>Moderate</option>
+                                <option value="Baja" className='text-light-green font-raleway'>Low</option>
                             </select>
                         </div>
 
@@ -99,7 +99,7 @@ const AddTask = () => {
                             <CalendarHeart size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
                             <input
                                 type="date"
-                                placeholder="Fecha"
+                                placeholder="Date"
                                 className="bg-[#E0E4EE] placeholder-strong-blue text-gray-800 py-2 pl-12 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 onChange={event => createFormSetter("dueDate")(event.target.value)}
                                 value={formState.dueDate}
@@ -112,7 +112,7 @@ const AddTask = () => {
                                 className="bg-light-blue text-white px-4 py-2 rounded-xl"
                                 whileHover={{scale: 1.1}}
                             >
-                                Crear tarea
+                                Create task
                             </motion.button>
 
                             <motion.button
@@ -120,7 +120,7 @@ const AddTask = () => {
                                 className="bg-strong-red text-white px-4 py-2 rounded-xl"
                                 whileHover={{scale: 1.1}}
                             >
-                                Cerrar
+                                Close
                             </motion.button>
                         </div>
                     </div>
