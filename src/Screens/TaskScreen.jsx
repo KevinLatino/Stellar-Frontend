@@ -31,10 +31,10 @@ const TaskScreen = () => {
                         <div className="w-1/2 h-[7.5rem]">
                             <div className="flex flex-col gap-1 pl-6 justify-center h-full">
                                 <h1 className="text-4xl font-medium text-white">
-                                    <b>Create and visualize your tasks!</b>
+                                    <b>¡Crea y visualiza tus Tareas!</b>
                                 </h1>
                                 <p className="text-xl font-medium text-white">
-                                In this space, you can take full control of your responsibilities.
+                                    En este espacio puedes tomar el control total de tus deberes
                                 </p>
                             </div>
                         </div>
@@ -49,7 +49,7 @@ const TaskScreen = () => {
                     <div className='flex flex-col gap-1'>
                         <h1 className="text-xl font-medium text-stellar-blue">
                             <span className="inline-block border-b-[0.1rem] border-light-red pb-1">
-                                <b>Your high-urgency tasks!</b>
+                                <b>¡Tus tareas con alta urgencia!</b>
                             </span>
                         </h1>
                     </div>
@@ -60,7 +60,7 @@ const TaskScreen = () => {
                     </section>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                            <b>Your moderate-urgency tasks!</b>
+                            <b>¡Tus tareas con urgencia moderada!</b>
                         </span>
                     </h1>
                     <section className='flex justify-center items-end flex-wrap gap-x-9 gap-y-6'>
@@ -70,7 +70,7 @@ const TaskScreen = () => {
                     </section>
                     <h1 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-green pb-1">
-                            <b>Your low-urgency tasks!</b>
+                            <b>¡Tus tareas con baja urgencia!</b>
                         </span>
                     </h1>
                     <section className='flex justify-center items-center flex-wrap gap-x-9 gap-y-6'>

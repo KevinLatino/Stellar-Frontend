@@ -13,14 +13,14 @@ import { useAuth } from '@Context/context';
 import StellarLogo from '../../public/Stellar-Logos/StellarLogo-Over-StrongBlue.svg';
 
 const NavBar = () => {
-
+  
   const menu = [
     {},
     { title: "Dashboard", icon: <LayoutDashboard size={22} />, route: "/sidebar/dashboard" },
-    { title: "Tasks", icon: <BookOpenText size={22} />, route: "/sidebar/tasks" },
-    { title: "Calendar", icon: <CalendarHeart size={22} />, route: "/sidebar/calendar" },
-    { title: "Discover", icon: <Telescope size={22} />, route: "/sidebar/discover" },
-    { title: "Profile", icon: <UserRound size={22} />, route: "/sidebar/profile" },
+    { title: "Tareas", icon: <BookOpenText size={22} />, route: "/sidebar/tasks" },
+    { title: "Calendario", icon: <CalendarHeart size={22} />, route: "/sidebar/calendar" },
+    { title: "Descubre", icon: <Telescope size={22} />, route: "/sidebar/discover" },
+    { title: "Perfil", icon: <UserRound size={22} />, route: "/sidebar/profile" },
     { title: "Logout", icon: <LogOut size={22} />, route: "/sidebar/logout" },
     {}
   ];

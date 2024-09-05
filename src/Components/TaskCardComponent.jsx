@@ -1,28 +1,29 @@
 import React, { useState } from 'react';
-import { MoreHorizontal, CircleCheckBig, Trash2 } from 'lucide-react';
+import { MoreHorizontal } from 'lucide-react';
 import { useMutation, useQueryClient } from 'react-query';
 import { updateTask, deleteTask } from '@Api/Task.Api';
+import { CircleCheckBig, Trash2 } from 'lucide-react';
 import LaunchConfetti from './ConfettiComponent';
 
 const priorityGradientStyles = {
-    High: {
-        '--gradient-start': '#FF7F7F',
-        '--gradient-end': '#D20A0A'
+    Baja: {
+        '--gradient-start': '#56D06D',
+        '--gradient-end': '#388F48'
     },
-    Moderate: {
+    Moderada: {
         '--gradient-start': '#FFC55D',
         '--gradient-end': '#E19716'
     },
-    Low: {
-        '--gradient-start': '#56D06D',
-        '--gradient-end': '#388F48'
+    Alta: {
+        '--gradient-start': '#FF7F7F',
+        '--gradient-end': '#D20A0A'
     }
 };
 
 const priorityClasses = {
-    Low: 'text-light-green font-raleway text-l font-bold',
-    Moderate: 'text-light-yellow font-raleway text-l font-bold',
-    High: 'text-light-red font-raleway text-l font-bold',
+    Baja: 'text-light-green font-raleway text-l font-bold',
+    Moderada: 'text-light-yellow font-raleway text-l font-bold',
+    Alta: 'text-light-red font-raleway text-l font-bold',
 };
 
 const formatDate = (dateString) => {
@@ -35,20 +36,11 @@ const formatDate = (dateString) => {
 };
 
 const TaskCard = ({ id, title, description, priority, date, completed }) => {
+
     const [options, setOptions] = useState(false);
 
-    // Map priority from Spanish to English for label and styles
-    const priorityMap = {
-        Alta: 'High',
-        Moderada: 'Moderate',
-        Baja: 'Low'
-    };
-
-    const mappedPriority = priorityMap[priority] || 'Low'; // Default to 'Low' if not specified
-
-    // Use mappedPriority for classes and styles
-    const priorityClass = priorityClasses[mappedPriority];
-    const gradientStyle = priorityGradientStyles[mappedPriority];
+    const priorityClass = priorityClasses[priority];
+    const gradientStyle = priorityGradientStyles[priority] || priorityGradientStyles.Baja;
 
     const handleMenuToggle = () => {
         setOptions(!options);
@@ -56,11 +48,13 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
 
     const queryClient = useQueryClient();
 
+
     const refetchTasks = () => {
         queryClient.refetchQueries(["urgentTasks"]);
         queryClient.refetchQueries(["normalTasks"]);
         queryClient.refetchQueries(["waitingTasks"]);
     };
+
 
     const completedMutation = useMutation(
         ({ id, bodyUpdate }) => updateTask(id, bodyUpdate),
@@ -86,14 +80,17 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
                 refetchTasks();
             },
             onError: (error) => {
-                console.error('Error al eliminar la tarea:', error);
+                console.error('Error al actualizar la tarea:', error);
             }
         }
     );
 
     const handleDelete = () => {
         deleteMutation.mutate({ id });
-    };
+    }
+
+
+
 
     return (
         <div>
@@ -109,11 +106,11 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
                             {options && (
                                 <div className="absolute right-0 w-48 bg-white shadow-md rounded-lg z-10">
                                     <button className="flex font-raleway gap-1 px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left" onClick={handleCompleted}>
-                                        Complete
+                                        Completado
                                         <CircleCheckBig size={19} color='#48BC5E' />
                                     </button>
                                     <button className="flex gap-1 font-raleway px-4 py-2 text-stellar-blue hover:bg-gray-200 w-full text-left" onClick={handleDelete}>
-                                        Delete
+                                        Eliminar
                                         <Trash2 size={19} color='#EF4545' />
                                     </button>
                                 </div>
@@ -123,10 +120,10 @@ const TaskCard = ({ id, title, description, priority, date, completed }) => {
                     <p className="text-stellar-grey font-raleway flex-grow overflow-hidden">{description}</p>
                     <div className="flex items-center justify-between mt-auto">
                         <span className={`px-3 py-1 rounded-full ${priorityClass}`}>
-                            {mappedPriority} {/* Mapped priority label */}
+                            {priority}
                         </span>
                         <div className="flex items-center text-stellar-grey">
-                            {completed ? 'Completado' : 'Not completed'}
+                            {completed ? 'Completado' : 'No completado'}
                         </div>
                         <span className="text-stellar-blue">{formatDate(date)}</span>
                     </div>

@@ -50,10 +50,10 @@ const DashboardScreen = () => {
                         <div className="w-1/2 p-4">
                             <div className="flex flex-col gap-1 pl-6 justify-center h-full">
                                 <h1 className="text-4xl font-medium text-white">
-                                    <b>Welcome back, {name}!</b>
+                                    <b>¡Bienvenido, {name}!</b>
                                 </h1>
                                 <p className="text-xl font-medium text-white">
-                                    Time to take charge and conquer your tasks. Let’s dive in!
+                                    Ya puedes organizar tus tareas de una mejor manera
                                 </p>
                             </div>
                         </div>
@@ -70,7 +70,7 @@ const DashboardScreen = () => {
                 <section className='flex flex-col gap-7 mt-7'>
                     <h2 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                            <b>¡Tasks for this week!</b>
+                            <b>¡Tareas para esta semana!</b>
                         </span>
                     </h2>
                     <div className='flex flex-wrap gap-y-8 justify-center items-center gap-x-12'>
@@ -91,14 +91,14 @@ const DashboardScreen = () => {
                 <section className='flex flex-col gap-7'>
                     <h2 className="text-xl font-medium text-stellar-blue">
                         <span className="inline-block border-b-[0.1rem] border-light-yellow pb-1">
-                            <b>Your Achievements!</b>
+                            <b>¡Tus medallas!</b>
                         </span>
                     </h2>
                     <div className='flex flex-wrap justify-center gap-x-20 gap-y-12'>
                         {medalsQuery.data.map(medal => (
                             <motion.article
                                 whileHover={{ scale: 1.1 }}
-                                key={medal.title}
+                                key={medal.title} 
                                 className="cursor-pointer flex flex-col items-center bg-white rounded-2xl p-4 shadow-md w-52">
                                 <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-2">
                                     <img
