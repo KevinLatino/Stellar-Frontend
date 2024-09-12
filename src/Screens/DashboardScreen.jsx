@@ -9,6 +9,7 @@ import { getWeekTasks } from '@Api/Task.Api';
 import { userMedal } from '@Api/UserMedal.Api';
 import { useQuery } from 'react-query';
 import { motion } from 'framer-motion';
+import ViewMedal from './ViewTasks';
 
 const DashboardScreen = () => {
     const weekTasksQuery = useQuery({

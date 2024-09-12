@@ -18,6 +18,7 @@ import PlanificationEnvironment from './Screens/DiscoverScreens/PlanificationEnv
 import Mindfulness from './Screens/DiscoverScreens/Mindfulness';
 import './index.css';
 import PodomoroTechnique from './Screens/DiscoverScreens/PodomoroTechnique';
+import ViewMedal from '@Screens/ViewTasks';
 import { NavBar } from '@Components/NavBarComponent';
 
 const queryClient = new QueryClient();
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
         path: 'profile',
         element: <ProfileScreen />
       },
+      {
+        path: 'medal/:id',
+        element: <ViewMedal />
+      }
     ]
   },
   {

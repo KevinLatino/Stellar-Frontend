@@ -24,7 +24,7 @@ const LoginScreen = () => {
         },
         onSuccess: (data) => {
             login(data);
-            navigate('/sidebar/dashboard');
+            navigate('/dashboard');
         }
     });
 
