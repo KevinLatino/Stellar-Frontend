@@ -5,7 +5,7 @@ import Modal from './Modal';
 import { motion } from 'framer-motion';
 import { checkEnvironmentMedal, addEnvironmentMedal } from '@Api/UserMedal.Api';
 import LaunchConfetti from '@Components/ConfettiComponent';
-import useFetchStatus from '@Hooks/useFetchStatus';
+import useFetchStatus from '../../hooks/useFetchStatus';
 import { Alert } from '@mui/material';
 import { useMutation } from 'react-query';
 

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { useMutation } from 'react-query';
 import { checkDateMedal, addDateMedal } from '@Api/UserMedal.Api';
 import LaunchConfetti from '@Components/ConfettiComponent';
-import useFetchStatus from '@Hooks/useFetchStatus';
+import useFetchStatus from '../../hooks/useFetchStatus';
 import { Alert } from '@mui/material';
 
 

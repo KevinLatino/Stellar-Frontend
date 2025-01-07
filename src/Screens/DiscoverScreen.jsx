@@ -15,37 +15,37 @@ const DiscoverScreen = () => {
         {
             title: "Establecimiento de Metas Claras",
             description: "Establecer metas claras de manera diaria es fundamental para mantener la motivación.",
-            route: "/sidebar/set-goals",
+            route: "/set-goals",
             img: SetGoals
         },
         {
             title: "La matriz de Eisenhower",
             description: "Clasificar las tareas según su urgencia o importancia",
-            route: "/sidebar/eisenhower-matrix",
+            route: "/eisenhower-matrix",
             img: Eisenhower
         },
         {
             title: "Técnica de Pomodoro",
             description: "Trabajar durante intervalos de tiempo concentrado seguidos de breves descansos.",
-            route: '/sidebar/podomoro-technique',
+            route: '/podomoro-technique',
             img: Podomoro
         },
         {
             title: "Definir fechas importantes ",
             description: "En un calendario, establece las fechas importantes según su fecha de entrega.",
-            route: "/sidebar/important-dates",
+            route: "/important-dates",
             img: Dates
         },
         {
             title: "Ámbiente de planificación",
             description: "Establecer un entorno de plafinicación que nos es vital para motivarnos.",
-            route: "/sidebar/planification-environment",
+            route: "/planification-environment",
             img: Environment
         },
         {
             title: "Prácticas de Mindfulness",
             description: "Incorporar técnicas de mindfulness para mejorar el enfoque y reducir el estrés.",
-            route: "/sidebar/mindfulness",
+            route: "/mindfulness",
             img: Mindfulness
         }
     ];

@@ -8,9 +8,6 @@
       "@Screens/*": [
         "src/Screens/*"
       ],
-      "@Hooks/*": [
-        "src/Hooks/*"
-      ],
       "@Api/*": [
         "src/Api/*"
       ],

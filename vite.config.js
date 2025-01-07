@@ -7,7 +7,6 @@ export default defineConfig({
     alias: [
       { find: '@Components', replacement: '/src/Components' },
       { find: '@Screens', replacement: '/src/Screens' },
-      { find: '@Hooks', replacement: '/src/Hooks' },
       { find: '@Api', replacement: '/src/Api' },
       { find: '@Utils', replacement: '/src/Utils' },
       { find: '@Context', replacement: '/src/Context' },

@@ -5,11 +5,11 @@ import { updateUser } from '@Api/User.Api';
 import { useMutation } from 'react-query';
 import { motion } from 'framer-motion';
 import getUserFromCookie from '@Utils/getUserCookies';
-import useFormSetter from '@Hooks/useFormSetter';
+import useFormSetters from '../hooks/useFormSetter';
 
 const ProfileScreen = () => {
   const [userData, setUserData] = useState({ name: "", lastName: "", secondLastName: "" });
-  const [formState, createFormSetter] = useFormSetter({ name: "", lastName: "", secondLastName: "" });
+  const [formState, createFormSetter] = useFormSetters({ name: "", lastName: "", secondLastName: "" });
 
   const editMutation = useMutation({ mutationFn: updateUser });
 
