@@ -13,13 +13,10 @@ Welcome to Stellar's Frontend! Stellar is a web application created to help stud
 
 ## Frontend Stack 🧬 🌌 ##
 <div align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="50" alt="react logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="50" alt="javascript logo"  />
-  <img width="12" />
-  <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" height="50" alt="tailwindcss logo"  />
-   <img width="12" />
-  <img src="https://github.com/user-attachments/assets/2f6467e2-9ad5-4f7b-8e86-2a4fde9cc72b" height="50" />
+  <img width="48" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="50" alt="react logo"  />
+  <img width="44" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="50" alt="javascript logo"  />
+  <img width="48" src="https://cdn.simpleicons.org/tailwindcss/06B6D4" height="50" alt="tailwindcss logo"  />
+  <img width="48" src="https://github.com/user-attachments/assets/2f6467e2-9ad5-4f7b-8e86-2a4fde9cc72b" height="50" />
 </div>
 
 ## Just a Dashboard ScreenShot 📷 ## 
